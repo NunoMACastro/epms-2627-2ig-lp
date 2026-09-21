@@ -1,0 +1,23 @@
+# O Git ignora os caminhos listados aqui. Ficheiros gerados pela máquina,
+# configuração pessoal do editor e segredos não pertencem ao histórico.
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Configuração pessoal de editores
+.vscode/
+.idea/
+*.swp
+
+# Segredos: nunca versionar credenciais; versionar apenas o exemplo
+.env
+.env.*
+!.env.example
+
+# Dependências e resultados de build, se um projeto vier a usá-los.
+# node_modules/ é a pasta que o npm cria e pode ter milhares de ficheiros;
+# dist/ e build/ guardam o resultado gerado a partir do código que versionamos.
+node_modules/
+dist/
+build/
