@@ -1,3 +1,5 @@
+![Cabeçalho](../imagens/cabecalho.png)
+
 # Bridge: recuperar o raciocínio antes de avançar
 
 *M10 · actividades de apoio · 60 minutos*
@@ -87,3 +89,5 @@ Se acabares cedo, transforma o teste de validade numa função e explica os seus
 ## Verificação de saída (10 minutos)
 
 Entrega o percurso escolhido, o traço do problema e uma frase com “O erro era…; confirmei-o com…; corrigi-o porque…”. Explica ao professor uma alteração sem consultar o exemplo. Se ainda não conseguires, identifica o passo concreto em que precisas de apoio; essa informação define a recuperação seguinte.
+
+![Rodapé](../imagens/rodape.png)

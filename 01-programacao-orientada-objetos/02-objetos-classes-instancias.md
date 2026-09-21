@@ -1,8 +1,10 @@
+![Cabeçalho](../imagens/cabecalho.png)
+
 # Objectos e classes: uma descrição comum, vários artigos
 
 *M10 · Caderno 2*
 
-No [caderno anterior](M10-B01-entidades-estado-acoes.md), começámos a organizar a informação sobre os materiais de uma sala. Agora vamos perceber como um programa pode representar cada artigo e manter os seus dados junto das operações que lhe dizem respeito.
+No [caderno anterior](01-entidades-estado-acoes.md), começámos a organizar a informação sobre os materiais de uma sala. Agora vamos perceber como um programa pode representar cada artigo e manter os seus dados junto das operações que lhe dizem respeito.
 
 Podes começar por acompanhar as explicações e trabalhar em papel. Na parte de JavaScript, cada construção necessária será apresentada antes de ser usada nos exercícios.
 
@@ -138,7 +140,7 @@ Esta forma de escrever directamente um objecto chama-se **objecto literal**. Nã
 
 ## 7. Como se lê uma chamada de método?
 
-No [exemplo completo deste caderno](exemplos/M10-B02-objetos.js), a operação `retirar` já está escrita. A parte seguinte é um excerto do objecto `artigoA`; não é um programa para executar sozinho:
+No [exemplo completo deste caderno](../exemplos/programacao-orientada-objetos/objetos.js), a operação `retirar` já está escrita. A parte seguinte é um excerto do objecto `artigoA`; não é um programa para executar sozinho:
 
 ```js partial
 retirar(unidades) {
@@ -208,3 +210,5 @@ Explica a um colega onde está a classe, onde estão as instâncias e qual foi o
 Um objecto representa uma unidade concreta de informação e comportamento. A classe descreve uma organização comum a objectos desse tipo. Uma instância é um desses objectos concretos. As propriedades guardam valores; os métodos realizam operações. Duas instâncias podem seguir a mesma classe e manter estados diferentes.
 
 Se ainda confundes classe e instância, volta ao esquema: pergunta se estás a olhar para a **descrição comum** ou para uma **ficha com valores concretos**. No próximo caderno vamos estudar como impedir que uma operação deixe esses valores num estado inválido.
+
+![Rodapé](../imagens/rodape.png)

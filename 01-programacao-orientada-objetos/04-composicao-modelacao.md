@@ -1,3 +1,5 @@
+![Cabeçalho](../imagens/cabecalho.png)
+
 # Como colaboram o inventário e os artigos?
 
 *M10 · Caderno 4*
@@ -96,7 +98,7 @@ Se o pedido seguinte for retirar 9, o percurso é semelhante, mas A01 recusa por
 
 ## 6. Reconhecer esta colaboração em JavaScript
 
-Abre [o exemplo deste caderno](exemplos/M10-B04-composicao.js). A classe de artigo retoma a quantidade privada e a retirada já estudadas. Desta vez queremos criar dois objectos com quantidades iniciais diferentes.
+Abre [o exemplo deste caderno](../exemplos/programacao-orientada-objetos/composicao.js). A classe de artigo retoma a quantidade privada e a retirada já estudadas. Desta vez queremos criar dois objectos com quantidades iniciais diferentes.
 
 Estas duas linhas, retiradas do programa completo, mostram a criação:
 
@@ -167,3 +169,5 @@ Por baixo, escreve um pedido de retirada e explica quem o encaminha, quem decide
 A composição permite organizar objectos que colaboram. O inventário reúne artigos e encaminha pedidos; cada artigo mantém a responsabilidade pela sua quantidade. Uma linha entre duas caixas deve ter um significado que consigas explicar.
 
 No próximo caderno veremos uma relação diferente: um tipo mais específico que continua a ser um caso de um tipo geral. É aí que entra a herança.
+
+![Rodapé](../imagens/rodape.png)

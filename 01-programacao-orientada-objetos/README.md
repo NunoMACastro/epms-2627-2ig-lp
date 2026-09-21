@@ -1,3 +1,5 @@
+![Cabeçalho](../imagens/cabecalho.png)
+
 # Aprender a pensar com objectos
 
 **M10: Introdução à Programação Orientada por Objectos**
@@ -8,14 +10,14 @@ Vamos construir as respostas ao longo de seis cadernos. Começamos por situaçõ
 
 ## Os cadernos
 
-1. [Dos materiais da sala aos dados de um programa](M10-B01-entidades-estado-acoes.md): escolher o que representar e distinguir informação de operação.
-2. [Objectos e classes: uma descrição comum, vários artigos](M10-B02-objetos-classes-instancias.md): perceber objecto, propriedade, método, classe e instância.
-3. [Como impedir uma quantidade impossível?](M10-B03-encapsulamento-contratos.md): compreender regras, encapsulamento e contratos.
-4. [Como colaboram o inventário e os artigos?](M10-B04-composicao-modelacao.md): distribuir tarefas e ler esquemas de classes.
-5. [A mesma operação, maneiras diferentes de a realizar](M10-B05-heranca-polimorfismo.md): estudar herança, polimorfismo e abstracção através de notificações simuladas.
-6. [Juntar as ideias num pequeno inventário](M10-B06-sintese.md): compreender e completar um programa com apoio.
+1. [Dos materiais da sala aos dados de um programa](01-entidades-estado-acoes.md): escolher o que representar e distinguir informação de operação.
+2. [Objectos e classes: uma descrição comum, vários artigos](02-objetos-classes-instancias.md): perceber objecto, propriedade, método, classe e instância.
+3. [Como impedir uma quantidade impossível?](03-encapsulamento-contratos.md): compreender regras, encapsulamento e contratos.
+4. [Como colaboram o inventário e os artigos?](04-composicao-modelacao.md): distribuir tarefas e ler esquemas de classes.
+5. [A mesma operação, maneiras diferentes de a realizar](05-heranca-polimorfismo.md): estudar herança, polimorfismo e abstracção através de notificações simuladas.
+6. [Juntar as ideias num pequeno inventário](06-sintese.md): compreender e completar um programa com apoio.
 
-Antes dos primeiros conceitos, o professor propõe o [diagnóstico](../../avaliacoes/enunciados/diagnostico-inicial.md) e escolhe contigo as [actividades de apoio](bridge-raciocinio.md) de que precisas. No fim, realizarás o [trabalho de síntese](../../avaliacoes/enunciados/M10-B06-mini-problema.md).
+Antes dos primeiros conceitos, o professor propõe o [diagnóstico](../avaliacoes/diagnostico-inicial.md) e escolhe contigo as [actividades de apoio](bridge-raciocinio.md) de que precisas. No fim, realizarás o [trabalho de síntese](../avaliacoes/mini-problema.md).
 
 ## Como usar um caderno
 
@@ -27,17 +29,17 @@ Os diagramas e o pseudocódigo servem para pensar sobre o programa; não são co
 
 ## Onde estão os programas?
 
-- [Objectos: caderno 2](exemplos/M10-B02-objetos.js).
-- [Regras de quantidade: caderno 3](exemplos/M10-B03-contrato.js).
-- [Colaboração: caderno 4](exemplos/M10-B04-composicao.js).
-- [Programa inicial do trabalho final](../../avaliacoes/enunciados/M10-B06-inventario-inicial.js): tem uma operação por completar.
+- [Objectos: caderno 2](../exemplos/programacao-orientada-objetos/objetos.js).
+- [Regras de quantidade: caderno 3](../exemplos/programacao-orientada-objetos/contrato.js).
+- [Colaboração: caderno 4](../exemplos/programacao-orientada-objetos/composicao.js).
+- [Programa inicial do trabalho final](../avaliacoes/inventario-inicial.js): tem uma operação por completar.
 
 ## Executar um exemplo pela primeira vez
 
 O professor vai acompanhar esta preparação. Usaremos as ferramentas do browser para executar JavaScript e ver as mensagens na **consola**, uma área onde o programa pode apresentar resultados.
 
 1. Abre um separador vazio, escrevendo `about:blank` na barra de endereços.
-2. Em Chrome ou Edge, abre o menu “Mais ferramentas” → “Ferramentas de programação”. Em macOS também podes usar ⌥⌘I; em Windows/Linux, Ctrl+Shift+I.
+2. Em Chrome ou Edge, abre o menu “Mais ferramentas” → “Ferramentas de programação”. Em macOS também podes usar Option+Cmd+I; em Windows/Linux, Ctrl+Shift+I.
 3. Abre “Sources” (Fontes) e procura “Snippets” (Fragmentos) no painel lateral. Um fragmento é uma área onde podes guardar e executar um pequeno conjunto de instruções. Cria um novo fragmento com o nome do exercício.
 4. Coloca nesse fragmento o conteúdo completo do ficheiro indicado no caderno. O professor pode preparar este passo contigo. Se o browser bloquear a colagem, pede ajuda em vez de desactivar a protecção.
 5. Usa o botão de execução do fragmento e consulta as mensagens na área “Console” (Consola). Compara-as com as previsões que escreveste.
@@ -46,3 +48,5 @@ O professor vai acompanhar esta preparação. Usaremos as ferramentas do browser
 Os menus podem ter nomes diferentes no computador da escola. Se não conseguires abrir o ambiente, avisa o professor. Podes começar pelo traço em papel enquanto preparas a execução.
 
 Usa apenas os dados fictícios dos exercícios. As respostas e os ficheiros de trabalho são entregues pelo meio indicado pelo professor.
+
+![Rodapé](../imagens/rodape.png)

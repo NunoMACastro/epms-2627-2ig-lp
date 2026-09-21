@@ -1,3 +1,5 @@
+![Cabeçalho](../imagens/cabecalho.png)
+
 # Juntar as ideias: compreender e completar um pequeno inventário
 
 *M10 · Caderno 6*
@@ -27,7 +29,7 @@ Lê a tabela como uma ligação entre conceitos e acontecimentos, não como uma 
 
 ## 2. Como ler o programa sem tentar perceber tudo de uma vez
 
-No [programa inicial do trabalho](../../avaliacoes/enunciados/M10-B06-inventario-inicial.js), começa por encontrar estas zonas:
+No [programa inicial do trabalho](../avaliacoes/inventario-inicial.js), começa por encontrar estas zonas:
 
 1. A classe `Artigo`, com os dados e operações comuns.
 2. A criação dos artigos A01 e A02.
@@ -96,7 +98,7 @@ Responde brevemente, por palavras:
 3. Como podes confirmar que uma retirada em A01 não alterou A02?
 4. Se o pedido for recusado, que duas observações deves fazer no programa?
 
-Depois segue o [enunciado completo](../../avaliacoes/enunciados/M10-B06-mini-problema.md). Lá encontras os dados do trabalho, as alterações pedidas, os casos a verificar e o que deves entregar.
+Depois segue o [enunciado completo](../avaliacoes/mini-problema.md). Lá encontras os dados do trabalho, as alterações pedidas, os casos a verificar e o que deves entregar.
 
 ## 8. Explicar o teu trabalho
 
@@ -105,3 +107,5 @@ A tua explicação não precisa de recitar definições. Usa o programa e os val
 O professor poderá pedir uma pequena alteração de valores para verificar se compreendeste o raciocínio. Se trabalhaste em par, cada um deve conseguir explicar o seu próprio traço e identificar a responsabilidade de cada objecto.
 
 Também retomaremos as notificações do caderno 5: duas variantes podem receber o mesmo pedido e apresentar texto de maneira diferente. Essa explicação é separada do inventário; não tens de acrescentar herança ao programa para terminar o trabalho.
+
+![Rodapé](../imagens/rodape.png)

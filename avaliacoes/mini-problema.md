@@ -1,3 +1,5 @@
+![Cabeçalho](../imagens/cabecalho.png)
+
 # Trabalho prático: completar a retirada de material
 
 *M10 · Trabalho de síntese*
@@ -19,7 +21,7 @@ O inventário guarda a lista `[A01, A02]`. Neste trabalho, o pedido feito ao inv
 
 ## 1. Preparar e observar o programa inicial
 
-Abre [o programa inicial](M10-B06-inventario-inicial.js) e guarda uma cópia de trabalho com o nome `M10-B06-inventario-trabalho.js`, na pasta indicada pelo professor. Usa as [instruções de execução](../../materiais/M10/README.md) quando precisares de recordar como abrir e executar um exemplo.
+Abre [o programa inicial](inventario-inicial.js) e guarda uma cópia de trabalho com o nome `M10-B06-inventario-trabalho.js`, na pasta indicada pelo professor. Usa as [instruções de execução](../01-programacao-orientada-objetos/README.md) quando precisares de recordar como abrir e executar um exemplo.
 
 Localiza o método `retirar`. Neste momento devolve sempre `false`, que neste programa significa “pedido recusado”. **A operação ainda não está concluída.** A tua tarefa é substituir essa resposta provisória por uma decisão que respeite as regras abaixo.
 
@@ -116,3 +118,5 @@ Entrega pelo meio indicado pelo professor:
 4. A explicação curta da correcção feita ao programa inicial.
 
 O professor vai observar se distingues descrição e objectos concretos, se o artigo mantém a quantidade válida, se consegues seguir os pedidos e se explicas o próprio trabalho. Não é necessário aumentar o número de classes ou acrescentar funcionalidades. O trabalho realiza-se no bloco de síntese, incluindo as explicações e o apoio necessário.
+
+![Rodapé](../imagens/rodape.png)

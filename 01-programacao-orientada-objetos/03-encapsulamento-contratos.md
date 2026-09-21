@@ -1,3 +1,5 @@
+![Cabeçalho](../imagens/cabecalho.png)
+
 # Como impedir que um artigo fique com uma quantidade impossível?
 
 *M10 · Caderno 3*
@@ -83,7 +85,7 @@ A segunda chamada começa no estado deixado pela primeira. Não regressa automat
 
 ## 6. Traduzir a decisão para JavaScript, um passo de cada vez
 
-O [ficheiro de demonstração](exemplos/M10-B03-contrato.js) já contém uma classe. O professor irá percorrê-la contigo. Primeiro vamos compreender a operação de retirada; não tens de escrever a classe de memória.
+O [ficheiro de demonstração](../exemplos/programacao-orientada-objetos/contrato.js) já contém uma classe. O professor irá percorrê-la contigo. Primeiro vamos compreender a operação de retirada; não tens de escrever a classe de memória.
 
 Dentro do método, fazemos três perguntas. Os excertos seguintes pertencem ao método fornecido e não são programas para executar isoladamente.
 
@@ -185,3 +187,5 @@ Escreve o contrato de **adicionar unidades**, seguindo as três partes da secç�
 O encapsulamento ajuda-nos a atribuir ao artigo a responsabilidade pelos seus dados. A ocultação evita alterações directas que contornem essa responsabilidade. A interface pública apresenta as operações disponíveis e os contratos explicam como usá-las.
 
 A ideia central é simples de verificar: se um pedido é recusado, a quantidade não deve ficar diferente por causa desse pedido.
+
+![Rodapé](../imagens/rodape.png)

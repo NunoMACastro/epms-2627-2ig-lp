@@ -1,3 +1,5 @@
+![Cabeçalho](../imagens/cabecalho.png)
+
 # Dos materiais da sala aos dados de um programa
 
 *M10 · Caderno 1*
@@ -8,7 +10,7 @@ Podemos começar por um registo simples e, mais tarde, escrever um programa que 
 
 ## Antes de começarmos
 
-O professor vai propor um [diagnóstico de programação](../../avaliacoes/enunciados/diagnostico-inicial.md). Serve para perceber o que te recordas e onde precisas de apoio. Podes responder por palavras, desenhos, contas ou pseudocódigo; não tens de conhecer uma linguagem específica.
+O professor vai propor um [diagnóstico de programação](../avaliacoes/diagnostico-inicial.md). Serve para perceber o que te recordas e onde precisas de apoio. Podes responder por palavras, desenhos, contas ou pseudocódigo; não tens de conhecer uma linguagem específica.
 
 Depois trabalharás uma das actividades do [bridge de raciocínio](bridge-raciocinio.md), escolhida com o professor. “Bridge” significa aqui uma ponte: uma actividade curta para recuperar uma ideia necessária antes de avançar.
 
@@ -132,3 +134,5 @@ Entrega a ficha e os dois casos. Quando explicares o trabalho, distingue aquilo 
 ## O que deves levar deste caderno
 
 Uma entidade é algo relevante que escolhemos representar. O estado descreve os seus valores num momento. O comportamento corresponde às operações que podemos pedir. Para verificar uma operação, não basta ler uma mensagem de sucesso: precisamos de acompanhar o que aconteceu aos dados.
+
+![Rodapé](../imagens/rodape.png)

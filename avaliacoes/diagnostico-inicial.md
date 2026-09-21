@@ -1,3 +1,5 @@
+![Cabeçalho](../imagens/cabecalho.png)
+
 # Diagnóstico inicial: raciocínio e programação estruturada
 
 *M10 · diagnóstico inicial · 45 minutos · trabalho individual*
@@ -121,3 +123,5 @@ d) Onde colocarias as instruções para executar o projeto? Explica a utilidade 
 ## Entrega
 
 Entrega as respostas identificadas de 1 a 6. Assinala um ponto que resolveste com confiança e outro em que precisas de apoio. Não uses dados pessoais reais nos exemplos. As respostas ficam no canal indicado pelo professor, não num repositório público.
+
+![Rodapé](../imagens/rodape.png)

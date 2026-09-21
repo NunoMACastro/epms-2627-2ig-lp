@@ -1,3 +1,5 @@
+![Cabeçalho](../imagens/cabecalho.png)
+
 # A mesma operação, maneiras diferentes de a realizar
 
 *M10 · Caderno 5*
@@ -178,3 +180,5 @@ Porque é que, no modelo apresentado, escolhemos uma classe concreta para criar 
 A herança relaciona uma classe especializada com uma classe base. O polimorfismo permite usar um pedido comum com concretizações diferentes que respeitam o mesmo contrato. A abstracção ajuda a seleccionar aquilo que interessa ao modelo; uma classe abstracta pode expressar uma base que ainda precisa de concretizações.
 
 No inventário, continuaremos a usar composição. Não é necessário acrescentar herança a um programa só para mostrar que conhecemos o conceito.
+
+![Rodapé](../imagens/rodape.png)
