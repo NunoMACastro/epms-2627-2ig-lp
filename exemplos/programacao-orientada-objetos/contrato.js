@@ -1,5 +1,5 @@
 /**
- * M10-B03: demonstração guiada de encapsulamento e contrato.
+ * Demonstração guiada de encapsulamento e contrato.
  * Executar integralmente num Snippet do browser.
  * Lê primeiro o caderno 3: aí explicamos cada verificação e o campo privado.
  * Quantidades pequenas e dados fictícios; não há entradas de formulário.

@@ -1,5 +1,5 @@
 /**
- * M10-B02: observar dois objectos com estados independentes.
+ * Observar dois objectos com estados independentes.
  * Executar integralmente num Snippet do browser, sem Node.
  * Demonstração limitada a retiradas válidas, com números inteiros pequenos.
  * A protecção contra entradas inválidas só é introduzida em B03.

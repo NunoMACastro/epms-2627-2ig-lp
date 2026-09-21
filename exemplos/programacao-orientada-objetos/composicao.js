@@ -1,5 +1,5 @@
 /**
- * M10-B04: o inventário encaminha, o artigo protege a quantidade.
+ * O inventário encaminha, o artigo protege a quantidade.
  * Executar num Snippet do browser, com apoio.
  * As quantidades iniciais 6 e 2 são dados válidos fornecidos pelo autor.
  * O construtor prepara cada artigo com um destes valores iniciais.

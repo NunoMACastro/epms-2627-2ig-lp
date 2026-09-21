@@ -21,7 +21,7 @@ O inventário guarda a lista `[A01, A02]`. Neste trabalho, o pedido feito ao inv
 
 ## 1. Preparar e observar o programa inicial
 
-Abre [o programa inicial](inventario-inicial.js) e guarda uma cópia de trabalho com o nome `M10-B06-inventario-trabalho.js`, na pasta indicada pelo professor. Usa as [instruções de execução](../01-programacao-orientada-objetos/README.md) quando precisares de recordar como abrir e executar um exemplo.
+Abre [o programa inicial](inventario-inicial.js) e guarda uma cópia de trabalho com o nome `inventario-trabalho.js`, na pasta indicada pelo professor. Usa as [instruções de execução](../01-programacao-orientada-objetos/README.md) quando precisares de recordar como abrir e executar um exemplo.
 
 Localiza o método `retirar`. Neste momento devolve sempre `false`, que neste programa significa “pedido recusado”. **A operação ainda não está concluída.** A tua tarefa é substituir essa resposta provisória por uma decisão que respeite as regras abaixo.
 
