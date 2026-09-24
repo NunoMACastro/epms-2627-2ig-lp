@@ -6,7 +6,7 @@
 
 Como pode um programa representar os materiais de uma sala? Que dados precisa de guardar? Como se alteram esses dados sem perder informação ou criar quantidades impossíveis?
 
-Vamos construir as respostas ao longo de seis cadernos. Começamos por situações em papel e só depois observamos como algumas delas se escrevem em JavaScript. Não precisas de conhecer JavaScript para começares a estudar os conceitos.
+Vamos construir as respostas ao longo de seis cadernos. Começamos por situações em papel e só depois observamos como algumas delas se escrevem em Python. Não precisas de dominar Python para começares a estudar os conceitos.
 
 ## Os cadernos
 
@@ -29,8 +29,7 @@ Os diagramas e o pseudocódigo servem para pensar sobre o programa; não são co
 
 ## Onde estão os programas?
 
-- [Objectos: caderno 2](../exemplos/programacao-orientada-objetos/objetos.js).
-- [Regras de quantidade: caderno 3](../exemplos/programacao-orientada-objetos/contrato.js).
+- Cadernos 1 a 3: os programas estão completos dentro de cada caderno, em Python.
 - [Colaboração: caderno 4](../exemplos/programacao-orientada-objetos/composicao.js).
 - [Programa inicial do trabalho final](../avaliacoes/inventario-inicial.js): tem uma operação por completar.
 
