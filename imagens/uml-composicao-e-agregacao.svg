@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="660" height="290" viewBox="0 0 660 290" font-family="Helvetica, Arial, sans-serif" font-size="15">
+  <title>Composição e agregação em UML</title>
+  <desc>Em cima, Encomenda ligada a LinhaEncomenda por uma linha com um losango cheio junto de Encomenda, com a multiplicidade 1 do lado da encomenda e 1..* do lado da linha. Em baixo, Playlist ligada a Musica por uma linha com um losango vazio junto de Playlist, com a multiplicidade 0..* dos dois lados.</desc>
+  <rect x="0" y="0" width="660" height="290" fill="#ffffff"/>
+  <!-- Composição -->
+  <rect x="40" y="40" width="170" height="50" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+  <text x="125" y="70" text-anchor="middle" font-weight="bold">Encomenda</text>
+  <rect x="450" y="40" width="170" height="50" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+  <text x="535" y="70" text-anchor="middle" font-weight="bold">LinhaEncomenda</text>
+  <line x1="242" y1="65" x2="450" y2="65" stroke="#000000" stroke-width="1.5"/>
+  <polygon points="210,65 226,57 242,65 226,73" fill="#000000" stroke="#000000" stroke-width="1.5"/>
+  <text x="250" y="56">1</text>
+  <text x="442" y="56" text-anchor="end">1..*</text>
+  <text x="330" y="118" text-anchor="middle">Composição: losango cheio, do lado do todo</text>
+  <!-- Agregação -->
+  <rect x="40" y="170" width="170" height="50" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+  <text x="125" y="200" text-anchor="middle" font-weight="bold">Playlist</text>
+  <rect x="450" y="170" width="170" height="50" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+  <text x="535" y="200" text-anchor="middle" font-weight="bold">Musica</text>
+  <line x1="242" y1="195" x2="450" y2="195" stroke="#000000" stroke-width="1.5"/>
+  <polygon points="210,195 226,187 242,195 226,203" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+  <text x="250" y="186">0..*</text>
+  <text x="442" y="186" text-anchor="end">0..*</text>
+  <text x="330" y="248" text-anchor="middle">Agregação: losango vazio, do lado do todo</text>
+</svg>

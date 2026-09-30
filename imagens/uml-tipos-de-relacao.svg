@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="330" viewBox="0 0 760 330" font-family="Helvetica, Arial, sans-serif" font-size="14">
+  <title>As quatro linhas do diagrama de classes</title>
+  <desc>Quatro linhas, cada uma entre uma caixa A e uma caixa B. Associação: linha simples. Agregação: losango vazio junto de A. Composição: losango cheio junto de A. Herança: triângulo vazio junto de B. À direita de cada linha, a frase que a lê.</desc>
+  <rect x="0" y="0" width="760" height="330" fill="#ffffff"/>
+  <!-- Associação -->
+  <rect x="20" y="20" width="70" height="40" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+  <text x="55" y="45" text-anchor="middle" font-weight="bold">A</text>
+  <rect x="250" y="20" width="70" height="40" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+  <text x="285" y="45" text-anchor="middle" font-weight="bold">B</text>
+  <line x1="90" y1="40" x2="250" y2="40" stroke="#000000" stroke-width="1.5"/>
+  <text x="350" y="37" font-weight="bold">Associação</text>
+  <text x="350" y="55">A conhece ou usa B</text>
+  <!-- Agregação -->
+  <rect x="20" y="100" width="70" height="40" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+  <text x="55" y="125" text-anchor="middle" font-weight="bold">A</text>
+  <rect x="250" y="100" width="70" height="40" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+  <text x="285" y="125" text-anchor="middle" font-weight="bold">B</text>
+  <line x1="122" y1="120" x2="250" y2="120" stroke="#000000" stroke-width="1.5"/>
+  <polygon points="90,120 106,112 122,120 106,128" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+  <text x="350" y="117" font-weight="bold">Agregação</text>
+  <text x="350" y="135">A tem B, e B existe sem A</text>
+  <!-- Composição -->
+  <rect x="20" y="180" width="70" height="40" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+  <text x="55" y="205" text-anchor="middle" font-weight="bold">A</text>
+  <rect x="250" y="180" width="70" height="40" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+  <text x="285" y="205" text-anchor="middle" font-weight="bold">B</text>
+  <line x1="122" y1="200" x2="250" y2="200" stroke="#000000" stroke-width="1.5"/>
+  <polygon points="90,200 106,192 122,200 106,208" fill="#000000" stroke="#000000" stroke-width="1.5"/>
+  <text x="350" y="197" font-weight="bold">Composição</text>
+  <text x="350" y="215">A tem B, e B só existe dentro de A</text>
+  <!-- Herança -->
+  <rect x="20" y="260" width="70" height="40" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+  <text x="55" y="285" text-anchor="middle" font-weight="bold">A</text>
+  <rect x="250" y="260" width="70" height="40" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+  <text x="285" y="285" text-anchor="middle" font-weight="bold">B</text>
+  <line x1="90" y1="280" x2="234" y2="280" stroke="#000000" stroke-width="1.5"/>
+  <polygon points="250,280 234,271 234,289" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+  <text x="350" y="277" font-weight="bold">Herança</text>
+  <text x="350" y="295">A é um B; o triângulo encosta à classe base, B</text>
+</svg>

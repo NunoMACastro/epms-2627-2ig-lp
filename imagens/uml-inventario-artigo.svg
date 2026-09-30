@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="710" height="215" viewBox="0 0 710 215" font-family="Helvetica, Arial, sans-serif" font-size="14">
+  <title>Diagrama de classes do inventário</title>
+  <desc>Caixa Inventario com três zonas: o nome; uma zona de atributos vazia; e os métodos registar(codigo, nome, quantidade), quantidade_de(codigo) e retirar(codigo, unidades). Caixa Artigo com o nome; os atributos codigo, nome e quantidade; e os métodos adicionar(unidades) e retirar(unidades). As duas caixas estão ligadas por uma linha com um losango cheio junto de Inventario, com a multiplicidade 1 do lado do inventário e 0..* do lado do artigo.</desc>
+  <rect x="0" y="0" width="710" height="215" fill="#ffffff"/>
+  <!-- Inventario -->
+  <rect x="20" y="20" width="300" height="140" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+  <line x1="20" y1="56" x2="320" y2="56" stroke="#000000" stroke-width="1.5"/>
+  <line x1="20" y1="76" x2="320" y2="76" stroke="#000000" stroke-width="1.5"/>
+  <text x="170" y="44" text-anchor="middle" font-weight="bold">Inventario</text>
+  <text x="32" y="100">registar(codigo, nome, quantidade)</text>
+  <text x="32" y="124">quantidade_de(codigo)</text>
+  <text x="32" y="148">retirar(codigo, unidades)</text>
+  <!-- Artigo -->
+  <rect x="470" y="20" width="220" height="175" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+  <line x1="470" y1="56" x2="690" y2="56" stroke="#000000" stroke-width="1.5"/>
+  <line x1="470" y1="134" x2="690" y2="134" stroke="#000000" stroke-width="1.5"/>
+  <text x="580" y="44" text-anchor="middle" font-weight="bold">Artigo</text>
+  <text x="482" y="78">codigo</text>
+  <text x="482" y="101">nome</text>
+  <text x="482" y="124">quantidade</text>
+  <text x="482" y="158">adicionar(unidades)</text>
+  <text x="482" y="182">retirar(unidades)</text>
+  <!-- Composição -->
+  <line x1="352" y1="90" x2="470" y2="90" stroke="#000000" stroke-width="1.5"/>
+  <polygon points="320,90 336,82 352,90 336,98" fill="#000000" stroke="#000000" stroke-width="1.5"/>
+  <text x="358" y="81">1</text>
+  <text x="462" y="81" text-anchor="end">0..*</text>
+</svg>

@@ -10,11 +10,13 @@ Vamos construir as respostas ao longo de seis cadernos. Começamos por situaçõ
 
 ## Os cadernos
 
-1. [Dos materiais da sala aos dados de um programa](01-entidades-estado-acoes.md): escolher o que representar e distinguir informação de operação.
-2. [Objectos e classes: uma descrição comum, vários artigos](02-objetos-classes-instancias.md): perceber objecto, propriedade, método, classe e instância.
-3. [Como impedir uma quantidade impossível?](03-encapsulamento-contratos.md): compreender regras, encapsulamento e contratos.
-4. [Como colaboram o inventário e os artigos?](04-composicao-modelacao.md): distribuir tarefas e ler esquemas de classes.
-5. [A mesma operação, maneiras diferentes de a realizar](05-heranca-polimorfismo.md): estudar herança, polimorfismo e abstracção através de notificações simuladas.
+Cada tema tem até três documentos: o caderno, para ler e estudar, com as explicações e os exemplos resolvidos; o laboratório, para seguir passo a passo no computador, com o editor de Python aberto ao lado; e a ficha de exercícios, para praticares sozinho depois de estudares o caderno.
+
+1. [Dos materiais da sala aos dados de um programa](01-entidades-estado-acoes.md): escolher o que representar e distinguir informação de operação. [Laboratório](01-entidades-estado-acoes-laboratorio.md) e [ficha de exercícios](01-entidades-estado-acoes-exercicios.md).
+2. [Objectos e classes: uma descrição comum, vários artigos](02-objetos-classes-instancias.md): perceber objecto, atributo, método, classe e instância. [Laboratório](02-objetos-classes-instancias-laboratorio.md) e [ficha de exercícios](02-objetos-classes-instancias-exercicios.md).
+3. [Como impedir uma quantidade impossível?](03-encapsulamento-contratos.md): compreender regras, encapsulamento e contratos. [Laboratório](03-encapsulamento-contratos-laboratorio.md) e [ficha de exercícios](03-encapsulamento-contratos-exercicios.md).
+4. [Reunir artigos num inventário](04-composicao-modelacao.md): relações entre objetos, composição e agregação, esquemas de classes em UML leve e a classe do inventário. [Laboratório](04-composicao-modelacao-laboratorio.md) e [ficha de exercícios](04-composicao-modelacao-exercicios.md).
+5. [A mesma operação, maneiras diferentes de a realizar](05-heranca-polimorfismo.md): estudar herança, polimorfismo e abstracção através de notificações. [Laboratório](05-heranca-polimorfismo-laboratorio.md) e [ficha de exercícios](05-heranca-polimorfismo-exercicios.md).
 6. [Juntar as ideias num pequeno inventário](06-sintese.md): compreender e completar um programa com apoio.
 
 Antes dos primeiros conceitos, o professor propõe o [diagnóstico](../avaliacoes/diagnostico-inicial.md) e escolhe contigo as [actividades de apoio](bridge-raciocinio.md) de que precisas. No fim, realizarás o [trabalho de síntese](../avaliacoes/mini-problema.md).
@@ -29,11 +31,17 @@ Os diagramas e o pseudocódigo servem para pensar sobre o programa; não são co
 
 ## Onde estão os programas?
 
-- Cadernos 1 a 3: os programas estão completos dentro de cada caderno, em Python.
-- [Colaboração: caderno 4](../exemplos/programacao-orientada-objetos/composicao.js).
-- [Programa inicial do trabalho final](../avaliacoes/inventario-inicial.js): tem uma operação por completar.
+- Cadernos 1 a 5: os programas estão completos dentro de cada caderno, em Python. Os laboratórios dizem, passo a passo, como os usar no computador.
+- Caderno 6 e trabalho final: [programa inicial do trabalho final](../avaliacoes/inventario-inicial.js), em JavaScript, com uma operação por completar.
+- O ficheiro [composicao.js](../exemplos/programacao-orientada-objetos/composicao.js) pertencia à versão antiga do caderno 4, em JavaScript. O caderno 4 já não o usa.
 
-## Executar um exemplo pela primeira vez
+## Executar um programa em Python
+
+Os programas dos cadernos 1 a 5 executam-se no editor de Python que usas nas aulas. Copia o programa completo para um ficheiro novo com a extensão `.py`, guarda-o e executa o ficheiro inteiro. Cada execução começa do zero, com os valores iniciais escritos no programa. Os programas destes cadernos funcionam com Python 3, a partir da versão 3.10.
+
+Se aparecer uma mensagem de erro, lê primeiro a última linha: diz o tipo de erro e a razão. As linhas de cima dizem onde aconteceu. O caderno 3 explica como ler estas mensagens.
+
+## Executar um programa JavaScript (caderno 6 e trabalho final)
 
 O professor vai acompanhar esta preparação. Usaremos as ferramentas do browser para executar JavaScript e ver as mensagens na **consola**, uma área onde o programa pode apresentar resultados.
 

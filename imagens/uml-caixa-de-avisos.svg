@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="330" viewBox="0 0 840 330" font-family="Helvetica, Arial, sans-serif" font-size="14">
+  <title>Caixa de avisos, notificações e as suas variantes</title>
+  <desc>À esquerda, em cima, a caixa CaixaDeAvisos com os métodos receber(notificacao) e textos(). Liga-se à caixa Notificacao, abstrata, por uma linha com um losango vazio junto de CaixaDeAvisos e a multiplicidade 0..* nas duas pontas. Por baixo de Notificacao estão quatro variantes, NotificacaoBreve, NotificacaoDetalhada, NotificacaoAssinada e NotificacaoUrgente, cada uma com o método apresentar() e a assinada também com o atributo origem, ligadas a Notificacao por linhas que se juntam num triângulo vazio.</desc>
+  <rect x="0" y="0" width="840" height="330" fill="#ffffff"/>
+  <!-- CaixaDeAvisos -->
+  <rect x="20" y="20" width="230" height="102" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+  <line x1="20" y1="56" x2="250" y2="56" stroke="#000000" stroke-width="1.5"/>
+  <line x1="20" y1="72" x2="250" y2="72" stroke="#000000" stroke-width="1.5"/>
+  <text x="135" y="44" text-anchor="middle" font-weight="bold">CaixaDeAvisos</text>
+  <text x="32" y="94">receber(notificacao)</text>
+  <text x="32" y="114">textos()</text>
+  <!-- Notificacao abstrata -->
+  <rect x="450" y="20" width="220" height="106" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+  <line x1="450" y1="70" x2="670" y2="70" stroke="#000000" stroke-width="1.5"/>
+  <line x1="450" y1="96" x2="670" y2="96" stroke="#000000" stroke-width="1.5"/>
+  <text x="560" y="42" text-anchor="middle" font-weight="bold" font-style="italic">Notificacao</text>
+  <text x="560" y="62" text-anchor="middle" font-size="12">{abstract}</text>
+  <text x="462" y="88">texto</text>
+  <text x="462" y="117" font-style="italic">apresentar()</text>
+  <!-- Agregação -->
+  <line x1="282" y1="60" x2="450" y2="60" stroke="#000000" stroke-width="1.5"/>
+  <polygon points="250,60 266,52 282,60 266,68" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+  <text x="288" y="51">0..*</text>
+  <text x="444" y="51" text-anchor="end">0..*</text>
+  <!-- Variantes -->
+  <rect x="15" y="220" width="195" height="82" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+  <line x1="15" y1="256" x2="210" y2="256" stroke="#000000" stroke-width="1.5"/>
+  <line x1="15" y1="272" x2="210" y2="272" stroke="#000000" stroke-width="1.5"/>
+  <text x="112" y="244" text-anchor="middle" font-weight="bold">NotificacaoBreve</text>
+  <text x="27" y="293">apresentar()</text>
+  <rect x="220" y="220" width="195" height="82" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+  <line x1="220" y1="256" x2="415" y2="256" stroke="#000000" stroke-width="1.5"/>
+  <line x1="220" y1="272" x2="415" y2="272" stroke="#000000" stroke-width="1.5"/>
+  <text x="317" y="244" text-anchor="middle" font-weight="bold" font-size="13">NotificacaoDetalhada</text>
+  <text x="232" y="293">apresentar()</text>
+  <rect x="425" y="220" width="195" height="92" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+  <line x1="425" y1="256" x2="620" y2="256" stroke="#000000" stroke-width="1.5"/>
+  <line x1="425" y1="282" x2="620" y2="282" stroke="#000000" stroke-width="1.5"/>
+  <text x="522" y="244" text-anchor="middle" font-weight="bold" font-size="13">NotificacaoAssinada</text>
+  <text x="437" y="274">origem</text>
+  <text x="437" y="303">apresentar()</text>
+  <rect x="630" y="220" width="195" height="82" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+  <line x1="630" y1="256" x2="825" y2="256" stroke="#000000" stroke-width="1.5"/>
+  <line x1="630" y1="272" x2="825" y2="272" stroke="#000000" stroke-width="1.5"/>
+  <text x="727" y="244" text-anchor="middle" font-weight="bold" font-size="13">NotificacaoUrgente</text>
+  <text x="642" y="293">apresentar()</text>
+  <!-- Herança com triângulo partilhado -->
+  <line x1="112" y1="220" x2="112" y2="180" stroke="#000000" stroke-width="1.5"/>
+  <line x1="317" y1="220" x2="317" y2="180" stroke="#000000" stroke-width="1.5"/>
+  <line x1="522" y1="220" x2="522" y2="180" stroke="#000000" stroke-width="1.5"/>
+  <line x1="727" y1="220" x2="727" y2="180" stroke="#000000" stroke-width="1.5"/>
+  <line x1="112" y1="180" x2="727" y2="180" stroke="#000000" stroke-width="1.5"/>
+  <line x1="560" y1="180" x2="560" y2="142" stroke="#000000" stroke-width="1.5"/>
+  <polygon points="560,126 551,142 569,142" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+</svg>
