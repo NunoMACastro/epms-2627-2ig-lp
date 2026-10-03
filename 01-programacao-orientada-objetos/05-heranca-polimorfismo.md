@@ -12,7 +12,7 @@ Porque um exemplo à parte? Porque o inventário não precisa de herança. Artig
 
 ## Antes de começares
 
-Este caderno usa o que aprendeste nos cadernos 2, 3 e 4: classes, construtor e `self`; a função `isinstance`, os decoradores como `@property` e as exceções como `ValueError`; as listas, o ciclo `for`, o operador `+` para juntar textos, a diferença entre "tem" e "é um", as duas árvores e as caixas e linhas da UML leve. Se alguma destas ideias estiver pouco firme, volta à secção indicada quando ela aparecer no texto. Tudo o resto é explicado aqui.
+Este caderno usa o que aprendeste nos cadernos 2, 3 e 4: classes, construtor e `self`; a função `isinstance`, os decoradores como `@property`, as exceções como `ValueError`, tratadas com `try` e `except` (caderno 3, secções 7 e 8), o contrato de um método e o valor `None` (caderno 3, secções 11 e 12); as listas, o ciclo `for`, o operador `+` para juntar textos, a diferença entre "tem" e "é um", as duas árvores, as caixas e linhas da UML leve e a agregação da playlist (caderno 4, secção 12). Se alguma destas ideias estiver pouco firme, volta à secção indicada quando ela aparecer no texto. Tudo o resto é explicado aqui.
 
 Os programas completos correm sozinhos, como nos cadernos anteriores: copia-os para um ficheiro `.py` e executa o ficheiro inteiro. Os excertos estão sempre assinalados. O [laboratório](05-heranca-polimorfismo-laboratorio.md) acompanha-te, passo a passo, na construção das notificações no computador, e a [ficha de exercícios](05-heranca-polimorfismo-exercicios.md) serve para praticares sozinho depois de estudares este caderno.
 
@@ -63,7 +63,7 @@ O programa funciona, mas olha para as duas classes lado a lado. Os construtores 
 
 Esta repetição tem dois custos. O primeiro já o conheces do caderno 3: uma regra escrita em dois sítios. Se amanhã decidirmos que o texto de uma notificação não pode ser vazio, temos de acrescentar a mesma verificação aos dois construtores, e a cada construtor de cada variante nova que aparecer. Basta esquecer um para o programa ficar incoerente.
 
-O segundo custo é menos visível. Para nós, as duas classes descrevem notificações. Para o Python, são duas classes sem nenhuma relação, que por acaso têm métodos com o mesmo nome. Não há nada no programa que diga "uma notificação breve e uma notificação detalhada são as duas notificações", e por isso não conseguimos escrever código que funcione com "qualquer notificação" sem ter de conhecer cada classe uma a uma.
+O segundo custo é menos visível. Para nós, as duas classes descrevem notificações. Para o Python, são duas classes sem nenhuma relação, que por acaso têm métodos com o mesmo nome. Não há nada no programa que diga "uma notificação breve e uma notificação detalhada são as duas notificações". Não há um sítio onde fique escrito o que todas as notificações têm e sabem fazer, nem uma classe comum a que se possa perguntar, com o `isinstance` do caderno 3, se um objeto é uma notificação. E quem escrever uma terceira variante tem de adivinhar, a partir das outras duas, o que ela deve ter.
 
 O que as duas classes têm em comum é geral: todas as notificações têm um texto e sabem apresentar-se. O que as distingue é particular: cada uma apresenta-se à sua maneira. É esta separação entre o geral e o particular que vamos escrever a seguir.
 
@@ -256,7 +256,7 @@ E se te esqueceres da linha do `super()`? O construtor da classe derivada é exe
 AttributeError: 'NotificacaoAssinada' object has no attribute 'texto'
 ```
 
-É o tipo de erro do caderno 3, secção 1: aparece longe da causa. A mensagem diz que falta o texto, mas o engano está no construtor, onde faltou chamar a base. Quando uma classe derivada tem o seu próprio construtor, a primeira linha dele deve ser, quase sempre, a chamada `super().__init__(...)`, com os valores de que a base precisa.
+É o tipo de erro do caderno 3, secção 1: aparece longe da causa. A mensagem diz que falta o texto, mas o engano está no construtor, onde faltou chamar a base. Quando a classe base tem um construtor e a classe derivada escreve o seu, a primeira linha do construtor da derivada deve ser, quase sempre, a chamada `super().__init__(...)`, com os valores de que o construtor da base precisa. Se a classe base não escrever construtor nenhum, não há nenhum construtor da base para aproveitar, e essa linha não faz falta.
 
 ## 6. Polimorfismo: a mesma chamada, comportamentos diferentes
 
@@ -318,7 +318,7 @@ Aviso interno: Material em falta
 Encomenda recebida (enviada por: Secretaria)
 ```
 
-A lista é escrita de uma maneira que talvez ainda não tenhas visto: os três objetos são criados dentro dos parênteses retos, separados por vírgulas, um por linha. É o mesmo que criar a lista vazia e fazer três `append`, só que mais curto.
+A lista é escrita de uma maneira que talvez ainda não tenhas visto: os três objetos são criados dentro dos parênteses retos, separados por vírgulas, um por linha. É o mesmo que criar a lista vazia e fazer três `append`, só que mais curto. Repara também na vírgula depois do último objeto. É opcional: o Python aceita a lista com ela ou sem ela. Escreve-se para que, quando se acrescenta mais um elemento numa linha nova, não seja preciso mexer na linha de cima para lhe pôr a vírgula.
 
 Olha agora para o ciclo. Tem uma única linha de trabalho, `print(aviso.apresentar())`, e essa linha é exatamente a mesma nas três voltas. Mesmo assim, cada volta produz um resultado de forma diferente, porque o nome `aviso` aponta, em cada volta, para um objeto de uma classe diferente, e o Python encontra, pela regra da secção 4, o `apresentar` dessa classe:
 
@@ -328,7 +328,11 @@ Olha agora para o ciclo. Tem uma única linha de trabalho, `print(aviso.apresent
 | 2 | `NotificacaoDetalhada` | O de `NotificacaoDetalhada` | `Aviso interno: Material em falta` |
 | 3 | `NotificacaoAssinada` | O de `NotificacaoAssinada` | `Encomenda recebida (enviada por: Secretaria)` |
 
-Chamamos **polimorfismo** a esta capacidade: o mesmo pedido, feito da mesma maneira, funciona com objetos de classes diferentes, e cada objeto responde à sua maneira. A palavra vem do grego e quer dizer "muitas formas". O ciclo não sabe, nem precisa de saber, de que variante é cada notificação. Só sabe que todas são notificações e que todas sabem apresentar-se.
+Chamamos **polimorfismo** a esta capacidade: o mesmo pedido, feito da mesma maneira, funciona com objetos de classes diferentes, e cada objeto responde à sua maneira. A palavra vem do grego e quer dizer "muitas formas". O ciclo não sabe, nem precisa de saber, de que variante é cada notificação. Só conta com que cada uma saiba apresentar-se.
+
+Há um pormenor do Python que convém saberes desde já. Quando executa `aviso.apresentar()`, o Python não pergunta se o objeto é uma `Notificacao`. Limita-se a procurar um método chamado `apresentar`, pela regra da secção 4: primeiro na classe do objeto, depois nas classes de onde ela herda. Por isso, este mesmo ciclo também funcionaria com as duas classes soltas da secção 1, sem herança nenhuma, desde que cada uma tivesse o seu `apresentar`. Em Python, o que o polimorfismo exige é que cada objeto saiba responder ao pedido que lhe fazem.
+
+Então, o que ganhámos com a herança? Ganhámos o que faltava na secção 1. O código comum, como o construtor, está escrito uma só vez, na classe base, e uma regra que lá se acrescente vale para todas as variantes. Há um tipo comum, `Notificacao`, que o `isinstance` reconhece, que o diagrama mostra e que diz, num só sítio, o que todas as notificações têm e sabem fazer. E, como vais ver na secção 8, a classe base pode passar a obrigar cada variante a escrever o seu `apresentar`, o que duas classes soltas nunca conseguiriam garantir.
 
 Para perceberes o que o polimorfismo poupa, compara com a maneira de fazer o mesmo sem ele. Este excerto depende das classes do programa acima e mostra o ciclo escrito por alguém que decide, ele próprio, como apresentar cada variante:
 
@@ -402,13 +406,13 @@ A primeira linha está certa. A segunda foi escrita pelo próprio método `apres
 
 Há outras maneiras de quebrar o contrato com o nome certo. Uma variante cujo `apresentar` devolvesse o texto e depois o apagasse, com `self.texto = ""`, funcionaria na primeira chamada e devolveria um texto vazio na segunda: mudou o estado, e o contrato diz que não muda. Uma variante cujo `apresentar` exigisse um argumento obrigatório faria o ciclo parar com um erro na chamada `aviso.apresentar()`.
 
-A ideia de fundo tem nome: **princípio da substituição**. Um objeto de uma classe derivada tem de poder ser usado em qualquer sítio onde se espera um objeto da classe base, sem surpresas para quem o usa. É o teste "é um" do caderno 4, aplicado ao comportamento, e não só aos dados. Uma classe que tem o nome certo, herda da base certa e mesmo assim não cumpre o contrato não é, de facto, uma notificação: só parece.
+A ideia de fundo tem nome: **princípio da substituição**. Um objeto de uma classe derivada tem de poder ser usado em qualquer sítio onde se espera um objeto da classe base, sem surpresas para quem o usa. É o teste "é um" do caderno 4, aplicado ao comportamento, e não só aos dados. Uma classe que tem o nome certo, herda da base certa e mesmo assim não cumpre o contrato continua a ser uma `Notificacao` para o Python: o `isinstance` dá `True`. Quem a usa é que é apanhado de surpresa, porque ela não se comporta como as outras notificações. O `isinstance` só olha para a herança, e cumprir o contrato fica a cargo de quem escreve cada variante.
 
 ## 8. Abstração, classes abstratas e o módulo `abc`
 
 ### Abstrair é escolher o essencial
 
-**Abstração** é escolher o que é essencial para o problema e deixar de fora o resto. Já o fizeste várias vezes. No caderno 1, quando decidimos que um artigo tem código, nome e quantidade, e deixámos de fora a cor da capa dos cadernos e a prateleira onde estão, estávamos a abstrair: "representar um problema é sempre escolher o que interessa".
+**Abstração** é escolher o que é essencial para o problema e deixar de fora o resto. Já o fizeste várias vezes. No caderno 1, quando decidimos que um artigo tem código, nome e quantidade, que não se faz uma ficha por cada caderno físico e que a cor das paredes da sala não entra no programa, estávamos a abstrair: "representar um problema é sempre escolher o que interessa".
 
 Na classe `Notificacao`, o essencial é que todas as notificações têm um texto e sabem apresentar-se. A maneira de se apresentarem não é essencial à ideia de notificação: é um pormenor de cada variante.
 
@@ -513,9 +517,9 @@ True
 
 Vamos ler as partes novas uma a uma.
 
-A primeira linha, `from abc import ABC, abstractmethod`, vai buscar ao módulo `abc` duas ferramentas: `ABC` e `abstractmethod`. Um **módulo** é um ficheiro de código Python que outros programas podem usar; este já vem instalado com o Python. A linha lê-se "do módulo `abc`, importa `ABC` e `abstractmethod`". Depois dela, os dois nomes podem ser usados no resto do programa.
+A primeira linha, `from abc import ABC, abstractmethod`, vai buscar ao módulo `abc` duas ferramentas: `ABC` e `abstractmethod`. Um **módulo** é um ficheiro de código Python que outros programas podem usar; este já vem instalado com o Python. Não confundas com os módulos da disciplina, como o M10 que estás a estudar: são duas coisas diferentes que têm o mesmo nome. A linha lê-se "do módulo `abc`, importa `ABC` e `abstractmethod`". Depois dela, os dois nomes podem ser usados no resto do programa.
 
-A linha `class Notificacao(ABC):` diz que `Notificacao` herda de `ABC`. É a herança que acabaste de aprender, usada para uma coisa útil: `ABC` é uma classe que o Python fornece, e herdar dela é o que dá a `Notificacao` a capacidade de ter métodos abstratos.
+A linha `class Notificacao(ABC):` diz que `Notificacao` herda de `ABC`. É a herança que acabaste de aprender, usada para uma coisa útil: `ABC` é uma classe que o Python fornece, e herdar dela é o que dá a `Notificacao` a capacidade de ter métodos abstratos. Esta herança não pode faltar. Sem ela, o decorador `@abstractmethod`, que vamos ver a seguir, não tem efeito nenhum: o Python deixa criar objetos da classe base e das variantes que se esqueceram do método, sem nenhum aviso, e o `apresentar` sem instruções devolve `None`.
 
 A linha `@abstractmethod`, antes do `def apresentar`, é um decorador, como o `@property` do caderno 3, secção 9. Marca o método que vem a seguir como abstrato. O corpo do método tem só a docstring, que é o contrato. Não tem instruções, porque não há uma maneira geral de apresentar uma notificação: cada variante escreve a sua. Tal como numa classe, a docstring chega para o corpo de um método não ficar vazio.
 
@@ -564,7 +568,7 @@ A notificação urgente não precisa de dados novos: só do texto, que a base j�
 
 ### Passo 3: cumprir o contrato
 
-Para pôr o texto em maiúsculas, os textos do Python têm um método, `upper`: `"A02 esgotou".upper()` devolve `"A02 ESGOTOU"`. O ponto importante para o nosso contrato é este: `upper` devolve um texto novo, e o texto original fica como estava. Os textos do Python nunca mudam depois de criados; os métodos dos textos, como o `strip` que aparece no exercício 5 do caderno 3 e este `upper`, devolvem sempre textos novos.
+Para pôr o texto em maiúsculas, os textos do Python têm um método, `upper`: `"A02 esgotou".upper()` devolve `"A02 ESGOTOU"`. O ponto importante para o nosso contrato é este: `upper` devolve um texto novo, e o texto original fica como estava. Os textos do Python nunca mudam depois de criados: nenhum método dos textos muda o texto original, e os que produzem um texto, como o `strip` que aparece no exercício 5 do caderno 3 e este `upper`, devolvem um texto novo.
 
 Isso permite-nos cumprir a regra "não altera a notificação". O método vai devolver `"URGENTE: " + self.texto.upper()`, que é um texto novo, e o atributo `texto` continua com as minúsculas originais. Se escrevêssemos `self.texto = self.texto.upper()` dentro do método, estaríamos a mudar o estado, e o contrato seria quebrado.
 
@@ -684,7 +688,7 @@ Texto guardado na urgente: A02 esgotou
 
 As quatro primeiras linhas coincidem com a coluna "Resultado previsto" do passo 5. A última confirma o contrato: o texto guardado continua em minúsculas, porque `upper` devolveu um texto novo e o atributo não foi tocado. `avisos[3]` é o quarto elemento da lista, porque os índices começam em 0, como viste no caderno 4.
 
-Agora repara no que não mudou. O ciclo `for` é, letra a letra, o da secção 6. Para acrescentar uma maneira nova de apresentar notificações, escrevemos uma classe nova e não tocámos em nenhuma linha do código que as usa. É isto que o polimorfismo permite, e é a resposta ao terceiro problema da cadeia de `if` da secção 6.
+Agora repara no que não mudou. O ciclo `for` é, letra a letra, o da secção 6. Para acrescentar uma maneira nova de apresentar notificações, escrevemos uma classe nova e não tocámos em nenhuma linha do código que as usa. É isto que o polimorfismo permite, e é a resposta ao segundo problema da cadeia de `if` da secção 6.
 
 ## 10. Herança ou composição
 
@@ -814,7 +818,7 @@ A caixa tem notificações. As notificações são criadas fora dela, no program
 
 Cada variante é uma notificação. É a herança, com o triângulo apontado para a classe abstrata.
 
-E o método `textos` usa o polimorfismo: pede a cada notificação que se apresente, com a mesma linha para todas, sem perguntar de que variante é. A caixa não conhece `NotificacaoBreve`, nem `NotificacaoUrgente`, nem nenhuma outra variante. Conhece só a classe `Notificacao` e o seu contrato. Por isso, uma variante que venha a ser escrita no próximo ano também cabe na caixa, sem mudar uma linha da classe `CaixaDeAvisos`.
+E o método `textos` usa o polimorfismo: pede a cada notificação que se apresente, com a mesma linha para todas, sem perguntar de que variante é. A caixa não conhece `NotificacaoBreve`, nem `NotificacaoUrgente`, nem nenhuma outra variante. Só conta com o contrato que a classe `Notificacao` fixa para todas: cada notificação sabe apresentar-se. Por isso, uma variante que venha a ser escrita no próximo ano também cabe na caixa, sem mudar uma linha da classe `CaixaDeAvisos`.
 
 O diagrama mostra as duas relações:
 
@@ -841,13 +845,13 @@ Tenta responder a estas perguntas sem olhar para o texto. Se alguma te deixar co
 - Consegues explicar porque é que `isinstance(breve, Notificacao)` dá `True`? (secção 3)
 - Consegues dizer onde é que o Python procura um método, e por que ordem? (secção 4)
 - Consegues explicar o que faz `super().__init__(texto)` e o que acontece se for esquecido? (secção 5)
-- Consegues explicar o que é o polimorfismo usando o ciclo da secção 6, e dizer o que ele poupa em relação à cadeia de `if`? (secção 6)
+- Consegues explicar o que é o polimorfismo usando o ciclo da secção 6, dizer o que ele poupa em relação à cadeia de `if` e o que a herança acrescenta a esse ciclo? (secção 6)
 - Consegues escrever o contrato de `apresentar` e dar um exemplo de uma variante que o quebra? (secção 7)
 - Consegues explicar o que é uma classe abstrata, porque é que não se criam objetos dela e o que o Python faz a uma variante que se esquece do método abstrato? (secção 8)
 - Consegues prever o resultado de cada volta do ciclo do exemplo guiado, dizendo o `apresentar` que o Python usa? (secção 9)
 - Consegues dar um exemplo de herança sem sentido e dizer a relação certa? (secção 10)
 
-No [laboratório](05-heranca-polimorfismo-laboratorio.md) vais construir as notificações no computador, passo a passo, provocar de propósito os erros deste caderno e criar uma variante tua. Na [ficha de exercícios](05-heranca-polimorfismo-exercicios.md) vais praticar sozinho a leitura de hierarquias, a previsão de chamadas, a escolha entre herança e composição e a escrita de contratos.
+No [laboratório](05-heranca-polimorfismo-laboratorio.md) vais construir as notificações no computador, passo a passo, provocar de propósito os erros deste caderno e criar duas variantes tuas. Na [ficha de exercícios](05-heranca-polimorfismo-exercicios.md) vais praticar sozinho a leitura de hierarquias, a previsão de chamadas, a escolha entre herança e composição e a escrita de contratos.
 
 No módulo seguinte, M11, vais reencontrar estas ideias em JavaScript. As palavras mudam um pouco, mas as perguntas são as mesmas: é um ou tem? Que promete o método? Onde vive cada regra?
 

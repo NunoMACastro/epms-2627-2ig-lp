@@ -4,7 +4,7 @@
 
 *M10 · Caderno 1 · Laboratório*
 
-Este laboratório acompanha o [caderno 1](01-entidades-estado-acoes.md), e sobretudo a secção 6, "Duas maneiras de organizar um programa". Diz-te o que fazer, passo a passo, com o editor de Python aberto ao lado. As explicações do porquê estão no caderno: cada parte diz em que secção deves ter o caderno aberto. É um laboratório curto: conta com 35 a 40 minutos.
+Este laboratório acompanha o [caderno 1](01-entidades-estado-acoes.md), e sobretudo a secção 6, "Duas maneiras de organizar um programa". Diz-te o que fazer, passo a passo, com o editor de Python aberto ao lado. As explicações do porquê estão no caderno: cada parte diz em que secção deves ter o caderno aberto. É um laboratório curto: conta com 40 a 45 minutos.
 
 No fim deves ter um ficheiro `inventario.py` com três artigos guardados em variáveis e uma função `adicionar` escrita por ti. Pelo caminho vais prever, antes de executar, o que o programa mostra quando mudas os pedidos, e vais ver dois enganos que o Python deixa passar sem mostrar nenhuma mensagem de erro: uma atribuição esquecida e uma variável trocada.
 
@@ -14,7 +14,7 @@ Precisas do computador com o editor de Python que usas nas aulas, e de papel e c
 
 Antes do laboratório deves ter lido, no caderno 1, o exemplo guiado da secção 5 ("Exemplo guiado: seguir os valores passo a passo") e a secção 6 até ao fim de "O problema das variáveis soltas". O laboratório não repete essas explicações: aplica-as. Também não há aqui classes nem objetos, que são o assunto do caderno 2. Tudo o que vais escrever usa apenas o que a secção 6 usa: variáveis, uma função, uma condição e `print`.
 
-A forma de trabalhar é sempre a mesma. Antes de executares, escreves no papel o que esperas ver. Depois executas e comparas. Quando o resultado é diferente do que previste, explica a diferença antes de continuares: é essa explicação que mais te ensina. Escrever primeiro obriga-te a pensar; executar primeiro só te mostra o que o Python fez.
+A forma de trabalhar é sempre a mesma. Antes de executares, escreves no papel o que esperas ver. Depois executas e comparas. Quando o resultado é diferente do que previste, explica a diferença antes de continuares: é essa explicação que mais te ensina. Escrever a previsão antes de executar obriga-te a pensar no que o programa faz.
 
 Há duas regras para todo o laboratório. A primeira: guarda o ficheiro e executa-o sempre inteiro. Cada execução começa do zero, com os valores iniciais das variáveis, e repete todos os pedidos pela ordem em que estão escritos. A segunda: em algumas partes vais mudar o programa de propósito, para veres o que acontece. Faz a alteração pedida, observa e desfaz a alteração antes de passares à parte seguinte. Se te perderes, copia outra vez do caderno o programa completo de onde a parte começa.
 
@@ -59,7 +59,7 @@ Caderno 1
 ```
 
 4. Responde no papel a duas perguntas.
-   - O pedido de 5 foi recusado na experiência do passo 2 e aceite na do passo 3. É o mesmo pedido: porque é que teve respostas diferentes? Usa a frase do exemplo guiado sobre o ponto de partida de cada linha do traço.
+   - O pedido de 5 foi recusado na experiência com o pedido de 6 e aceite na experiência com o pedido de 0. É o mesmo pedido: porque é que teve respostas diferentes? Usa a frase do exemplo guiado sobre o ponto de partida de cada linha do traço.
    - Olha só para a primeira linha da última execução, `Caderno 6`. Por essa linha, consegues saber se o pedido de 0 foi recusado? Relê o parágrafo da secção 6 que começa por "Este programa tem duas limitações".
 5. Volta a pôr o 2 na primeira chamada. Executa e confirma que aparece outra vez `Caderno 4` duas vezes.
 
@@ -79,7 +79,7 @@ Como na parte anterior, esta linha substitui a do ficheiro e depende do resto do
 3. Executa. Deves ver `Caderno 6` e `Caderno 1`, e nenhuma mensagem de erro.
 4. Responde no papel a duas perguntas.
    - A função foi chamada e fez a conta? Que valor devolveu, e o que aconteceu a esse valor?
-   - A saída é igual à da última experiência da parte 3, mas o que aconteceu dentro do programa não foi igual. Explica a diferença, dizendo em cada caso o que a função devolveu e o que foi feito com o valor devolvido.
+   - A saída é igual à da experiência com o pedido de 0, no passo 3 da parte 3, mas o que aconteceu dentro do programa não foi igual. Explica a diferença, dizendo em cada caso o que a função devolveu e o que foi feito com o valor devolvido.
 5. O Python não mostrou nenhum erro, porque chamar uma função sem guardar o que ela devolve é uma instrução válida. Guarda as respostas desta parte: vão ajudar-te no exercício 4 da secção 7 do caderno.
 6. Volta a escrever `quantidade_caderno =` no início da linha. Executa e confirma que aparece `Caderno 4` duas vezes.
 
@@ -92,7 +92,7 @@ Tem aberto "O problema das variáveis soltas", na secção 6.
 3. Corrige a linha, trocando só essa variável. O comentário que está por cima deixou de ser verdade, porque já não há engano para descrever: apaga-o. Antes de executares, escreve as duas linhas que esperas ver. Executa. Deves ver `Caderno 6` e `Pasta 1`.
 4. Responde no papel: na versão com o engano, o Python mostrou alguma mensagem de erro? Se o comentário não existisse, como é que terias dado pelo engano? Pensa no que fizeste antes de cada execução, em todas as partes deste laboratório.
 
-## Parte 6: um terceiro artigo e a operação adicionar, sozinho (10 min)
+## Parte 6: um terceiro artigo e a operação adicionar, sozinho (15 min)
 
 Nesta parte não há código para copiar. Continua no ficheiro corrigido da parte 5.
 

@@ -4,7 +4,7 @@
 
 *M10 · Caderno 3 · Ficha de exercícios*
 
-Esta ficha acompanha o [caderno 3](03-encapsulamento-contratos.md). É para praticares sozinho, depois de estudares o caderno e de fazeres o [laboratório](03-encapsulamento-contratos-laboratorio.md). Conta com cerca de uma hora e dez minutos para os seis exercícios, e mais dez minutos se fizeres o desafio opcional do fim.
+Esta ficha acompanha o [caderno 3](03-encapsulamento-contratos.md). É para praticares sozinho, depois de estudares o caderno e de fazeres o [laboratório](03-encapsulamento-contratos-laboratorio.md). Conta com cerca de uma hora e cinco minutos para os seis exercícios, e mais dez minutos se fizeres o desafio opcional do fim.
 
 Os exercícios da secção 13 do caderno, "Agora experimenta", continuam a ser teus e o professor diz quando os fazer. Esta ficha não os repete: traz exercícios mais curtos, cada um a treinar uma coisa só, do mais direto para o que pede uma pequena decisão tua.
 
@@ -100,19 +100,19 @@ Usa a classe final do caderno 3, a do passo 6 da secção 12. Queremos um progra
 - tente retirar 4 unidades;
 - mostre a quantidade final.
 
-Cada pedido recusado deve mostrar uma linha a começar por `Recusado:`, seguida da mensagem da exceção, e o programa deve continuar para o pedido seguinte.
+Cada pedido recusado deve mostrar uma linha a começar por `Recusado:`, seguida da mensagem da exceção, e o programa deve continuar para o pedido seguinte. Cada pedido aceite deve mostrar uma linha a começar por `Aceite:`, seguida da quantidade que ficou.
 
 1. Antes de escrever o código, prevê: quais dos três pedidos são recusados, com que mensagem, e qual é a quantidade final?
-2. Escreve o programa principal, com um `try` e um `except` para cada pedido.
-3. Executa e compara com a tua previsão.
+2. Decide onde fica, em cada pedido, a linha do `Aceite:`, de modo que só apareça quando o pedido é aceite. Justifica a escolha com a secção 8 do caderno.
+3. Escreve o programa principal, com um `try` e um `except` para cada pedido. Executa e compara com a tua previsão.
 
-## Exercício 5: uma propriedade nova (15 min)
+## Exercício 5: uma propriedade nova (20 min)
 
 O responsável do armário quer saber quando é preciso encomendar material. Para isso, cada artigo passa a ter um **stock mínimo**: quando a quantidade fica abaixo desse número, é altura de encomendar.
 
 As regras do stock mínimo são estas: é um número inteiro; não pode ser negativo; um artigo acabado de criar tem stock mínimo 0.
 
-1. Há duas decisões que as regras não tomam por ti. Responde a cada uma com uma frase de justificação. Um stock mínimo de 0 deve ser aceite? O stock mínimo pode ser maior do que a quantidade atual do artigo?
+1. As regras já obrigam o setter a aceitar o 0: explica porquê, numa frase. Há uma decisão que as regras não tomam por ti: o stock mínimo pode ser maior do que a quantidade atual do artigo? Responde com uma frase de justificação, pensando para que serve o stock mínimo.
 2. Na classe final do caderno 3, acrescenta uma propriedade `stock_minimo`, com getter e setter, que guarde o valor em `_stock_minimo` e recuse os valores inválidos com `ValueError`, pela mesma ordem de verificações da propriedade `quantidade`.
 3. Acrescenta ao construtor a linha que dá ao artigo novo o stock mínimo 0. Escreve-a de maneira que o valor passe pelo setter (secção 10 do caderno).
 4. Testa: cria um caderno com 6 unidades, mostra o stock mínimo inicial, acerta-o para 10, tenta acertá-lo para -1 e depois para 2.5, cada tentativa no seu `try`, e mostra no fim o stock mínimo e a quantidade.
@@ -129,9 +129,9 @@ Um colega escreveu o construtor da classe final assim. É um excerto: para o exp
         self._quantidade = quantidade
 ```
 
-Para testar, criou um caderno com 6 unidades e escreveu `caderno.quantidade = -3` dentro de um `try`. Apareceu a recusa, e ele ficou convencido de que a sua classe nunca deixa existir uma quantidade negativa.
+Para testar, criou um caderno com 6 unidades e escreveu `caderno.quantidade = -3` dentro de um `try`. Apareceu a recusa, e ele ficou convencido de que a sua classe nunca deixa existir uma quantidade inválida.
 
-1. Escreve uma única linha de código que mostre que o colega está enganado. Executa-a e mostra o resultado.
+1. Escreve duas linhas de código que mostrem que o colega está enganado: uma que crie um artigo com uma quantidade inicial inválida e outra que mostre a quantidade que ficou guardada. Escolhe tu o valor inválido, mas não uses um número negativo, que é o caso que a secção 10 do caderno já mostra. Executa e mostra o resultado.
 2. Explica o erro por palavras, usando a palavra setter.
 3. Corrige o construtor, mudando uma única linha.
 

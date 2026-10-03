@@ -4,7 +4,7 @@
 
 *M10 · Caderno 5 · Ficha de exercícios*
 
-Esta ficha acompanha o [caderno 5](05-heranca-polimorfismo.md). É para praticares sozinho, depois de estudares o caderno e de fazeres o [laboratório](05-heranca-polimorfismo-laboratorio.md). Conta com cerca de hora e um quarto para os sete exercícios, e mais um quarto de hora se fizeres o desafio opcional do fim.
+Esta ficha acompanha o [caderno 5](05-heranca-polimorfismo.md). É para praticares sozinho, depois de estudares o caderno e de fazeres o [laboratório](05-heranca-polimorfismo-laboratorio.md). Conta com cerca de uma hora para os seis exercícios, e mais cerca de vinte e cinco minutos se fizeres a parte opcional do fim: um exercício opcional e um desafio.
 
 As notificações do caderno ficam de fora de propósito. Os exercícios usam outros exemplos, com as mesmas regras, para perceberes se as regras foram compreendidas ou só decoradas. Cada exercício treina uma coisa só, e a ordem vai do mais direto para o que pede uma pequena decisão tua.
 
@@ -73,6 +73,8 @@ for etiqueta in etiquetas:
     print(etiqueta.conteudo())
 ```
 
+O método `largura` só vai ser usado no exercício opcional do fim da ficha. Por agora, não precisas dele.
+
 1. Copia e preenche esta tabela, com a regra da secção 4 do caderno:
 
 | Volta | Classe do objeto | Onde o Python encontra `conteudo` | Linha mostrada |
@@ -83,29 +85,18 @@ for etiqueta in etiquetas:
 
 2. Executa e compara com a tua tabela.
 
-## Exercício 3: um método herdado que chama um método redefinido (10 min)
+## Exercício 3: herança ou composição (10 min)
 
-Continua com o programa do exercício 2. A classe `Etiqueta` tem um método `largura`, que nenhuma classe derivada redefine. Devolve o número de carateres do conteúdo da etiqueta: `len` aplicado a um texto devolve o número de carateres, contando espaços e sinais. Por exemplo, `len("Pastas")` dá 6.
+Para cada par, escreve a frase verdadeira ("A é um B" ou "A tem B") e diz se a relação se escreveria com herança ou com composição, no sentido largo da secção 10 do caderno (a relação "tem").
 
-Muda a última linha do programa para `print(etiqueta.conteudo(), etiqueta.largura())`.
+1. `Comboio` e `Carruagem`.
+2. `Romance` e `Livro`.
+3. `Hotel` e `Quarto`.
+4. `Gerente` e `Funcionario`.
 
-1. Para a terceira etiqueta, a com moldura, responde por esta ordem: em que classe é que o Python encontra `largura`? Dentro de `largura`, o `self` aponta para que objeto? E, por isso, que `conteudo` é chamado na linha `len(self.conteudo())`?
-2. Escreve as três linhas que o programa vai mostrar agora.
-3. Executa e compara. Se a terceira linha te surpreendeu, explica porquê, usando a última parte da secção 4 do caderno.
+Depois, responde: um colega quer acrescentar ao programa do exercício 2 as classes `EtiquetaCadernos(Etiqueta)` e `EtiquetaPastas(Etiqueta)`, cada uma só com uma docstring, para criar as etiquetas das duas prateleiras com `EtiquetaCadernos("Cadernos")` e `EtiquetaPastas("Pastas")`. A frase "uma etiqueta de cadernos é uma etiqueta" é verdadeira. Mesmo assim, estas classes fazem falta? Compara-as com `EtiquetaMaiuscula`, que também deriva de `Etiqueta`, e justifica com a secção 10 do caderno.
 
-## Exercício 4: herança ou composição (10 min)
-
-Para cada par, escreve a frase verdadeira ("A é um B" ou "A tem B") e diz se a relação se escreveria com herança ou com composição.
-
-1. `Turma` e `Aluno`.
-2. `Portatil` e `Computador`.
-3. `Carro` e `Motor`.
-4. `EtiquetaMaiuscula` e `Etiqueta`.
-5. `Inventario` e `CaixaDeAvisos`.
-
-Depois, responde: um colega quer criar, no programa do inventário, `class Caderno(Artigo):` e `class Pasta(Artigo):`, "porque um caderno é um artigo e uma pasta também". A frase "é um" é verdadeira. Mesmo assim, estas classes fazem falta? Justifica com a secção 10 do caderno.
-
-## Exercício 5: quem cumpre o contrato (10 min)
+## Exercício 4: quem cumpre o contrato (10 min)
 
 O contrato de `conteudo` é: "não recebe nada além do `self`, devolve o texto a imprimir e não altera a etiqueta". Três colegas escreveram três variantes da classe `Etiqueta` do exercício 2. São excertos: para os experimentares, acrescenta-os ao programa do exercício 2, depois das outras classes.
 
@@ -151,16 +142,16 @@ for etiqueta in etiquetas:
 print(etiquetas[1].texto)
 ```
 
-3. Executa e compara. Qual das duas variantes que não cumprem o contrato te parece mais perigosa num programa grande? Justifica numa ou duas frases.
+3. Executa e compara. Das variantes que não cumprem o contrato, qual te parece mais perigosa num programa grande? Justifica numa ou duas frases.
 
-## Exercício 6: o contrato de uma classe abstrata (10 min)
+## Exercício 5: o contrato de uma classe abstrata (10 min)
 
 Um programa de geometria tem uma classe `Forma`, para figuras planas como retângulos e quadrados. Todas as formas têm uma área, mas a área de um retângulo calcula-se de uma maneira e a de um quadrado de outra, e não há uma maneira geral de calcular "a área de uma forma".
 
 1. Explica, numa frase, porque é que `Forma` deve ser uma classe abstrata, e noutra frase porque é que `area` deve ser um método abstrato.
 2. Escreve o contrato abstrato de `Forma` no papel, por palavras ou organizado por indentação, como no fim da secção 8 do caderno. Tem de dizer o que todas as formas sabem fazer e o que cada forma concreta tem de completar, com o contrato de `area` por inteiro: o que recebe, o que devolve e o que não faz.
 
-## Exercício 7: escrever duas formas concretas (15 min)
+## Exercício 6: escrever duas formas concretas (15 min)
 
 Esta é a classe abstrata `Forma`, já escrita. Programa completo, que ainda não faz nada visível:
 
@@ -169,28 +160,35 @@ from abc import ABC, abstractmethod
 
 
 class Forma(ABC):
-    """Uma figura geométrica plana.
-
-    Classe abstrata: todas as formas têm uma área, mas não há uma maneira
-    geral de a calcular. Cada forma concreta escreve a sua.
-    """
+    """Uma figura geométrica plana. Classe abstrata."""
 
     @abstractmethod
     def area(self):
-        """Contrato: não recebe nada além do self, devolve a área da forma
-        (um número maior ou igual a zero) e não altera a forma."""
+        """Método abstrato: o contrato é o que escreveste no exercício 5."""
 ```
+
+Repara que a `Forma` não tem construtor.
 
 1. Acrescenta ao programa a classe `Retangulo`, derivada de `Forma`, que se cria com a largura e a altura, por exemplo `Retangulo(4, 3)`, e cuja área é a largura vezes a altura.
 2. Acrescenta a classe `Quadrado`, também derivada de `Forma`, que se cria só com o lado, por exemplo `Quadrado(5)`. Decide tu que atributo guarda e como calcula a área.
 3. No fim do programa, cria uma lista com `Retangulo(4, 3)`, `Quadrado(5)` e `Retangulo(2, 7)` e mostra a área de cada forma com um ciclo `for`. Escreve as três áreas que esperas antes de executar.
 4. Experimenta criar `Forma()`. Escreve a última linha do erro e diz por palavras o que significa.
 
+## Exercício opcional: um método herdado que chama um método redefinido (10 min)
+
+Volta ao programa do exercício 2, com a lista e o ciclo originais. A classe `Etiqueta` tem um método `largura`, que nenhuma classe derivada redefine. Devolve o número de carateres do conteúdo da etiqueta: `len` aplicado a um texto devolve o número de carateres, contando espaços e sinais. Por exemplo, `len("Pastas")` dá 6.
+
+Muda a última linha do programa para `print(etiqueta.conteudo(), etiqueta.largura())`.
+
+1. Para a terceira etiqueta, a com moldura, responde por esta ordem: em que classe é que o Python encontra `largura`? Dentro de `largura`, o `self` aponta para que objeto? E, por isso, que `conteudo` é chamado na linha `len(self.conteudo())`?
+2. Escreve as três linhas que o programa vai mostrar agora.
+3. Executa e compara. Se a terceira linha te surpreendeu, explica porquê, usando a última parte da secção 4 do caderno.
+
 ## Desafio opcional: um quadrado é um retângulo?
 
-Um colega diz que, no exercício 7, `Quadrado` devia herdar de `Retangulo`, e não de `Forma`, porque "em Matemática, um quadrado é um retângulo".
+Um colega diz que, no exercício 6, `Quadrado` devia herdar de `Retangulo`, e não de `Forma`, porque "em Matemática, um quadrado é um retângulo".
 
-1. Com as classes do exercício 7, que só têm o método `area`, o teste de substituição da secção 7 do caderno passa? Isto é, pode usar-se um quadrado em qualquer sítio onde se espera um retângulo, sem surpresas?
+1. Com as classes do exercício 6, que só têm o método `area`, o teste de substituição da secção 7 do caderno passa? Isto é, pode usar-se um quadrado em qualquer sítio onde se espera um retângulo, sem surpresas?
 2. Agora imagina que a classe `Retangulo` passa a ter um método `mudar_largura(nova)`, que muda só a largura e deixa a altura como estava. Um quadrado que herdasse este método continuaria a cumprir o que o retângulo promete, e a ser um quadrado? Explica o problema em duas ou três frases.
 
 ## Antes de entregares

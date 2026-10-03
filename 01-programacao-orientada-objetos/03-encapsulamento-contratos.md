@@ -655,6 +655,8 @@ A interface pública do artigo ficou assim: `codigo` e `nome`, que ainda são at
 
 ## 13. Agora experimenta
 
+Antes destes exercícios, faz o [laboratório](03-encapsulamento-contratos-laboratorio.md) no computador e a [ficha de exercícios](03-encapsulamento-contratos-exercicios.md), que é mais leve e é por onde começas a praticar; os exercícios seguintes servem para aprofundar, quando o professor indicar.
+
 Todos os exercícios usam a classe final do passo 6 do exemplo guiado, exceto quando o enunciado diz outra coisa. Para cada excerto, copia esse programa completo e substitui as linhas que vêm depois da classe (a partir de `caderno = ...`) pelas linhas do exercício. Escreve sempre a tua previsão antes de executar, e entrega as respostas pelo meio indicado pelo professor.
 
 ### Exercício 1: Decidir antes de executar
@@ -740,7 +742,7 @@ Com um caderno de 6 unidades, o colega chama `caderno.retirar(9)` dentro de um `
 
 ### Exercício 5: O nome também tem regras
 
-No projeto do inventário, o nome de um artigo não pode ser vazio. Com a classe final, `Artigo("A08", "", 3)` é aceite sem problemas.
+No exemplo do inventário, o nome de um artigo não pode ser vazio. Com a classe final, `Artigo("A08", "", 3)` é aceite sem problemas.
 
 1. Escreve o contrato de uma propriedade `nome`, com as quatro partes da secção 11: o que recebe, o que devolve quem a consulta, quando falha e o que acontece ao estado em cada caso.
 2. Antes de escreveres o contrato, tens de tomar duas decisões que o exemplo não tomou por ti. Um nome só com espaços, como `"   "`, conta como vazio? E se alguém passar um número como nome, por exemplo `123`? Decide e justifica cada escolha numa frase.

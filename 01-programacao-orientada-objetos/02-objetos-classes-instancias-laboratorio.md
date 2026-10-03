@@ -4,7 +4,7 @@
 
 *M10 · Caderno 2 · Laboratório*
 
-Este laboratório acompanha o [caderno 2](02-objetos-classes-instancias.md). Diz-te o que fazer, passo a passo, com o editor de Python aberto ao lado. As explicações do porquê estão no caderno: cada parte diz em que secção deves ter o caderno aberto. Conta com cerca de uma hora, repartida pela aula, à medida que o professor for explicando as secções 6, 7 e 8.
+Este laboratório acompanha o [caderno 2](02-objetos-classes-instancias.md). Diz-te o que fazer, passo a passo, com o editor de Python aberto ao lado. As explicações do porquê estão no caderno: cada parte diz em que secção deves ter o caderno aberto. Conta com cerca de uma hora e dez minutos, repartida pela aula, à medida que o professor for explicando as secções 6, 7 e 8.
 
 No fim deves ter um ficheiro `artigos.py` com a classe `Artigo` do caderno a funcionar, escrita por ti. Pelo caminho vais ver com os teus próprios olhos quando é que o construtor trabalha, o que acontece a um objeto quando falta o `self.` numa linha do construtor e o que quer dizer dar dois nomes ao mesmo objeto. Na última parte vais escrever sozinho uma classe nova, para outra coisa da escola.
 
@@ -12,7 +12,9 @@ No fim deves ter um ficheiro `artigos.py` com a classe `Artigo` do caderno a fun
 
 Precisas do computador com o editor de Python que usas nas aulas, e de papel e caneta para as previsões e para os traços.
 
-A forma de trabalhar é sempre a mesma. Antes de executares, escreves no papel o que esperas ver. Depois executas e comparas. Quando o resultado é diferente do que previste, explica a diferença antes de continuares: é essa explicação que mais te ensina. Escrever primeiro obriga-te a pensar; executar primeiro só te mostra o que o Python fez.
+Este laboratório dá por sabido o caderno 1, as secções 1 a 5 do caderno 2 (objeto, atributo, método, classe e instância) e as funções que aprendeste no 10.º ano, com `def` e `return`. As secções 6, 7 e 8 do caderno 2 trabalham-se ao longo do laboratório.
+
+A forma de trabalhar é sempre a mesma. Antes de executares, escreves no papel o que esperas ver. Depois executas e comparas. Quando o resultado é diferente do que previste, explica a diferença antes de continuares: é essa explicação que mais te ensina. Escrever a previsão antes de executar obriga-te a pensar no que o programa faz.
 
 Executa sempre o ficheiro inteiro. Cada execução começa do zero: o Python lê a classe, cria os artigos outra vez com os valores escritos no programa e repete todas as instruções, pela ordem em que estão.
 
@@ -119,7 +121,7 @@ Devolvido: 0
 ```
 
 6. Responde numa frase: na forma curta, `caderno.retirar(2)`, onde está escrito o objeto que vai ocupar o `self`?
-7. Volta a pôr `restante = caderno.retirar(2)` e executa para confirmares a saída do passo 3. A forma longa serviu só para veres o que o Python faz por dentro. Nos programas escreve-se sempre a forma curta, que é a que toda a gente espera ler.
+7. Volta a pôr `restante = caderno.retirar(2)` e executa para confirmares a saída do passo 3. A forma longa serviu só para veres o que o Python faz por dentro. Nas duas formas, o método é o mesmo e trabalha sobre um objeto; só muda a maneira de o chamar. Nos programas escreve-se sempre a forma curta, que é a que toda a gente espera ler.
 
 ## Parte 7: dois nomes para o mesmo objeto (7 min)
 
@@ -147,16 +149,16 @@ Mesmo caderno: 5
 6. Repara também que o programa passou a ter dois artigos com o código A01. O Python aceitou-o sem se queixar, mas a primeira regra do inventário, na secção 5 do caderno 1, diz que cada código identifica um único artigo. O Python não conhece as regras do nosso inventário: faz o que o programa lhe pede, e quem escreve o programa é que tem de as respeitar.
 7. Volta a pôr `mesmo_caderno = caderno`, apaga a última linha que acrescentaste e executa para confirmares a saída do caderno.
 
-## Parte 8: sozinho (15 min)
+## Parte 8: sozinho (25 min)
 
-### 8.1: a classe de memória (5 min)
+### 8.1: escrever a classe de cor (10 min)
 
 1. Fecha o caderno e o ficheiro `artigos.py`. Na mesma pasta `caderno-2`, cria um ficheiro novo chamado `memoria.py`.
 2. Sem olhar para nada, escreve a classe `Artigo`, com o construtor e o método `retirar`. Por baixo da classe, escreve as linhas necessárias para criar um artigo à tua escolha, retirar-lhe unidades e mostrar a quantidade que fica. As docstrings podem ser curtas e com palavras tuas.
 3. Executa. Se aparecer um erro, tenta corrigi-lo sozinho, a partir da última linha da mensagem e da tabela de problemas frequentes.
 4. Só depois abre a secção 7 do caderno e compara, linha a linha. Escreve no papel todas as diferenças que encontrares, mesmo as pequenas, como um sublinhado a menos, dois pontos esquecidos ou um `self.` que ficou por escrever. Marca as que faziam o programa falhar e as que não faziam diferença.
 
-### 8.2: uma classe para outra coisa da escola (10 min)
+### 8.2: uma classe para outra coisa da escola (15 min)
 
 A classe `Artigo` descreve um tipo de coisa, e a mesma forma de escrever uma classe serve para descrever outras. Na escola, cada sala tem um projetor, e a lâmpada de um projetor tem de ser trocada ao fim de um certo número de horas de uso. Para saber quando, a escola quer registar, para cada projetor, um código, a sala onde está e as horas de uso que já acumulou.
 

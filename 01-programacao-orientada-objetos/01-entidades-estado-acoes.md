@@ -245,6 +245,8 @@ A programação orientada a objetos não deita fora o que já sabes. Continuamos
 
 ## 7. Agora experimenta
 
+Antes destes exercícios, faz o [laboratório](01-entidades-estado-acoes-laboratorio.md) no computador e a [ficha de exercícios](01-entidades-estado-acoes-exercicios.md), que é mais leve e é por onde começas a praticar; os exercícios seguintes servem para aprofundar, quando o professor indicar.
+
 Cada exercício pede uma decisão que o exemplo guiado não tomou por ti. Escreve o raciocínio, e não só a resposta final: é o raciocínio que o professor vai querer ouvir-te explicar. Os exercícios fazem-se no caderno diário ou numa folha, e são entregues pelo meio indicado pelo professor.
 
 ### Exercício 1: Informação ou operação

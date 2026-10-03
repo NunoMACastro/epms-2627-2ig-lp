@@ -4,7 +4,7 @@
 
 *M10 · Caderno 2 · Ficha de exercícios*
 
-Esta ficha acompanha o [caderno 2](02-objetos-classes-instancias.md). É para praticares sozinho, depois de estudares o caderno e de fazeres o [laboratório](02-objetos-classes-instancias-laboratorio.md). Conta com cerca de uma hora para os seis exercícios, e mais dez minutos se fizeres o desafio opcional do fim.
+Esta ficha acompanha o [caderno 2](02-objetos-classes-instancias.md). É para praticares sozinho, depois de estudares o caderno e de fazeres o [laboratório](02-objetos-classes-instancias-laboratorio.md). Conta com cerca de 55 minutos para os seis exercícios, e mais dez minutos se fizeres o desafio opcional do fim.
 
 Os exercícios da secção 9 do caderno, "Agora experimenta", continuam a ser teus e o professor diz quando os fazer. Esta ficha não os repete: traz exercícios mais curtos, cada um a treinar uma coisa só, do mais direto para o que pede uma pequena decisão tua.
 
@@ -15,12 +15,12 @@ Responde no caderno diário ou numa folha, com o número de cada exercício. Nos
 Cada uma das três linhas seguintes vem de um programa diferente. Em cada programa há uma classe já escrita, que não aparece aqui, com um construtor que guarda em atributos os valores que recebe, como o construtor da classe `Artigo`. São excertos e não correm sozinhos.
 
 ```python partial
-regua = Artigo("A05", "Régua", 10)
+regua = Artigo("A06", "Régua", 10)
 livro = Livro("L12", "Atlas escolar", 3)
 cacifo_b = Cacifo(14, "Piso 1")
 ```
 
-1. Classifica cada um destes nove itens como classe, instância ou valor de atributo: `Livro`, `"Régua"`, `cacifo_b`, `14`, `Artigo`, `livro`, `"Atlas escolar"`, `regua` e `Cacifo`. Um nome de variável como `regua` conta como instância, porque aponta para uma instância (secção 8 do caderno).
+1. Classifica cada um destes nove itens como classe, nome de uma instância ou valor de atributo: `Livro`, `"Régua"`, `cacifo_b`, `14`, `Artigo`, `livro`, `"Atlas escolar"`, `regua` e `Cacifo`. Um nome de variável como `regua` não é a instância: é o nome que aponta para ela (secção 8 do caderno).
 2. Escolhe uma das três linhas e descreve o que ela faz numa frase que use as palavras classe, instância e valor de atributo.
 
 ## Exercício 2: atributo ou parâmetro (10 min)
@@ -79,8 +79,8 @@ class Artigo:
         return self.quantidade
 
 
-a = Artigo("A06", "Compasso", 10)
-b = Artigo("A07", "Esquadro", 4)
+a = Artigo("A13", "Compasso", 10)
+b = Artigo("A14", "Esquadro", 4)
 c = a
 d = c
 d.retirar(3)
@@ -99,7 +99,7 @@ print(a is d, b is c)
 Este programa usa a classe `Artigo` do programa da secção 7 do caderno, a mesma do exercício 3. É um excerto: para o executares, copia o programa da secção 7 e substitui as linhas que vêm depois da classe (a partir de `caderno = ...`) por estas.
 
 ```python partial
-marcador = Artigo("A09", "Marcador", 12)
+marcador = Artigo("A07", "Marcador", 12)
 restam = marcador.retirar(5)
 marcador.retirar(2)
 print(restam, marcador.quantidade)
@@ -128,7 +128,7 @@ A08 Furador
 ```
 
 1. Escreve as duas linhas que faltam, executa e confirma a saída. A saída não mostra todos os valores de que o construtor precisa: os que faltam escolhes tu. Explica numa frase porque é que tens de os escrever na mesma, se não aparecem no ecrã.
-2. Um colega escreveu a primeira linha assim: `primeiro = Artigo("Agrafador", "A07", 2)`. Prevê o que mostra a primeira linha do ecrã com a linha dele, e explica porque é que o Python não se queixou.
+2. Um colega escreveu a primeira linha assim: `primeiro = Artigo("Agrafador", "A09", 2)`. Prevê o que mostra a primeira linha do ecrã com a linha dele, e explica porque é que o Python não se queixou.
 
 ## Exercício 6: um construtor que não aceita os valores (10 min)
 
@@ -195,8 +195,8 @@ print("Teste 2:", caderno.quantidade, pasta.quantidade)
 3. Sem a correção, o colega usou a mesma classe noutro programa, em que os artigos se chamam `regua` e `esquadro` e não há nenhum nome `caderno`. Prevê o que acontece na primeira chamada a `retirar`. Depois experimenta: mantém a classe do colega, sem a corrigir, e substitui as linhas que vêm depois dela por estas, que são um excerto.
 
 ```python partial
-regua = Artigo("A05", "Régua", 10)
-esquadro = Artigo("A07", "Esquadro", 4)
+regua = Artigo("A06", "Régua", 10)
+esquadro = Artigo("A14", "Esquadro", 4)
 
 regua.retirar(2)
 print("Teste 1:", regua.quantidade, esquadro.quantidade)

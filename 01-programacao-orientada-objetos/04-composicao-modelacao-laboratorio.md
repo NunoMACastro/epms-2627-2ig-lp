@@ -12,7 +12,7 @@ No fim deves ter um ficheiro `inventario.py` com as classes `Artigo` e `Inventar
 
 Precisas do computador com o editor de Python que usas nas aulas, e de papel e caneta para as previsões e para o diagrama da última parte.
 
-Antes do laboratório deves ter lido, no caderno 4, as secções 8 a 11: o diagrama do inventário, as listas e o ciclo `for`, o exemplo guiado e o caminho de uma recusa. O laboratório não repete essas explicações: aplica-as.
+O laboratório faz-se ao longo da aula, à medida que o professor for explicando as secções do caderno 4 de que cada parte precisa, e cada parte diz que secção deves ter aberta ao lado. As partes 1 a 5 apoiam-se sobretudo nas secções 8 a 11: o diagrama do inventário, as listas e o ciclo `for`, o exemplo guiado e o caminho de uma recusa. A parte 6 usa também a tabela de responsabilidades da secção 2 e o acumulador da secção 12. Se fizeres o laboratório sozinho, lê essas secções antes de começar. O laboratório não repete as explicações do caderno: aplica-as.
 
 A forma de trabalhar é sempre a mesma. Antes de executares o programa, escreves no papel o que esperas ver. Depois executas e comparas. Quando o resultado é diferente do que previste, a explicação dessa diferença é o que mais te ensina, por isso não a saltes. Escrever primeiro obriga-te a pensar; executar primeiro só te mostra o que o Python fez.
 
@@ -89,7 +89,7 @@ Tem aberto ao lado o passo 5 da secção 10.
 3. Abre o traço do passo 6 e, para cada linha que o programa vai mostrar, escreve no papel a mensagem que esperas. Depois executa.
 4. Compara com a saída mostrada no passo 7 do caderno, linha a linha.
 
-Se alguma linha for diferente, procura a primeira que é diferente e não olhes para as outras por agora. Uma diferença cedo no programa costuma provocar as seguintes. Depois pergunta-te que método produziu essa linha e relê esse método, comparando-o com o caderno. Os enganos mais comuns são um `return` que ficou dentro do `if` com a indentação errada, uma linha de um método que ficou fora da classe e um nome escrito de duas maneiras diferentes, como `_artigos` numa linha e `_artigo` noutra.
+Se alguma linha for diferente, procura a primeira que é diferente e não olhes para as outras por agora. Uma diferença cedo no programa costuma provocar as seguintes. Depois pergunta-te que método produziu essa linha e relê esse método, comparando-o com o caderno. Os enganos mais comuns são um `return` que saiu de dentro do `if`, por ter ficado com a indentação do próprio `if`, um `raise` que entrou para dentro do `for`, uma linha de um método que ficou fora da classe e um nome escrito de duas maneiras diferentes, como `_artigos` numa linha e `_artigo` noutra.
 
 Nesta altura, o teu ficheiro tem o programa completo do caderno. Guarda-o.
 
@@ -122,6 +122,7 @@ A última linha de todas é `ValueError: A quantidade não pode ser negativa.`.
    - Há duas entradas que terminam em `in retirar`. Qual delas é o `retirar` do inventário e qual é o do artigo? Decide pelo código mostrado por baixo de cada uma, e não pela ordem.
    - A quarta entrada termina em `in quantidade`. Que método da classe `Artigo` é este? Porque é que o nome não é `retirar`?
    - Compara a tua lista do passo 2 com as quatro entradas. Acertaste na ordem?
+   - Este pedido também chamou o método `_procurar`. Aparece no traceback? Explica porquê, com a secção 11 do caderno.
 
 O traceback é a cadeia de chamadas da secção 11, escrita pelo Python: de cima para baixo, do programa principal até ao sítio onde a exceção nasceu. É por isso que se lê de baixo para cima quando se procura a causa: a última entrada é onde o erro começou.
 
@@ -137,13 +138,9 @@ Escreve o método `adicionar(codigo, unidades)` do inventário, com este contrat
 
 Antes de escreveres o método, responde no papel: que regras sobre as unidades vai verificar o método do inventário, e quais vai deixar ao artigo? Revê a ideia de encaminhamento no passo 5 da secção 10.
 
-Depois testa o método com estes três pedidos, cada um no seu `try`, depois das linhas que já estão no fim do ficheiro. Para cada um, escreve antes de executar se vai ser aceite ou recusado, quem recusa e com que mensagem, e a quantidade de A02 depois:
+Depois escolhe tu os testes. Escreve três pedidos de adição, cada um no seu `try`, depois das linhas que já estão no fim do ficheiro: um pedido que seja aceite, um que seja recusado pelo inventário e um que seja recusado pelo artigo. Para os escolheres, pensa em que regras verifica cada objeto e em que ordem o pedido passa por eles. Para cada pedido, escreve antes de executar se vai ser aceite ou recusado, quem recusa, com que mensagem, e como ficam as quantidades depois.
 
-- adicionar 3 unidades ao artigo A02;
-- adicionar 0 unidades ao artigo A02;
-- adicionar 1 unidade ao artigo A09.
-
-No fim, mostra a quantidade de A02 com `quantidade_de`.
+No fim, mostra com `quantidade_de` a quantidade de cada artigo existente que usaste nos testes.
 
 ### 6.2: o total de unidades do inventário
 
@@ -151,9 +148,9 @@ Escreve o método `total_unidades()`, que devolve a soma das quantidades de todo
 
 Antes de escreveres, decide e escreve no papel duas coisas. Porque é que este método pertence ao `Inventario` e não ao `Artigo`? Usa a tabela de responsabilidades da secção 2. E o que deve devolver um inventário que ainda não tem nenhum artigo?
 
-Para somar, vais precisar de uma variável que acumula a soma: começa com um valor antes do ciclo e, em cada volta de um ciclo `for` sobre a lista interna, recebe mais a quantidade de um artigo. Pensa bem no valor com que deve começar, que é também a resposta à pergunta anterior.
+Para somar, usa um acumulador, como o `resultado` do método `titulos` da secção 12 do caderno, agora com um número em vez de uma lista: prepara-o antes de um ciclo `for` sobre a lista interna e, em cada volta, junta-lhe a quantidade de um artigo. Pensa bem no valor com que deve começar, que é também a resposta à pergunta anterior.
 
-Testa com duas linhas: mostra o total do inventário do teu programa, e depois cria um inventário novo, vazio, e mostra o total dele. Antes de executares, calcula à mão o total do primeiro, a partir das quantidades que os artigos têm nesse momento.
+Testa com dois casos: mostra o total do inventário do teu programa, e depois cria um inventário novo, vazio, e mostra o total dele. Antes de executares, calcula à mão o total do primeiro, a partir das quantidades que os artigos têm nesse momento.
 
 ### 6.3 (opcional): os artigos esgotados
 
@@ -170,6 +167,7 @@ No papel, desenha de novo o diagrama de classes da secção 8 do caderno, agora 
 | O que aparece | O que costuma ser | Como resolver |
 | --- | --- | --- |
 | `NameError: name 'Artigo' is not defined` | A classe `Artigo` não está no ficheiro, ou ficou com outro nome | Confirma que copiaste a classe da parte 1 e que o nome começa por maiúscula |
+| `NameError: name '_procurar' is not defined` | Dentro de um método do inventário, a chamada ficou escrita `_procurar(codigo)`, sem o `self.` à frente | Escreve `self._procurar(codigo)`: dentro da classe, os métodos do próprio objeto alcançam-se através do `self` (passo 5 da secção 10 do caderno). As versões recentes do Python acrescentam à mensagem a sugestão `Did you mean: 'self._procurar'?` |
 | `AttributeError: 'Inventario' object has no attribute '_artigos'` | O nome da lista está escrito de maneiras diferentes no construtor e noutro método | Procura todas as linhas com `_artigo` e usa o mesmo nome em todas. As versões recentes do Python acrescentam à mensagem uma sugestão, como `Did you mean: '_artigo'?` |
 | `AttributeError: 'Inventario' object has no attribute 'registar'` | O método ficou fora da classe, encostado à margem | Indenta todas as linhas do método quatro espaços, para ficarem dentro da classe |
 | `TypeError: can only concatenate str (not "int") to str` | Foi passado um número como código, por exemplo `quantidade_de(7)`, e a mensagem de erro não conseguiu juntar o texto ao número | Os códigos são sempre textos, entre aspas: `quantidade_de("A07")` |

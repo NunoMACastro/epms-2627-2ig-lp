@@ -4,44 +4,42 @@
 
 *M10 · Caderno 4 · Ficha de exercícios*
 
-Esta ficha acompanha o [caderno 4](04-composicao-modelacao.md). É para praticares sozinho, depois de estudares o caderno e de fazeres o [laboratório](04-composicao-modelacao-laboratorio.md). Conta com cerca de hora e um quarto para os sete exercícios, e mais um quarto de hora se fizeres o desafio opcional do fim.
+Esta ficha acompanha o [caderno 4](04-composicao-modelacao.md). É para praticares sozinho, depois de estudares o caderno e de fazeres o [laboratório](04-composicao-modelacao-laboratorio.md). Conta com cerca de uma hora e meia para os sete exercícios, e mais um quarto de hora se fizeres o desafio opcional do fim.
 
 Cada exercício treina uma coisa só, e a ordem vai do mais direto para o que pede uma pequena decisão tua. Responde no caderno diário ou numa folha, com o número de cada exercício. Quando um exercício pede uma justificação, a justificação é a parte mais importante da resposta: uma escolha certa sem razão escrita vale pouco, e uma escolha discutível bem justificada mostra que percebeste as regras. Entrega as respostas pelo meio indicado pelo professor.
 
 ## Exercício 1: ler a caixa de uma classe (5 min)
 
-Esta é a caixa de uma classe de uma loja online:
+Esta é a caixa de uma classe de um jogo de computador:
 
 ```text
 +----------------------------------------+
-| Encomenda                              |
+| Personagem                             |
 +----------------------------------------+
-| numero                                 |
-| data                                   |
-| estado                                 |
+| nome                                   |
+| vida                                   |
+| nivel                                  |
 +----------------------------------------+
-| acrescentar_linha(codigo, unidades)    |
-| anular()                               |
-| total_unidades()                       |
+| sofrer_dano(pontos)                    |
+| descansar()                            |
+| vida_em_falta()                        |
 +----------------------------------------+
 ```
 
 1. Escreve o nome da classe, os seus atributos e os seus métodos.
 2. Qual dos métodos recebe informação quando é chamado, e que informação recebe?
-3. Um colega escreveu `numero = 157` na zona dos atributos desta caixa. Explica, numa ou duas frases, o que está errado, e diz onde faria sentido escrever `numero = 157` (secção 5 do caderno).
+3. Um colega escreveu `nome = "Aurora"` na zona dos atributos desta caixa. Explica, numa ou duas frases, o que está errado, e diz onde faria sentido escrever `nome = "Aurora"` (secção 5 do caderno).
 
 ## Exercício 2: "tem" ou "é um" (10 min)
 
 Para cada par, escreve a frase verdadeira: "A tem B", "A é um B" ou, se nenhuma das duas for verdadeira, uma frase tua que diga como se relacionam.
 
-1. Inventário e artigo.
+1. Telemóvel e bateria.
 2. Caneta e material de escrita.
 3. Portátil e computador.
-4. Turma e aluno.
-5. Carro e motor.
-6. Artigo e inventário, por esta ordem.
+4. Artigo e inventário, por esta ordem.
 
-Depois, responde: um colega propõe, para o programa do inventário, que "o Inventario é um Artigo, porque também tem um nome e guarda quantidades". Usa o teste da secção 3 do caderno ("se A é um B, tudo o que B tem e faz tem de fazer sentido para A") para lhe responder, em três ou quatro frases.
+Depois, responde: um colega propõe, para um programa da secretaria da escola, que "a Turma é um Aluno, porque também tem um nome e um número". Usa o teste da secção 3 do caderno ("se A é um B, tudo o que B tem e faz tem de fazer sentido para A") para lhe responder, em três ou quatro frases.
 
 ## Exercício 3: composição ou agregação (15 min)
 
@@ -49,9 +47,9 @@ Para cada par, o primeiro é o todo e o segundo é a parte. Copia a tabela e res
 
 | Todo e parte | A parte faz sentido sem o todo? | Quem cria a parte? | Decisão e losango |
 | --- | --- | --- | --- |
-| Livro e capítulo | A completar | A completar | A completar |
+| Conversa de uma aplicação de mensagens e mensagem | A completar | A completar | A completar |
 | Equipa de futsal da escola e jogador | A completar | A completar | A completar |
-| Casa e divisão (cozinha, quarto, sala) | A completar | A completar | A completar |
+| Documento de texto e parágrafo | A completar | A completar | A completar |
 | Carrinho de compras de uma loja online e produto | A completar | A completar | A completar |
 
 No último par, pensa no que acontece ao produto quando o carrinho é esvaziado ou abandonado, e se o mesmo produto pode estar no carrinho de outra pessoa ao mesmo tempo. Compara com a linha de encomenda da secção 7: uma linha "2 camisolas" pertence a uma encomenda, mas a camisola, o produto, existe na loja antes e depois da encomenda.
@@ -65,6 +63,7 @@ class Aula:
     """Uma aula do horário: dia da semana, hora de início e disciplina."""
 
     def __init__(self, dia, hora, disciplina):
+        """Guarda o dia, a hora e a disciplina da aula."""
         self.dia = dia
         self.hora = hora
         self.disciplina = disciplina
@@ -74,6 +73,7 @@ class Horario:
     """O horário semanal de uma turma."""
 
     def __init__(self, turma):
+        """Cria o horário de uma turma, ainda sem aulas."""
         self.turma = turma
         self._aulas = []
 
@@ -91,6 +91,7 @@ class Aluno:
     """Um aluno da escola, identificado pelo número de processo."""
 
     def __init__(self, numero):
+        """Guarda o número de processo do aluno."""
         self.numero = numero
 
 
@@ -98,6 +99,7 @@ class Clube:
     """Um clube da escola, como o clube de xadrez ou o de teatro."""
 
     def __init__(self, nome):
+        """Cria um clube com um nome, ainda sem sócios."""
         self.nome = nome
         self._socios = []
 
@@ -134,11 +136,11 @@ Este exercício usa as classes `Artigo` e `Inventario` do programa completo do p
 
 ```python partial
 inventario = Inventario()
-inventario.registar("A04", "Marcador", 5)
-inventario.registar("A05", "Agrafador", 1)
+inventario.registar("A07", "Marcador", 5)
+inventario.registar("A09", "Agrafador", 1)
 
 try:
-    inventario.retirar("A05", 2)
+    inventario.retirar("A09", 2)
 except ValueError as erro:
     print("Pedido 1:", erro)
 
@@ -148,23 +150,23 @@ except ValueError as erro:
     print("Pedido 2:", erro)
 
 try:
-    inventario.retirar("A04", 0)
+    inventario.retirar("A07", 0)
 except ValueError as erro:
     print("Pedido 3:", erro)
 
-inventario.retirar("A04", 5)
-print("A04:", inventario.quantidade_de("A04"))
-print("A05:", inventario.quantidade_de("A05"))
+inventario.retirar("A07", 5)
+print("A07:", inventario.quantidade_de("A07"))
+print("A09:", inventario.quantidade_de("A09"))
 ```
 
 1. Sem executar, copia e completa esta tabela. Na coluna "Quem recusa", escolhe entre o método `_procurar` do inventário, o método `retirar` do artigo, o setter do artigo ou ninguém.
 
 | Pedido | Quem recusa | Mensagem mostrada, se houver |
 | --- | --- | --- |
-| `retirar("A05", 2)` | A completar | A completar |
+| `retirar("A09", 2)` | A completar | A completar |
 | `retirar("A06", 1)` | A completar | A completar |
-| `retirar("A04", 0)` | A completar | A completar |
-| `retirar("A04", 5)` | A completar | A completar |
+| `retirar("A07", 0)` | A completar | A completar |
+| `retirar("A07", 5)` | A completar | A completar |
 
 2. Escreve as duas últimas linhas que o programa vai mostrar.
 3. Executa e compara com as tuas respostas. Se alguma estiver diferente, explica o que tinhas pensado e onde estava o engano.

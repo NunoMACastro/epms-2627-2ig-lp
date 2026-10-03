@@ -4,13 +4,15 @@
 
 *M10 · Caderno 3 · Laboratório*
 
-Este laboratório acompanha o [caderno 3](03-encapsulamento-contratos.md). Diz-te o que fazer, passo a passo, com o editor de Python aberto ao lado. As explicações do porquê estão no caderno: cada parte diz em que secção deves ter o caderno aberto. Conta com cerca de uma hora e um quarto, repartida pela aula, à medida que o professor for explicando cada secção.
+Este laboratório acompanha o [caderno 3](03-encapsulamento-contratos.md). Diz-te o que fazer, passo a passo, com o editor de Python aberto ao lado. As explicações do porquê estão no caderno: cada parte diz em que secção deves ter o caderno aberto. Conta com cerca de uma hora e meia, repartida pela aula, à medida que o professor for explicando cada secção.
 
 No fim deves ter um ficheiro `artigo.py` com a classe final do caderno a funcionar, deves ter provocado de propósito, e lido, os erros de que o caderno fala, e deves ter mudado uma regra da classe num único sítio e visto essa mudança chegar a todas as operações.
 
 ## Antes de começar
 
 Precisas do computador com o editor de Python que usas nas aulas, e de papel e caneta para as previsões.
+
+Este laboratório dá por sabido o caderno 2 inteiro (classe, construtor, `self`, atributos e métodos) e os métodos get e set que já fizeste nas aulas. O resto (o atributo com sublinhado, `raise`, `try` e `except`, as propriedades e os contratos) é matéria nova do caderno 3, que vais vendo parte a parte. Se o professor disser, paras no fim da parte 6 e fazes as partes 7 e 8 noutra aula.
 
 A forma de trabalhar é sempre a mesma. Antes de executares, escreves no papel o que esperas ver. Depois executas e comparas. Quando o resultado é diferente do que previste, explica a diferença antes de continuares: é essa explicação que mais te ensina. Executa sempre o ficheiro inteiro.
 
@@ -27,7 +29,7 @@ Tem aberta a secção 1 do caderno.
 
 1. Copia para o ficheiro o programa completo da secção 1 e executa-o. Confirma que aparecem as três linhas que o caderno mostra, com -3, 2.5 e muitos.
 2. Agora vais ver o "problema escondido" de que a secção fala. Acrescenta no fim do ficheiro a linha `caderno.retirar(1)`. Antes de executar, responde no papel: o que achas que vai acontecer, e porquê?
-3. Executa. As três linhas aparecem, e depois o programa para com um traceback. A última linha é:
+3. Executa. As três linhas aparecem, e depois o programa para com uma mensagem de erro de várias linhas, a que se chama **traceback** (a primeira linha começa por `Traceback`). A secção 7 do caderno ensina a lê-la. A última linha é esta:
 
 ```text
 TypeError: unsupported operand type(s) for -: 'str' and 'int'
@@ -35,7 +37,7 @@ TypeError: unsupported operand type(s) for -: 'str' and 'int'
 
 Em português: o Python não sabe fazer a operação `-` entre um texto (`str`) e um número inteiro (`int`).
 
-4. Responde no papel: em que linha do ficheiro o erro aparece? Em que linha está a causa? Quantas linhas as separam? Relê o último parágrafo da secção 1 do caderno e diz, por palavras tuas, porque é que um estado inválido costuma rebentar longe do sítio onde foi criado.
+4. Responde no papel: em que linha do programa principal aparece o erro? Em que linha está a causa? Quantas linhas acima da linha do erro está a causa? Relê o parágrafo da secção 1 do caderno que começa por "Há ainda um problema escondido" e diz, por palavras tuas, porque é que um estado inválido costuma rebentar longe do sítio onde foi criado.
 
 ## Parte 3: um set que verifica, mas não obriga (10 min)
 
@@ -49,7 +51,7 @@ resposta = caderno.set_quantidade(-1)
 print("O set respondeu:", resposta)
 ```
 
-3. Prevê o que aparece e executa. O set mostra "Valor recusado: -1" e depois aparece `O set respondeu: None`. Responde no papel: com o que o set devolve, consegue o código que o chamou saber que o pedido foi recusado? É o segundo problema da secção 5.
+3. Prevê o que aparece e executa. O set mostra "Valor recusado: -1" e depois aparece `O set respondeu: None`. `None` é um valor especial do Python que quer dizer "nada": é o que devolve um método que não tem `return`. O caderno volta a ele na secção 11. Responde no papel: com o que o set devolve, consegue o código que o chamou saber que o pedido foi recusado? É o segundo problema da secção 5.
 
 ## Parte 4: recusar a sério, com `raise` (10 min)
 
@@ -89,8 +91,8 @@ Tem aberta a secção 8 do caderno.
 Tem abertas as secções 9 e 10 do caderno.
 
 1. Substitui o conteúdo do ficheiro pelo programa completo da secção 9. Prevê as cinco linhas e executa.
-2. Primeiro perigo, o nome igual. Na última linha do setter, troca `self._quantidade = valor` por `self.quantidade = valor`, sem sublinhado. Antes de executar, relê o último parágrafo da secção 9 e escreve no papel o que achas que vai acontecer.
-3. Executa. O programa para logo na criação do primeiro artigo, com um traceback muito comprido, que repete as mesmas linhas muitas vezes e termina assim (em algumas versões do Python, a última linha acrescenta mais umas palavras no fim):
+2. Primeiro perigo, o nome igual. Na última linha do setter, troca `self._quantidade = valor` por `self.quantidade = valor`, sem sublinhado. Antes de executar, relê, na secção 9, o parágrafo que começa por "O valor, esse, fica guardado em `_quantidade`" e escreve no papel o que achas que vai acontecer.
+3. Executa. O programa para logo na criação do primeiro artigo. O traceback repete a mesma entrada, a da linha `self.quantidade = valor`, e termina assim (em algumas versões do Python, a última linha acrescenta mais umas palavras no fim):
 
 ```text
 RecursionError: maximum recursion depth exceeded
@@ -110,12 +112,12 @@ Agora o programa mostra só quatro linhas: a linha "Artigo não criado: ..." des
 Tem abertas as secções 11 e 12 do caderno.
 
 1. Substitui o conteúdo do ficheiro pelo programa completo do passo 6 da secção 12, com a classe final do caderno.
-2. Copia para o papel a tabela do traço do passo 5, tapa as duas últimas colunas e preenche-as tu. Depois executa e compara as seis linhas do programa com o teu traço.
+2. Copia para o papel só as três primeiras colunas da tabela do traço do passo 5, sem olhares para as outras duas, e preenche tu essas duas colunas. Depois executa e compara as seis linhas do programa com o teu traço.
 3. Acrescenta no fim do ficheiro uma linha que chame `caderno.retirar(4)`, fora de qualquer `try`, e outra que mostre a quantidade do caderno. Prevê as duas coisas: se há erro e que quantidade fica. Executa.
 
 Deves ver `0`: retirar todas as unidades que existem é aceite, e zero é um estado válido (secção 2, "Zero no estado e zero no pedido").
 
-## Parte 8: mudar uma regra num só sítio, sozinho (15 min)
+## Parte 8: mudar uma regra num só sítio, sozinho (20 min)
 
 Na secção 3 do caderno lês que, se um dia o inventário passar a ter um limite máximo por artigo, "só é preciso mudar a classe". Vais comprová-lo.
 

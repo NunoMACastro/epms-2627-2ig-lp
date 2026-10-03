@@ -10,7 +10,7 @@ Este caderno trata das relações entre objetos. Vamos ver que há duas pergunta
 
 ## Antes de começares
 
-Este caderno usa a classe `Artigo` tal como ficou no fim do caderno 3: a propriedade `quantidade`, com getter e setter, os métodos `adicionar` e `retirar` com contrato, e as exceções `ValueError`, lançadas com `raise` e tratadas com `try` e `except`. Se alguma destas ideias ainda estiver pouco firme, volta ao caderno 3 antes de continuares, sobretudo às secções 7 a 12. Tudo o resto que o caderno usa é explicado aqui.
+Este caderno usa a classe `Artigo` tal como ficou no fim do caderno 3: a propriedade `quantidade`, com getter e setter, os métodos `adicionar` e `retirar` com contrato, e as exceções `ValueError`, lançadas com `raise` e tratadas com `try` e `except`. Usa também duas ideias do caderno 3 que vão servir para o inventário: a interface pública, que é aquilo que um objeto deixa usar a quem está de fora, e o sublinhado no início de um nome, como em `_quantidade`, que avisa que esse nome é interno da classe. Se alguma destas ideias ainda estiver pouco firme, volta ao caderno 3 antes de continuares, sobretudo às secções 4, 6 e 7 a 12. O que vier dos cadernos 1 e 2 é recordado no sítio onde for preciso, com a indicação do caderno onde foi dado, e tudo o resto é explicado aqui.
 
 Usa também duas ferramentas do Python que provavelmente já usaste no 10.º ano: as listas e o ciclo `for`. Como vamos usá-las de uma maneira nova, para guardar objetos, a secção 9 explica-as do princípio antes de lhes darmos trabalho.
 
@@ -310,6 +310,8 @@ A segunda pergunta é quem cria o artigo. Aqui somos nós que decidimos, porque 
 
 As duas perguntas de confirmação vão no mesmo sentido. Um artigo não pode estar em dois inventários ao mesmo tempo: as 6 unidades de A01 são as desta sala, e o inventário de outra sala tem os seus próprios artigos e as suas próprias quantidades. E se o inventário deixar de existir, os seus artigos, que eram as linhas do seu registo, vão com ele.
 
+Podes objetar que os cadernos continuam no armário mesmo que alguém apague o inventário, e que por isso a resposta à primeira pergunta devia ser sim. A objeção é razoável, e responde-se separando duas coisas que a palavra "artigo" pode misturar. A primeira é o material físico: os seis cadernos que estão na prateleira, e que existem com programa ou sem ele. A segunda é o artigo do nosso programa, que é a linha do registo sobre esse material: diz que há um material com o código A01, chamado Caderno, de que há 6 unidades. O programa guarda informação sobre os cadernos, e as quatro perguntas falam dessa informação. Se o inventário for apagado, os cadernos ficam no armário, mas as linhas do registo desaparecem com ele. É a mesma diferença que há entre a camisola, que existe na loja antes e depois de qualquer encomenda, e a linha "2 camisolas" de uma encomenda, que só existe dentro dela.
+
 A relação entre `Inventario` e `Artigo` é, portanto, uma composição. Este é o diagrama de classes do inventário que vamos escrever na secção 10:
 
 ![Diagrama de classes: Inventario, com os métodos registar(codigo, nome, quantidade), quantidade_de(codigo) e retirar(codigo, unidades), ligado a Artigo por uma linha com um losango cheio do lado de Inventario, com 1 do lado do inventário e 0..* do lado do artigo](../imagens/uml-inventario-artigo.svg)
@@ -536,6 +538,8 @@ Excerto, que pertence à classe e não corre sozinho:
         artigo.retirar(unidades)
 ```
 
+Repara primeiro na forma da chamada, `self._procurar(codigo)`. É a primeira vez que um método pede trabalho a outro método do mesmo objeto. Já sabes, do caderno 2, que dentro de um método `self` é o objeto sobre o qual o método está a trabalhar, que aqui é o próprio inventário. Por isso, tal como de fora se escreve `inventario.registar(...)` para pedir alguma coisa ao objeto `inventario`, de dentro escreve-se `self._procurar(...)` para o inventário pedir alguma coisa a si próprio. É a mesma ideia de `self.quantidade` no caderno 3, em que o artigo lia a sua própria propriedade; aqui, o inventário chama um método seu. O `self.` é obrigatório. Sem ele, a linha ficaria `artigo = _procurar(codigo)`, e o Python iria procurar uma função solta com esse nome, escrita fora de qualquer classe. Como essa função não existe, o programa parava com `NameError: name '_procurar' is not defined`. Dentro da classe, a forma de chegar aos métodos do próprio objeto é através do `self`.
+
 Os dois métodos começam por encontrar o artigo com `_procurar`. Se o código não existir, `_procurar` lança `ValueError`, e o método que o chamou é interrompido nessa mesma linha, sem chegar à segunda. Se o código existir, o nome local `artigo` passa a apontar para o artigo certo, que é o próprio objeto guardado na lista, e não uma cópia, como vimos na secção 9.
 
 Depois, cada método faz um pedido a esse artigo. `quantidade_de` lê a propriedade `quantidade` e devolve o valor. `retirar` chama o método `retirar` do artigo, com as mesmas unidades que recebeu.
@@ -743,6 +747,8 @@ A exceção nasce no fundo da cadeia, no setter, e começa a subir. Sai do sette
 | `retirar` do inventário | À espera do artigo | É abandonado sem terminar |
 | Programa principal | Dentro de um `try` | Apanha a exceção no `except` e continua |
 
+Repara que `_procurar` não aparece nesta tabela, apesar de o passo 2 da cadeia o chamar. Quando a exceção nasce, `_procurar` já terminou: encontrou o artigo A01, devolveu-o com o `return` e saiu. Nesse momento, os únicos métodos que ainda não terminaram são os que estão parados à espera de outro, e são esses que formam a cadeia por onde a exceção sobe. Um método que já terminou não está à espera de nada, e por isso a exceção não passa por ele.
+
 Uma exceção sobe pela cadeia de chamadas até encontrar um `try` com o `except` certo. Todos os métodos que estiverem pelo caminho sem `try` são interrompidos no ponto onde estavam. Se não houver nenhum `try`, a exceção chega ao fim da cadeia e o programa para, com as linhas do `Traceback` que viste no caderno 3. Nesse caso, o traceback mostra, para cada nível da cadeia, do programa principal até ao setter, o ficheiro, o número da linha e o código dessa linha, e lê-se de baixo para cima, como aprendeste. No laboratório deste caderno vais provocar um traceback destes de propósito e ler os seus níveis.
 
 Porque é que o inventário não tem um `try` para apanhar a recusa do artigo? Pela divisão de tarefas do caderno 3, secção 8: quem lança a exceção decide se o pedido é válido, e quem a apanha decide o que fazer com a recusa. O inventário não sabe o que fazer com uma recusa. Não sabe se o programa está a escrever num terminal, a mostrar uma página web ou a registar o pedido num ficheiro. Por isso deixa a exceção passar, e é o programa principal, que sabe onde está, que decide mostrar a mensagem. Se o inventário apanhasse a exceção e não fizesse nada, a recusa desaparecia pelo caminho, e quem fez o pedido ficaria convencido de que ele tinha sido cumprido.
@@ -813,6 +819,10 @@ Para correr ['Ritmo Forte', 'Chuva de Outono (acústica)']
 ```
 
 Quando o `print` recebe uma lista, mostra-a como ela se escreveria em Python: entre parênteses retos, com os textos entre plicas e separados por vírgulas.
+
+A lista que aparece em cada linha é construída pelo método `titulos`, e vale a pena ler o corpo dele com cuidado, porque usa uma forma de trabalhar com ciclos que vais voltar a encontrar muitas vezes. Antes do ciclo, a linha `resultado = []` cria uma lista vazia, que vai receber os títulos. Em cada volta do `for`, o nome `musica` aponta para uma das músicas da playlist, e `resultado.append(musica.titulo)` acrescenta o título dessa música no fim da lista. Só depois de o ciclo acabar, já com um título por cada música, é que `return resultado` devolve a lista completa. Na primeira chamada para a playlist "Para correr", a lista começa vazia, fica com `'Ritmo Forte'` depois da primeira volta e com `'Ritmo Forte'` e `'Chuva de Outono'` depois da segunda.
+
+A uma variável como `resultado`, que é preparada antes do ciclo e vai juntando, volta a volta, uma parte do resultado, chama-se **acumulador**. Há três pormenores que decidem se um acumulador funciona. O primeiro é o valor com que começa, escrito antes do ciclo: tem de ser o resultado certo para o caso em que o ciclo não dá nenhuma volta. Os títulos de uma playlist sem músicas formam uma lista vazia, e por isso `resultado` começa vazio. O segundo é que a linha que prepara o acumulador fica fora do ciclo. Se ficasse dentro, a lista voltava a ficar vazia no início de cada volta, e no fim só teria o último título. O terceiro é que o `return` fica depois do ciclo, encostado à indentação do `for`. Se ficasse dentro, o método terminava logo na primeira volta, com uma lista que só teria o primeiro título. No método `_procurar` da secção 10, o `return` está dentro do ciclo de propósito, porque a procura acaba assim que encontra o artigo. Aqui, o resultado só está pronto quando todas as músicas tiverem passado pelo ciclo.
 
 As duas músicas são criadas no programa principal, com `Musica(...)`, antes de qualquer playlist existir. O método `acrescentar` não cria nada: recebe no parâmetro `musica` um objeto que já existe e junta-o à lista. Em lado nenhum da classe `Playlist` aparece `Musica(...)`. É o sinal, no código, da resposta "alguém fora do todo" à pergunta 2.
 

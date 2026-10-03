@@ -303,6 +303,8 @@ Isto vai ser importante no caderno 4, quando um inventário guardar uma lista de
 
 ## 9. Agora experimenta
 
+Antes destes exercícios, faz o [laboratório](02-objetos-classes-instancias-laboratorio.md) no computador e a [ficha de exercícios](02-objetos-classes-instancias-exercicios.md), que é mais leve e é por onde começas a praticar; os exercícios seguintes servem para aprofundar, quando o professor indicar.
+
 Cada exercício pede uma decisão que o exemplo guiado não tomou por ti. Antes de executares qualquer programa, escreve a tua previsão; se a execução der outra coisa, procura a explicação em vez de mudar a previsão. Entrega as respostas pelo meio indicado pelo professor.
 
 ### Exercício 1: Ler um programa antes de o executar
