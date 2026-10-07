@@ -12,7 +12,7 @@ No fim deves ter um ficheiro `artigo.py` com a classe final do caderno a funcion
 
 Precisas do computador com o editor de Python que usas nas aulas, e de papel e caneta para as previsões.
 
-Este laboratório dá por sabido o caderno 2 inteiro (classe, construtor, `self`, atributos e métodos) e os métodos get e set que já fizeste nas aulas. O resto (o atributo com sublinhado, `raise`, `try` e `except`, as propriedades e os contratos) é matéria nova do caderno 3, que vais vendo parte a parte. Se o professor disser, paras no fim da parte 6 e fazes as partes 7 e 8 noutra aula.
+Este laboratório dá por sabido o caderno 2 inteiro (classe, construtor, `self`, atributos e métodos) e o get e o set que já fizeste nas aulas, com propriedades. O resto (os métodos get e set escritos à mão, o atributo com sublinhado, `raise`, `try` e `except`, o que a propriedade faz por baixo e os contratos) é matéria do caderno 3, que vais vendo parte a parte. Se o professor disser, paras no fim da parte 6 e fazes as partes 7 e 8 noutra aula.
 
 A forma de trabalhar é sempre a mesma. Antes de executares, escreves no papel o que esperas ver. Depois executas e comparas. Quando o resultado é diferente do que previste, explica a diferença antes de continuares: é essa explicação que mais te ensina. Executa sempre o ficheiro inteiro.
 

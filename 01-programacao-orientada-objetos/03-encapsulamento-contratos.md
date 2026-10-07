@@ -6,7 +6,7 @@
 
 No caderno anterior, pedimos a um artigo com 6 unidades que retirasse 2. O método fez a subtração e ficaram 4. Escolhemos de propósito um pedido que sabíamos ser possível, e avisámos que o método ainda não verificava nada. Um programa verdadeiro, porém, recebe pedidos errados: números a mais, números negativos, números com casas decimais, e até texto onde se esperava um número.
 
-Este caderno parte de um erro simples para mostrar porque é que um objeto deve controlar as alterações aos seus próprios dados. Essa ideia chama-se encapsulamento. Depois vemos, um passo de cada vez, as ferramentas que o Python oferece para a pôr em prática: os métodos get e set que já viste nas aulas, o atributo com sublinhado, os erros do tipo `ValueError` e as propriedades. No fim, escrevemos as operações de adicionar e de retirar com um contrato claro.
+Este caderno parte de um erro simples para mostrar porque é que um objeto deve controlar as alterações aos seus próprios dados. Essa ideia chama-se encapsulamento. Depois vemos, um passo de cada vez, as ferramentas que o Python oferece para a pôr em prática: os métodos get e set, o atributo com sublinhado, os erros do tipo `ValueError` e as propriedades, que são a forma de fazer o get e o set que já usaste nas aulas. No fim, escrevemos as operações de adicionar e de retirar com um contrato claro.
 
 Os programas completos correm sozinhos, como nos cadernos anteriores: copia-os para um ficheiro `.py` e executa o ficheiro inteiro. Os excertos estão sempre assinalados.
 
@@ -107,7 +107,9 @@ Quem usa estas operações precisa de saber o que cada uma faz e quando é recus
 
 ## 5. Primeiro passo: métodos get e set
 
-Nas aulas já usaste métodos **get** e **set**. Um método get devolve o valor de um atributo; um método set muda o valor de um atributo. Os nomes vêm do inglês: *get* quer dizer obter, e *set* quer dizer definir. A vantagem de mudar a quantidade através de um método set é que o método pode verificar o valor antes de o guardar.
+Nas aulas, fizeste o get e o set com propriedades, a forma que a secção 9 explica. Esta secção mostra primeiro o get e o set escritos como dois métodos normais, que é a forma mais antiga e a que vais encontrar noutras linguagens, porque é neles que se vê melhor o que uma propriedade faz por baixo. Podes lê-la como uma ponte para a secção 9.
+
+Um método **get** devolve o valor de um atributo; um método **set** muda o valor de um atributo. Os nomes vêm do inglês: *get* quer dizer obter, e *set* quer dizer definir. A vantagem de mudar a quantidade através de um método set é que o método pode verificar o valor antes de o guardar.
 
 Programa completo:
 
@@ -298,7 +300,7 @@ Repara na divisão de tarefas. A classe decide se um valor é válido e, se não
 
 ## 9. Propriedades: `@property`
 
-Os métodos get e set resolvem o problema, mas obrigam a escrever `caderno.get_quantidade()` e `caderno.set_quantidade(4)` em vez de `caderno.quantidade` e `caderno.quantidade = 4`. Além de ser mais comprido, isso obriga a mudar todo o código que já usava o atributo. O Python oferece uma solução que junta as duas coisas: por fora escreve-se como se fosse um atributo, e por dentro passa-se pelos métodos que verificam.
+Os métodos get e set resolvem o problema, mas obrigam a escrever `caderno.get_quantidade()` e `caderno.set_quantidade(4)` em vez de `caderno.quantidade` e `caderno.quantidade = 4`. Além de ser mais comprido, isso obriga a mudar todo o código que já usava o atributo. O Python oferece uma solução que junta as duas coisas: por fora escreve-se como se fosse um atributo, e por dentro passa-se pelos métodos que verificam. É a forma de fazer o get e o set que já usaste nas aulas; aqui vais ver porque existe e o que acontece por baixo.
 
 Uma **propriedade** é um atributo aparente, cujo valor é lido e escrito através de dois métodos: um **getter**, executado quando alguém lê o valor, e um **setter**, executado quando alguém escreve um valor novo. Programa completo:
 
