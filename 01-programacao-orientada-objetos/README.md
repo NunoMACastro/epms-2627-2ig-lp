@@ -32,6 +32,7 @@ Os diagramas e o pseudocódigo servem para pensar sobre o programa; não são co
 ## Onde estão os programas?
 
 - Cadernos 1 a 5: os programas estão completos dentro de cada caderno, em Python. Os laboratórios dizem, passo a passo, como os usar no computador.
+- Caderno 3: os programas mostrados na aula, mais curtos do que os do caderno, estão na pasta [encapsulamento](../exemplos/programacao-orientada-objetos/encapsulamento/README.md).
 - O caderno 6 e o trabalho de síntese ainda estão na versão antiga, em JavaScript, e passam a Python antes de lá chegarmos. O [programa inicial do trabalho de síntese](../avaliacoes/inventario-inicial.js) tem uma operação por completar.
 - O ficheiro [composicao.js](../exemplos/programacao-orientada-objetos/composicao.js) pertencia à versão antiga do caderno 4, em JavaScript. O caderno 4 já não o usa.
 
