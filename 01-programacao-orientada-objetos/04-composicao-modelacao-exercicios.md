@@ -4,11 +4,11 @@
 
 *M10 · Caderno 4 · Ficha de exercícios*
 
-Esta ficha acompanha o [caderno 4](04-composicao-modelacao.md). É para praticares sozinho, depois de estudares o caderno e de fazeres o [laboratório](04-composicao-modelacao-laboratorio.md). Conta com cerca de uma hora e meia para os sete exercícios, e mais um quarto de hora se fizeres o desafio opcional do fim.
+Esta ficha acompanha o [caderno 4](04-composicao-modelacao.md). É para praticares sozinho, depois de estudares o caderno e de fazeres o [laboratório](04-composicao-modelacao-laboratorio.md). Conta com cerca de uma hora e cinco minutos para os cinco exercícios. Depois deles há uma parte opcional, que fica fora desse tempo: os três exercícios de "Para ires mais longe", que levam mais cerca de quarenta minutos, e o desafio do fim, que leva mais um quarto de hora.
 
 Cada exercício treina uma coisa só, e a ordem vai do mais direto para o que pede uma pequena decisão tua. Responde no caderno diário ou numa folha, com o número de cada exercício. Quando um exercício pede uma justificação, a justificação é a parte mais importante da resposta: uma escolha certa sem razão escrita vale pouco, e uma escolha discutível bem justificada mostra que percebeste as regras. Entrega as respostas pelo meio indicado pelo professor.
 
-## Exercício 1: ler a caixa de uma classe (5 min)
+## Exercício 1: ler a caixa de uma classe (7 min)
 
 Esta é a caixa de uma classe de um jogo de computador:
 
@@ -30,7 +30,7 @@ Esta é a caixa de uma classe de um jogo de computador:
 2. Qual dos métodos recebe informação quando é chamado, e que informação recebe?
 3. Um colega escreveu `nome = "Aurora"` na zona dos atributos desta caixa. Explica, numa ou duas frases, o que está errado, e diz onde faria sentido escrever `nome = "Aurora"` (secção 5 do caderno).
 
-## Exercício 2: "tem" ou "é um" (10 min)
+## Exercício 2: "tem" ou "é um" (12 min)
 
 Para cada par, escreve a frase verdadeira: "A tem B", "A é um B" ou, se nenhuma das duas for verdadeira, uma frase tua que diga como se relacionam.
 
@@ -41,20 +41,7 @@ Para cada par, escreve a frase verdadeira: "A tem B", "A é um B" ou, se nenhuma
 
 Depois, responde: um colega propõe, para um programa da secretaria da escola, que "a Turma é um Aluno, porque também tem um nome e um número". Usa o teste da secção 3 do caderno ("se A é um B, tudo o que B tem e faz tem de fazer sentido para A") para lhe responder, em três ou quatro frases.
 
-## Exercício 3: composição ou agregação (15 min)
-
-Para cada par, o primeiro é o todo e o segundo é a parte. Copia a tabela e responde às duas perguntas que decidem (secção 7 do caderno). Depois escreve a decisão e se o losango é cheio ou vazio.
-
-| Todo e parte | A parte faz sentido sem o todo? | Quem cria a parte? | Decisão e losango |
-| --- | --- | --- | --- |
-| Conversa de uma aplicação de mensagens e mensagem | A completar | A completar | A completar |
-| Equipa de futsal da escola e jogador | A completar | A completar | A completar |
-| Documento de texto e parágrafo | A completar | A completar | A completar |
-| Carrinho de compras de uma loja online e produto | A completar | A completar | A completar |
-
-No último par, pensa no que acontece ao produto quando o carrinho é esvaziado ou abandonado, e se o mesmo produto pode estar no carrinho de outra pessoa ao mesmo tempo. Compara com a linha de encomenda da secção 7: uma linha "2 camisolas" pertence a uma encomenda, mas a camisola, o produto, existe na loja antes e depois da encomenda.
-
-## Exercício 4: descobrir a relação a partir do código (10 min)
+## Exercício 3: descobrir a relação a partir do código (13 min)
 
 Lê este programa completo. Não precisas de o executar para responder, mas podes fazê-lo no fim para confirmar que funciona.
 
@@ -128,9 +115,59 @@ print(horario.numero_de_aulas(), xadrez.numero_de_socios(), teatro.numero_de_soc
 1. Na classe `Horario`, indica a linha onde as aulas são criadas. Quem as cria?
 2. Na classe `Clube`, o método `inscrever` cria algum aluno? De onde vem o aluno que ele guarda?
 3. Com base nas tuas respostas, diz se cada uma das relações, `Horario` com `Aula` e `Clube` com `Aluno`, é uma composição ou uma agregação. Confirma a decisão com a pergunta "a parte faz sentido sem o todo?".
-4. Desenha as duas relações em UML leve: quatro caixas só com o nome da classe, as linhas, os losangos e as multiplicidades.
 
-## Exercício 5: seguir pedidos pelo inventário (15 min)
+Se quiseres desenhar estas duas relações em UML leve, com os losangos e as multiplicidades, faz depois o Mais longe 2, na parte opcional do fim da ficha.
+
+## Exercício 4: um erro no encaminhamento (20 min)
+
+Um colega escreveu esta versão do método `retirar` do inventário. É um excerto: para a experimentares, substitui o `retirar` da classe `Inventario` do programa do passo 7 por este.
+
+```python partial
+    def retirar(self, codigo, unidades):
+        """Retira unidades ao artigo com este código (versão com erro)."""
+        artigo = self._procurar(codigo)
+        artigo.quantidade = artigo.quantidade - unidades
+```
+
+O colega testou-a com um artigo de 6 unidades: retirar 2 deixou 4, e retirar 9 foi recusado com a mensagem "A quantidade não pode ser negativa." e manteve as 4. Ficou convencido de que o método funciona.
+
+1. Descobre um pedido de retirada que mostre que esta versão tem um erro. Escreve o pedido, a quantidade antes, a quantidade depois e porque é que o resultado está errado. Confirma executando.
+2. Explica por palavras o que esta versão salta. Na tua resposta, diz que regras deixaram de ser verificadas e em que método da classe `Artigo` estão escritas.
+3. Corrige o método, mudando uma única linha.
+4. Porque é que os dois testes do colega não apanharam o erro? Relaciona com o passo 3 da secção 12 do caderno 3, onde se explica o que o setter protege e o que não sabe.
+
+## Exercício 5: desenhar um modelo (12 min)
+
+Lê a descrição:
+
+> Os professores fazem requisições de material ao armazém da escola. Cada requisição tem um número e uma data, e é formada por linhas. Cada linha diz o código de um artigo e as unidades pedidas. As linhas são criadas pela requisição, quando o professor acrescenta um pedido, e não fazem sentido fora dela. Uma requisição pode ser anulada.
+
+1. Desenha em UML leve as classes `Requisicao` e `LinhaRequisicao`, com os atributos e os métodos que a descrição justifica. Não precisas de inventar mais nada.
+2. Liga as duas caixas com a relação adequada: a linha, o losango certo, do lado certo, e as multiplicidades. Se precisares, revê na secção 7 do caderno como se desenham os losangos, e na secção 6 em que ponta se escreve cada multiplicidade.
+3. Há uma decisão que a descrição não toma por ti: a multiplicidade do lado das linhas. Uma requisição tem de ter sempre pelo menos uma linha, ou pode existir uma requisição sem linhas enquanto o professor a está a preparar? Escolhe `1..*` ou `0..*` e justifica a tua escolha numa frase. As duas escolhas podem estar certas, se a justificação estiver.
+
+## Para ires mais longe
+
+Esta secção é opcional e fica fora da hora e cinco minutos da ficha. É para quem acabou os cinco exercícios e quer treinar mais com outros casos: o Mais longe 1 dá mais prática da escolha entre composição e agregação, o Mais longe 2 completa o exercício 3 com o diagrama, e o Mais longe 3 segue pedidos pelo inventário com o código sem erros. Se o exercício 4 te custou, o Mais longe 3 ajuda a rever o caminho de um pedido antes de voltares a ele. Cada um diz quanto tempo leva, e podes fazer só um ou dois. Responde com o título de cada um, por exemplo "Mais longe 2".
+
+### Mais longe 1: composição ou agregação (16 min)
+
+Para cada par, o primeiro é o todo e o segundo é a parte. Copia a tabela e responde às duas perguntas que decidem (secção 7 do caderno). Depois escreve a decisão e se o losango é cheio ou vazio.
+
+| Todo e parte | A parte faz sentido sem o todo? | Quem cria a parte? | Decisão e losango |
+| --- | --- | --- | --- |
+| Conversa de uma aplicação de mensagens e mensagem | A completar | A completar | A completar |
+| Equipa de futsal da escola e jogador | A completar | A completar | A completar |
+| Documento de texto e parágrafo | A completar | A completar | A completar |
+| Carrinho de compras de uma loja online e produto | A completar | A completar | A completar |
+
+No último par, pensa no que acontece ao produto quando o carrinho é esvaziado ou abandonado, e se o mesmo produto pode estar no carrinho de outra pessoa ao mesmo tempo. Compara com a linha de encomenda da secção 7: uma linha "2 camisolas" pertence a uma encomenda, mas a camisola, o produto, existe na loja antes e depois da encomenda.
+
+### Mais longe 2: as relações do exercício 3 em UML leve (8 min)
+
+Volta ao programa do exercício 3 e às decisões que tomaste na alínea 3. Desenha as duas relações em UML leve: quatro caixas só com o nome da classe, as linhas, os losangos e as multiplicidades. Para saberes em que ponta se escreve cada multiplicidade, lê cada ligação nos dois sentidos, como na secção 6 do caderno.
+
+### Mais longe 3: seguir pedidos pelo inventário (18 min)
 
 Este exercício usa as classes `Artigo` e `Inventario` do programa completo do passo 7 da secção 10 do caderno, sem alterações. Para executar o excerto, copia esse programa e substitui as linhas que vêm depois das classes, a partir de `inventario = Inventario()`, por estas:
 
@@ -170,34 +207,6 @@ print("A09:", inventario.quantidade_de("A09"))
 
 2. Escreve as duas últimas linhas que o programa vai mostrar.
 3. Executa e compara com as tuas respostas. Se alguma estiver diferente, explica o que tinhas pensado e onde estava o engano.
-
-## Exercício 6: um erro no encaminhamento (15 min)
-
-Um colega escreveu esta versão do método `retirar` do inventário. É um excerto: para a experimentares, substitui o `retirar` da classe `Inventario` do programa do passo 7 por este.
-
-```python partial
-    def retirar(self, codigo, unidades):
-        """Retira unidades ao artigo com este código (versão com erro)."""
-        artigo = self._procurar(codigo)
-        artigo.quantidade = artigo.quantidade - unidades
-```
-
-O colega testou-a com um artigo de 6 unidades: retirar 2 deixou 4, e retirar 9 foi recusado com a mensagem "A quantidade não pode ser negativa." e manteve as 4. Ficou convencido de que o método funciona.
-
-1. Descobre um pedido de retirada que mostre que esta versão tem um erro. Escreve o pedido, a quantidade antes, a quantidade depois e porque é que o resultado está errado. Confirma executando.
-2. Explica por palavras o que esta versão salta. Na tua resposta, diz que regras deixaram de ser verificadas e em que método da classe `Artigo` estão escritas.
-3. Corrige o método, mudando uma única linha.
-4. Porque é que os dois testes do colega não apanharam o erro? Relaciona com o passo 3 da secção 12 do caderno 3, onde se explica o que o setter protege e o que não sabe.
-
-## Exercício 7: desenhar um modelo (15 min)
-
-Lê a descrição:
-
-> Os professores fazem requisições de material ao armazém da escola. Cada requisição tem um número e uma data, e é formada por linhas. Cada linha diz o código de um artigo e as unidades pedidas. As linhas são criadas pela requisição, quando o professor acrescenta um pedido, e não fazem sentido fora dela. Uma requisição pode ser anulada.
-
-1. Desenha em UML leve as classes `Requisicao` e `LinhaRequisicao`, com os atributos e os métodos que a descrição justifica. Não precisas de inventar mais nada.
-2. Liga as duas caixas com a relação adequada: a linha, o losango certo, do lado certo, e as multiplicidades.
-3. Há uma decisão que a descrição não toma por ti: a multiplicidade do lado das linhas. Uma requisição tem de ter sempre pelo menos uma linha, ou pode existir uma requisição sem linhas enquanto o professor a está a preparar? Escolhe `1..*` ou `0..*` e justifica a tua escolha numa frase. As duas escolhas podem estar certas, se a justificação estiver.
 
 ## Desafio opcional: artigos arrumados em armários
 
