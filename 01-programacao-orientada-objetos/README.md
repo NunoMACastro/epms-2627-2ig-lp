@@ -17,9 +17,9 @@ Cada tema tem até três documentos: o caderno, para ler e estudar, com as expli
 3. [Proteger a quantidade de um artigo](03-encapsulamento-contratos.md): compreender regras, encapsulamento e contratos. [Laboratório](03-encapsulamento-contratos-laboratorio.md) e [ficha de exercícios](03-encapsulamento-contratos-exercicios.md).
 4. [Reunir artigos num inventário](04-composicao-modelacao.md): relações entre objetos, composição e agregação, esquemas de classes em UML leve e a classe do inventário. [Laboratório](04-composicao-modelacao-laboratorio.md) e [ficha de exercícios](04-composicao-modelacao-exercicios.md).
 5. [A mesma operação, maneiras diferentes de a realizar](05-heranca-polimorfismo.md): estudar herança, polimorfismo e abstração através de notificações. [Laboratório](05-heranca-polimorfismo-laboratorio.md) e [ficha de exercícios](05-heranca-polimorfismo-exercicios.md).
-6. [Juntar as ideias num pequeno inventário](06-sintese.md): compreender e completar um programa com apoio.
+6. [Juntar as ideias num pequeno inventário](06-sintese.md): reconhecer num só programa as ideias dos cadernos 2 a 4, completar uma operação com um exemplo guiado e resolver três tarefas curtas. Este caderno não tem laboratório nem ficha separados: as tarefas estão no próprio caderno.
 
-Antes dos primeiros conceitos, o professor propõe o [diagnóstico](../avaliacoes/diagnostico-inicial.md) e escolhe contigo as [atividades de apoio](bridge-raciocinio.md) de que precisas. No fim, realizarás o [trabalho de síntese](../avaliacoes/mini-problema.md).
+Antes dos primeiros conceitos, o professor propõe o [diagnóstico](../avaliacoes/diagnostico-inicial.md) e escolhe contigo as [atividades de apoio](bridge-raciocinio.md) de que precisas. No fim, realizarás o [trabalho de síntese](../avaliacoes/mini-problema.md), cujo enunciado é publicado quando a turma lá chegar.
 
 ## Como usar um caderno
 
@@ -31,29 +31,16 @@ Os diagramas e o pseudocódigo servem para pensar sobre o programa; não são co
 
 ## Onde estão os programas
 
-- Cadernos 1 a 5: os programas estão completos dentro de cada caderno, em Python. Os laboratórios dizem, passo a passo, como os usar no computador.
+- Cadernos 1 a 6: os programas estão completos dentro de cada caderno, em Python. Os laboratórios dos cadernos 1 a 5 dizem, passo a passo, como os usar no computador.
 - Caderno 3: os programas mostrados na aula, mais curtos do que os do caderno, estão na pasta [encapsulamento](../exemplos/programacao-orientada-objetos/encapsulamento/README.md).
-- O caderno 6 e o trabalho de síntese ainda estão na versão antiga, em JavaScript, e passam a Python antes de lá chegarmos. O [programa inicial do trabalho de síntese](../avaliacoes/inventario-inicial.js) tem uma operação por completar.
-- O ficheiro [composicao.js](../exemplos/programacao-orientada-objetos/composicao.js) pertencia à versão antiga do caderno 4, em JavaScript. O caderno 4 já não o usa.
+- O trabalho de síntese, em Python, e o seu programa inicial são publicados na pasta das avaliações quando a turma lá chegar.
+- Os ficheiros [composicao.js](../exemplos/programacao-orientada-objetos/composicao.js) e [inventario-inicial.js](../avaliacoes/inventario-inicial.js) pertenciam às versões antigas do caderno 4 e do trabalho de síntese, em JavaScript, e já não se usam. Ficam no repositório para não quebrar ligações antigas.
 
 ## Executar um programa em Python
 
-Os programas dos cadernos 1 a 5 executam-se no editor de Python que usas nas aulas. Copia o programa completo para um ficheiro novo com a extensão `.py`, guarda-o e executa o ficheiro inteiro. Cada execução começa do zero, com os valores iniciais escritos no programa. Os programas destes cadernos funcionam com Python 3, a partir da versão 3.10.
+Os programas dos cadernos 1 a 6 executam-se no editor de Python que usas nas aulas. Copia o programa completo para um ficheiro novo com a extensão `.py`, guarda-o e executa o ficheiro inteiro. Cada execução começa do zero, com os valores iniciais escritos no programa. Os programas destes cadernos funcionam com Python 3, a partir da versão 3.10.
 
 Se aparecer uma mensagem de erro, lê primeiro a última linha: diz o tipo de erro e a razão. As linhas de cima dizem onde aconteceu. O caderno 3 explica como ler estas mensagens.
-
-## Executar um programa JavaScript (caderno 6 e trabalho de síntese)
-
-Esta secção serve enquanto o caderno 6 e o trabalho de síntese estiverem na versão antiga, em JavaScript. O professor vai acompanhar esta preparação. Usaremos as ferramentas do browser para executar JavaScript e ver as mensagens na **consola**, uma área onde o programa pode apresentar resultados.
-
-1. Abre um separador vazio, escrevendo `about:blank` na barra de endereços.
-2. Em Chrome ou Edge, abre o menu “Mais ferramentas” → “Ferramentas de programação”. Em macOS também podes usar Option+Cmd+I; em Windows/Linux, Ctrl+Shift+I.
-3. Abre “Sources” (Fontes) e procura “Snippets” (Fragmentos) no painel lateral. Um fragmento é uma área onde podes guardar e executar um pequeno conjunto de instruções. Cria um novo fragmento com o nome do exercício.
-4. Coloca nesse fragmento o conteúdo completo do ficheiro indicado no caderno. O professor pode preparar este passo contigo. Se o browser bloquear a colagem, pede ajuda em vez de desativar a proteção.
-5. Usa o botão de execução do fragmento e consulta as mensagens na área “Console” (Consola). Compara-as com as previsões que escreveste.
-6. Para começar de novo, executa outra vez o ficheiro completo. Isso volta a criar os artigos com os valores iniciais. Para experimentar alterações, usa a tua cópia de trabalho e conserva o exemplo original de estudo.
-
-Os menus podem ter nomes diferentes no computador da escola. Se não conseguires abrir o ambiente, avisa o professor. Podes começar pelo traço em papel enquanto preparas a execução.
 
 Usa apenas os dados fictícios dos exercícios. As respostas e os ficheiros de trabalho são entregues pelo meio indicado pelo professor.
 
