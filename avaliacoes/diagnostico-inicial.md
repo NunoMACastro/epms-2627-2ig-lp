@@ -2,13 +2,15 @@
 
 # Diagnóstico inicial: raciocínio e programação estruturada
 
-*M10 · diagnóstico inicial · 45 minutos · trabalho individual*
+*M10 · revisão opcional · cerca de 45 minutos*
 
 ## Antes de começar (3 minutos)
 
-Este diagnóstico serve para escolher o apoio de que precisas. Não exige JavaScript, Git, HTML ou CSS. Podes explicar por palavras, desenhar uma tabela ou usar pseudocódigo. Se não souberes, indica onde deixaste de compreender; essa informação também ajuda o professor.
+Este diagnóstico é uma revisão opcional da programação estruturada do 10.º ano, para fazeres por tua conta, quando quiseres. Não é recolhido nem corrigido em aula. Serve para perceberes como raciocinas e o que ainda dominas, e para escolheres o que te convém rever. Feito de seguida, demora cerca de 45 minutos; o tempo indicado em cada parte serve só para te orientares.
 
-No pseudocódigo, `←` significa guardar um valor; `=` compara valores; `MOSTRAR` apresenta um resultado; `DEVOLVER` entrega o resultado de uma função. Os índices das listas começam em zero. Um ciclo `PARA i DE a ATÉ b` inclui os dois limites. `E` exige que as duas condições sejam verdadeiras. Não existe execução automática destes blocos.
+Não precisas de nenhuma linguagem em particular. Podes responder por palavras, com uma tabela, com um desenho, em pseudocódigo ou em Python. Escreve sempre a tua resposta antes de experimentares: se passares um dos algoritmos para Python e o executares, compara o resultado com o que tinhas previsto. Se não souberes responder, escreve onde deixaste de compreender, porque é aí que está o que vale a pena rever.
+
+Os algoritmos estão em pseudocódigo. Nesta notação, `=` dá um valor a uma variável e `==` compara dois valores, como em Python. `Escreve:` mostra um valor no ecrã, e `devolver` entrega o resultado de uma função a quem a chamou. Os blocos marcam-se só pela indentação, também como em Python: as linhas mais à direita, por baixo de um `Se`, de um `Para` ou de uma `Função`, pertencem a esse bloco. Os índices das listas começam em zero, e um ciclo `Para i de 0 até 2` inclui os dois limites. `e` exige que as duas condições sejam verdadeiras. Estes algoritmos não se executam tal como estão escritos.
 
 ## 1. Valores e operações (6 minutos)
 
@@ -19,10 +21,10 @@ a) Escolhe um tipo de valor adequado para cada informação e dá um exemplo fic
 b) Neste algoritmo, `quantidade` conta caixas e cada caixa contém cinco unidades. Lê o algoritmo e indica os valores finais de `quantidade` e `total`. Mostra as contas.
 
 ```pseudocode
-quantidade ← 4
-quantidade ← quantidade + 3
-unidadesPorCaixa ← 5
-total ← quantidade × unidadesPorCaixa
+quantidade = 4
+quantidade = quantidade + 3
+unidadesPorCaixa = 5
+total = quantidade * unidadesPorCaixa
 ```
 
 c) Explica a diferença entre guardar o número `4` e o texto `"4"`.
@@ -32,11 +34,10 @@ c) Explica a diferença entre guardar o número `4` e o texto `"4"`.
 Regra do exercício: um pedido só é aceite se a quantidade pedida for positiva e não exceder o stock.
 
 ```pseudocode
-SE pedido > 0 E pedido <= stock ENTÃO
-    MOSTRAR "Pedido aceite"
-SENÃO
-    MOSTRAR "Verifica a quantidade"
-FIM SE
+Se pedido > 0 e pedido <= stock
+    Escreve: "Pedido aceite"
+Senão
+    Escreve: "Verifica a quantidade"
 ```
 
 a) Para cada caso, indica a mensagem e justifica-a: `(pedido=2, stock=5)`, `(pedido=0, stock=5)`, `(pedido=6, stock=5)`.
@@ -48,12 +49,11 @@ c) O algoritmo altera o stock? Apoia a resposta numa operação que exista ou fa
 ## 3. Listas e ciclos (8 minutos)
 
 ```pseudocode
-quantidades ← [3, 0, 5]
-total ← 0
-PARA i DE 0 ATÉ 2
-    total ← total + quantidades[i]
-FIM PARA
-MOSTRAR total
+quantidades = [3, 0, 5]
+total = 0
+Para i de 0 até 2
+    total = total + quantidades[i]
+Escreve: total
 ```
 
 a) Constrói uma tabela com o índice, o valor consultado e o total depois de cada passagem.
@@ -67,12 +67,11 @@ c) Descreve uma alteração que permita contar quantos artigos têm quantidade z
 Uma equipa calcula o número de unidades contidas em caixas iguais. Cada chamada indica o número de caixas e as unidades por caixa.
 
 ```pseudocode
-FUNÇÃO calcularUnidades(numeroCaixas, unidadesPorCaixa)
-    DEVOLVER numeroCaixas × unidadesPorCaixa
-FIM FUNÇÃO
+Função calcularUnidades(numeroCaixas, unidadesPorCaixa)
+    devolver numeroCaixas * unidadesPorCaixa
 
-resultadoA ← calcularUnidades(2, 3)
-resultadoB ← calcularUnidades(5, 2)
+resultadoA = calcularUnidades(2, 3)
+resultadoB = calcularUnidades(5, 2)
 ```
 
 a) Identifica o nome da função, os parâmetros e os argumentos da primeira chamada.
@@ -86,12 +85,11 @@ c) A função mostra alguma coisa no ecrã? Explica a diferença entre devolver 
 Pretende-se somar todas as quantidades da lista.
 
 ```pseudocode
-quantidades ← [2, 4, 1]
-PARA CADA quantidade EM quantidades
-    total ← 0
-    total ← total + quantidade
-FIM PARA
-MOSTRAR total
+quantidades = [2, 4, 1]
+Para cada quantidade em quantidades
+    total = 0
+    total = total + quantidade
+Escreve: total
 ```
 
 a) Prevê o resultado que este algoritmo apresenta. Identifica a instrução que impede a soma pretendida.
@@ -107,7 +105,7 @@ Um projeto tem estes ficheiros:
 ```text
 inventario/
   instrucoes.txt
-  programa.pseudo
+  programa.py
   dados/
     artigos.txt
 ```
@@ -120,8 +118,8 @@ c) O programa altera uma quantidade apenas na sua memória e fecha sem gravar. E
 
 d) Onde colocarias as instruções para executar o projeto? Explica a utilidade de separar instruções, programa e dados.
 
-## Entrega
+## No fim
 
-Entrega as respostas identificadas de 1 a 6. Assinala um ponto que resolveste com confiança e outro em que precisas de apoio. Não uses dados pessoais reais nos exemplos. As respostas ficam no canal indicado pelo professor, não num repositório público.
+Não há entrega: as respostas ficam contigo. Assinala um ponto que resolveste com confiança e outro em que precisas de apoio, e compara cada previsão com o que aconteceu quando experimentaste. As partes em que paraste, ou em que a previsão falhou, mostram-te o que vale a pena rever; se quiseres, leva essas dúvidas ao professor numa aula. Não uses dados pessoais reais nos exemplos. Não confundas terminar depressa com compreender.
 
 ![Rodapé](../imagens/rodape.png)
