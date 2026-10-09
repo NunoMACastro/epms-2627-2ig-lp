@@ -29,7 +29,7 @@ Nos exercícios, escreve a tua previsão antes de executar código. Se a observa
 
 Os diagramas e o pseudocódigo servem para pensar sobre o programa; não são comandos para executar. Os trechos apresentados como excertos dependem de outras partes do ficheiro. Quando for para executar um exemplo completo, o caderno indica qual é o ficheiro.
 
-## Onde estão os programas?
+## Onde estão os programas
 
 - Cadernos 1 a 5: os programas estão completos dentro de cada caderno, em Python. Os laboratórios dizem, passo a passo, como os usar no computador.
 - Caderno 3: os programas mostrados na aula, mais curtos do que os do caderno, estão na pasta [encapsulamento](../exemplos/programacao-orientada-objetos/encapsulamento/README.md).

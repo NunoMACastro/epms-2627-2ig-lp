@@ -23,7 +23,7 @@
       this.#quantidade = quantidade;
     }
 
-    /** @returns {number} Quantidade actual, sem modificar o estado. */
+    /** @returns {number} Quantidade atual, sem modificar o estado. */
     consultarQuantidade() {
       return this.#quantidade;
     }

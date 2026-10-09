@@ -2,7 +2,7 @@
 
 # Bridge: recuperar o raciocínio antes de avançar
 
-*M10 · actividades de apoio · 60 minutos*
+*M10 · atividades de apoio · 60 minutos*
 
 ## Como trabalhar
 
