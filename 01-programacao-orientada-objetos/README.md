@@ -19,7 +19,7 @@ Cada tema tem até três documentos: o caderno, para ler e estudar, com as expli
 5. [A mesma operação, maneiras diferentes de a realizar](05-heranca-polimorfismo.md): estudar herança, polimorfismo e abstração através de notificações. [Laboratório](05-heranca-polimorfismo-laboratorio.md) e [ficha de exercícios](05-heranca-polimorfismo-exercicios.md).
 6. [Juntar as ideias num pequeno inventário](06-sintese.md): reconhecer num só programa as ideias dos cadernos 2 a 4, completar uma operação com um exemplo guiado e resolver três tarefas curtas. Este caderno não tem laboratório nem ficha separados: as tarefas estão no próprio caderno.
 
-Antes dos primeiros conceitos, o professor propõe o [diagnóstico](../avaliacoes/diagnostico-inicial.md) e escolhe contigo as [atividades de apoio](bridge-raciocinio.md) de que precisas. No fim, realizarás o [trabalho de síntese](../avaliacoes/mini-problema.md), cujo enunciado é publicado quando a turma lá chegar.
+O [diagnóstico](../avaliacoes/diagnostico-inicial.md) é uma revisão opcional da programação do 10.º ano, para fazeres por tua conta quando quiseres, e as [atividades de apoio](bridge-raciocinio.md) ajudam a recuperar o raciocínio que estiver menos firme. No fim, realizarás o [trabalho de síntese](../avaliacoes/mini-problema.md), cujo enunciado é publicado quando a turma lá chegar.
 
 ## Como usar um caderno
 
