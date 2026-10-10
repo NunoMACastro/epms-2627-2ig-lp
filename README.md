@@ -8,6 +8,10 @@ Materiais disponibilizados para a turma de Técnico/a de Informática de Gestão
 
 - [M10: cadernos, exemplos e bridge](01-programacao-orientada-objetos/README.md)
 
+## Projeto
+
+- [O teu projeto](projeto/README.md): a aplicação que vais construir do fim do M10 ao M13, os seis temas por onde podes escolher, o que a aplicação tem de ter, as etapas e a forma de avaliação. A avaliação do M10, do M11 e do M12 é feita com este projeto, no fim do M12.
+
 ## Avaliações e enunciados
 
 - [Enunciados](avaliacoes/README.md)

@@ -8,7 +8,7 @@ Nos cadernos 2, 3 e 4 construíste, uma peça de cada vez, um pequeno inventári
 
 Este caderno junta essas três ideias à volta de um único programa, que já vem quase todo escrito. Primeiro vais ler o programa e reconhecer nele cada ideia, com a indicação do caderno onde foi explicada. Depois acompanhas um exemplo guiado, que completa uma operação que o programa ainda não sabe fazer. Por fim, resolves três tarefas curtas, cada uma com uma pequena decisão que o exemplo guiado não tomou por ti. No fim do caderno há uma parte opcional, para quem quiser treinar com casos mais traiçoeiros.
 
-O objetivo não é decorar sintaxe. É conseguires olhar para um programa com objetos e responder a três perguntas: que objetos existem e o que guarda cada um; quem decide se um pedido é aceite; e o que acontece aos dados quando um pedido é aceite e quando é recusado. São as perguntas que te vão ser feitas no trabalho de síntese do módulo, que o professor publica quando lá chegarmos.
+O objetivo não é decorar sintaxe. É conseguires olhar para um programa com objetos e responder a três perguntas: que objetos existem e o que guarda cada um; quem decide se um pedido é aceite; e o que acontece aos dados quando um pedido é aceite e quando é recusado. São as perguntas que vais trabalhar no [laboratório deste caderno](06-sintese-laboratorio.md), que fazes na aula, passo a passo, com o professor a acompanhar.
 
 ## Antes de começares
 
@@ -18,7 +18,7 @@ Este caderno não traz matéria nova, a não ser uma pequena forma de desenhar o
 - do caderno 3: a propriedade `quantidade`, com getter e setter, o atributo interno `_quantidade`, o `raise ValueError`, o `try` e o `except`, e o contrato de uma operação;
 - do caderno 4: a classe `Inventario`, com a lista interna `_artigos`, o método interno `_procurar`, os métodos `registar`, `quantidade_de` e `retirar`, o encaminhamento de um pedido, a diferença entre composição e agregação e a UML leve.
 
-O caderno 5, sobre herança e polimorfismo, não é preciso para este caderno nem para o trabalho de síntese, e nenhum dos dois te pede herança. Se quiseres rever como a herança e a composição se distinguem, a secção 10 do caderno 5 compara-as, mas é leitura opcional.
+O caderno 5, sobre herança e polimorfismo, não é preciso para este caderno nem para o seu laboratório, e nenhum dos dois te pede herança. Se quiseres rever como a herança e a composição se distinguem, a secção 10 do caderno 5 compara-as, mas é leitura opcional.
 
 Os programas completos correm sozinhos, como nos cadernos anteriores: copia-os para um ficheiro novo com a extensão `.py`, guarda-o e executa o ficheiro inteiro no editor de Python que usas nas aulas. Cada execução começa do zero, com os valores iniciais escritos no programa. Os excertos estão sempre assinalados, e o texto diz de que outro código dependem.
 
@@ -704,7 +704,7 @@ print("Sala 14, A01:", sala_14.quantidade_de("A01"))
 3. Explica porque é que a sala 14 mostra a quantidade que mostra, se ninguém lhe pediu nenhuma retirada.
 4. Para o inventário de uma sala, em que as 6 unidades de A01 são as que estão naquela sala, qual das duas versões te parece mais adequada: a do `registar` ou a do `acrescentar`? Justifica em duas frases.
 
-## Antes do trabalho de síntese
+## Antes do laboratório
 
 Tenta responder a estas perguntas sem olhar para o texto. Se alguma te deixar com dúvidas, volta à secção indicada.
 
@@ -716,6 +716,6 @@ Tenta responder a estas perguntas sem olhar para o texto. Se alguma te deixar co
 - Consegues seguir um pedido feito ao inventário até à linha que decide se ele é aceite? (secção 6, passo 7)
 - Consegues explicar porque é que o método `acertar` escreve em `artigo.quantidade` e não em `artigo._quantidade`? (secção 6, passo 4)
 
-No fim do módulo vais fazer o trabalho de síntese: completar uma operação num programa parecido com o deste caderno, explicar o modelo e mostrar o que acontece aos dados, e depois explicar o teu trabalho ao professor. O enunciado é publicado na [pasta das avaliações](../avaliacoes/README.md) quando a turma lá chegar.
+No fim do módulo vais fazer o [laboratório deste caderno](06-sintese-laboratorio.md), na aula, com o professor a acompanhar: completar uma operação num programa parecido com o deste caderno, explicar o modelo, mostrar o que acontece aos dados e, no fim, explicar o teu trabalho ao professor numa conversa curta, sem nota. Estas ideias vão ser avaliadas mais tarde no [projeto](../projeto/README.md), no fim do M12.
 
 ![Rodapé](../imagens/rodape.png)
