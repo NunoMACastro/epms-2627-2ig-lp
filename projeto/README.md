@@ -12,7 +12,7 @@ Esta página explica tudo o que precisas de saber sobre o projeto: os temas por 
 
 Os três primeiros módulos do ano ensinam partes diferentes da mesma maneira de programar. O M10 ensina os conceitos da programação orientada a objetos: classes, objetos, estado, encapsulamento e composição. O M11 leva esses conceitos para o JavaScript e para o browser, com páginas, formulários e eventos. O M12 ensina a organizar um programa em módulos, a tratar erros, a guardar os dados e a testar as regras.
 
-Cada um destes módulos, sozinho, daria um projeto pequeno e pouco interessante: só conceitos no papel, ou só uma página que esquece tudo quando a fechas. Juntos, dão uma aplicação completa, que guarda dados com regras, funciona no browser e se lembra do que lá puseste. Por isso o M10, o M11 e o M12 têm **uma avaliação conjunta**: o teu projeto, avaliado no fim do M12, dá as três notas, a de cada módulo com os critérios desse módulo.
+Cada um destes módulos, sozinho, daria um projeto pequeno e pouco interessante: só conceitos no papel, ou só uma página que esquece tudo quando a fechas. Juntos, dão uma aplicação completa, que guarda dados com regras, funciona no browser e se lembra do que lá puseste. Por isso o M10, o M11 e o M12 têm **uma avaliação conjunta**: o teu projeto, avaliado no fim do M12, é a avaliação prática dos três módulos, a de cada módulo com os critérios desse módulo.
 
 Trabalhas no projeto ao longo dos três módulos; a avaliação é que olha para a aplicação já completa, quando já aprendeste tudo aquilo de que ela precisa. Pelo caminho há um momento para mostrares ao professor como vai o trabalho, no fim do M11, que não tem nota e serve para corrigires o rumo a tempo.
 
@@ -193,7 +193,7 @@ A avaliação do projeto faz-se no fim do M12 e é individual. Tem três partes:
 2. **Explicação.** Explicas o teu código e as tuas decisões. O professor pode perguntar, por exemplo, onde é que a regra do número é verificada, o que acontece aos dados quando um pedido é recusado, porque é que é a coleção, e não a interface, que impede um identificador repetido, ou como um registo novo chega à gravação.
 3. **Uma pequena alteração feita na hora.** O professor pede-te uma alteração pequena à tua aplicação, e tu fazes essa alteração sozinho, ali mesmo. A alteração usa só matéria dada nas aulas e é rápida para quem conhece o seu próprio código. O professor pode também pedir-te que encontres e corrijas uma pequena falha. Nenhuma destas tarefas é divulgada antes, porque servem precisamente para mostrar que sabes mexer no código que entregaste.
 
-Desta avaliação saem as notas do M10, do M11 e do M12, cada uma com os critérios do seu módulo:
+Esta avaliação dá a parte prática da nota do M10, do M11 e do M12, cada uma com os critérios do seu módulo:
 
 | Módulo | O que se observa |
 | --- | --- |
@@ -203,11 +203,11 @@ Desta avaliação saem as notas do M10, do M11 e do M12, cada uma com os critér
 
 A explicação e a alteração feita na hora contam para os três módulos. Uma aplicação que funciona, mas que não sabes explicar nem alterar, não mostra que aprendeste o que cada módulo pede. Uma explicação clara de uma parte que ficou incompleta também mostra o que percebeste.
 
-O peso de cada critério e a forma de chegar à nota seguem as regras da escola, que o professor te dará a conhecer. Também não contam a teu favor, por si sós, coisas que parecem trabalho a mais: muitas classes, uma aparência elaborada, bibliotecas extra ou matéria que ainda não foi dada. Conta o que a aplicação faz bem e o que tu sabes explicar sobre ela.
+A nota de cada módulo junta quatro critérios: atitudes e valores, 30% (assiduidade e pontualidade, comportamento, respeito, cumprimento das regras, ser bom colega); autonomia, 10%; empenho, 20%; e avaliação prática, 40%, que é este projeto. A autonomia e o empenho observam-se ao longo dos módulos, também no trabalho que fazes no projeto. Também não contam a teu favor, por si sós, coisas que parecem trabalho a mais: muitas classes, uma aparência elaborada, bibliotecas extra ou matéria que ainda não foi dada. Conta o que a aplicação faz bem e o que tu sabes explicar sobre ela.
 
 ### A avaliação do M13
 
-A versão React tem a sua própria avaliação, no fim do M13, com a mesma forma: demonstras a aplicação, explicas que componente guarda o estado e que informação passa de um componente para outro, e fazes sozinho uma alteração simples pedida na hora. Desta avaliação sai a nota do M13.
+A versão React tem a sua própria avaliação, no fim do M13, com a mesma forma: demonstras a aplicação, explicas que componente guarda o estado e que informação passa de um componente para outro, e fazes sozinho uma alteração simples pedida na hora. Esta avaliação é a parte prática da nota do M13.
 
 ## Os limites do projeto
 
