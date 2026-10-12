@@ -89,7 +89,9 @@ Tem aberto ao lado o passo 5 da secção 10.
 3. Abre o traço do passo 6 e, para cada linha que o programa vai mostrar, escreve no papel a mensagem que esperas. Depois executa.
 4. Compara com a saída mostrada no passo 7 do caderno, linha a linha.
 
-Se alguma linha for diferente, procura a primeira que é diferente e não olhes para as outras por agora. Uma diferença cedo no programa costuma provocar as seguintes. Depois pergunta-te que método produziu essa linha e relê esse método, comparando-o com o caderno. Os enganos mais comuns são um `return` que saiu de dentro do `if`, por ter ficado com a indentação do próprio `if`, um `raise` que entrou para dentro do `for`, uma linha de um método que ficou fora da classe e um nome escrito de duas maneiras diferentes, como `_artigos` numa linha e `_artigo` noutra.
+Se alguma linha for diferente, procura a primeira que é diferente e não olhes para as outras por agora. Uma diferença cedo no programa costuma provocar as seguintes. Depois pergunta-te que método produziu essa linha e relê esse método, comparando-o com o caderno. Os enganos mais comuns são um `raise` que entrou para dentro do `for`, uma linha de um método que ficou fora da classe e um nome escrito de duas maneiras diferentes, como `_artigos` numa linha e `_artigo` noutra.
+
+Há um engano de indentação que não muda nenhuma linha da saída, porque o programa nem chega a correr: o `return` de `_procurar` escrito com a indentação do próprio `if`. Como o `return` é a única linha do `if`, o `if` fica sem nenhuma instrução por baixo, e o Python para antes de executar a primeira linha do programa. Não aparece nenhuma linha da saída, só uma mensagem que termina em `IndentationError: expected an indented block after 'if' statement on line`, seguido do número da linha do `if`. Em versões mais antigas do Python, a última linha diz só `IndentationError: expected an indented block`. Compara a indentação do `return` com a do caderno: tem de ficar quatro espaços mais à direita do que o `if`.
 
 Nesta altura, o teu ficheiro tem o programa completo do caderno. Guarda-o.
 
