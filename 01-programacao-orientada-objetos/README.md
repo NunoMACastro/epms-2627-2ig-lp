@@ -13,7 +13,7 @@ Antes do tema 01, se quiseres rever o 10.º ano, tens o [diagnóstico](../avalia
 | 03 Encapsulamento e contratos | [guia](03-encapsulamento-contratos.md) | [laboratório](03-encapsulamento-contratos-laboratorio.md) | [ficha](03-encapsulamento-contratos-exercicios.md) | [encapsulamento](../exemplos/programacao-orientada-objetos/encapsulamento/README.md) |
 | 04 Composição e modelação | [guia](04-composicao-modelacao.md) | [laboratório](04-composicao-modelacao-laboratorio.md) | [ficha](04-composicao-modelacao-exercicios.md) | não tem |
 | 05 Herança e polimorfismo | [guia](05-heranca-polimorfismo.md) | [laboratório](05-heranca-polimorfismo-laboratorio.md) | [ficha](05-heranca-polimorfismo-exercicios.md) | não tem |
-| 06 Síntese | [guia](06-sintese.md) | [laboratório](06-sintese-laboratorio.md) | | não tem |
+| 06 Síntese | [guia](06-sintese.md) | [laboratório](06-sintese-laboratorio.md) | [ficha](06-sintese-exercicios.md) | não tem |
 
 O guia de cada tema é o que antes se chamava caderno. A turma deu o tema 05 antes do tema 04, por isso a ordem de leitura é 01, 02, 03, 05, 04 e 06.
 
