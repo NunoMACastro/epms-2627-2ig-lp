@@ -199,7 +199,7 @@ A avaliação do projeto faz-se no fim do M12 e é individual. Tem três partes:
 
 1. **Demonstração.** Pões a aplicação a funcionar e mostras os cenários mínimos, a começar pelos casos de recusa.
 2. **Explicação.** Explicas o teu código e as tuas decisões. O professor pode perguntar, por exemplo, onde é que a regra do número é verificada, ou o que acontece aos dados quando um pedido é recusado. Pode perguntar também porque é que é a coleção, e não a interface, que impede um identificador repetido, ou como um registo novo chega à gravação.
-3. **Uma pequena alteração feita na hora.** O professor pede-te uma alteração pequena à tua aplicação, e tu fazes essa alteração sozinho, ali mesmo. A alteração usa só matéria dada nas aulas e é rápida para quem conhece o seu próprio código. O professor pode também pedir-te que encontres e corrijas uma pequena falha. Nenhuma destas tarefas é divulgada antes, porque servem precisamente para mostrar que sabes mexer no código que entregaste.
+3. **Uma pequena alteração feita na hora.** O professor pede-te uma alteração pequena à tua aplicação, e tu fazes essa alteração sozinho, ali mesmo. A alteração usa só matéria dada nas aulas e é rápida para quem conhece o seu próprio código. O professor pede-te também que encontres e corrijas uma pequena falha. Nenhuma destas tarefas é divulgada antes, porque servem precisamente para mostrar que sabes mexer no código que entregaste.
 
 Esta avaliação dá a parte prática da nota do M10, do M11 e do M12, cada uma com os critérios do seu módulo:
 
