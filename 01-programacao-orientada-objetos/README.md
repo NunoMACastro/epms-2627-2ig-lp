@@ -1,47 +1,22 @@
 ![Cabeçalho](../imagens/cabecalho.png)
 
-# Aprender a pensar com objetos
+# Programação orientada a objetos
 
-**M10: Introdução à Programação Orientada por Objetos**
+Nesta área aprendes a representar num programa os materiais de uma sala: que dados guardar, e como alterá-los sem perder informação nem criar quantidades impossíveis. Começas por situações em papel e só depois as escreves em Python, com classes e objetos. Corresponde ao módulo M10, Introdução à Programação Orientada por Objetos.
 
-Como pode um programa representar os materiais de uma sala? Que dados precisa de guardar? Como se alteram esses dados sem perder informação ou criar quantidades impossíveis?
+Antes do tema 01, se quiseres rever o 10.º ano, tens o [diagnóstico](../avaliacoes/diagnostico-inicial.md) e a [ficha de recuperação](bridge-raciocinio.md), para fazeres por tua conta, sem entrega. O diagnóstico mostra-te o que vale a pena rever, e a ficha tem um exercício para cada base.
 
-Vamos construir as respostas ao longo de seis cadernos. Começamos por situações em papel e só depois observamos como algumas delas se escrevem em Python. Não precisas de dominar Python para começares a estudar os conceitos.
+| Tema | Guia | Laboratório | Ficha | Exemplos |
+| --- | --- | --- | --- | --- |
+| 01 Entidades, estado e ações | [guia](01-entidades-estado-acoes.md) | [laboratório](01-entidades-estado-acoes-laboratorio.md) | [ficha](01-entidades-estado-acoes-exercicios.md) | não tem |
+| 02 Objetos, classes e instâncias | [guia](02-objetos-classes-instancias.md) | [laboratório](02-objetos-classes-instancias-laboratorio.md) | [ficha](02-objetos-classes-instancias-exercicios.md) | não tem |
+| 03 Encapsulamento e contratos | [guia](03-encapsulamento-contratos.md) | [laboratório](03-encapsulamento-contratos-laboratorio.md) | [ficha](03-encapsulamento-contratos-exercicios.md) | [encapsulamento](../exemplos/programacao-orientada-objetos/encapsulamento/README.md) |
+| 04 Composição e modelação | [guia](04-composicao-modelacao.md) | [laboratório](04-composicao-modelacao-laboratorio.md) | [ficha](04-composicao-modelacao-exercicios.md) | não tem |
+| 05 Herança e polimorfismo | [guia](05-heranca-polimorfismo.md) | [laboratório](05-heranca-polimorfismo-laboratorio.md) | [ficha](05-heranca-polimorfismo-exercicios.md) | não tem |
+| 06 Síntese | [guia](06-sintese.md) | [laboratório](06-sintese-laboratorio.md) | | não tem |
 
-## Os cadernos
+O guia de cada tema é o que antes se chamava caderno. A turma deu o tema 05 antes do tema 04, por isso a ordem de leitura é 01, 02, 03, 05, 04 e 06.
 
-Cada tema tem até três documentos: o caderno, para ler e estudar, com as explicações e os exemplos resolvidos; o laboratório, para seguir passo a passo no computador, com o editor de Python aberto ao lado; e a ficha de exercícios, para praticares sozinho depois de estudares o caderno.
-
-1. [Dos materiais da sala aos dados de um programa](01-entidades-estado-acoes.md): escolher o que representar e distinguir informação de operação. [Laboratório](01-entidades-estado-acoes-laboratorio.md) e [ficha de exercícios](01-entidades-estado-acoes-exercicios.md).
-2. [Objetos e classes: uma descrição comum, vários artigos](02-objetos-classes-instancias.md): perceber objeto, atributo, método, classe e instância. [Laboratório](02-objetos-classes-instancias-laboratorio.md) e [ficha de exercícios](02-objetos-classes-instancias-exercicios.md).
-3. [Proteger a quantidade de um artigo](03-encapsulamento-contratos.md): compreender regras, encapsulamento e contratos. [Laboratório](03-encapsulamento-contratos-laboratorio.md) e [ficha de exercícios](03-encapsulamento-contratos-exercicios.md).
-4. [Reunir artigos num inventário](04-composicao-modelacao.md): relações entre objetos, composição e agregação, esquemas de classes em UML leve e a classe do inventário. [Laboratório](04-composicao-modelacao-laboratorio.md) e [ficha de exercícios](04-composicao-modelacao-exercicios.md).
-5. [A mesma operação, maneiras diferentes de a realizar](05-heranca-polimorfismo.md): estudar herança, polimorfismo e abstração através de notificações. [Laboratório](05-heranca-polimorfismo-laboratorio.md) e [ficha de exercícios](05-heranca-polimorfismo-exercicios.md).
-6. [Juntar as ideias num pequeno inventário](06-sintese.md): reconhecer num só programa as ideias dos cadernos 2 a 4, completar uma operação com um exemplo guiado e resolver três tarefas curtas. [Laboratório](06-sintese-laboratorio.md), feito na aula com o professor a acompanhar, em que completas a retirada de material num pequeno inventário. Este caderno não tem ficha de exercícios separada: as tarefas estão no próprio caderno.
-
-O [diagnóstico](../avaliacoes/diagnostico-inicial.md) é uma revisão opcional da programação do 10.º ano, para fazeres por tua conta quando quiseres, e as [atividades de apoio](bridge-raciocinio.md) ajudam a recuperar o raciocínio que estiver menos firme. O laboratório do caderno 6 fecha o módulo: é o antigo [trabalho de síntese](../avaliacoes/mini-problema.md), que deixou de ser avaliação e passou a prática guiada, sem nota. As ideias do M10 são avaliadas no [projeto](../projeto/README.md), no fim do M12.
-
-## Como usar um caderno
-
-Lê a situação inicial e acompanha o exemplo resolvido. Quando aparecer uma tabela com valores antes e depois, segue os passos pela ordem apresentada. Só depois tenta o exercício correspondente.
-
-Nos exercícios, escreve a tua previsão antes de executar código. Se a observação for diferente, tenta explicar a diferença em vez de mudar números ao acaso. Podes voltar às explicações e pedir uma pista ao professor.
-
-Os diagramas e o pseudocódigo servem para pensar sobre o programa; não são comandos para executar. Os trechos apresentados como excertos dependem de outras partes do ficheiro. Quando for para executar um exemplo completo, o caderno indica qual é o ficheiro.
-
-## Onde estão os programas
-
-- Cadernos 1 a 6: os programas estão completos dentro de cada caderno, em Python. Os laboratórios dos cadernos 1 a 6 dizem, passo a passo, como os usar no computador.
-- Caderno 3: os programas mostrados na aula, mais curtos do que os do caderno, estão na pasta [encapsulamento](../exemplos/programacao-orientada-objetos/encapsulamento/README.md).
-- Caderno 6: o programa inicial do laboratório está completo dentro do próprio [laboratório](06-sintese-laboratorio.md).
-- Os ficheiros [composicao.js](../exemplos/programacao-orientada-objetos/composicao.js) e [inventario-inicial.js](../avaliacoes/inventario-inicial.js) pertenciam às versões antigas do caderno 4 e do trabalho de síntese, em JavaScript, e já não se usam. Ficam no repositório para não quebrar ligações antigas.
-
-## Executar um programa em Python
-
-Os programas dos cadernos 1 a 6 executam-se no editor de Python que usas nas aulas. Copia o programa completo para um ficheiro novo com a extensão `.py`, guarda-o e executa o ficheiro inteiro. Cada execução começa do zero, com os valores iniciais escritos no programa. Os programas destes cadernos funcionam com Python 3, a partir da versão 3.10.
-
-Se aparecer uma mensagem de erro, lê primeiro a última linha: diz o tipo de erro e a razão. As linhas de cima dizem onde aconteceu. O caderno 3 explica como ler estas mensagens.
-
-Usa apenas os dados fictícios dos exercícios. As respostas e os ficheiros de trabalho são entregues pelo meio indicado pelo professor.
+O laboratório do tema 06 fecha o módulo e faz-se na aula, com o professor a acompanhar. É o antigo [trabalho de síntese](../avaliacoes/mini-problema.md), que deixou de ser avaliação e passou a prática guiada, sem nota. As ideias do M10 são avaliadas no [projeto](../projeto/README.md), no fim do M12.
 
 ![Rodapé](../imagens/rodape.png)

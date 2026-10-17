@@ -47,7 +47,7 @@ No fim deste guia, consegues:
 - O `print`, que mostra valores no ecrã, também vários de uma vez, separados por vírgulas, do 10.º ano.
 - Copiar um programa para um ficheiro `.py`, guardá-lo e executá-lo no editor de Python das aulas, do 10.º ano.
 
-Se alguma destas bases estiver menos firme, há duas ajudas para fazeres por tua conta, sem entrega. O [diagnóstico de programação](../avaliacoes/diagnostico-inicial.md) é uma revisão opcional do 10.º ano. Serve para perceberes de que te recordas e onde precisas de apoio. Podes responder por palavras, desenhos, contas ou pseudocódigo, e não tens de conhecer nenhuma linguagem em particular. As [atividades de apoio](bridge-raciocinio.md) são curtas e servem para recuperar uma ideia de que vais precisar. Por exemplo, seguir os valores de uma variável ao longo de um programa, ou ler uma condição.
+Se alguma destas bases estiver menos firme, há duas ajudas para fazeres por tua conta, sem entrega. O [diagnóstico de programação](../avaliacoes/diagnostico-inicial.md) é uma revisão opcional do 10.º ano. Serve para perceberes de que te recordas e onde precisas de apoio. Podes responder por palavras, desenhos, contas ou pseudocódigo, e não tens de conhecer nenhuma linguagem em particular. A [ficha de recuperação](bridge-raciocinio.md) é curta e serve para recuperar uma ideia de que vais precisar. Por exemplo, seguir os valores de uma variável ao longo de um programa, ou ler uma condição.
 
 ## A informação que interessa guardar
 
