@@ -178,7 +178,7 @@ No M12 aprendes a organizar um programa em módulos, a validar dados e a tratar 
 - testes automáticos das regras, que confirmam pelo menos o valor no limite, o identificador repetido, o texto vazio e o número inválido;
 - um ficheiro README que explica como pôr a aplicação a funcionar, que cenários testaste e que limites conhecidos a aplicação tem.
 
-No fim do M12 entregas o projeto e defende-lo na avaliação descrita a seguir. O exercício de ficheiros em Node.js, que também se faz no M12, é separado e não faz parte do projeto.
+No fim do M12 entregas o projeto num repositório teu no GitHub, e envias a ligação por email ao professor, se ele não indicar outra via. Depois, defende-lo na avaliação descrita a seguir. O exercício de ficheiros em Node.js, que também se faz no M12, é separado e não faz parte do projeto.
 
 ### No M13: a versão React
 
@@ -189,7 +189,7 @@ No M13 aprendes React, uma forma de construir interfaces com componentes. Voltas
 - um botão Guardar, com uma mensagem de sucesso ou de erro, e a leitura validada dos dados quando a aplicação arranca;
 - a aplicação preparada para entrega com o comando de build, que vais aprender no M13, e o README atualizado, com uma frase sobre o que faz cada componente.
 
-No fim do M13 apresentas e defendes a versão React.
+No fim do M13 entregas a versão React da mesma maneira, e apresenta-la e defende-la.
 
 ## Como vais ser avaliado
 
@@ -200,6 +200,8 @@ A avaliação do projeto faz-se no fim do M12 e é individual. Tem três partes:
 1. **Demonstração.** Pões a aplicação a funcionar e mostras os cenários mínimos, a começar pelos casos de recusa.
 2. **Explicação.** Explicas o teu código e as tuas decisões. O professor pode perguntar, por exemplo, onde é que a regra do número é verificada, ou o que acontece aos dados quando um pedido é recusado. Pode perguntar também porque é que é a coleção, e não a interface, que impede um identificador repetido, ou como um registo novo chega à gravação.
 3. **Uma pequena alteração feita na hora.** O professor pede-te uma alteração pequena à tua aplicação, e tu fazes essa alteração sozinho, ali mesmo. A alteração usa só matéria dada nas aulas e é rápida para quem conhece o seu próprio código. O professor pede-te também que encontres e corrijas uma pequena falha. Nenhuma destas tarefas é divulgada antes, porque servem precisamente para mostrar que sabes mexer no código que entregaste.
+
+Durante a avaliação, trabalhas sozinho. Podes consultar os materiais da disciplina, os teus apontamentos, o código das aulas e a documentação oficial. Não podes usar assistentes de inteligência artificial, nem as sugestões automáticas do editor, nem falar com colegas. Estas regras valem para a sessão da avaliação. Enquanto fazes o projeto, podes trocar ideias com colegas, mas o código que entregas tem de ser teu.
 
 Esta avaliação dá a parte prática da nota do M10, do M11 e do M12, cada uma com os critérios do seu módulo:
 
