@@ -29,7 +29,7 @@ Executa sempre o ficheiro inteiro. Cada execução começa do zero, com os valor
 
 ## Palavras que vais usar
 
-- Relação "é um": a relação entre um tipo particular e um tipo mais geral, como "uma bicicleta é um veículo" ou "uma notificação breve é uma notificação". Confirma-se dizendo a frase em voz alta. Quando a frase parece quase verdadeira, há um teste: se A é um B, tudo o que um B tem e faz tem de fazer sentido para A. Não se confunde com a relação "tem": uma mochila tem cadernos, mas não é um caderno. Para saber mais, vê "Especialização: do geral para o particular" no [guia](05-heranca-polimorfismo.md).
+- Relação "é um": a relação entre um tipo particular e um tipo mais geral, como "uma bicicleta é um veículo" ou "uma notificação breve é uma notificação". Confirma-se analisando a relação entre os dois tipos. Quando a frase parece quase verdadeira, há um teste: se A é um B, tudo o que um B tem e faz tem de fazer sentido para A. Não se confunde com a relação "tem": uma mochila tem cadernos, mas não é um caderno. Para saber mais, vê "Especialização: do geral para o particular" no [guia](05-heranca-polimorfismo.md).
 - Herança: a forma de escrever a relação "é um" em Python. Em `class NotificacaoBreve(Notificacao):`, a classe entre parênteses é a classe base, a geral, e a que se está a escrever é a classe derivada, a particular. Lê-se "a classe `NotificacaoBreve`, que é uma `Notificacao`".
 - Herdar: a classe derivada recebe da base os seus métodos, incluindo o construtor, sem os escrever outra vez.
 - Redefinir um método: escrever, numa classe derivada, um método com o mesmo nome de um método da base. Em inglês diz-se *override*.

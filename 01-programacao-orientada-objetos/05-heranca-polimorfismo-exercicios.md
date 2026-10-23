@@ -198,7 +198,7 @@ Repara que a `Forma` não tem construtor.
 
 - Exercício 1: lê a árvore de baixo para cima, ligação a ligação, com a frase "é um", como no guia. Escreve no papel cada frase que leres.
 - Exercício 2: para cada volta, faz as duas perguntas da regra de procura. De que classe é o objeto? Essa classe escreve `conteudo`?
-- Exercício 3: diz cada frase em voz alta, com "é um" e com "tem", e fica com a que for verdadeira. Na pergunta ao colega, compara as classes derivadas linha a linha: o que tem cada uma escrito por baixo da docstring?
+- Exercício 3: compara as relações "é um" e "tem" em cada caso e identifica a que for verdadeira. Na pergunta ao colega, compara as classes derivadas linha a linha: o que tem cada uma escrito por baixo da docstring?
 - Exercício 4: verifica as três partes do contrato em cada variante, uma parte de cada vez. Na alínea 3, a linha que não esperavas é uma pista: lê-a palavra a palavra. *Built-in method* quer dizer "método embutido", um método que já vem com o Python.
 - Exercício 5: começa pelo contrato da `Notificacao`, no guia, e pergunta, linha a linha, o que muda quando se fala de formas.
 - Exercício 6: antes de escreveres cada construtor, decide que valores a forma recebe quando é criada. Não dês a um atributo o nome de um método: `self.area` tapava o método `area`.

@@ -2,11 +2,11 @@
 
 # Herança e polimorfismo
 
-Módulo M10, Introdução à Programação Orientada por Objetos. Neste guia aprendes a escrever em Python a relação "é um", com a herança, e as duas ideias que nascem dela: o polimorfismo e a abstração. O título antigo deste guia era "Herança, polimorfismo e abstração: a mesma operação, maneiras diferentes de a realizar". Lês o guia ao teu ritmo, de preferência em mais do que uma vez, e o que não acabares na aula acabas em casa ou na aula seguinte. Para praticar, há o [laboratório](05-heranca-polimorfismo-laboratorio.md) e a [ficha de exercícios](05-heranca-polimorfismo-exercicios.md) deste tema.
+Módulo M10, Introdução à Programação Orientada por Objetos. Neste guia aprendes a escrever em Python a relação "é um", com a herança, e as duas ideias que nascem dela: o polimorfismo e a abstração. Lês o guia ao teu ritmo, de preferência em mais do que uma vez, e o que não acabares na aula acabas em casa ou na aula seguinte. Para praticar, há o [laboratório](05-heranca-polimorfismo-laboratorio.md) e a [ficha de exercícios](05-heranca-polimorfismo-exercicios.md) deste tema.
 
 Sobre duas classes podem fazer-se duas perguntas: "uma tem a outra?" e "uma é um caso da outra?". A primeira é a relação "tem": um inventário tem artigos, e uma playlist, a lista de músicas que alguém escolhe numa aplicação de música, tem músicas. É o assunto do guia 04, [Composição e modelação](04-composicao-modelacao.md). Este guia trata da segunda, a relação "é um": um carro é um veículo, e uma bicicleta também é um veículo. Em programação, esta relação escreve-se com a **herança**. Dela nascem duas ideias muito usadas na programação orientada a objetos: o polimorfismo e a abstração.
 
-Este guia vem a seguir ao guia 04 na planificação, e usa algumas ideias dele. Se ainda não o leste, não faz mal. Cada ideia do guia 04 que aqui se usa explica-se em poucas linhas, no sítio onde aparece pela primeira vez. A lista está em "O que já sabes e vais usar", com a secção do guia 04 onde podes saber mais.
+Este guia usa algumas ideias do guia 04. Se ainda não o leste, não faz mal. Cada ideia do guia 04 que aqui se usa explica-se em poucas linhas, no sítio onde aparece pela primeira vez. A lista está em "O que já sabes e vais usar", com a secção do guia 04 onde podes saber mais.
 
 Para estudar estas ideias vamos sair do inventário e usar um exemplo à parte, o das notificações. Uma notificação é uma mensagem preparada para ser apresentada a alguém, como "Contagem concluída" ou "A02 esgotou". Há notificações que se apresentam de maneiras diferentes: umas só com o texto, outras com um aviso antes, outras com o nome de quem as enviou. Não vamos enviar mensagens a ninguém. Os programas só preparam o texto de cada notificação e mostram-no no ecrã.
 
@@ -38,7 +38,7 @@ Os programas completos correm sozinhos, como nos guias anteriores: copia-os para
 No fim deste guia, consegues:
 
 - explicar porque é que duas classes quase iguais são um problema;
-- confirmar uma relação "é um" com a frase em voz alta e com o teste do "tudo o que B tem e faz";
+- confirmar uma relação "é um" pela análise do seu significado e pelo teste do "tudo o que B tem e faz";
 - escrever em Python uma classe derivada, que herda de uma classe base, redefine um método e, quando guarda dados novos, chama o construtor da base com `super()`;
 - dizer onde é que o Python procura um método, e prever o resultado de cada chamada;
 - explicar o polimorfismo com um ciclo que faz o mesmo pedido a objetos de classes diferentes, e escrever o contrato que todos têm de cumprir;
@@ -138,9 +138,9 @@ A primeira é "uma tem a outra?". Um inventário tem artigos. Uma turma tem alun
 
 A segunda é "uma é um caso da outra?". Um carro é um veículo. Uma bicicleta também é um veículo. É a relação **"é um"**, entre um tipo particular e um tipo mais geral. Tudo o que é verdade para qualquer veículo, como deslocar-se de um sítio para outro, também é verdade para um carro.
 
-Ter coisas lá dentro não faz de ninguém uma dessas coisas: uma mochila tem cadernos, mas não é um caderno. A forma mais segura de decidir é dizer a frase em voz alta, com as duas classes, e ver se é verdadeira. O guia 04 trata da relação "tem" com pormenor, em "Duas perguntas sobre duas classes: "tem" e "é um"". Este guia trata da relação "é um".
+Ter coisas lá dentro não faz de ninguém uma dessas coisas: uma mochila tem cadernos, mas não é um caderno. Para decidir, analisa a relação entre as duas classes e verifica se a frase é verdadeira. O guia 04 trata da relação "tem" com pormenor, em "Duas perguntas sobre duas classes: "tem" e "é um"". Este guia trata da relação "é um".
 
-Diz agora as frases das notificações em voz alta:
+Analisa as relações entre os tipos de notificação:
 
 - "Uma notificação breve é uma notificação." Verdadeira.
 - "Uma notificação detalhada é uma notificação." Verdadeira.
@@ -685,7 +685,7 @@ Não há uma forma única de o escrever. O que conta é que se perceba o que é 
 
 Tens agora duas maneiras de construir uma classe a partir de outras. A herança diz "é um": a classe derivada é um caso particular da base e recebe tudo o que ela descreve. A **composição de objetos**, no sentido largo, diz "tem": o objeto guarda outros objetos e usa-os para fazer o seu trabalho. É a relação "tem" de "Especialização: do geral para o particular". A palavra composição tem também um sentido mais estreito, nos diagramas, que vês mais abaixo, em "As pontas das linhas do diagrama de classes".
 
-A decisão começa, como sempre, pela frase em voz alta. Só há herança se a frase "A é um B" for verdadeira e se A puder cumprir tudo o que B promete. Isto é, se passar o teste de substituição de "O contrato comum". Quando houver dúvida, a composição é quase sempre a escolha mais segura. Um objeto que guarda outro pode trocá-lo mais tarde por outro diferente. E não fica obrigado a receber atributos e métodos que não fazem sentido para ele, que é o que acontece com uma herança mal escolhida.
+A decisão começa pela análise da relação entre as duas classes. Só há herança se a frase "A é um B" for verdadeira e se A puder cumprir tudo o que B promete. Isto é, se passar o teste de substituição de "O contrato comum". Quando houver dúvida, a composição é quase sempre a escolha mais segura. Um objeto que guarda outro pode trocá-lo mais tarde por outro diferente. E não fica obrigado a receber atributos e métodos que não fazem sentido para ele, que é o que acontece com uma herança mal escolhida.
 
 ### Heranças sem sentido
 
@@ -710,7 +710,7 @@ Num diagrama de classes, cada relação desenha-se com uma linha entre duas caix
 
 A composição dos losangos usa a palavra no sentido estreito: é a forma mais forte da relação "tem". No sentido largo de "Duas maneiras de reaproveitar", composição é qualquer relação "tem", com losango cheio, com losango vazio ou só com uma linha. O guia 04 explica a diferença entre os dois losangos em "Dois graus de "tem": composição e agregação".
 
-Os losangos encostam ao todo e dizem "tem". O triângulo encosta à classe base e diz "é um". A linha simples diz só que os objetos se conhecem ou se usam, sem dizer mais nada. Antes de escolheres uma destas pontas, diz a frase em voz alta.
+Os losangos encostam ao todo e dizem "tem". O triângulo encosta à classe base e diz "é um". A linha simples diz só que os objetos se conhecem ou se usam, sem dizer mais nada. Antes de escolheres uma destas pontas, verifica qual das relações descreve as classes e justifica a escolha.
 
 ## Exemplo guiado: acrescentar uma variante nova
 

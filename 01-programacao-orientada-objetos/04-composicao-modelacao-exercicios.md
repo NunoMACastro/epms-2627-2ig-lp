@@ -210,7 +210,7 @@ O diagrama já está começado. A caixa `Requisicao` tem o nome e os atributos, 
 ## Apoio
 
 - Exercício 1: relê, no guia, o que diz cada zona da caixa e o que distingue uma caixa de classe de uma caixa de objeto.
-- Exercício 2: diz cada frase em voz alta, nos dois sentidos. Na resposta ao colega, aplica o teste ao pé da letra, como o guia o aplica ao inventário.
+- Exercício 2: analisa cada relação nos dois sentidos e verifica qual das frases é verdadeira. Na resposta ao colega, aplica o teste ao pé da letra, como o guia o aplica ao inventário.
 - Exercício 3: relê a comparação entre o `Inventario` e a `Playlist`, no passo 9 do exemplo guiado.
 - Exercício 4: segue a versão do colega volta a volta, com um pedido à tua escolha, e escreve que linha é executada a seguir, até o método acabar.
 - Exercício 5: começa pelas duas perguntas que decidem, aplicadas à descrição, e só depois desenha. Lê cada ligação nos dois sentidos antes de escreveres os números.

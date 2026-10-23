@@ -40,7 +40,7 @@ Para os programas não ficarem demasiado compridos, a classe `Artigo` aparece ne
 No fim deste guia, consegues:
 
 - explicar porque é que é preciso um objeto que reúna os artigos, e decidir que classe fica com cada tarefa;
-- distinguir a relação "tem" da relação "é um", dizendo a frase em voz alta e aplicando o teste do "tudo o que B tem e faz";
+- distinguir a relação "tem" da relação "é um", analisando o seu significado e aplicando o teste do "tudo o que B tem e faz";
 - desenhar e ler um diagrama de classes em UML leve, com as caixas, as linhas, as multiplicidades e os losangos;
 - decidir entre composição e agregação com quatro perguntas, e dizer em que ponta da linha fica o losango;
 - escrever em Python uma classe que cria outros objetos, os guarda numa lista e lhes passa os pedidos, como o `Inventario`;
@@ -187,7 +187,7 @@ A primeira é a relação **"tem"**. Um inventário tem artigos. Uma encomenda t
 
 A segunda é a relação **"é um"**. Um carro é um veículo. Uma bicicleta também é um veículo. É a relação entre um tipo particular e um tipo mais geral. Tudo o que é verdade para qualquer veículo, por exemplo transportar pessoas de um sítio para outro, também é verdade para um carro. O carro é um caso particular de veículo, com mais pormenores.
 
-A forma mais segura de decidir é dizer a frase em voz alta, com as duas classes, e ver se ela é verdadeira.
+Para decidir, analisa a relação entre as duas classes e verifica qual das frases a descreve corretamente.
 
 - "Um inventário tem artigos." Verdadeira.
 - "Um inventário é um artigo." Falsa.
