@@ -37,7 +37,7 @@ Repara que, enquanto ninguém adicionar unidades, a quantidade e as saídas de u
 | Fase | O que fazes | O que tens no fim |
 | --- | --- | --- |
 | 1 | Executas o programa inicial e lês o que ele mostra | Sabes dizer que tipo de erro tem o programa |
-| 2 | Desenhas o modelo do programa no papel | O diagrama de classes e as caixas de objeto, confirmados pelo professor |
+| 2 | Descreves por palavras, no papel, o modelo do programa | A descrição das duas classes e da relação entre elas, e o estado dos dois artigos, confirmados pelo professor |
 | 3 | Escreves por palavras o plano dos dois métodos `retirar` | O plano, confirmado pelo professor |
 | 4 | Completas os dois métodos e comparas o programa com a tua previsão | O programa principal aceita o pedido de 4 e recusa o de 5 |
 | 5 | Crias o `ensaios.py` e experimentas outros casos | Os quatro ensaios e os dois pedidos seguidos, confirmados pelo professor |
@@ -63,23 +63,22 @@ Em todas as fases trabalhas da mesma maneira. Antes de executares, escreves no p
 - Exceção: um sinal de que alguma coisa correu mal, que interrompe o funcionamento normal do programa. `raise` lança uma exceção, e para o método nessa linha. `ValueError` ("erro de valor") é a exceção que usamos para recusar um valor ou um pedido. `try` e `except` apanham-na, para o programa continuar.
 - Contrato: o que uma operação recebe, o que devolve, quando falha e o que acontece aos dados em cada caso.
 - Encaminhamento: o inventário recebe um pedido, encontra o artigo que sabe cumpri-lo e passa-lho, sem verificar nada sobre as unidades.
-- Composição: a relação "tem" em que o todo cria as suas partes e as guarda, e as partes não fazem sentido sem ele. Desenha-se com um losango cheio, encostado ao todo.
-- Agregação: a relação "tem" em que o todo recebe partes já criadas fora dele, que existem sem ele, como as músicas de uma playlist. Desenha-se com um losango vazio, encostado ao todo.
-- UML leve: a forma simples de desenhar classes que usamos neste módulo, com caixas e linhas. UML é a sigla inglesa de "linguagem de modelação unificada".
-- Multiplicidade: o número escrito numa ponta da linha entre duas classes, como `1` ou `0..*`, que diz quantos objetos dessa ponta estão ligados a um objeto da outra.
+- Composição: a relação "tem" em que o todo cria as suas partes e as guarda, e as partes não fazem sentido sem ele.
+- Agregação: a relação "tem" em que o todo recebe partes já criadas fora dele, que existem sem ele, como as músicas de uma playlist.
+- Modelo: a descrição por palavras das classes de um programa e das relações entre elas. Diz o que cada objeto guarda, com que valores se cria e o que se lhe pode pedir.
 - Saídas: o total de unidades de um artigo que já saíram da sala por retiradas aceites.
 - Invariante: uma regra que tem de continuar verdadeira depois de cada operação, como a regra da quantidade, que nunca pode ser negativa.
 - Traço: a tabela que regista, pedido a pedido, o que acontece e como fica o estado depois. Faz-se no papel, antes de executar.
 - `pass`: a instrução que não faz nada (do inglês, "passa"). Marca o sítio onde vai entrar código.
 - Programa principal: as linhas encostadas à margem, no fim do ficheiro, fora das classes. São elas que dizem o que o programa faz.
-- Erro de escrita, de execução e de lógica: no de escrita, o Python recusa o ficheiro antes de começar. O de execução para o programa a meio. No de lógica, o programa corre até ao fim e faz outra coisa do que devia.
+- Erro de escrita, de execução e de lógica: no de escrita, o Python recusa o ficheiro antes de começar. O de execução para o programa a meio. No de lógica, o programa corre até ao fim e faz uma coisa diferente da que devia.
 - Mensagem de erro: o texto que o Python mostra quando para por causa de um erro. Quando o erro acontece com o programa a correr, a primeira linha é `Traceback (most recent call last)`, "o rasto, com a chamada mais recente no fim". A última linha diz o tipo de erro e o que aconteceu.
 
 ## O que precisas
 
 - O editor de Python que usas nas aulas, para escrever e executar os programas. Confirma que funciona: num ficheiro de ensaio, escreve `print("Olá")` e executa. Deve aparecer `Olá`, o que quer dizer que o editor está a executar programas de Python.
 - O Python 3, a partir da versão 3.10. Nas versões mais antigas, algumas mensagens de erro são um pouco diferentes, e o laboratório diz onde.
-- Papel e caneta, para o diagrama, as previsões, o plano e as respostas.
+- Papel e caneta, para o modelo, as previsões, o plano e as respostas.
 
 O laboratório começa de uma pasta vazia. Não precisas de nenhum ficheiro de outro laboratório: o programa inicial está todo aqui.
 
@@ -270,7 +269,7 @@ Um programa de Python é um ficheiro de texto com a extensão `.py`. Executar o 
 
 ## Fase 1: Um programa que corre e não faz o que devia
 
-Um programa pode estar errado de três maneiras. Num erro de escrita, o Python recusa o ficheiro antes de começar: falta um parêntese, faltam os dois pontos no fim de um `def`, ou uma linha está mal indentada. Num erro de execução, o programa para a meio, com uma mensagem que começa por `Traceback`. Num erro de lógica, o programa corre do princípio ao fim, sem nenhuma mensagem, e faz outra coisa do que o problema pede. O erro de lógica é o mais traiçoeiro, porque o Python não avisa de nada. Só o apanhas se souberes antes o que o programa devia mostrar. Para saber mais, lê "Um programa que corre sem erros e não faz o que devia", no [guia](06-sintese.md).
+Um programa pode estar errado de três maneiras. Num erro de escrita, o Python recusa o ficheiro antes de começar: falta um parêntese, faltam os dois pontos no fim de um `def`, ou uma linha está mal indentada. Num erro de execução, o programa para a meio, com uma mensagem que começa por `Traceback`. Num erro de lógica, o programa corre do princípio ao fim, sem nenhuma mensagem, e faz uma coisa diferente da que o problema pede. O erro de lógica é o mais traiçoeiro, porque o Python não avisa de nada. Só o apanhas se souberes antes o que o programa devia mostrar. Para saber mais, lê "Um programa que corre sem erros e não faz o que devia", no [guia](06-sintese.md).
 
 1. Antes de executares, prevê e escreve no papel. O programa vai parar com uma mensagem de erro, ou vai correr até ao fim? O que diz sobre os dois pedidos? Que quantidade e que saídas mostra para A10 no fim?
 
@@ -317,37 +316,44 @@ Pensa antes de continuares: o pedido de 5 também aparece como "aceite". Depois 
 
 ## Fase 2: O modelo antes do código
 
-Antes de mexeres no código, vais desenhar como os dados estão organizados. Um modelo mal percebido leva a escrever uma regra no objeto errado, e um desenho mostra o modelo sem teres de ler o programa linha a linha. Desenhas em UML leve.
+Antes de mexeres no código, vais descrever por palavras como os dados estão organizados. Um modelo mal percebido leva a escrever uma regra no objeto errado. Uma descrição escrita mostra o modelo sem teres de ler o programa linha a linha, e permite discuti-lo com o professor antes de escreveres código.
 
-Cada classe é uma caixa com três zonas: em cima o nome da classe, no meio os atributos e em baixo os métodos, com os parâmetros entre parênteses. A caixa mostra a interface pública da classe, aquilo que quem a usa vê e pode pedir. Por isso não se escreve o `self`, nem o `__init__`, nem os nomes internos com sublinhado: a quantidade aparece como `quantidade`, e não como `_quantidade`. A caixa de uma classe descreve todos os objetos dela, e por isso não leva valores.
+O modelo de um programa é a descrição das suas classes e das relações entre elas. A descrição de cada classe tem três partes. A primeira diz o que cada objeto guarda, e corresponde aos atributos. A segunda diz com que valores se cria um objeto, e corresponde aos parâmetros do construtor. A terceira diz o que se pode pedir a cada objeto, e corresponde aos métodos, com os parâmetros entre parênteses.
 
-A linha entre duas caixas diz que os objetos de uma classe têm objetos da outra. O losango cheio, encostado ao todo, diz que é uma composição: o todo cria as suas partes e guarda-as. Os números nas pontas são as multiplicidades, e leem-se nos dois sentidos. Quando um atributo guarda objetos de outra classe do diagrama, como a lista `_artigos` do inventário, não se escreve na caixa: quem o representa é a linha.
+A descrição mostra a interface pública da classe, aquilo que quem a usa vê e pode pedir. Por isso não se escreve o `self`, nem o `__init__`, nem os nomes internos com sublinhado: fala-se da quantidade, e não de `_quantidade`. A lista `_artigos` do inventário também não se escreve. A descrição diz só que o inventário guarda os seus artigos, porque a lista é a forma como o programa os guarda. E a descrição de uma classe vale para todos os objetos dela, e por isso não leva valores.
 
-Este é o diagrama do inventário do tema 04, que ainda não tinha as saídas:
+A relação entre duas classes descreve-se com a frase que as liga, "tem" ou "é um". Numa relação "tem", diz-se também o grau, composição ou agregação, e as razões que o justificam. As razões respondem a quatro perguntas: a parte faz sentido sem o todo? Quem cria a parte? A parte pode estar em dois todos ao mesmo tempo? O que lhe acontece se o todo desaparecer? Numa composição, o todo cria as suas partes e guarda-as, e as partes não fazem sentido sem ele.
 
-![Diagrama de classes: Inventario, com os métodos registar(codigo, nome, quantidade), quantidade_de(codigo) e retirar(codigo, unidades), ligado a Artigo por uma linha com um losango cheio do lado de Inventario, com 1 do lado do inventário e 0..* do lado do artigo](../imagens/uml-inventario-artigo.svg)
+Este é o modelo do inventário do tema 04, que ainda não tinha as saídas. Primeiro, a descrição da classe `Artigo`:
 
-Lê-se assim. A caixa `Artigo` tem três atributos e dois métodos. A caixa `Inventario` não tem atributos e tem três métodos. O losango cheio está junto do inventário. Um inventário tem de 0 a muitos artigos (`0..*`), e cada artigo pertence a exatamente um inventário (`1`).
+- Cada artigo guarda um código, um nome e uma quantidade, que é sempre um número inteiro não negativo.
+- Um artigo cria-se com o código, o nome e a quantidade inicial.
+- A um artigo pode pedir-se que adicione unidades, com `adicionar(unidades)`, e que retire unidades, com `retirar(unidades)`.
 
-Para desenhar um objeto concreto, com os valores, usa-se a caixa de objeto. O título tem o nome do objeto, dois pontos e o nome da classe, e escreve-se sublinhado. Os artigos deste programa não têm nome no programa principal: o programa chega a eles pelo inventário e pelo código. Um objeto assim chama-se objeto anónimo, e o título da caixa dele fica só com os dois pontos e a classe. Esta é a caixa de um artigo anónimo do tema 04, o caderno A01 com 6 unidades:
+Depois, a da classe `Inventario`:
 
-```text
-+------------------------+
-| : Artigo               |
-+------------------------+
-| codigo = "A01"         |
-| nome = "Caderno"       |
-| quantidade = 6         |
-+------------------------+
-```
+- Cada inventário guarda os seus artigos, e nunca dois com o mesmo código.
+- Um inventário cria-se vazio, sem nenhum valor.
+- A um inventário pode pedir-se que registe um artigo novo, com `registar(codigo, nome, quantidade)`; que diga a quantidade de um artigo, com `quantidade_de(codigo)`; e que retire unidades de um artigo, com `retirar(codigo, unidades)`.
+
+E por fim a da relação entre as duas:
+
+- Um inventário tem artigos, e é uma composição.
+- Um artigo só faz sentido dentro do seu inventário, porque é uma linha do registo.
+- É o inventário que cria cada artigo, quando se lhe pede que o registe.
+- Cada artigo pertence a um só inventário e desaparece se o inventário desaparecer.
+
+Para falar de um artigo concreto, com os valores, descreve-se o seu estado, numa frase. Os artigos deste programa não têm nome no programa principal: o programa chega a eles pelo inventário e pelo código. Por isso, cada artigo identifica-se pelo código. Este é o estado do caderno A01 do tema 04, acabado de registar:
+
+- O artigo A01 chama-se Caderno e tem 6 unidades.
 
 Para saber mais, lê o passo 8 do exemplo guiado do [guia](06-sintese.md).
 
-1. Numa folha, desenha o diagrama de classes do teu `inventario.py`. Parte do diagrama acima e acrescenta o que este programa tem a mais: na caixa `Artigo`, o dado que conta as saídas; na caixa `Inventario`, o método que as consulta. Desenha a linha entre as duas caixas, com o losango, se o houver, e as multiplicidades.
+1. Numa folha, escreve a descrição das duas classes do teu `inventario.py`. Parte das descrições acima e acrescenta o que este programa tem a mais. Na descrição do artigo, falta o dado que conta as saídas; na do inventário, o pedido que as consulta. Escreve também a descrição da relação entre as duas classes, com a frase que as liga e, se for uma relação "tem", o grau e as razões.
 
-2. Por baixo, desenha as caixas de objeto dos dois artigos no início do programa, com os valores de cada atributo.
+2. Por baixo, escreve o estado dos dois artigos no início do programa, numa frase para cada um, com os valores de cada dado.
 
-3. Por baixo do desenho, responde:
+3. Por baixo da descrição, responde:
 
    1. Neste programa, a relação entre `Inventario` e `Artigo` é uma composição ou uma agregação? Justifica com duas perguntas: a parte faz sentido sem o todo? Quem cria a parte? Indica a linha do programa onde os artigos são criados.
    2. Que objeto encontra o artigo a partir do código? Que objeto decide se há unidades suficientes? Que objeto guarda as saídas?
@@ -355,49 +361,33 @@ Para saber mais, lê o passo 8 do exemplo guiado do [guia](06-sintese.md).
 
 ### Paragem 2
 
-Mostra ao professor antes de leres a resposta: o diagrama de classes, as caixas de objeto e as três respostas.
+Mostra ao professor antes de leres a resposta: a descrição das duas classes e da relação, o estado dos dois artigos e as três respostas.
 
-O diagrama de classes de referência, com a linha entre as duas caixas, o losango cheio junto de `Inventario`, o `1` junto de `Inventario` e o `0..*` junto de `Artigo`:
+A descrição de referência da classe `Artigo`:
 
-```text
-+------------------------------------------+
-| Artigo                                   |
-+------------------------------------------+
-| codigo                                   |
-| nome                                     |
-| quantidade                               |
-| saidas                                   |
-+------------------------------------------+
-| adicionar(unidades)                      |
-| retirar(unidades)                        |
-+------------------------------------------+
+- Cada artigo guarda um código, um nome, uma quantidade, que é sempre um número inteiro não negativo, e as saídas, o total de unidades que já saíram por retiradas aceites.
+- Um artigo cria-se com o código, o nome e a quantidade inicial, e começa sem nenhuma saída.
+- A um artigo pode pedir-se que adicione unidades, com `adicionar(unidades)`, e que retire unidades, com `retirar(unidades)`.
 
-+------------------------------------------+
-| Inventario                               |
-+------------------------------------------+
-|                                          |
-+------------------------------------------+
-| registar(codigo, nome, quantidade)       |
-| quantidade_de(codigo)                    |
-| saidas_de(codigo)                        |
-| retirar(codigo, unidades)                |
-+------------------------------------------+
-```
+A da classe `Inventario`:
 
-As caixas de objeto no início do programa:
+- Cada inventário guarda os seus artigos, e nunca dois com o mesmo código.
+- Um inventário cria-se vazio, sem nenhum valor.
+- A um inventário pode pedir-se que registe um artigo novo, com `registar(codigo, nome, quantidade)`; que diga a quantidade de um artigo, com `quantidade_de(codigo)`; e que retire unidades de um artigo, com `retirar(codigo, unidades)`. Pode pedir-se-lhe também que diga as saídas de um artigo, com `saidas_de(codigo)`.
 
-```text
-+------------------------+      +------------------------+
-| : Artigo               |      | : Artigo               |
-+------------------------+      +------------------------+
-| codigo = "A10"         |      | codigo = "A11"         |
-| nome = "Régua"         |      | nome = "Cola"          |
-| quantidade = 6         |      | quantidade = 3         |
-| saidas = 0             |      | saidas = 0             |
-+------------------------+      +------------------------+
-```
+A da relação, que é a do tema 04, porque as saídas não mudam quem cria os artigos nem quem os guarda:
 
-Se escreveste `_quantidade` e `_saidas`, sabe que são os atributos internos onde os valores vivem; o diagrama mostra a interface pública, com `quantidade` e `saidas`. Se deste um nome às caixas de objeto, diz ao professor que esse nome não existe no programa. Se escreveste valores na caixa de uma classe, apaga-os: os valores de um artigo concreto vão só na caixa de objeto.
+- Um inventário tem artigos, e é uma composição.
+- Um artigo só faz sentido dentro do seu inventário, porque é uma linha do registo.
+- É o inventário que cria cada artigo, quando se lhe pede que o registe.
+- Cada artigo pertence a um só inventário e desaparece se o inventário desaparecer.
+
+O estado dos dois artigos no início do programa:
+
+- O artigo A10 chama-se Régua, tem 6 unidades e 0 saídas.
+- O artigo A11 chama-se Cola, tem 3 unidades e 0 saídas.
+
+Se escreveste `_quantidade` e `_saidas`, sabe que são os atributos internos onde os valores vivem; a descrição mostra a interface pública, com a quantidade e as saídas. Se identificaste um artigo por um nome, como `regua`, diz ao professor que esse nome não existe no programa: o que identifica cada artigo é o código. Se escreveste valores na descrição de uma classe, tira-os: os valores de um artigo concreto vão só no estado dele.
 
 As respostas:
 
@@ -830,9 +820,9 @@ Não precisas de recitar definições: usa o teu programa e os valores. Não há
 
 Podes dizer em que passos recebeste ajuda: essa informação serve para orientar o trabalho seguinte.
 
-As ideias que juntaste neste laboratório são as ideias centrais do M10. A primeira é distinguir a classe dos objetos e do estado de cada um. A segunda é proteger os dados de um objeto quando ele recusa um pedido. A terceira é dar cada tarefa ao objeto que tem a informação para a fazer, como o inventário que encontra o artigo e o artigo que decide. Vão ser avaliadas no [projeto](../projeto/README.md): a tua aplicação, com um tema que escolhes de uma lista preparada pelo professor. O projeto é avaliado no fim do M12, com demonstração, explicação e uma pequena alteração feita na hora. É a avaliação prática do M10, do M11 e do M12, cada uma com os critérios do seu módulo. Os critérios do M10 são estas três ideias, agora na tua aplicação.
+As ideias que juntaste neste laboratório são as ideias centrais do M10. A primeira é distinguir a classe dos objetos e do estado de cada um. A segunda é proteger os dados de um objeto quando ele recusa um pedido. A terceira é dar cada tarefa ao objeto que tem a informação para a fazer, como o inventário que encontra o artigo e o artigo que decide. Vão ser avaliadas no [projeto](../projeto/README.md): a tua aplicação, com um tema que escolhes da lista preparada pelo professor, ou com uma ideia tua que ele aprove. O projeto é avaliado no fim do M12, com demonstração, explicação e uma pequena alteração feita na hora. É a avaliação prática do M10, do M11 e do M12, cada uma com os critérios do seu módulo. Os critérios do M10 são estas três ideias, agora na tua aplicação.
 
-O projeto começa já no fim do M10, com a escolha do tema e o modelo da tua aplicação em UML leve, como o que desenhaste na fase 2. Esta conversa é um primeiro ensaio da explicação que o projeto te vai pedir. O que é cada objeto? Onde está a regra? O que acontece aos dados quando um pedido é recusado?
+O projeto começa já no fim do M10, com a escolha do tema e o modelo da tua aplicação, descrito por palavras, como o que escreveste na fase 2. Esta conversa é um primeiro ensaio da explicação que o projeto te vai pedir. O que é cada objeto? Onde está a regra? O que acontece aos dados quando um pedido é recusado?
 
 ## Problemas frequentes
 
@@ -876,7 +866,7 @@ O pedido ficou fora do `try`. A mensagem mostra o caminho do pedido, do programa
 
 - [ ] O `inventario.py` executa e mostra as oito linhas da paragem 4, com a mensagem da forma que escolheste.
 - [ ] O `ensaios.py` tem o bloco da fase 5, e fizeste os quatro ensaios e os dois pedidos seguidos.
-- [ ] Tens na folha o diagrama, as caixas de objeto e as respostas da fase 2, os dois planos, as tabelas das fases 4 e 5 e as quatro frases.
+- [ ] Tens na folha a descrição das classes e da relação, o estado dos dois artigos e as respostas da fase 2. Tens também os dois planos, as tabelas das fases 4 e 5 e as quatro frases.
 - [ ] Guardaste a pasta `tema-06` e a folha, e entregaste-as pelo meio indicado pelo professor. Guarda uma cópia para ti: vais voltar a precisar destas ideias no projeto.
 - [ ] Sabes dizer quem recusa cada um dos pedidos da fase 5, e porquê.
 - [ ] Consegues explicar, por palavras tuas, porque é que uma recusa não muda nem a quantidade nem as saídas, e que linha do teu código o garante.

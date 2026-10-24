@@ -2,7 +2,7 @@
 
 # Ficha de exercícios: Herança e polimorfismo
 
-Ficha do tema Herança e polimorfismo, do módulo M10, Introdução à Programação Orientada por Objetos. Praticas a leitura de hierarquias, a previsão de chamadas, a escolha entre herança e composição e a verificação de contratos. Praticas também o contrato de uma classe abstrata e a escrita das suas classes concretas. Fazes sozinho, ao teu ritmo: o que não acabares na aula, acabas em casa ou na aula seguinte.
+Ficha do tema Herança e polimorfismo, do módulo M10, Introdução à Programação Orientada por Objetos. Praticas a leitura de hierarquias, a previsão de chamadas, a escolha entre herança e composição e a verificação de contratos. Praticas também o contrato de uma classe abstrata, escrito no papel, e a escrita de classes concretas que o cumprem. Fazes sozinho, ao teu ritmo: o que não acabares na aula, acabas em casa ou na aula seguinte.
 
 ## O que precisas de saber
 
@@ -12,8 +12,8 @@ O [guia do tema](05-heranca-polimorfismo.md) e o [laboratório](05-heranca-polim
 - Exercício 2: "Redefinir um método: onde o Python procura" e "Polimorfismo: a mesma chamada, comportamentos diferentes".
 - Exercício 3: "Herança ou composição".
 - Exercício 4: "O contrato comum". Os três tipos de erro (de escrita, de execução e de lógica) estão no guia 03, em "Nada impede uma quantidade impossível".
-- Exercício 5: "Abstração, classes abstratas e o módulo `abc`", sobretudo "Escrever o contrato abstrato no papel".
-- Exercício 6: "Abstração, classes abstratas e o módulo `abc`" e "Acrescentar dados numa classe derivada: `super()`".
+- Exercício 5: "Abstração e classes abstratas", sobretudo "Escrever o contrato abstrato no papel".
+- Exercício 6: "O contrato na docstring da classe base", em "Abstração e classes abstratas", e "Acrescentar dados numa classe derivada: `super()`".
 
 ## Como trabalhar
 
@@ -167,32 +167,30 @@ class EtiquetaComTracos(Etiqueta):
 Um programa de geometria tem uma classe `Forma`, para figuras planas como retângulos e quadrados. Todas as formas têm uma área.
 
 1. Explica, numa frase, porque é que `Forma` deve ser uma classe abstrata. Noutra frase, explica porque é que `area` deve ser um método abstrato.
-2. Escreve no papel o contrato abstrato de `Forma`, por palavras ou organizado por indentação, como no fim de "Abstração, classes abstratas e o módulo `abc`", no guia. Tem de dizer o que todas as formas sabem fazer e o que cada forma concreta tem de completar. O contrato de `area` tem de estar por inteiro: o que recebe, o que devolve e o que não faz.
+2. Escreve no papel o contrato abstrato de `Forma`, por palavras ou organizado por indentação, como em "Escrever o contrato abstrato no papel", no guia. Tem de dizer o que todas as formas sabem fazer e o que cada forma concreta tem de completar. O contrato de `area` tem de estar por inteiro: o que recebe, o que devolve e o que não faz.
 
 ## Exercício 6: Escrever duas formas concretas
 
-Esta é a classe abstrata `Forma`, já escrita. É um programa completo, que ainda não faz nada visível:
+Esta é a classe base `Forma`, já escrita. A docstring ainda não tem o contrato de `area`, e és tu que o acrescentas na alínea 1. É um programa completo, que ainda não faz nada visível:
 
 ```python
 # Ficha 05, exercício 6: as formas geométricas.
 
-from abc import ABC, abstractmethod
+class Forma:
+    """Uma figura geométrica plana.
 
-
-class Forma(ABC):
-    """Uma figura geométrica plana. Classe abstrata."""
-
-    @abstractmethod
-    def area(self):
-        """Método abstrato: o contrato é o que escreveste no exercício 5."""
+    No modelo, é uma classe abstrata. Cada forma concreta deriva desta
+    classe e escreve area().
+    """
 ```
 
-Repara que a `Forma` não tem construtor.
+Repara que a `Forma` não tem construtor nem o método `area`. Por isso, o contrato de `area` fica na docstring da classe, que é onde quem escreve uma forma nova o vai procurar.
 
-1. Acrescenta ao programa a classe `Retangulo`, derivada de `Forma`. Cria-se com a largura e a altura, por exemplo `Retangulo(4, 3)`, e a sua área é a largura vezes a altura.
-2. Acrescenta a classe `Quadrado`, também derivada de `Forma`, que se cria só com o lado, por exemplo `Quadrado(5)`. Decide tu que atributo guarda e como calcula a área.
-3. No fim do programa, cria uma lista com `Retangulo(4, 3)`, `Quadrado(5)` e `Retangulo(2, 7)`, e mostra a área de cada forma com um ciclo `for`. Escreve as três áreas que esperas antes de executar.
-4. Experimenta criar `Forma()`. Escreve a última linha do erro e diz, por palavras tuas, o que significa.
+1. Completa a docstring da `Forma` com o contrato de `area` que escreveste no exercício 5: o que recebe, o que devolve e o que não faz. Escreve-o depois da última frase, antes das três aspas que fecham.
+2. Acrescenta ao programa a classe `Retangulo`, derivada de `Forma`. Cria-se com a largura e a altura, por exemplo `Retangulo(4, 3)`, e a sua área é a largura vezes a altura.
+3. Acrescenta a classe `Quadrado`, também derivada de `Forma`, que se cria só com o lado, por exemplo `Quadrado(5)`. Decide tu que atributo guarda e como calcula a área.
+4. No fim do programa, cria uma lista com `Retangulo(4, 3)`, `Quadrado(5)` e `Retangulo(2, 7)`, e mostra a área de cada forma com um ciclo `for`. Escreve as três áreas que esperas antes de executar.
+5. No fim do programa, acrescenta as linhas `geral = Forma()` e `print(geral.area())`, e executa. Escreve a última linha da mensagem de erro e diz, por palavras tuas, o que significa.
 
 ## Apoio
 
@@ -233,7 +231,7 @@ Muda a última linha do programa para `print(etiqueta.conteudo(), etiqueta.largu
 - Na tabela do exercício 2, cada volta diz onde o Python encontra o `conteudo`.
 - No exercício 4, escreveste o caso que falhou, o que devia aparecer, o que apareceu e o tipo de erro. Depois da correção, voltaste a correr o programa inteiro.
 - No exercício 5, o contrato diz o que `area` recebe, o que devolve e o que não faz.
-- No exercício 6, o programa mostra as três áreas que previste, e explicaste a mensagem de `Forma()`.
+- No exercício 6, a docstring da `Forma` tem o contrato de `area`, o programa mostra as três áreas que previste, e explicaste a mensagem de erro da forma geral.
 
 ## Autoavaliação
 

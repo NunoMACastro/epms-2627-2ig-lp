@@ -8,7 +8,7 @@ Nos guias 02, 03 e 04 construíste, uma peça de cada vez, um pequeno inventári
 
 Este guia junta essas três ideias à volta de um único programa, que já vem quase todo escrito. Primeiro vais ler o programa e reconhecer nele cada ideia, com a indicação do guia onde foi explicada. Depois acompanhas um exemplo guiado, que completa uma operação que o programa ainda não sabe fazer. A ficha de exercícios tem tarefas curtas sobre o mesmo programa, cada uma com uma pequena decisão que o exemplo guiado não tomou por ti.
 
-O objetivo não é decorar sintaxe. É conseguires olhar para um programa com objetos e responder a três perguntas. Que objetos existem, e o que guarda cada um? Quem decide se um pedido é aceite? O que acontece aos dados quando um pedido é aceite, e quando é recusado? São as perguntas que vais trabalhar no laboratório deste tema, que fazes na aula, passo a passo, com o professor a acompanhar.
+O objetivo é conseguires olhar para um programa com objetos e responder a três perguntas, sem decorar sintaxe. Que objetos existem, e o que guarda cada um? Quem decide se um pedido é aceite? O que acontece aos dados quando um pedido é aceite, e quando é recusado? São as perguntas que vais trabalhar no laboratório deste tema, que fazes na aula, passo a passo, com o professor a acompanhar.
 
 Os programas completos correm sozinhos, como nos guias anteriores: copia-os para um ficheiro `.py` e executa o ficheiro inteiro, no editor de Python que usas nas aulas. Funcionam com o Python 3, a partir da versão 3.10. Cada execução começa do zero, com os valores escritos no programa. Os excertos estão sempre assinalados, e o texto diz de que outro código dependem.
 
@@ -37,11 +37,11 @@ No fim deste guia, consegues:
 - reconhecer um erro de lógica, um programa que corre sem mensagens e não faz o que devia, comparando o que ele mostra com a tua previsão;
 - completar um método do inventário que encontra o artigo e lhe passa o pedido, começando pelo contrato e deixando a verificação a quem tem a regra;
 - confirmar que um pedido recusado deixa o estado como estava, e que um pedido aceite mudou o que devia;
-- desenhar em UML leve o inventário e os seus artigos, incluindo os artigos que o programa não guarda em nenhum nome.
+- descrever por palavras as classes do programa e a relação entre elas, e dizer o estado de cada artigo, identificado pelo código.
 
 ## O que já sabes e vais usar
 
-Este guia quase não traz matéria nova. As novidades são três, e pequenas. A primeira é a instrução `pass`, em "O programa de partida". A segunda é uma forma de desenhar em UML leve um objeto sem nome, no passo 8 do exemplo guiado. A terceira é uma propriedade só com getter, que se consulta e não se altera pela propriedade; está no laboratório deste tema, que a explica. Tudo o resto vem dos guias anteriores e do 10.º ano:
+Este guia quase não traz matéria nova. As novidades são duas, e pequenas. A primeira é a instrução `pass`, em "O programa de partida". A segunda é uma propriedade só com getter, que se consulta e não se altera pela propriedade; está no laboratório deste tema, que a explica. Tudo o resto vem dos guias anteriores e do 10.º ano:
 
 - O artigo como uma linha do registo, com código, nome e quantidade: guia [01 Entidades, estado e ações](01-entidades-estado-acoes.md), em "A informação que interessa guardar".
 - As regras do inventário: guia [01](01-entidades-estado-acoes.md), em "Uma operação tem de respeitar regras".
@@ -62,10 +62,10 @@ Este guia quase não traz matéria nova. As novidades são três, e pequenas. A 
 - O contrato de uma operação e o valor `None` (do inglês, "nenhum"): guia [03](03-encapsulamento-contratos.md), em "Adicionar: uma operação com contrato".
 - Os métodos `adicionar` e `retirar` do artigo, com as regras do pedido e a regra do estado. Estão no guia [03](03-encapsulamento-contratos.md), em "Adicionar: uma operação com contrato" e "Exemplo guiado: construir o método retirar".
 - As responsabilidades, "quem sabe o quê": guia [04 Composição e modelação](04-composicao-modelacao.md), em "Quem sabe o quê: responsabilidades".
-- A UML leve, a pequena parte da UML (do inglês, "linguagem de modelação unificada") que usamos para desenhar classes. Inclui a caixa de uma classe, a caixa de objeto, as linhas e as multiplicidades. Está no guia [04](04-composicao-modelacao.md), em "UML leve: a caixa de uma classe" e "UML leve: as linhas entre as caixas".
-- A composição e a agregação, com as quatro perguntas e os dois losangos: guia [04](04-composicao-modelacao.md), em "Dois graus de "tem": composição e agregação" e "O nosso inventário: composição".
+- O modelo, a descrição por palavras das classes de um programa e das relações entre elas. Cada classe descreve-se pelo que cada objeto guarda, pelos valores com que se cria e pelo que se lhe pode pedir. A relação descreve-se pela frase "tem", com o grau e as razões. Está no guia [04](04-composicao-modelacao.md), em "O inventário descrito por palavras".
+- A composição e a agregação, com as quatro perguntas: guia [04](04-composicao-modelacao.md), em "Dois graus de "tem": composição e agregação" e "O nosso inventário: composição".
 - A agregação em Python, com a playlist, a lista de músicas que alguém escolhe numa aplicação de música: guia [04](04-composicao-modelacao.md), em "Agregação em Python: a playlist e as músicas".
-- A tabela que liga o diagrama ao código: guia [04](04-composicao-modelacao.md), em "Do diagrama ao código, e do código ao diagrama".
+- A tabela que liga a descrição do modelo ao código: guia [04](04-composicao-modelacao.md), em "Da descrição ao código, e do código à descrição".
 - A classe `Inventario`, com a lista interna `_artigos` e os métodos `_procurar`, `registar`, `quantidade_de` e `retirar`. Está no guia [04](04-composicao-modelacao.md), em "Exemplo guiado: construir a classe `Inventario`", com o encaminhamento e o caminho de uma recusa.
 - As listas e o ciclo `for`: do 10.º ano, recordados no guia [04](04-composicao-modelacao.md), em "Recordar as listas e o ciclo `for`".
 - A docstring, o texto entre três aspas que explica uma função, uma classe ou um método: guia [01](01-entidades-estado-acoes.md), em "Duas maneiras de organizar um programa".
@@ -312,11 +312,11 @@ O método `retirar` do inventário tem só duas linhas: encontra o artigo e pass
 
 A relação entre `Inventario` e `Artigo` é uma relação "tem": um inventário tem artigos. O guia 04, em "Dois graus de "tem": composição e agregação", distingue dois graus desta relação com quatro perguntas. As duas primeiras decidem: a parte faz sentido sem o todo? E quem cria a parte?
 
-Neste programa, quem cria os artigos é o inventário, dentro do seu método `registar`. É lá, e só lá, que aparece `Artigo(...)`. O programa principal não cria nenhum artigo nem guarda nenhum artigo num nome seu: só tem o nome `inventario` e fala com ele através dos códigos. E o artigo, que é uma linha do registo deste inventário, não faz sentido sem ele. Por isso a relação é uma **composição**, e o diagrama de classes desenha-a com um losango cheio do lado do inventário.
+Neste programa, quem cria os artigos é o inventário, dentro do seu método `registar`. É lá, e só lá, que aparece `Artigo(...)`. O programa principal não cria nenhum artigo nem guarda nenhum artigo num nome seu: só tem o nome `inventario` e fala com ele através dos códigos. E o artigo, que é uma linha do registo deste inventário, não faz sentido sem ele. Por isso a relação é uma **composição**.
 
-Seria uma **agregação** se o inventário recebesse artigos já criados fora dele. É o que faz a playlist do guia 04, em "Agregação em Python: a playlist e as músicas", que recebe músicas que já existem. Nesse caso, o programa principal teria linhas como `caderno = Artigo("A01", "Caderno", 6)`. O inventário teria um método que recebe esse objeto e o junta à lista, e o diagrama mostraria um losango vazio. A tabela de "Do diagrama ao código, e do código ao diagrama", no guia 04, diz o mesmo de forma curta. Há losango cheio quando o todo cria as partes dentro de um método seu e não as entrega a quem está de fora. Há losango vazio quando o todo tem um método que recebe objetos já criados e os junta à lista.
+Seria uma **agregação** se o inventário recebesse artigos já criados fora dele. É o que faz a playlist do guia 04, em "Agregação em Python: a playlist e as músicas", que recebe músicas que já existem. Nesse caso, o programa principal teria linhas como `caderno = Artigo("A01", "Caderno", 6)`, e o inventário teria um método que recebe esse objeto e o junta à lista. A tabela de "Da descrição ao código, e do código à descrição", no guia 04, diz o mesmo de forma curta. A relação é uma composição quando o todo cria as partes dentro de um método seu e não as entrega a quem está de fora. É uma agregação quando o todo tem um método que recebe objetos já criados e os junta à lista.
 
-O erro típico é chamar composição a qualquer objeto que guarda uma lista de outros objetos. A lista, sozinha, não decide nada: a playlist também guarda uma lista. O que decide é quem chama o construtor da parte e se a parte tem vida fora do todo. Antes de escolheres o losango, procura no código a linha onde a parte é criada.
+O erro típico é chamar composição a qualquer objeto que guarda uma lista de outros objetos. A lista, sozinha, não decide nada: a playlist também guarda uma lista. O que decide é quem chama o construtor da parte e se a parte tem vida fora do todo. Antes de escreveres composição ou agregação, procura no código a linha onde a parte é criada.
 
 ## Exemplo guiado: completar o método `acertar`
 
@@ -568,44 +568,41 @@ A exceção nasce no setter e sobe pela cadeia de chamadas que ainda estão à e
 
 O método `_procurar` não está na tabela, porque já tinha terminado quando a exceção nasceu. Repara também que esta cadeia é mais curta do que a da retirada, no guia 04. Entre o inventário e o setter não há nenhum método do artigo: a escrita na propriedade chama o setter diretamente, a partir da linha do inventário.
 
-### Passo 8: o modelo em UML leve
+### Passo 8: o modelo descrito por palavras
 
-Com o método novo, a caixa da classe `Inventario` ganha uma linha na zona dos métodos:
+No guia 04, em "O inventário descrito por palavras", o modelo do inventário ficou escrito antes do código. O modelo tem de dizer o mesmo que o programa. Por isso, quando o programa ganha um método, relê-se o modelo e acerta-se o que mudou. Vamos ver o que muda com o `acertar`.
 
-```text
-+------------------------------------------+
-| Inventario                               |
-+------------------------------------------+
-|                                          |
-+------------------------------------------+
-| registar(codigo, nome, quantidade)       |
-| quantidade_de(codigo)                    |
-| retirar(codigo, unidades)                |
-| acertar(codigo, nova_quantidade)         |
-+------------------------------------------+
-```
+A descrição de cada classe tem três partes: o que cada objeto guarda, com que valores se cria e o que se lhe pode pedir. A descrição da classe `Artigo` não muda:
 
-A zona dos atributos continua vazia, pela razão que o guia 04 dá em "O nosso inventário: composição". A lista `_artigos` é representada pela linha que liga as duas caixas, e não se escreve dentro da caixa. O método `_procurar` também não aparece, porque é interno e não faz parte da interface pública. A caixa da classe `Artigo` é a de "UML leve: a caixa de uma classe", no guia 04.
+- Cada artigo guarda um código, um nome e uma quantidade, que é sempre um número inteiro não negativo.
+- Um artigo cria-se com o código, o nome e a quantidade inicial.
+- A um artigo pode pedir-se que adicione unidades, com `adicionar(unidades)`, e que retire unidades, com `retirar(unidades)`.
 
-A ligação entre as duas classes é a composição de "O inventário no programa: composição e procura pelo código". Desenha-se como no diagrama do guia 04: uma linha com um losango cheio encostado a `Inventario`, o `1` junto de `Inventario` e o `0..*` junto de `Artigo`.
+O método novo é do inventário. No artigo, o acerto faz-se escrevendo na quantidade, e a quantidade já está na primeira parte da descrição, com a sua regra.
 
-![Diagrama de classes do guia 04: Inventario, com os métodos registar(codigo, nome, quantidade), quantidade_de(codigo) e retirar(codigo, unidades), ligado a Artigo por uma linha com um losango cheio do lado de Inventario, com 1 do lado do inventário e 0..* do lado do artigo](../imagens/uml-inventario-artigo.svg)
+Na descrição da classe `Inventario`, muda só a terceira parte, a do que se pode pedir, que ganha o pedido novo:
 
-Lê as multiplicidades nos dois sentidos, como em "UML leve: as linhas entre as caixas", no guia 04. Um inventário tem de zero a muitos artigos, e cada artigo pertence a exatamente um inventário.
+- Cada inventário guarda os seus artigos, e nunca dois com o mesmo código.
+- Um inventário cria-se vazio, sem nenhum valor.
+- A um inventário pode pedir-se que registe um artigo novo, com `registar(codigo, nome, quantidade)`; que diga a quantidade de um artigo, com `quantidade_de(codigo)`; e que retire unidades de um artigo, com `retirar(codigo, unidades)`. Pode pedir-se-lhe também que acerte a quantidade de um artigo depois de uma contagem, com `acertar(codigo, nova_quantidade)`.
 
-O diagrama de classes não tem valores. Para mostrar o estado dos artigos no fim do programa do passo 6, usamos caixas de objeto. No guia 04, a caixa de objeto tem o título `caderno : Artigo`, com o nome do objeto antes dos dois pontos. Os nossos artigos não têm nome no programa principal. Por isso, o título de cada caixa diz só a classe, precedida de dois pontos, e o código fica nos atributos:
+Repara no que fica de fora. A lista `_artigos` não aparece, pela razão que o guia 04 dá. A descrição diz que o inventário guarda os seus artigos, e a lista é só a forma como o programa os guarda. O método `_procurar` também não aparece. É interno: só os métodos do próprio inventário o usam, e não faz parte do que se pode pedir ao inventário de fora. E o pedido novo não repete a regra da quantidade. Essa regra está na descrição do artigo, como no código está no setter. É a decisão do passo 2, agora no modelo: cada regra num só sítio.
 
-```text
-+------------------------+      +------------------------+
-| : Artigo               |      | : Artigo               |
-+------------------------+      +------------------------+
-| codigo = "A01"         |      | codigo = "A02"         |
-| nome = "Caderno"       |      | nome = "Pasta"         |
-| quantidade = 6         |      | quantidade = 1         |
-+------------------------+      +------------------------+
-```
+A descrição da relação entre as duas classes também não muda:
 
-Um título começado por dois pontos, sem nada antes, quer dizer "um objeto da classe `Artigo`, sem nome no programa". É a forma de a UML desenhar um **objeto anónimo**. É o caso dos nossos artigos: o programa principal chega a eles pelo inventário e pelo código, e não por um nome seu. Num desenho à mão, o título sublinha-se, como em qualquer caixa de objeto.
+- Um inventário tem artigos, e é uma composição.
+- Um artigo só faz sentido dentro do seu inventário, porque é uma linha do registo.
+- É o inventário que cria cada artigo, quando se lhe pede que o registe.
+- Cada artigo pertence a um só inventário e desaparece se o inventário desaparecer.
+
+O método `acertar` muda a quantidade de um artigo que já existe. Não muda quem cria os artigos, quem os guarda nem a quantos inventários pertence cada um. A relação entre duas classes muda quando muda a forma como os objetos se ligam, e não quando se acrescenta um pedido. É a mesma composição de "O inventário no programa: composição e procura pelo código".
+
+A descrição de uma classe não tem valores, porque vale para todos os objetos dela. Para dizer como ficaram os artigos no fim do programa do passo 6, descreve-se o estado de cada um:
+
+- O artigo A01 chama-se Caderno e tem 6 unidades.
+- O artigo A02 chama-se Pasta e tem 1 unidade.
+
+Repara que cada artigo é identificado pelo código. No guia 02, o caderno estava guardado no nome `caderno`, e podíamos falar do objeto `caderno`. Neste programa, o programa principal não guarda nenhum artigo num nome seu. Chega a eles pelo inventário e pelo código, e é também pelo código que os identificamos quando os descrevemos. O nome `artigo`, dentro dos métodos do inventário, não serve para isso: é um nome local, que aponta, em cada chamada, para o artigo que `_procurar` encontrou.
 
 ## Erros frequentes
 
@@ -654,7 +651,6 @@ Como se corrige: escreve as linhas do método por baixo do `def`, com oito espa�
 - `pass`: a instrução que não faz nada (do inglês, "passa"). Marca o sítio onde vai entrar código, ou dá a um bloco a instrução que ele precisa de ter.
 - Programa principal: as linhas encostadas à margem, no fim do ficheiro, fora das classes. São elas que dizem o que o programa faz, e é por elas que se começa a ler.
 - Ler um programa por zonas: começar pelo programa principal, depois ler os métodos que ele chama, e só depois as classes que esses métodos usam.
-- Objeto anónimo: um objeto que o programa não guarda em nenhum nome seu. Em UML, a caixa dele tem o título só com dois pontos e o nome da classe, como `: Artigo`.
 
 ## Verificar o que aprendeste
 
@@ -668,12 +664,12 @@ Tenta responder sem olhar para o texto. Se uma pergunta te deixar com dúvidas, 
 6. Porque é que se acerta a quantidade, e não se usa o `adicionar`, depois de uma contagem à mão? (Exemplo guiado, passo 1)
 7. Porque é que o método `acertar` escreve em `artigo.quantidade`, e não em `artigo._quantidade`? (Exemplo guiado, passo 4)
 8. Segue o pedido `inventario.acertar("A01", -1)` até à linha que o recusa. Que métodos ficam a meio, e qual já tinha terminado? (Exemplo guiado, passo 7)
-9. Desenha a caixa de objeto da pasta no fim do programa do passo 6. O que quer dizer o título só com dois pontos e o nome da classe? (Exemplo guiado, passo 8)
+9. Descreve por palavras o estado da pasta no fim do programa do passo 6. Porque é que a identificas pelo código, e não por um nome do programa? (Exemplo guiado, passo 8)
 
 ## O que vem a seguir
 
 Para praticar este tema, tens a [ficha de exercícios](06-sintese-exercicios.md) e o [laboratório](06-sintese-laboratorio.md). A ficha usa o programa do exemplo guiado: prevês quem responde a cada pedido, escreves um método novo do inventário e encontras o erro de um colega. O laboratório fecha o módulo e faz-se na aula, com o professor a acompanhar. Vais completar uma operação num programa parecido com o deste guia, explicar o modelo e mostrar o que acontece aos dados. No fim, explicas o teu trabalho ao professor numa conversa curta, sem nota.
 
-Este é o último tema do M10. No fim do módulo escolhes o tema do teu [projeto](../projeto/README.md) e fazes o modelo da tua aplicação em UML leve. As ideias deste guia são avaliadas no projeto, no fim do M12. No módulo seguinte, o M11, vais reencontrá-las em JavaScript: os objetos, os contratos e o "quem sabe o quê" continuam a ser as mesmas perguntas.
+Este é o último tema do M10. No fim do módulo escolhes o tema do teu [projeto](../projeto/README.md) e fazes o modelo da tua aplicação, descrito por palavras, como o do passo 8 do exemplo guiado. As ideias deste guia são avaliadas no projeto, no fim do M12. No módulo seguinte, o M11, vais reencontrá-las em JavaScript: os objetos, os contratos e o "quem sabe o quê" continuam a ser as mesmas perguntas.
 
 ![Rodapé](../imagens/rodape.png)

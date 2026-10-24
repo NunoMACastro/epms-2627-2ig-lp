@@ -2,47 +2,37 @@
 
 # Ficha de exercícios: Composição e modelação
 
-Ficha do tema Composição e modelação, do módulo M10, Introdução à Programação Orientada por Objetos. Praticas a leitura e o desenho de diagramas em UML leve e a escolha entre "tem" e "é um" e entre composição e agregação. Praticas também a leitura de código com objetos que colaboram. Fazes sozinho, ao teu ritmo: o que não acabares na aula, acabas em casa ou na aula seguinte.
+Ficha do tema Composição e modelação, do módulo M10, Introdução à Programação Orientada por Objetos. Praticas a descrição de classes por palavras, a escolha entre "tem" e "é um" e a escolha entre composição e agregação. Praticas também a leitura de código com objetos que colaboram. Fazes sozinho, ao teu ritmo: o que não acabares na aula, acabas em casa ou na aula seguinte.
 
 ## O que precisas de saber
 
 O [guia do tema](04-composicao-modelacao.md) e o [laboratório](04-composicao-modelacao-laboratorio.md). Cada exercício usa sobretudo estas secções do guia:
 
-- Exercício 1: "UML leve: a caixa de uma classe".
+- Exercício 1: "O inventário descrito por palavras", sobretudo "A descrição de uma classe".
 - Exercício 2: "Duas perguntas sobre duas classes: "tem" e "é um"".
 - Exercício 3: "Dois graus de "tem": composição e agregação" e "Agregação em Python: a playlist e as músicas".
 - Exercício 4: o exemplo guiado, "Exemplo guiado: construir a classe `Inventario`", sobretudo os passos 3, 5 e 6. Os três tipos de erro (de escrita, de execução e de lógica) estão no guia 03, em "Nada impede uma quantidade impossível".
-- Exercício 5: "UML leve: as linhas entre as caixas" e "Dois graus de "tem": composição e agregação".
+- Exercício 5: "Dois graus de "tem": composição e agregação" e "O inventário descrito por palavras".
 
 ## Como trabalhar
 
-Faz os exercícios 1 a 5 pela ordem. São a parte obrigatória. Cada exercício treina uma coisa só, e a ordem vai do mais direto para o que pede uma pequena decisão tua. O desafio opcional é para quem acabar. Os três exercícios de "Para ires mais longe" são para quem quer treinar mais com outros casos: podes fazer só um ou dois, ou os que o professor indicar.
+Faz os exercícios 1 a 5 pela ordem. São a parte obrigatória. Cada exercício treina uma coisa só, e a ordem vai do mais direto para o que pede uma pequena decisão tua. O desafio opcional é para quem acabar. Os dois exercícios de "Para ires mais longe" são para quem quer treinar mais com outros casos: podes fazer só um, ou os que o professor indicar.
 
 Responde no caderno diário ou numa folha, com o número de cada exercício. Quando um exercício pede uma justificação, a justificação é a parte mais importante da resposta. Uma escolha certa sem razão escrita vale pouco. Uma escolha discutível bem justificada mostra que percebeste as regras.
 
 Um programa completo pode ser copiado para um ficheiro `.py` e executado no editor de Python que usas nas aulas. Os excertos não correm sozinhos, e o enunciado diz sempre de que outro código dependem. Entrega as respostas pelo meio indicado pelo professor.
 
-## Exercício 1: Ler a caixa de uma classe
+## Exercício 1: Ler a descrição de uma classe
 
-Esta é a caixa de uma classe de um jogo de computador:
+Esta é a descrição, por palavras, da classe `Personagem` de um jogo de computador:
 
-```text
-+----------------------------------------+
-| Personagem                             |
-+----------------------------------------+
-| nome                                   |
-| vida                                   |
-| nivel                                  |
-+----------------------------------------+
-| sofrer_dano(pontos)                    |
-| descansar()                            |
-| vida_em_falta()                        |
-+----------------------------------------+
-```
+- Cada personagem guarda um nome, os pontos de vida e o nível.
+- Uma personagem cria-se com esses três valores.
+- A uma personagem pode pedir-se que sofra dano, com `sofrer_dano(pontos)`; que descanse, com `descansar()`; e que diga quantos pontos de vida lhe faltam, com `vida_em_falta()`.
 
 1. Escreve o nome da classe, os seus atributos e os seus métodos.
 2. Qual dos métodos recebe informação quando é chamado, e que informação recebe?
-3. Desenha a caixa de objeto de uma personagem chamada Aurora, com valores à tua escolha para a vida e o nível. Depois explica, numa ou duas frases, porque é que `nome = "Aurora"` não se escreve na caixa da classe `Personagem`.
+3. Descreve por palavras o estado de uma personagem chamada Aurora, com valores à tua escolha para a vida e o nível. Depois explica, numa ou duas frases, porque é que "chama-se Aurora" não entra na descrição da classe `Personagem`.
 
 ## Exercício 2: "Tem" ou "é um"
 
@@ -53,20 +43,11 @@ Para cada par, escreve a frase verdadeira: "A tem B" ou "A é um B". Se nenhuma 
 3. Portátil e computador.
 4. Artigo e inventário, por esta ordem.
 
-Depois, responde a um colega. Para um programa da secretaria da escola, ele propõe que "a Turma é um Aluno, porque também tem um nome e um número". Esta é a caixa da classe `Aluno` desse programa:
+Depois, responde a um colega. Para um programa da secretaria da escola, ele propõe que "a Turma é um Aluno, porque também tem um nome e um número". Esta é a descrição da classe `Aluno` desse programa:
 
-```text
-+-----------------------------------+
-| Aluno                             |
-+-----------------------------------+
-| nome                              |
-| numero                            |
-| data_nascimento                   |
-+-----------------------------------+
-| idade()                           |
-| receber_nota(disciplina, nota)    |
-+-----------------------------------+
-```
+- Cada aluno guarda um nome, um número e a data de nascimento.
+- Um aluno cria-se com esses três valores.
+- A um aluno pode pedir-se que diga a sua idade, com `idade()`, e que receba uma nota numa disciplina, com `receber_nota(disciplina, nota)`.
 
 Responde-lhe em três ou quatro frases, com o teste de "Duas perguntas sobre duas classes: "tem" e "é um"", no guia. O teste diz: "se A é um B, tudo o que B tem e faz tem de fazer sentido para A".
 
@@ -147,8 +128,6 @@ print(horario.numero_de_aulas(), xadrez.numero_de_socios(), teatro.numero_de_soc
 2. Na classe `Clube`, o método `inscrever` cria algum aluno? De onde vem o aluno que ele guarda?
 3. Com base nas tuas respostas, diz se cada uma das relações, `Horario` com `Aula` e `Clube` com `Aluno`, é uma composição ou uma agregação. Confirma a decisão com a pergunta "a parte faz sentido sem o todo?".
 
-Se quiseres desenhar estas duas relações em UML leve, com os losangos e as multiplicidades, faz depois o Mais longe 2, na parte opcional do fim da ficha.
-
 ## Exercício 4: Um erro no encaminhamento
 
 Um colega escreveu esta versão do método `retirar` do inventário. É um excerto. Para a experimentares, copia o programa completo do exemplo guiado do guia, o do passo 7, ou o `inventario.py` da paragem 3 do laboratório, que faz o mesmo. Depois substitui o `retirar` da classe `Inventario` por este.
@@ -184,40 +163,26 @@ Retirar 2 deixou 4. Retirar 9 foi recusado com a mensagem "A quantidade não pod
 3. Corrige o método. Depois volta a correr os três pedidos, os dois do colega e o teu, e confirma que todos dão o que devem.
 4. Porque é que os dois testes do colega não apanharam o erro? Compara-os com os pedidos do traço do passo 6 do exemplo guiado.
 
-## Exercício 5: Desenhar um modelo
+## Exercício 5: Descrever um modelo
 
 Lê a descrição:
 
 > Os professores fazem requisições de material ao armazém da escola. Cada requisição tem um número e uma data, e é formada por linhas. Cada linha diz o código de um artigo e as unidades pedidas. As linhas são criadas pela requisição, quando o professor acrescenta um pedido, e não fazem sentido fora dela. Uma requisição pode ser anulada.
 
-O diagrama já está começado. A caixa `Requisicao` tem o nome e os atributos, e a linha que sai dela vai ligar à caixa `LinhaRequisicao`, que ainda não está desenhada. A linha ainda não tem losango nem números.
-
-```text
-+------------------------+
-| Requisicao             |
-+------------------------+
-| numero                 |
-| data                   |
-+------------------------+
-|                        |---------------------------
-+------------------------+
-```
-
-1. Copia o desenho para a folha. Completa a zona dos métodos da `Requisicao` e desenha, na outra ponta da linha, a caixa `LinhaRequisicao`, com os atributos e os métodos que a descrição justifica. Não precisas de inventar mais nada.
-2. Na linha, desenha o losango certo, do lado certo, e escreve as multiplicidades. Se precisares, revê no guia como se desenham os losangos, em "Dois graus de "tem": composição e agregação". Em que ponta se escreve cada multiplicidade está em "UML leve: as linhas entre as caixas".
-3. Há uma decisão que a descrição não toma por ti: a multiplicidade do lado das linhas. Uma requisição tem de ter sempre pelo menos uma linha? Ou pode existir uma requisição sem linhas, enquanto o professor a está a preparar? Escolhe `1..*` ou `0..*` e justifica a tua escolha numa frase. As duas escolhas podem estar certas, se a justificação estiver.
+1. Descreve por palavras as classes `Requisicao` e `LinhaRequisicao`, como no guia: o que cada objeto guarda, com que valores se cria e o que se lhe pode pedir. Usa só o que a descrição justifica, sem inventar mais nada.
+2. Descreve a relação entre as duas classes: a frase, se é uma composição ou uma agregação, e as respostas às duas perguntas que decidem.
+3. Há uma decisão que a descrição não toma por ti. Diz que uma requisição pode ser anulada, mas não diz o que acontece depois. A requisição anulada pode desaparecer, com as suas linhas. Ou pode ficar guardada, marcada como anulada, para se saber mais tarde o que foi pedido. Escolhe uma das duas e diz o que muda na tua descrição da `Requisicao`. As duas escolhas podem estar certas, se a justificação estiver.
 
 ## Apoio
 
-- Exercício 1: relê, no guia, o que diz cada zona da caixa e o que distingue uma caixa de classe de uma caixa de objeto.
-- Exercício 2: analisa cada relação nos dois sentidos e verifica qual das frases é verdadeira. Na resposta ao colega, aplica o teste ao pé da letra, como o guia o aplica ao inventário.
+- Exercício 1: relê, no guia, a que pergunta responde cada parte da descrição de uma classe, e porque é que a descrição não leva valores.
+- Exercício 2: analisa cada relação nos dois sentidos e verifica qual das frases é verdadeira. Na resposta ao colega, aplica o teste ao pé da letra, como o guia o aplica ao inventário, a cada frase da descrição do `Aluno`.
 - Exercício 3: relê a comparação entre o `Inventario` e a `Playlist`, no passo 9 do exemplo guiado.
 - Exercício 4: segue a versão do colega volta a volta, com um pedido à tua escolha, e escreve que linha é executada a seguir, até o método acabar.
-- Exercício 5: começa pelas duas perguntas que decidem, aplicadas à descrição, e só depois desenha. Lê cada ligação nos dois sentidos antes de escreveres os números.
+- Exercício 5: começa pelas duas perguntas que decidem, aplicadas à descrição, e só depois escreves as descrições das classes. Na alínea 3, pensa no que a requisição precisa de guardar em cada uma das duas escolhas.
 - Desafio: responde às quatro perguntas de "Dois graus de "tem": composição e agregação" para o armário e o artigo, uma a uma, antes de decidires.
 - Mais longe 1: em cada par, imagina a aplicação a funcionar. O que acontece à parte quando o todo é apagado?
-- Mais longe 2: volta às tuas respostas do exercício 3 e escreve primeiro as duas frases de cada ligação, uma em cada sentido.
-- Mais longe 3: faz como no traço do passo 6 do exemplo guiado, um pedido de cada vez, a partir do estado deixado pelo anterior.
+- Mais longe 2: faz como no traço do passo 6 do exemplo guiado, um pedido de cada vez, a partir do estado deixado pelo anterior.
 
 ## Desafio opcional
 
@@ -228,13 +193,13 @@ Artigos arrumados em armários. A escola decide registar também em que armário
 
 ## Para ires mais longe
 
-Esta parte é opcional, para quem acabou os cinco exercícios e quer treinar mais com outros casos. O Mais longe 1 dá mais prática da escolha entre composição e agregação. O Mais longe 2 completa o exercício 3 com o diagrama. O Mais longe 3 segue pedidos pelo inventário, com o código sem erros. Se o exercício 4 te custou, o Mais longe 3 ajuda a rever o caminho de um pedido antes de voltares a ele. Responde com o título de cada um, por exemplo "Mais longe 2".
+Esta parte é opcional, para quem acabou os cinco exercícios e quer treinar mais com outros casos. O Mais longe 1 dá mais prática da escolha entre composição e agregação. O Mais longe 2 segue pedidos pelo inventário, com o código sem erros. Se o exercício 4 te custou, o Mais longe 2 ajuda a rever o caminho de um pedido antes de voltares a ele. Responde com o título de cada um, por exemplo "Mais longe 2".
 
 ### Mais longe 1: Composição ou agregação
 
-Para cada par, o primeiro é o todo e o segundo é a parte. Copia a tabela e responde às duas perguntas que decidem, de "Dois graus de "tem": composição e agregação", no guia. Depois escreve a decisão e se o losango é cheio ou vazio.
+Para cada par, o primeiro é o todo e o segundo é a parte. Copia a tabela e responde às duas perguntas que decidem, de "Dois graus de "tem": composição e agregação", no guia. Depois escreve a decisão.
 
-| Todo e parte | A parte faz sentido sem o todo? | Quem cria a parte? | Decisão e losango |
+| Todo e parte | A parte faz sentido sem o todo? | Quem cria a parte? | Decisão |
 | --- | --- | --- | --- |
 | Conversa de uma aplicação de mensagens e mensagem | A completar | A completar | A completar |
 | Equipa de futsal da escola e jogador | A completar | A completar | A completar |
@@ -243,11 +208,7 @@ Para cada par, o primeiro é o todo e o segundo é a parte. Copia a tabela e res
 
 No último par, pensa no que acontece ao produto quando o carrinho é esvaziado ou abandonado. Pensa também se o mesmo produto pode estar no carrinho de outra pessoa ao mesmo tempo. Compara com a linha de encomenda do guia: uma linha "2 camisolas" pertence a uma encomenda, mas a camisola, o produto, existe na loja antes e depois da encomenda.
 
-### Mais longe 2: As relações do exercício 3 em UML leve
-
-Volta ao programa do exercício 3 e às decisões que tomaste na alínea 3. Desenha as duas relações em UML leve: quatro caixas só com o nome da classe, as linhas, os losangos e as multiplicidades. Para saberes em que ponta se escreve cada multiplicidade, lê cada ligação nos dois sentidos, como em "UML leve: as linhas entre as caixas".
-
-### Mais longe 3: Seguir pedidos pelo inventário
+### Mais longe 2: Seguir pedidos pelo inventário
 
 Este exercício usa as classes `Artigo` e `Inventario` do programa completo do exemplo guiado do guia, o do passo 7, sem alterações. Para executar o excerto, copia esse programa, ou o `inventario.py` da paragem 3 do laboratório, que faz o mesmo. Depois substitui as linhas que vêm depois das classes, a partir de `inventario = Inventario()`, por estas:
 
@@ -293,12 +254,12 @@ print("A09:", inventario.quantidade_de("A09"))
 - Fizeste os exercícios 1 a 5.
 - Em cada decisão escreveste a razão, e não só a escolha.
 - No exercício 4, confirmaste no computador o pedido que mostra o erro e, depois da correção, voltaste a correr os três pedidos.
-- No exercício 5, completaste as duas caixas, o losango está do lado certo, as multiplicidades estão nas pontas certas e a escolha do lado das linhas está justificada.
+- No exercício 5, descreveste as duas classes e a relação, e justificaste a decisão com as duas perguntas que decidem. Escolheste também o que acontece a uma requisição anulada, com a razão.
 
 ## Autoavaliação
 
 1. Em que exercício hesitaste mais entre duas respostas, e o que te fez decidir?
-2. O que achaste mais difícil: escolher entre "tem" e "é um", entre composição e agregação, ou pôr as multiplicidades nas pontas certas?
+2. O que achaste mais difícil: escolher entre "tem" e "é um", escolher entre composição e agregação, ou descrever uma classe por palavras?
 3. Que ponto desta ficha ainda não consegues explicar sem voltar ao guia? É por aí que começas a próxima revisão.
 
 ![Rodapé](../imagens/rodape.png)

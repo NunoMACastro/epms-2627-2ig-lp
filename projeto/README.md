@@ -148,7 +148,7 @@ No fim do M10 escolhes o tema, da lista ou com uma ideia tua aprovada, e fazes o
 
 O modelo tem:
 
-- o esquema das classes em UML leve, como os do guia [Composição e modelação](../01-programacao-orientada-objetos/04-composicao-modelacao.md), com a classe do registo e a classe da coleção;
+- a classe do registo e a classe da coleção, descritas por palavras, como no guia [Composição e modelação](../01-programacao-orientada-objetos/04-composicao-modelacao.md);
 - os atributos e as operações de cada classe, e a ligação entre as duas;
 - a regra do número, escrita por palavras, com o limite bem claro;
 - dois registos de exemplo que cumprem as regras;

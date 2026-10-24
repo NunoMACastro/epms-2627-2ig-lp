@@ -2,11 +2,11 @@
 
 # Composição e modelação
 
-Módulo M10, Introdução à Programação Orientada por Objetos. Neste guia reúnes os artigos num inventário: são as relações entre objetos, a composição e a UML leve. Aprendes a decidir como se relacionam duas classes, a desenhá-las num diagrama simples e a escrever em Python a classe `Inventario`. Lês o guia ao teu ritmo, de preferência em mais do que uma vez, e o que não acabares na aula acabas em casa ou na aula seguinte. Para praticar, há o [laboratório](04-composicao-modelacao-laboratorio.md) e a [ficha de exercícios](04-composicao-modelacao-exercicios.md) deste tema.
+Módulo M10, Introdução à Programação Orientada por Objetos. Neste guia reúnes os artigos num inventário e estudas as relações entre objetos, sobretudo a composição. Aprendes a decidir como se relacionam duas classes, a descrevê-las por palavras e a escrever em Python a classe `Inventario`. Lês o guia ao teu ritmo, de preferência em mais do que uma vez, e o que não acabares na aula acabas em casa ou na aula seguinte. Para praticar, há o [laboratório](04-composicao-modelacao-laboratorio.md) e a [ficha de exercícios](04-composicao-modelacao-exercicios.md) deste tema.
 
 No guia anterior, [Encapsulamento e contratos](03-encapsulamento-contratos.md), cada artigo aprendeu a proteger a sua quantidade. Recusa um pedido impossível com `ValueError` e, quando recusa, deixa os dados exatamente como estavam. Um inventário, porém, não é um artigo sozinho: é um conjunto de artigos. E há perguntas sobre esse conjunto que nenhum artigo consegue responder por si. Que artigos existem? Há dois artigos com o mesmo código? Quantas unidades tem o artigo com o código A02? Para responder a estas perguntas precisamos de um objeto novo, o inventário, que reúne os artigos e fala com eles.
 
-Este guia trata das relações entre objetos. Vamos ver que se podem fazer duas perguntas muito diferentes sobre duas classes: "uma tem a outra?" e "uma é um caso da outra?". Vamos aprender a desenhar classes, e as ligações entre elas, com uma forma simplificada de UML. A UML é uma linguagem de diagramas usada no mundo inteiro para descrever programas. Vamos distinguir dois graus da relação "tem", a composição e a agregação, que em UML se desenham com um losango cheio e com um losango vazio. E vamos escrever, passo a passo, a classe `Inventario` em Python.
+Este guia trata das relações entre objetos. Vamos ver que se podem fazer duas perguntas muito diferentes sobre duas classes: "uma tem a outra?" e "uma é um caso da outra?". Vamos distinguir dois graus da relação "tem", a composição e a agregação. Vamos aprender a descrever por palavras as classes e as ligações entre elas, antes de escrever código. E vamos escrever, passo a passo, a classe `Inventario` em Python.
 
 Os programas completos correm sozinhos, como nos guias anteriores: copia-os para um ficheiro `.py` e executa o ficheiro inteiro, no editor de Python que usas nas aulas. Funcionam com o Python 3, a partir da versão 3.10. Cada execução começa do zero, com os valores escritos no programa. Os excertos estão sempre assinalados, e o texto diz de que outro código dependem.
 
@@ -16,19 +16,18 @@ Para os programas não ficarem demasiado compridos, a classe `Artigo` aparece ne
 
 1. O que vais aprender
 2. O que já sabes e vais usar
-3. Modelar no papel:
+3. No papel, antes do código:
    - Artigos soltos: o que nenhum artigo consegue garantir
    - Quem sabe o quê: responsabilidades
    - Duas perguntas sobre duas classes: "tem" e "é um"
    - Duas árvores que se parecem e dizem coisas diferentes
-   - UML leve: a caixa de uma classe
-   - UML leve: as linhas entre as caixas
    - Dois graus de "tem": composição e agregação
    - O nosso inventário: composição
+   - O inventário descrito por palavras
 4. Do papel ao Python:
    - Recordar as listas e o ciclo `for`
    - Agregação em Python: a playlist e as músicas
-   - Do diagrama ao código, e do código ao diagrama
+   - Da descrição ao código, e do código à descrição
 5. Exemplo guiado: construir a classe `Inventario`
 6. Erros frequentes
 7. Palavras novas deste guia
@@ -41,8 +40,8 @@ No fim deste guia, consegues:
 
 - explicar porque é que é preciso um objeto que reúna os artigos, e decidir que classe fica com cada tarefa;
 - distinguir a relação "tem" da relação "é um", analisando o seu significado e aplicando o teste do "tudo o que B tem e faz";
-- desenhar e ler um diagrama de classes em UML leve, com as caixas, as linhas, as multiplicidades e os losangos;
-- decidir entre composição e agregação com quatro perguntas, e dizer em que ponta da linha fica o losango;
+- decidir entre composição e agregação com quatro perguntas, e justificar a decisão;
+- descrever por palavras as classes de um programa e a relação entre elas, com o que cada objeto guarda e o que se lhe pode pedir;
 - escrever em Python uma classe que cria outros objetos, os guarda numa lista e lhes passa os pedidos, como o `Inventario`;
 - seguir o caminho de uma recusa que atravessa vários métodos até ser apanhada.
 
@@ -53,6 +52,8 @@ No fim deste guia, consegues:
 - O problema das variáveis soltas: guia [01](01-entidades-estado-acoes.md), em "Duas maneiras de organizar um programa".
 - O traço, a tabela que regista o que acontece em cada passo de uma sequência de instruções: guia [01](01-entidades-estado-acoes.md), em "Exemplo guiado: seguir os valores passo a passo".
 - Classe, instância, o construtor `__init__`, o `self` e a chamada de um método com o ponto. Estão no guia [02 Objetos, classes e instâncias](02-objetos-classes-instancias.md), de "Classe: a descrição comum" a "O método retirar em Python".
+- A classe como descrição comum, que diz por palavras o que todos os objetos de um tipo têm e o que se lhes pode pedir. Guia [02](02-objetos-classes-instancias.md), em "Classe: a descrição comum".
+- O estado de um objeto, o conjunto dos valores dos seus atributos num dado momento: guia [02](02-objetos-classes-instancias.md), em "Um objeto reúne dados e operações".
 - Uma classe nova só se justifica quando os objetos têm dados ou operações diferentes: não há uma classe `Caderno` e outra `Pasta`. Guia [02](02-objetos-classes-instancias.md), em "Classe: a descrição comum".
 - Dois nomes podem apontar para o mesmo objeto, como duas etiquetas na mesma caixa, e o `is` confirma-o: guia [02](02-objetos-classes-instancias.md), em "Cada instância é um objeto diferente".
 - A classe `Artigo` do fim do guia 03, com a propriedade `quantidade`. O getter (do inglês *get*, obter) lê o valor. O setter (de *set*, pôr) verifica-o e guarda-o no atributo interno `_quantidade`. Guia [03 Encapsulamento e contratos](03-encapsulamento-contratos.md), em "Propriedades: `@property`" e "O construtor também passa pelo setter".
@@ -202,7 +203,7 @@ Esta distinção é a base da herança, a forma de escrever a relação "é um" 
 
 ## Duas árvores que se parecem e dizem coisas diferentes
 
-Há dois tipos de desenho em forma de árvore que aparecem muito quando se modelam programas. Parecem-se no aspeto, mas dizem coisas muito diferentes.
+Há dois tipos de desenho em forma de árvore que aparecem muito quando se pensa num programa antes de o escrever. Parecem-se no aspeto, mas dizem coisas muito diferentes.
 
 A primeira é uma **hierarquia de especialização**, também chamada árvore de classificação. Cada ramo liga um tipo geral a um tipo mais particular:
 
@@ -227,84 +228,13 @@ Inventário da sala
 
 Esta árvore lê-se de cima para baixo com a frase "tem": o inventário da sala tem estes três artigos. Aqui, o de baixo não é um caso particular do de cima. O artigo A01 não é "um tipo de inventário"; é uma das linhas que o inventário guarda. Repara também que os nomes desta árvore são objetos concretos, com valores, enquanto os nomes da primeira são tipos.
 
-Para distinguir as duas árvores, lê cada ligação com as duas frases e fica com a que for verdadeira. "Uma mota é um veículo com motor" é verdadeira, e por isso a primeira árvore é de especialização. "O inventário tem o artigo A02" é verdadeira, e "o artigo A02 é um inventário" é falsa, e por isso a segunda árvore é de partes. Os dois desenhos parecem-se tanto que os diagramas de classes usam pontas de linha diferentes para cada tipo de relação. As pontas da relação "tem" estão nas secções seguintes deste guia; a da relação "é um" é assunto do guia 05.
+Para distinguir as duas árvores, lê cada ligação com as duas frases e fica com a que for verdadeira. "Uma mota é um veículo com motor" é verdadeira, e por isso a primeira árvore é de especialização. "O inventário tem o artigo A02" é verdadeira, e "o artigo A02 é um inventário" é falsa, e por isso a segunda árvore é de partes. Os dois desenhos parecem-se tanto que não basta olhar para eles. Quando descreves as classes de um programa, escreve sempre a frase que liga cada par de classes: "é um" ou "tem".
 
 Um aviso para não confundires as coisas. Uma árvore de classificação não quer dizer que cada nome se torne uma classe. No guia 02 vimos que não criamos uma classe `Caderno` e outra classe `Pasta`, porque cadernos e pastas guardam os mesmos dados e aceitam as mesmas operações. Um tipo só merece uma classe própria quando os seus objetos têm dados ou comportamentos diferentes. Essa situação é o assunto do guia 05.
 
-## UML leve: a caixa de uma classe
-
-**UML** é a sigla inglesa de Unified Modeling Language, "linguagem de modelação unificada". É um conjunto de tipos de diagramas, combinados entre programadores de todo o mundo, para descrever programas antes, durante e depois de os escrever. Um diagrama permite discutir um modelo sem ler o código linha a linha. Permite também a duas pessoas perceberem-se sem usarem a mesma linguagem de programação.
-
-A UML completa tem muitos tipos de diagramas e muitos símbolos. Neste módulo usamos só uma pequena parte do **diagrama de classes**: caixas para as classes e linhas para as relações entre elas. Chamamos-lhe UML leve. Desenha-se à mão, numa folha, sem ferramentas especiais.
-
-Cada classe é uma caixa dividida em três zonas. Esta é a caixa da classe `Artigo` do guia 03:
-
-```text
-+------------------------+
-| Artigo                 |    nome da classe
-+------------------------+
-| codigo                 |
-| nome                   |    atributos
-| quantidade             |
-+------------------------+
-| adicionar(unidades)    |
-| retirar(unidades)      |    métodos
-+------------------------+
-```
-
-Lê-se de cima para baixo. Na zona de cima está o nome da classe. Na zona do meio estão os atributos, os dados que cada objeto da classe vai guardar. Na zona de baixo estão os métodos, as operações que se podem pedir a cada objeto, com os parâmetros entre parênteses.
-
-Há quatro pormenores que convém perceber.
-
-O primeiro é que o `self` não se escreve nos métodos. Todos os métodos das nossas classes o têm, e é sempre o próprio objeto, por isso não acrescenta informação ao desenho.
-
-O segundo é que o construtor `__init__` não aparece. Todas as classes têm uma forma de criar objetos, e num diagrama leve deixamo-la subentendida.
-
-O terceiro é que a quantidade aparece com o nome `quantidade`, e não `_quantidade`. Em Python, `quantidade` é uma propriedade, e o valor está guardado no atributo interno `_quantidade`. Mas isso é uma decisão de como o Python guarda o valor. O diagrama mostra aquilo que quem usa a classe vê e pode pedir: a interface pública do guia 03. Um diagrama mostra mais ou menos pormenor conforme serve para quê, e o nosso serve para discutir o modelo.
-
-O quarto é que vais encontrar noutros diagramas mais informação dentro das caixas. Pode aparecer o tipo de cada atributo, como `quantidade: int`. Podem aparecer sinais antes dos nomes, como `+` para o que é público e `-` para o que é interno. São pormenores úteis em projetos grandes, e não os vamos usar neste módulo.
-
-A caixa descreve a classe, e por isso não tem valores. Seria um erro escrever `quantidade = 6` na caixa de `Artigo`, porque o 6 é a quantidade de um artigo concreto, e não de todos os artigos. É a mesma distinção entre classe e instância do guia 02. Quando queremos desenhar um objeto concreto, a UML tem outra caixa, a **caixa de objeto**. Tem o nome do objeto, dois pontos e o nome da classe, e tem os valores dos atributos:
-
-```text
-+------------------------+
-| caderno : Artigo       |
-+------------------------+
-| codigo = "A01"         |
-| nome = "Caderno"       |
-| quantidade = 6         |
-+------------------------+
-```
-
-Na UML, o título de uma caixa de objeto escreve-se sublinhado, para não se confundir com uma caixa de classe. Num desenho à mão, sublinha-o com um traço por baixo. Aqui, em texto simples, não é possível sublinhar, e por isso os dois pontos fazem esse papel: `caderno : Artigo` lê-se "o objeto `caderno`, da classe `Artigo`".
-
-## UML leve: as linhas entre as caixas
-
-Quando os objetos de uma classe estão ligados aos objetos de outra, desenha-se uma linha entre as duas caixas. A forma mais simples de ligação chama-se **associação**, e é só isso: uma linha. Diz que os objetos de uma classe conhecem, usam ou guardam objetos da outra. Pode ter uma legenda a meio, com um verbo, para dizer que ligação é essa, por exemplo "tem" ou "usa".
-
-Nas pontas da linha escrevem-se números que dizem quantos objetos de cada lado participam na relação. Chamam-se **multiplicidades**. As mais usadas são estas:
-
-| Multiplicidade | Lê-se | Exemplo de uso |
-| --- | --- | --- |
-| `1` | exatamente um | cada artigo pertence a um inventário |
-| `0..1` | nenhum ou um | uma pessoa pode ter um cacifo na escola, ou nenhum |
-| `0..*` | nenhum, um ou muitos, sem limite | um inventário pode ter qualquer número de artigos |
-| `1..*` | pelo menos um | uma encomenda tem de ter pelo menos uma linha |
-
-Os dois pontos seguidos querem dizer "até", e o asterisco quer dizer "muitos, sem limite". Assim, `0..*` lê-se "de zero até muitos".
-
-A parte que costuma confundir é saber em que ponta se escreve cada número. Vejamos primeiro um caso. Na ligação entre o inventário e os artigos, escrevemos `1` junto de `Inventario` e `0..*` junto de `Artigo`. Lê-se em duas frases, uma em cada sentido:
-
-- a partir do inventário, olhando para o número junto de `Artigo`: um inventário tem de zero a muitos artigos;
-- a partir do artigo, olhando para o número junto de `Inventario`: cada artigo pertence a exatamente um inventário.
-
-A regra geral é esta: o número que está junto de uma classe diz quantos objetos dessa classe estão ligados a um objeto da classe da outra ponta.
-
-Porque zero e não um? Porque um inventário acabado de criar ainda não tem artigos. Vai recebê-los um a um, e antes do primeiro tem zero. Se escrevêssemos `1..*`, estaríamos a dizer que não pode existir um inventário vazio. E o nosso programa vai começar precisamente por criar um inventário vazio.
-
 ## Dois graus de "tem": composição e agregação
 
-A relação "tem" não é sempre igual. Às vezes, a parte está tão presa ao todo que não faz sentido sem ele. Outras vezes, o todo limita-se a reunir partes que existem por conta própria. A UML distingue estes dois casos com dois nomes e dois símbolos.
+A relação "tem" não é sempre igual. Às vezes, a parte está tão presa ao todo que não faz sentido sem ele. Outras vezes, o todo limita-se a reunir partes que existem por conta própria. Os dois casos têm nomes diferentes.
 
 ### Composição
 
@@ -320,7 +250,7 @@ Pensa numa playlist, uma lista de músicas escolhidas por alguém numa aplicaç�
 
 ### As perguntas que decidem
 
-Para decidir entre as duas, faz estas perguntas pela ordem em que estão escritas. As duas primeiras decidem; as outras duas confirmam a decisão. As regras da UML não falam de quem cria a parte: dizem que, numa composição, a parte está num só todo de cada vez e desaparece com ele. A pergunta 2 é uma ajuda nossa, porque no código se vê bem quem chama o construtor da parte. Se as duas primeiras perguntas derem respostas diferentes, decide a primeira.
+Para decidir entre as duas, faz estas perguntas pela ordem em que estão escritas. As duas primeiras decidem; as outras duas confirmam a decisão. A pergunta 1 é a que pesa mais, porque uma composição é, antes de tudo, uma parte que só faz sentido dentro do todo. A pergunta 2 é uma ajuda, porque no código se vê bem quem chama o construtor da parte. Se as duas primeiras perguntas derem respostas diferentes, decide a primeira.
 
 | Pergunta | Composição | Agregação |
 | --- | --- | --- |
@@ -339,25 +269,19 @@ Aplicadas aos dois exemplos:
 | 4. Se o todo desaparecer? | As linhas desaparecem | As músicas ficam |
 | Decisão | Composição | Agregação |
 
-### Como se desenham
+### Dois enganos a evitar
 
-As duas desenham-se como uma associação, com uma linha, e acrescenta-se um **losango** na ponta que toca no todo. Na composição, o losango é cheio, pintado por dentro. Na agregação, o losango é vazio, só com o contorno.
+Há dois erros típicos. O primeiro é pensar que agregação quer dizer que a parte é menos importante. Não quer: as músicas são o mais importante de uma playlist. A diferença está na força da ligação, e não na importância. O segundo é pensar que qualquer lista de objetos é uma composição. Uma lista diz que o todo guarda várias partes, mas não diz se as partes têm vida própria. Isso decide-se com as perguntas da tabela.
 
-![Diagrama: Encomenda ligada a LinhaEncomenda por um losango cheio do lado de Encomenda, com 1 do lado da encomenda e 1..* do lado da linha; Playlist ligada a Musica por um losango vazio do lado de Playlist, com 0..* dos dois lados](../imagens/uml-composicao-e-agregacao.svg)
-
-Lê as multiplicidades deste desenho com a regra de "UML leve: as linhas entre as caixas". Na composição, o número junto do todo é `1`: cada linha pertence a exatamente uma encomenda, que é o que a pergunta 3 da tabela diz. Junto da linha está `1..*`, porque uma encomenda sem nenhuma linha não é encomenda de nada. Na agregação, o número junto da playlist é `0..*`: uma música pode estar em nenhuma playlist, numa ou em muitas. As multiplicidades confirmam, em números, a diferença entre as duas relações. Os nomes das classes estão escritos sem acentos, como é hábito nos nomes que se usam no código.
-
-Uma ajuda para a memória: o losango cheio é o "mais pesado", e corresponde à ligação mais forte. Se tiveres dúvidas entre os dois, desenha uma linha simples com a legenda "tem" e escreve ao lado a tua dúvida. Num diagrama leve, uma linha simples bem legendada vale mais do que um losango escolhido ao acaso.
-
-Há três erros típicos. O primeiro é pôr o losango na ponta da parte, em vez da ponta do todo. O losango fica sempre encostado ao todo, como se o todo "segurasse" a linha. O segundo é pensar que agregação quer dizer que a parte é menos importante. Não quer: as músicas são o mais importante de uma playlist. A diferença está na força da ligação, e não na importância. O terceiro é pensar que qualquer lista de objetos é uma composição. Uma lista diz que o todo guarda várias partes, mas não diz se as partes têm vida própria. Isso decide-se com as perguntas da tabela.
+Se, num problema, não conseguires decidir, escreve só a frase "tem" e, ao lado, a pergunta a que não consegues responder. Uma dúvida escrita vale mais do que uma escolha feita ao acaso, porque diz a quem lê o que falta saber sobre o problema.
 
 ### A decisão depende do problema
 
-A mesma dupla de classes pode ser modelada de maneiras diferentes em problemas diferentes. Pensa numa aplicação da secretaria da escola. Um aluno existe antes de ter turma, pode mudar de turma a meio do ano e continua a existir quando a turma termina: turma e alunos é uma agregação. Numa aplicação que só servisse para preparar a pauta de uma turma, talvez os alunos só existissem dentro dessa pauta. É a mesma ideia do guia 01: representar um problema é escolher o que interessa. As perguntas da tabela respondem-se sempre a pensar no problema concreto.
+A mesma dupla de classes pode ligar-se de maneiras diferentes em problemas diferentes. Pensa numa aplicação da secretaria da escola. Um aluno existe antes de ter turma, pode mudar de turma a meio do ano e continua a existir quando a turma termina: turma e alunos é uma agregação. Numa aplicação que só servisse para preparar a pauta de uma turma, talvez os alunos só existissem dentro dessa pauta. É a mesma ideia do guia 01: representar um problema é escolher o que interessa. As perguntas da tabela respondem-se sempre a pensar no problema concreto.
 
 ### A mesma palavra com dois sentidos
 
-Vais encontrar a palavra composição com dois sentidos, e convém saber qual é qual. Em programação, em geral, **composição de objetos** quer dizer construir um objeto a partir de outros objetos, que ele guarda e usa para fazer o seu trabalho. Nesse sentido largo, composição é o nome da relação "tem", e é a alternativa à herança, assunto do guia 05. Na UML, composição tem o sentido estreito desta secção: a forma mais forte da relação "tem", a do losango cheio. O nome deste tema, Composição e modelação, usa a palavra no sentido largo, e o losango cheio usa-a no sentido estreito. Quando uma conversa ficar confusa, pergunta, ou diz, em que sentido se está a usar.
+Vais encontrar a palavra composição com dois sentidos, e convém saber qual é qual. Em programação, em geral, **composição de objetos** quer dizer construir um objeto a partir de outros objetos, que ele guarda e usa para fazer o seu trabalho. Nesse sentido largo, composição é o nome da relação "tem", e é a alternativa à herança, assunto do guia 05. Nesta secção, composição tem um sentido estreito: a forma mais forte da relação "tem", o contrário da agregação. O nome deste tema, Composição e modelação, usa a palavra no sentido largo, e a tabela das quatro perguntas usa-a no sentido estreito. Quando uma conversa ficar confusa, pergunta, ou diz, em que sentido se está a usar.
 
 ## O nosso inventário: composição
 
@@ -381,21 +305,58 @@ O programa guarda informação sobre os cadernos, e as quatro perguntas falam de
 
 É a mesma diferença que há entre a camisola e a linha "2 camisolas" de uma encomenda. A camisola existe na loja antes e depois de qualquer encomenda; a linha só existe dentro da encomenda.
 
-A relação entre `Inventario` e `Artigo` é, portanto, uma composição. Este é o diagrama de classes do inventário que vamos escrever no exemplo guiado:
+A relação entre `Inventario` e `Artigo` é, portanto, uma composição.
 
-![Diagrama de classes: Inventario, com os métodos registar(codigo, nome, quantidade), quantidade_de(codigo) e retirar(codigo, unidades), ligado a Artigo por uma linha com um losango cheio do lado de Inventario, com 1 do lado do inventário e 0..* do lado do artigo](../imagens/uml-inventario-artigo.svg)
+Podíamos ter feito outra escolha. Se, no nosso programa, os artigos fossem criados fora do inventário e entregues depois, já feitos, a pergunta 2 passava a apontar para a agregação. Imagina, além disso, que o artigo passava a fazer sentido sem o inventário, por exemplo num catálogo de materiais partilhado por várias salas. Aí, a relação seria uma agregação. Não há uma resposta certa em abstrato: a decisão tem de bater certo com o código.
 
-Lê o diagrama zona a zona. A caixa `Inventario` tem três métodos:
+## O inventário descrito por palavras
 
-- `registar`, para criar um artigo novo dentro do inventário;
-- `quantidade_de`, para consultar a quantidade de um artigo a partir do código;
-- `retirar`, para pedir a retirada de unidades de um artigo, também a partir do código.
+Já decidimos que classes vai ter o programa, o que fica a cargo de cada uma e como se relacionam. Antes de escrever código, convém pôr estas decisões por escrito. Uma descrição escrita deixa discuti-las com um colega, ou com o professor, sem ler um programa linha a linha. Também mostra os enganos mais cedo, porque mudar uma frase custa menos do que mudar um programa.
 
-A caixa `Artigo` é a de "UML leve: a caixa de uma classe". A linha entre as duas tem o losango cheio junto do inventário, porque é o todo. As multiplicidades são as que já leste nos dois sentidos.
+### A descrição de uma classe
 
-Repara que a zona dos atributos do inventário está vazia. O inventário vai guardar os artigos numa lista, mas essa lista não se escreve dentro da caixa: quem a representa é a própria linha, com o seu `0..*`. Escrever os artigos na caixa e desenhar também a linha seria dizer a mesma coisa duas vezes. Quando um atributo guarda objetos de outra classe do diagrama, desenha-se a linha em vez de se escrever o atributo.
+No guia 02, em "Classe: a descrição comum", a classe `Artigo` foi descrita por palavras. A descrição dizia o que cada artigo tem, com que valores se cria e o que se lhe pode pedir. Esta é a descrição da classe `Artigo` do fim do guia 03, com as mesmas três partes:
 
-Podíamos ter feito outra escolha. Se, no nosso programa, os artigos fossem criados fora do inventário e entregues depois, já feitos, a pergunta 2 passava a apontar para a agregação. Imagina, além disso, que o artigo passava a fazer sentido sem o inventário, por exemplo num catálogo de materiais partilhado por várias salas. Aí, a relação seria uma agregação, e o diagrama teria de mostrar um losango vazio. Não há um desenho certo em abstrato: o diagrama tem de dizer a mesma coisa que o código. Depois de recordares as listas, vais ver em Python como é uma agregação. No exemplo guiado vês a composição do inventário, e no fim dele comparas as duas maneiras de escrever.
+- Cada artigo guarda um código, um nome e uma quantidade, que é sempre um número inteiro não negativo.
+- Um artigo cria-se com o código, o nome e a quantidade inicial.
+- A um artigo pode pedir-se que adicione unidades, com `adicionar(unidades)`, e que retire unidades, com `retirar(unidades)`.
+
+Cada parte responde a uma pergunta. A primeira diz o que cada objeto guarda: são os atributos. A segunda diz com que valores se cria um objeto: são os parâmetros do construtor. A terceira diz o que se pode pedir a cada objeto, e com que valores: são os métodos, com os seus parâmetros entre parênteses.
+
+Repara em três pormenores.
+
+O primeiro é a quantidade. Em Python, o valor está guardado no atributo interno `_quantidade`, e quem usa a classe lê-o e escreve-o pela propriedade `quantidade`. A descrição fala só da quantidade, sem o sublinhado. Mostra aquilo que quem usa a classe vê e pode pedir: a interface pública do guia 03. Onde e como o Python guarda o valor é uma decisão do código.
+
+O segundo é o `self`. A descrição escreve `adicionar(unidades)`, e não `adicionar(self, unidades)`. Todos os métodos recebem o `self`, e é sempre o próprio objeto, por isso escrevê-lo não acrescenta informação.
+
+O terceiro é que a descrição de uma classe não tem valores. Seria um erro escrever "cada artigo tem 6 unidades". O 6 é a quantidade de um artigo concreto, e não de todos os artigos: é a distinção entre classe e instância do guia 02. Para falar de um objeto concreto, descreve-se o seu estado, que é outra coisa: o artigo A01 chama-se Caderno e tem 6 unidades.
+
+### A descrição do inventário
+
+A classe `Inventario` descreve-se com as mesmas três partes:
+
+- Cada inventário guarda os seus artigos, e nunca dois com o mesmo código.
+- Um inventário cria-se vazio, sem nenhum valor.
+- A um inventário pode pedir-se que registe um artigo novo, com `registar(codigo, nome, quantidade)`; que diga a quantidade de um artigo, com `quantidade_de(codigo)`; e que retire unidades de um artigo, com `retirar(codigo, unidades)`.
+
+A primeira parte diz que o inventário guarda os seus artigos, e não diz como os guarda. No programa, vão ficar numa lista. Essa é uma decisão do código, como o `_quantidade` do artigo, e por isso a lista não entra na descrição. Entra a regra que dá razão de ser ao inventário: não há dois artigos com o mesmo código.
+
+### A descrição da relação
+
+Falta a ligação entre as duas classes. Descreve-se com a frase da relação e, numa relação "tem", com o grau e as razões que o justificam:
+
+- Um inventário tem artigos, e é uma composição.
+- Um artigo só faz sentido dentro do seu inventário, porque é uma linha do registo.
+- É o inventário que cria cada artigo, quando se lhe pede que o registe.
+- Cada artigo pertence a um só inventário e desaparece se o inventário desaparecer.
+
+As três últimas frases são as respostas às perguntas de "Dois graus de "tem": composição e agregação", pela mesma ordem; a última responde às duas perguntas que confirmam. Quem lê a descrição fica a saber que relação é e porquê, sem abrir o programa. Se um colega discordar, sabe também que pergunta discutir.
+
+### O modelo
+
+Juntas, as três descrições formam o **modelo** do inventário. Chamamos modelo à descrição das classes de um programa, do que cada uma guarda e faz, e das relações entre elas. **Modelar** é escrever o modelo, antes do código. É a segunda palavra do nome deste tema, Composição e modelação.
+
+É este modelo que o exemplo guiado vai traduzir para Python. Antes, recordas as listas e vês em Python como é uma agregação, com a playlist. No fim do exemplo guiado comparas, em Python, a composição do inventário com a agregação da playlist.
 
 ## Recordar as listas e o ciclo `for`
 
@@ -582,26 +543,27 @@ O segundo é que a linha que prepara o acumulador fica fora do ciclo. Se ficasse
 
 O terceiro é que o `return` fica depois do ciclo, encostado à indentação do `for`. Se ficasse dentro, o método terminava logo na primeira volta, com uma lista que só teria o primeiro título. Numa playlist sem músicas, o método devolvia `None`, porque nunca chegava a nenhum `return`. Aqui, o resultado só está pronto quando todas as músicas tiverem passado pelo ciclo.
 
-## Do diagrama ao código, e do código ao diagrama
+## Da descrição ao código, e do código à descrição
 
-Cada elemento do diagrama de classes tem um correspondente no Python. A playlist já mostrou a maior parte deles. O exemplo guiado, a seguir, mostra o que falta: o losango cheio, com o inventário.
+Cada parte da descrição de um modelo tem um correspondente no Python. A playlist já mostrou a maior parte deles. O exemplo guiado, a seguir, mostra o que falta: a composição, com o inventário.
 
-| No diagrama | No código Python |
+| Na descrição por palavras | No código Python |
 | --- | --- |
-| Uma caixa com o nome `Inventario` | `class Inventario:` |
-| Um atributo, como `nome` | `self.nome = ...` no construtor, ou uma propriedade |
-| Um método, como `retirar(codigo, unidades)` | `def retirar(self, codigo, unidades):` |
-| Uma linha com `0..*` do lado das partes | Uma lista interna, criada vazia no construtor |
-| Um losango cheio do lado do todo | O todo cria as partes dentro de um método seu e não as entrega a quem está de fora |
-| Um losango vazio do lado do todo | O todo tem um método que recebe objetos já criados e junta-os à lista |
+| A classe `Inventario` | `class Inventario:` |
+| O que cada objeto guarda, como o nome | `self.nome = ...` no construtor, ou uma propriedade |
+| Com que valores se cria um objeto | Os parâmetros do construtor, depois do `self` |
+| O que se pode pedir, como `retirar(codigo, unidades)` | `def retirar(self, codigo, unidades):` |
+| "Um inventário tem artigos" | Uma lista interna, criada vazia no construtor |
+| A relação é uma composição | O todo cria as partes dentro de um método seu e não as entrega a quem está de fora |
+| A relação é uma agregação | O todo tem um método que recebe objetos já criados e junta-os à lista |
 
-A tabela lê-se nos dois sentidos. Quando tens um diagrama e vais escrever o programa, lês da esquerda para a direita. É o que vamos fazer no exemplo guiado, com o diagrama do inventário. Quando tens um programa e queres perceber o seu modelo, lês da direita para a esquerda. Procuras as classes, os atributos e os métodos, e depois procuras onde é que cada objeto é criado e quem o guarda. Foi o que fizeste com a playlist. A lista `_musicas`, criada vazia no construtor, é a linha com `0..*`. O método `acrescentar`, que recebe músicas já criadas, é o losango vazio.
+A tabela lê-se nos dois sentidos. Quando tens o modelo e vais escrever o programa, lês da esquerda para a direita. É o que vamos fazer no exemplo guiado, com o modelo do inventário. Quando tens um programa e queres perceber o seu modelo, lês da direita para a esquerda. Procuras as classes, os atributos e os métodos, e depois procuras onde é que cada objeto é criado e quem o guarda. Foi o que fizeste com a playlist. A lista `_musicas`, criada vazia no construtor, diz que uma playlist tem músicas. O método `acrescentar`, que recebe músicas já criadas, diz que a relação é uma agregação.
 
-Quando chegar a altura de modelares a tua aplicação, a ordem de trabalho deste guia ajuda-te. Primeiro, as frases "tem" e "é um" entre as coisas do problema. Depois, as responsabilidades: quem tem a informação de que cada tarefa precisa. Depois, as caixas, as linhas, as multiplicidades e, se for o caso, os losangos, com as perguntas de "Dois graus de "tem": composição e agregação". Só no fim, o código.
+Quando chegar a altura de modelares a tua aplicação, a ordem de trabalho deste guia ajuda-te. Primeiro, as frases "tem" e "é um" entre as coisas do problema. Depois, as responsabilidades: quem tem a informação de que cada tarefa precisa. Depois, a descrição de cada classe e a da relação entre elas, com as perguntas de "Dois graus de "tem": composição e agregação". Só no fim, o código.
 
 ## Exemplo guiado: construir a classe `Inventario`
 
-Vamos agora escrever a classe do inventário, da esquerda para a direita da tabela anterior. Partimos do diagrama de "O nosso inventário: composição" e das responsabilidades de "Quem sabe o quê: responsabilidades". Acompanha o raciocínio de cada passo, porque é o raciocínio, e não só o código final, que interessa.
+Vamos agora escrever a classe do inventário, da esquerda para a direita da tabela anterior. Partimos do modelo de "O inventário descrito por palavras" e das responsabilidades de "Quem sabe o quê: responsabilidades". Acompanha o raciocínio de cada passo, porque é o raciocínio, e não só o código final, que interessa.
 
 ### Passo 1: escrever o contrato de cada operação
 
@@ -648,7 +610,7 @@ Quase todas as operações do inventário começam da mesma maneira: encontrar o
         raise ValueError("Não existe nenhum artigo com o código " + codigo + ".")
 ```
 
-O nome deste método também começa por sublinhado. É a mesma convenção dos atributos, aplicada a um método: `_procurar` é uma ferramenta interna do inventário, para os seus próprios métodos usarem. Não faz parte da interface pública. Esta escolha tem uma razão ligada à composição. Numa composição, as partes pertencem ao todo, e o código de fora não recebe os artigos para lhes mexer diretamente. Quem quer alguma coisa de um artigo pede-a ao inventário. Por isso, o método que devolve um artigo fica reservado aos métodos da própria classe, e `_procurar` não aparece no diagrama.
+O nome deste método também começa por sublinhado. É a mesma convenção dos atributos, aplicada a um método: `_procurar` é uma ferramenta interna do inventário, para os seus próprios métodos usarem. Não faz parte da interface pública. Esta escolha tem uma razão ligada à composição. Numa composição, as partes pertencem ao todo, e o código de fora não recebe os artigos para lhes mexer diretamente. Quem quer alguma coisa de um artigo pede-a ao inventário. Por isso, o método que devolve um artigo fica reservado aos métodos da própria classe, e `_procurar` não entra na descrição do inventário, em "O inventário descrito por palavras".
 
 O ciclo percorre a lista interna, um artigo de cada vez, e compara o código de cada um com o código procurado.
 
@@ -914,7 +876,7 @@ A02 no fim: 2
 
 Compara linha a linha com o traço do passo 6. Os dois primeiros registos foram aceites e não mostram nada, porque um método que cumpre o pedido termina sem erro e em silêncio. As recusas aparecem pela ordem do traço, e cada mensagem diz quem recusou. "Já existe um artigo..." e "Não existe nenhum artigo..." vêm do inventário, e "A quantidade não pode ser negativa." vem do setter do artigo. As duas últimas linhas confirmam que, depois de cinco pedidos recusados, as quantidades são as do traço.
 
-Olha também para o programa principal, depois das classes. Em lado nenhum aparece `Artigo(...)`: os artigos nascem dentro do inventário. Em lado nenhum aparece um nome como `caderno` ou `pasta`: o programa principal não guarda nenhum artigo. Fala sempre com o inventário, usando os códigos. É exatamente o que o losango cheio do diagrama promete.
+Olha também para o programa principal, depois das classes. Em lado nenhum aparece `Artigo(...)`: os artigos nascem dentro do inventário. Em lado nenhum aparece um nome como `caderno` ou `pasta`: o programa principal não guarda nenhum artigo. Fala sempre com o inventário, usando os códigos. É exatamente o que a composição do modelo promete.
 
 ### Passo 8: o caminho de um pedido e o caminho de uma recusa
 
@@ -954,15 +916,15 @@ Temos agora duas classes que guardam listas de objetos: o `Inventario` deste exe
 | O programa principal guarda a parte num nome seu? | Não: só o inventário guarda os artigos | Sim: `chuva` e `ritmo` apontam para as músicas |
 | O todo entrega as partes a quem as pede? | Não: `_procurar` é interno; pede-se ao inventário | Não é preciso: quem tem a música já a tem |
 
-O Python não tem uma palavra própria para composição nem para agregação. As duas classes usam uma lista e um `append`, e à primeira vista parecem iguais. A diferença está nas decisões que tomámos ao escrever o código: quem cria a parte, o que o método recebe e se o todo deixa as partes sair. O diagrama UML serve para escrever essas decisões de uma forma que qualquer pessoa lê de relance, com um losango cheio ou vazio.
+O Python não tem uma palavra própria para composição nem para agregação. As duas classes usam uma lista e um `append`, e à primeira vista parecem iguais. A diferença está nas decisões que tomámos ao escrever o código: quem cria a parte, o que o método recebe e se o todo deixa as partes sair. A descrição do modelo escreve essas decisões antes do código, com a palavra composição ou agregação e as razões que a justificam. Qualquer pessoa as lê sem abrir o programa.
 
 ## Erros frequentes
 
 O erro típico de cada ideia está na secção dela:
 
 - o inventário tomado por "um artigo maior", em "Duas perguntas sobre duas classes: "tem" e "é um"";
-- os valores na caixa de uma classe, em "UML leve: a caixa de uma classe";
-- o losango na ponta da parte, a agregação tomada por menos importante e qualquer lista tomada por composição, em "Dois graus de "tem": composição e agregação";
+- a agregação tomada por menos importante e qualquer lista tomada por composição, em "Dois graus de "tem": composição e agregação";
+- os valores na descrição de uma classe, em "O inventário descrito por palavras";
 - o acumulador preparado dentro do ciclo e o `return` dentro do ciclo, em "O acumulador do método `titulos`", na secção da playlist;
 - o `self.` esquecido antes de `_procurar`, no passo 5 do exemplo guiado.
 
@@ -1002,7 +964,7 @@ Como se corrige: neste inventário, os códigos são textos, escritos entre aspa
 
 ### O nome do ciclo igual ao nome da lista
 
-O que se vê: no segundo programa deste guia, se o ciclo for escrito `for artigos in artigos:`, o ciclo ainda mostra os dois artigos. Mas a linha seguinte, `artigos[0].retirar(2)`, para o programa com `TypeError: 'Artigo' object is not subscriptable`. Em português: um objeto `Artigo` não aceita índices.
+O que se vê: no segundo programa deste guia, se o ciclo for escrito `for artigos in artigos:`, com `artigos` também no `print` de dentro, o ciclo ainda mostra os dois artigos. Mas a linha seguinte, `artigos[0].retirar(2)`, para o programa com `TypeError: 'Artigo' object is not subscriptable`. Em português: um objeto `Artigo` não aceita índices.
 
 Porque acontece: em cada volta, o nome do ciclo passa a apontar para um elemento da lista. Se o nome do ciclo for o da própria lista, depois do ciclo `artigos` aponta para o último artigo, e não para a lista. O programa perdeu o nome que chegava à lista.
 
@@ -1015,16 +977,11 @@ Como se corrige: dá ao ciclo um nome diferente do da lista, de preferência o s
 - Relação "é um": a relação entre um tipo particular e um tipo mais geral, como entre o carro e o veículo.
 - Hierarquia de especialização, ou árvore de classificação: uma árvore em que cada ramo liga um tipo geral a um tipo mais particular; lê-se de baixo para cima, com "é um".
 - Árvore de partes: uma árvore em que cada ramo liga um todo a uma parte sua; lê-se de cima para baixo, com "tem".
-- UML (do inglês Unified Modeling Language, "linguagem de modelação unificada"): um conjunto de tipos de diagramas para descrever programas.
-- Diagrama de classes: o diagrama da UML com caixas para as classes e linhas para as relações entre elas.
-- UML leve: a pequena parte do diagrama de classes que usamos neste módulo, desenhada à mão.
-- Caixa de objeto: a caixa que desenha um objeto concreto, com o título `nome : Classe` sublinhado e os valores dos atributos.
-- Associação: uma linha simples entre duas caixas; diz que os objetos de uma classe conhecem, usam ou guardam objetos da outra.
-- Multiplicidade: o número escrito numa ponta da linha, que diz quantos objetos da classe dessa ponta estão ligados a um objeto da outra.
-- Composição: a relação "tem" em que a parte só faz sentido dentro do todo, é criada por ele e desaparece com ele; desenha-se com um losango cheio.
-- Agregação: a relação "tem" em que o todo reúne partes que existem por si próprias; desenha-se com um losango vazio.
-- Losango: a ponta que se desenha junto do todo, cheia na composição e vazia na agregação.
+- Composição: a relação "tem" em que a parte só faz sentido dentro do todo, é criada por ele e desaparece com ele.
+- Agregação: a relação "tem" em que o todo reúne partes que existem por si próprias.
 - Composição de objetos: no sentido largo da programação, construir um objeto a partir de outros objetos que ele guarda e usa.
+- Modelo: a descrição das classes de um programa, do que cada uma guarda e faz, e das relações entre elas.
+- Modelar: escrever o modelo de um programa, antes do código.
 - Lista: um valor que guarda vários valores por ordem, escrito entre parênteses retos.
 - Índice: o número entre parênteses retos que indica uma posição da lista, a contar de 0.
 - Acumulador: uma variável preparada antes de um ciclo, que vai juntando, volta a volta, uma parte do resultado.
@@ -1039,16 +996,16 @@ Tenta responder sem olhar para o texto. Se uma pergunta te deixar com dúvidas, 
 1. Porque é que nenhum artigo consegue garantir que o seu código é único? ("Artigos soltos: o que nenhum artigo consegue garantir")
 2. Aplica o teste "se A é um B, tudo o que B tem e faz tem de fazer sentido para A" à frase "um inventário é um artigo". Onde é que o teste falha? ("Duas perguntas sobre duas classes: "tem" e "é um"")
 3. Como se lê cada uma das duas árvores, de que lado para que lado e com que frase? ("Duas árvores que se parecem e dizem coisas diferentes")
-4. Desenha a caixa de uma classe à tua escolha e explica porque é que não leva valores. ("UML leve: a caixa de uma classe")
-5. Lê nos dois sentidos as multiplicidades `1` e `0..*` da ligação entre o inventário e os artigos. ("UML leve: as linhas entre as caixas")
-6. Com que perguntas decides entre composição e agregação, e em que ponta da linha fica o losango? ("Dois graus de "tem": composição e agregação")
+4. Descreve por palavras uma classe à tua escolha: o que cada objeto guarda, com que valores se cria e o que se lhe pode pedir. Porque é que a descrição não leva valores? ("O inventário descrito por palavras")
+5. Porque é que a descrição do inventário diz que ele guarda os seus artigos, e não fala da lista onde o programa os guarda? ("O inventário descrito por palavras")
+6. Com que perguntas decides entre composição e agregação, e qual decide quando as duas primeiras dão respostas diferentes? ("Dois graus de "tem": composição e agregação")
 7. Porque é que o método `registar` só faz o `append` no fim? (Exemplo guiado, passo 4)
 8. Descreve o caminho de uma exceção lançada pelo setter até ao `except` do programa principal. Porque é que `_procurar` não faz parte desse caminho? (Exemplo guiado, passo 8)
 9. No código da playlist e no do inventário, aponta a linha que decide se a relação é composição ou agregação. ("Agregação em Python: a playlist e as músicas" e exemplo guiado, passo 9)
 
 ## O que vem a seguir
 
-Para praticar este tema, faz o [laboratório](04-composicao-modelacao-laboratorio.md) e depois a [ficha de exercícios](04-composicao-modelacao-exercicios.md). No laboratório constróis o inventário no computador, um passo de cada vez, e lês o caminho de uma recusa. Na ficha praticas sozinho a leitura e o desenho de diagramas, a escolha entre composição e agregação e a leitura de código com objetos que colaboram.
+Para praticar este tema, faz o [laboratório](04-composicao-modelacao-laboratorio.md) e depois a [ficha de exercícios](04-composicao-modelacao-exercicios.md). No laboratório constróis o inventário no computador, um passo de cada vez, e lês o caminho de uma recusa. Na ficha praticas sozinho a descrição de classes por palavras, a escolha entre composição e agregação e a leitura de código com objetos que colaboram.
 
 O tema seguinte é [Herança e polimorfismo](05-heranca-polimorfismo.md), sobre a relação "é um", que em Python se escreve com a herança. A pergunta deixa de ser "o que é que este objeto tem?" e passa a ser "de que tipo mais geral é este objeto um caso?".
 

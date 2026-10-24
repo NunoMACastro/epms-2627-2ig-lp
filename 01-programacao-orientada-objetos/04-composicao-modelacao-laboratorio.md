@@ -8,11 +8,13 @@ Laboratório do tema Composição e modelação, do módulo M10, Introdução à
 
 No fim, tens um ficheiro `inventario.py` com duas classes a funcionar: a classe `Artigo`, que já conheces do tema 03, e a classe `Inventario`, escrita por ti. O inventário garante uma regra que nenhum artigo consegue garantir sozinho: não há dois artigos com o mesmo código. Pelo caminho, provocas de propósito uma recusa que atravessa vários métodos e lês o caminho que ela fez.
 
-As duas classes estão desenhadas neste diagrama de classes:
+Antes de escrever código, descreve-se por palavras o que vais construir. Em cada classe, diz-se o que cada objeto guarda e o que se lhe pode pedir; no fim, diz-se como as duas classes se ligam. É o modelo do programa:
 
-![Diagrama de classes: Inventario, com os métodos registar(codigo, nome, quantidade), quantidade_de(codigo) e retirar(codigo, unidades), ligado a Artigo por uma linha com um losango cheio do lado de Inventario, com 1 do lado do inventário e 0..* do lado do artigo](../imagens/uml-inventario-artigo.svg)
+- A classe `Artigo`. Cada artigo guarda um código, um nome e uma quantidade, que é sempre um número inteiro não negativo. Um artigo cria-se com esses três valores. A um artigo pode pedir-se que adicione unidades, com `adicionar(unidades)`, e que retire unidades, com `retirar(unidades)`.
+- A classe `Inventario`. Cada inventário guarda os seus artigos, e nunca dois com o mesmo código. Um inventário cria-se vazio. A um inventário pode pedir-se que registe um artigo novo, com `registar(codigo, nome, quantidade)`; que diga a quantidade de um artigo, com `quantidade_de(codigo)`; e que retire unidades de um artigo, com `retirar(codigo, unidades)`.
+- A relação entre as duas. Um inventário tem artigos, e é o próprio inventário que cria os seus artigos e os guarda. Cada artigo pertence a um só inventário e não faz sentido sem ele. Esta relação chama-se **composição**.
 
-Cada caixa é uma classe. Em cima está o nome da classe, no meio os atributos e em baixo os métodos, com os parâmetros entre parênteses. O `self` não se escreve, porque todos os métodos o têm. A linha entre as duas caixas diz que um inventário tem artigos. O losango cheio, encostado ao inventário, diz que é o próprio inventário que cria os seus artigos e os guarda: chama-se **composição**. Os números nas pontas dizem quantos objetos participam. Lê-se assim: um inventário tem de 0 a muitos artigos (`0..*`), e cada artigo pertence a exatamente um inventário (`1`).
+Entre parênteses estão os valores que cada pedido recebe, os parâmetros do método. O `self` não se escreve, porque todos os métodos o têm. A descrição também não fala do sítio onde o inventário guarda os artigos: isso decide-se no código, na fase 1.
 
 | Fase | O que muda | O que funciona no fim |
 | --- | --- | --- |
@@ -28,6 +30,7 @@ Executa sempre o ficheiro inteiro. Cada execução começa do zero: cria um inve
 ## Palavras que vais usar
 
 - Inventário: o objeto que reúne os artigos de uma sala e responde às perguntas sobre o conjunto, como "já existe um artigo com o código A01?". Para saber mais, vê a secção "Artigos soltos: o que nenhum artigo consegue garantir" do [guia](04-composicao-modelacao.md).
+- Modelo: a descrição, por palavras, das classes de um programa, do que cada uma guarda e faz, e das relações entre elas. Escreve-se antes do código. Para saber mais, vê "O inventário descrito por palavras" no [guia](04-composicao-modelacao.md).
 - Composição: a relação em que o todo cria as suas partes e as guarda, e as partes não fazem sentido sem ele. Aqui, o inventário cria os artigos. Para saber mais, vê "Dois graus de "tem": composição e agregação" no [guia](04-composicao-modelacao.md).
 - Lista: um valor que guarda vários valores por ordem, escrito entre parênteses retos; `[]` é uma lista vazia. `len(lista)` (do inglês *length*, "comprimento") dá o número de elementos. `lista.append(valor)` (*append*, "acrescentar") junta um elemento no fim.
 - Ciclo `for`: repete o bloco indentado por baixo dele uma vez por cada elemento de uma lista. `for artigo in artigos:` lê-se "para cada artigo na lista artigos".
@@ -307,7 +310,7 @@ Repara numa forma nova. Para um método do inventário usar outro método do mes
    print("A02 no fim:", inventario.quantidade_de("A02"))
    ```
 
-   Leitura guiada: são oito pedidos ao inventário, seguidos de duas consultas. Os pedidos que podem ser recusados estão dentro de um `try`, e o `except` mostra a mensagem de quem recusou. O programa principal nunca escreve `Artigo(...)` nem guarda um artigo num nome seu: fala sempre com o inventário, usando os códigos.
+   Leitura guiada: são os oito pedidos do traço e, pelo meio e no fim, três consultas que mostram as quantidades. Os pedidos que podem ser recusados estão dentro de um `try`, e o `except` mostra a mensagem de quem recusou. O programa principal nunca escreve `Artigo(...)` nem guarda um artigo num nome seu: fala sempre com o inventário, usando os códigos.
 
 3. Antes de executares, faz o traço dos oito pedidos no papel. Cada linha começa no estado deixado pela anterior. As quatro primeiras linhas estão feitas; copia a tabela e completa as que têm um ponto de interrogação.
 
@@ -605,14 +608,14 @@ Um `return` ou um `raise` com a indentação errada terminou um método antes do
 
 3. Os artigos esgotados. Escreve o método `esgotados()`, que devolve uma lista com os códigos dos artigos que têm quantidade 0. Se nenhum artigo estiver esgotado, devolve uma lista vazia. Testa-o duas vezes: uma com o inventário tal como está, e outra depois de retirares todas as unidades de um dos artigos. Antes de cada teste, escreve a lista que esperas ver.
 
-4. O diagrama com as operações novas. No papel, desenha de novo o diagrama de classes de "O que vais construir", agora com os métodos que acrescentaste nos desafios na caixa `Inventario`. Depois responde numa frase: a linha entre as duas caixas, o losango e os números das pontas mudaram com as operações novas? Porquê?
+4. A descrição com as operações novas. No papel, escreve de novo a descrição da classe `Inventario` de "O que vais construir", agora com os métodos que acrescentaste nos desafios. Depois responde numa frase: a descrição da relação entre as duas classes mudou com as operações novas? Porquê?
 
 ## Antes de terminares
 
 - [ ] O ficheiro `inventario.py` executa e mostra as oito linhas da paragem 3.
 - [ ] Apagaste as linhas de teste das fases 1, 2 e 4: o ficheiro está igual ao da paragem 3, mais o que fizeste nos desafios.
 - [ ] Tens no papel as previsões, o traço da fase 3 e as respostas da fase 4.
-- [ ] Guardaste o `inventario.py` e a folha e, se fizeste o desafio 4, o diagrama, e entregaste-os pelo meio indicado pelo professor.
+- [ ] Guardaste o `inventario.py` e a folha e, se fizeste o desafio 4, a descrição, e entregaste-os pelo meio indicado pelo professor.
 - [ ] Sabes dizer quem recusa cada um dos pedidos da fase 3, e porquê.
 - [ ] Sabes dizer porque é que `_procurar` não aparece no traceback da fase 4.
 - [ ] Consegues explicar, por palavras tuas, porque é que é o inventário, e não o artigo, que garante que não há dois artigos com o mesmo código.

@@ -169,7 +169,7 @@ print("Sala 14, A01:", sala_14.quantidade_de("A01"))
 ```
 
 1. Antes de executares, escreve as duas linhas que esperas ver. Depois executa e compara.
-2. Com o método `acrescentar`, a relação entre `Inventario` e `Artigo` passa a ser uma composição ou uma agregação? Responde com as duas perguntas que decidem, de "Dois graus de "tem": composição e agregação", no guia 04, e diz que losango desenharias.
+2. Com o método `acrescentar`, a relação entre `Inventario` e `Artigo` passa a ser uma composição ou uma agregação? Responde com as duas perguntas que decidem, de "Dois graus de "tem": composição e agregação", no guia 04.
 3. Explica porque é que a sala 14 mostra a quantidade que mostra, se ninguém lhe pediu nenhuma retirada.
 4. Pensa no inventário de uma sala, em que as 6 unidades de A01 são as que estão naquela sala. Qual das duas versões te parece mais adequada: a do `registar` ou a do `acrescentar`? Justifica em duas frases.
 
