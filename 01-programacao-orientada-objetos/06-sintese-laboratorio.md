@@ -820,9 +820,9 @@ Não precisas de recitar definições: usa o teu programa e os valores. Não há
 
 Podes dizer em que passos recebeste ajuda: essa informação serve para orientar o trabalho seguinte.
 
-As ideias que juntaste neste laboratório são as ideias centrais do M10. A primeira é distinguir a classe dos objetos e do estado de cada um. A segunda é proteger os dados de um objeto quando ele recusa um pedido. A terceira é dar cada tarefa ao objeto que tem a informação para a fazer, como o inventário que encontra o artigo e o artigo que decide. Vão ser avaliadas no [projeto](../projeto/README.md): a tua aplicação, com um tema que escolhes da lista preparada pelo professor, ou com uma ideia tua que ele aprove. O projeto é avaliado no fim do M12, com demonstração, explicação e uma pequena alteração feita na hora. É a avaliação prática do M10, do M11 e do M12, cada uma com os critérios do seu módulo. Os critérios do M10 são estas três ideias, agora na tua aplicação.
+As ideias que juntaste neste laboratório são as ideias centrais do M10. A primeira é distinguir a classe dos objetos e do estado de cada um. A segunda é proteger os dados de um objeto quando ele recusa um pedido. A terceira é dar cada tarefa ao objeto que tem a informação para a fazer, como o inventário que encontra o artigo e o artigo que decide. Vão ser avaliadas no [projeto](../projeto/README.md): a tua aplicação, um livro de receitas. O projeto é avaliado no fim do M12, com demonstração, explicação e uma pequena alteração feita na hora. É a avaliação prática do M10, do M11 e do M12, cada uma com os critérios do seu módulo. Os critérios do M10 são estas três ideias, agora na tua aplicação.
 
-O projeto começa já no fim do M10, com a escolha do tema e o modelo da tua aplicação, descrito por palavras, como o que escreveste na fase 2. Esta conversa é um primeiro ensaio da explicação que o projeto te vai pedir. O que é cada objeto? Onde está a regra? O que acontece aos dados quando um pedido é recusado?
+O projeto começa já no fim do M10, com o modelo do teu livro de receitas, descrito por palavras, como o que escreveste na fase 2. Esta conversa é um primeiro ensaio da explicação que o projeto te vai pedir. O que é cada objeto? Onde está a regra? O que acontece aos dados quando um pedido é recusado?
 
 ## Problemas frequentes
 

@@ -670,6 +670,6 @@ Tenta responder sem olhar para o texto. Se uma pergunta te deixar com dúvidas, 
 
 Para praticar este tema, tens a [ficha de exercícios](06-sintese-exercicios.md) e o [laboratório](06-sintese-laboratorio.md). A ficha usa o programa do exemplo guiado: prevês quem responde a cada pedido, escreves um método novo do inventário e encontras o erro de um colega. O laboratório fecha o módulo e faz-se na aula, com o professor a acompanhar. Vais completar uma operação num programa parecido com o deste guia, explicar o modelo e mostrar o que acontece aos dados. No fim, explicas o teu trabalho ao professor numa conversa curta, sem nota.
 
-Este é o último tema do M10. No fim do módulo escolhes o tema do teu [projeto](../projeto/README.md) e fazes o modelo da tua aplicação, descrito por palavras, como o do passo 8 do exemplo guiado. As ideias deste guia são avaliadas no projeto, no fim do M12. No módulo seguinte, o M11, vais reencontrá-las em JavaScript: os objetos, os contratos e o "quem sabe o quê" continuam a ser as mesmas perguntas.
+Este é o último tema do M10. No fim do módulo fazes o modelo do teu [projeto](../projeto/README.md), um livro de receitas, descrito por palavras, como o do passo 8 do exemplo guiado. As ideias deste guia são avaliadas no projeto, no fim do M12. No módulo seguinte, o M11, vais reencontrá-las em JavaScript: os objetos, os contratos e o "quem sabe o quê" continuam a ser as mesmas perguntas.
 
 ![Rodapé](../imagens/rodape.png)
