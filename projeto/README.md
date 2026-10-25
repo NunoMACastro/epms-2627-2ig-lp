@@ -61,14 +61,6 @@ O projeto continua no M11, com a primeira versão da aplicação no computador. 
 
 ## Para treinares em casa
 
-Se quiseres treinar, faz o modelo de um destes temas, com a classe do registo e a da coleção. É opcional e não conta para a nota.
-
-| Tema | Cada registo | Número e regra |
-| --- | --- | --- |
-| Coleção de jogos | um jogo | horas jogadas, 0 ou mais |
-| Cartas colecionáveis | uma carta | raridade, de 1 a 5 |
-| Diário de treinos | um treino | minutos, mais de 0 |
-| Playlist | uma música | duração em segundos, mais de 0 |
-| Campeonato | uma equipa | pontos, 0 ou mais |
+Se quiseres treinar, tens cinco [temas de treino](temas-de-treino.md), com a mesma estrutura do livro de receitas: jogos, cartas, treinos, músicas e equipas. São opcionais e não contam para a nota.
 
 ![Rodapé](../imagens/rodape.png)
