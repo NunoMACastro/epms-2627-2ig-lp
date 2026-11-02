@@ -157,7 +157,7 @@ Não é. O diagnóstico não tem nota e não conta para a classificação. Serve
 
 Não há entrega: as respostas ficam contigo. Assinala um ponto que resolveste com confiança e outro em que precisas de apoio, e compara cada previsão com o que aconteceu quando experimentaste.
 
-As tarefas em que paraste, ou em que a previsão falhou, mostram-te o que vale a pena rever. A tabela do início da [ficha de recuperação](../01-programacao-orientada-objetos/bridge-raciocinio.md) diz que exercício fazer para cada tarefa. Se quiseres, leva essas dúvidas ao professor numa aula.
+As tarefas em que paraste, ou em que a previsão falhou, mostram-te o que vale a pena rever. A tabela do início da [ficha de recuperação](../01-programacao-orientada-objetos/exercicios/bridge-raciocinio.md) diz que exercício fazer para cada tarefa. Se quiseres, leva essas dúvidas ao professor numa aula.
 
 Não uses dados pessoais reais nos exemplos. Não confundas terminar depressa com compreender.
 

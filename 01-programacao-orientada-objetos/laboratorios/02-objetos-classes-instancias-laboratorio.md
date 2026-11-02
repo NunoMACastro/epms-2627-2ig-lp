@@ -1,8 +1,8 @@
-![Cabeçalho](../imagens/cabecalho.png)
+![Cabeçalho](../../imagens/cabecalho.png)
 
 # Laboratório: Objetos, classes e instâncias
 
-Laboratório do tema Objetos, classes e instâncias, do módulo M10, Introdução à Programação Orientada por Objetos. Vais criar e usar os primeiros objetos: escreves tu a classe `Artigo`, crias dois artigos e pedes-lhes operações. Cada passo diz o que fazer, porquê e o que deves ver, e avanças ao teu ritmo. O que não acabares na aula, acabas em casa ou na aula seguinte. Tudo o que precisas está aqui; o [guia do tema](02-objetos-classes-instancias.md) tem a teoria completa, para quem quiser saber mais.
+Laboratório do tema Objetos, classes e instâncias, do módulo M10, Introdução à Programação Orientada por Objetos. Vais criar e usar os primeiros objetos: escreves tu a classe `Artigo`, crias dois artigos e pedes-lhes operações. Cada passo diz o que fazer, porquê e o que deves ver, e avanças ao teu ritmo. O que não acabares na aula, acabas em casa ou na aula seguinte. Tudo o que precisas está aqui; o [guia do tema](../02-objetos-classes-instancias.md) tem a teoria completa, para quem quiser saber mais.
 
 ## O que vais construir
 
@@ -23,8 +23,8 @@ Executa sempre o ficheiro inteiro. Cada execução começa do zero. O Python lê
 
 ## Palavras que vais usar
 
-- Classe: a descrição comum de todos os objetos de um tipo, com os dados que têm e as operações que aceitam. Para saber mais, vê a secção "Classe: a descrição comum" do [guia](02-objetos-classes-instancias.md).
-- Objeto, ou instância: um artigo concreto, criado a partir da classe, com os seus próprios valores. Para saber mais, vê "Classe e instância" no [guia](02-objetos-classes-instancias.md).
+- Classe: a descrição comum de todos os objetos de um tipo, com os dados que têm e as operações que aceitam. Para saber mais, vê a secção "Classe: a descrição comum" do [guia](../02-objetos-classes-instancias.md).
+- Objeto, ou instância: um artigo concreto, criado a partir da classe, com os seus próprios valores. Para saber mais, vê "Classe e instância" no [guia](../02-objetos-classes-instancias.md).
 - Atributo: um dado guardado num objeto, com um nome e um valor, como `quantidade` e `6`.
 - Construtor: o método `__init__`, que o Python executa sozinho sempre que se cria um objeto, para lhe dar os valores iniciais.
 - `self`: dentro de um método, o nome do objeto sobre o qual o método está a trabalhar.
@@ -56,7 +56,7 @@ O laboratório começa de uma pasta vazia: não precisas de nenhum ficheiro do l
 
 ## Fase 1: Uma classe e dois objetos
 
-Na sala há dois artigos: A01, o caderno, com 6 unidades, e A02, a pasta, com 2. Cada artigo vai ser um objeto do Python, com os seus próprios valores. Os dois têm a mesma organização (código, nome e quantidade), e por isso escreve-se uma só descrição comum, a classe `Artigo`. Dentro da classe, o construtor `__init__` prepara cada artigo novo, guardando nele os três valores que recebe. Cada linha `Artigo(...)` cria um objeto a partir dessa descrição. Para saber mais, lê a secção "A classe Artigo em Python" do [guia](02-objetos-classes-instancias.md).
+Na sala há dois artigos: A01, o caderno, com 6 unidades, e A02, a pasta, com 2. Cada artigo vai ser um objeto do Python, com os seus próprios valores. Os dois têm a mesma organização (código, nome e quantidade), e por isso escreve-se uma só descrição comum, a classe `Artigo`. Dentro da classe, o construtor `__init__` prepara cada artigo novo, guardando nele os três valores que recebe. Cada linha `Artigo(...)` cria um objeto a partir dessa descrição. Para saber mais, lê a secção "A classe Artigo em Python" do [guia](../02-objetos-classes-instancias.md).
 
 1. Escreve em `artigos.py` o programa seguinte. Desta vez não copies nem coles: escreve-o tu, letra a letra, porque ao escrever reparas em pormenores que uma cópia esconde. É o ficheiro completo:
 
@@ -110,7 +110,7 @@ Pensa antes de continuares: escreveste três valores dentro de cada `Artigo(...)
 
 ## Fase 2: Quando é que o construtor trabalha
 
-Para criar um artigo não escreves `__init__`: escreves `Artigo(...)`, e é o Python que chama o construtor, sozinho, sempre que uma linha `Artigo(...)` é executada. Vais tornar isso visível com uma linha provisória, que escreve uma mensagem no ecrã de cada vez que o construtor trabalha. Para saber mais, lê "O construtor `__init__`" no [guia](02-objetos-classes-instancias.md).
+Para criar um artigo não escreves `__init__`: escreves `Artigo(...)`, e é o Python que chama o construtor, sozinho, sempre que uma linha `Artigo(...)` é executada. Vais tornar isso visível com uma linha provisória, que escreve uma mensagem no ecrã de cada vez que o construtor trabalha. Para saber mais, lê "O construtor `__init__`" no [guia](../02-objetos-classes-instancias.md).
 
 1. Em `artigos.py`, dentro do construtor, logo a seguir à docstring e antes de `self.codigo = codigo`, acrescenta esta linha. É uma alteração: a linha vai para dentro do construtor, com a mesma indentação das linhas que começam por `self.`:
 
@@ -166,7 +166,7 @@ Pensa antes de continuares: se acrescentasses ao programa uma terceira linha, `r
 
 ## Fase 3: O que mostra um objeto inteiro
 
-Até agora pediste ao Python cada atributo pelo nome, com o ponto. Nesta fase vês o que acontece quando pedes o objeto inteiro, sem dizer que atributo queres. Para saber mais, lê "Consultar atributos" no [guia](02-objetos-classes-instancias.md).
+Até agora pediste ao Python cada atributo pelo nome, com o ponto. Nesta fase vês o que acontece quando pedes o objeto inteiro, sem dizer que atributo queres. Para saber mais, lê "Consultar atributos" no [guia](../02-objetos-classes-instancias.md).
 
 1. Acrescenta no fim do ficheiro esta linha:
 
@@ -206,7 +206,7 @@ Pensa antes de continuares: se executares o programa amanhã, o número de memó
 
 ## Fase 4: O `self.` decide o que fica no objeto
 
-Na linha `self.nome = nome`, há duas coisas com o nome `nome`. Do lado direito, `nome` é o parâmetro: o valor que chegou na chamada, que só existe enquanto o construtor está a ser executado. Do lado esquerdo, `self.nome` é o atributo do objeto, que fica guardado depois de o construtor terminar. Nesta fase vais tirar o `self.` de propósito, para veres o que acontece ao objeto. Para saber mais, lê "O parâmetro `self`" no [guia](02-objetos-classes-instancias.md).
+Na linha `self.nome = nome`, há duas coisas com o nome `nome`. Do lado direito, `nome` é o parâmetro: o valor que chegou na chamada, que só existe enquanto o construtor está a ser executado. Do lado esquerdo, `self.nome` é o atributo do objeto, que fica guardado depois de o construtor terminar. Nesta fase vais tirar o `self.` de propósito, para veres o que acontece ao objeto. Para saber mais, lê "O parâmetro `self`" no [guia](../02-objetos-classes-instancias.md).
 
 1. No construtor, na linha `self.nome = nome`, apaga `self.`, de modo que a linha fique `nome = nome`. Não mexas em mais nada.
 
@@ -254,7 +254,7 @@ Pensa antes de continuares: o Python mostrou o erro na linha 16, mas o engano es
 
 ## Fase 5: Um método, retirar
 
-Um método é uma operação que pertence a um objeto, como retirar unidades. Escreve-se dentro da classe, como o construtor, e também tem o `self` como primeiro parâmetro. Na chamada `caderno.retirar(2)`, o objeto que está antes do ponto, o `caderno`, é o que vai ocupar o `self`. O `2` é o argumento, que ocupa o parâmetro `unidades`. O método muda a quantidade do artigo e devolve, com `return`, a quantidade que fica. Para saber mais, lê "O método retirar em Python" no [guia](02-objetos-classes-instancias.md).
+Um método é uma operação que pertence a um objeto, como retirar unidades. Escreve-se dentro da classe, como o construtor, e também tem o `self` como primeiro parâmetro. Na chamada `caderno.retirar(2)`, o objeto que está antes do ponto, o `caderno`, é o que vai ocupar o `self`. O `2` é o argumento, que ocupa o parâmetro `unidades`. O método muda a quantidade do artigo e devolve, com `return`, a quantidade que fica. Para saber mais, lê "O método retirar em Python" no [guia](../02-objetos-classes-instancias.md).
 
 1. Em `artigos.py`, acrescenta à classe o método `retirar`, a seguir ao construtor, com uma linha em branco entre os dois. A linha `def retirar(self, unidades):` fica com a mesma indentação de `def __init__`, e as linhas de dentro do método ficam com mais quatro espaços. É uma alteração; o método é este:
 
@@ -352,7 +352,7 @@ Pensa antes de continuares: se apagasses a palavra `restante =` e deixasses só 
 
 ## Fase 6: Dois nomes para o mesmo objeto
 
-Uma variável não contém o objeto: é um nome que aponta para ele, como uma etiqueta colada numa caixa. A linha `mesmo_caderno = caderno` não tem `Artigo(...)`, e por isso não cria nenhum artigo. Cola uma segunda etiqueta na caixa do caderno. A palavra `is` pergunta se dois nomes apontam para o mesmo objeto. Para saber mais, lê "Cada instância é um objeto diferente" no [guia](02-objetos-classes-instancias.md).
+Uma variável não contém o objeto: é um nome que aponta para ele, como uma etiqueta colada numa caixa. A linha `mesmo_caderno = caderno` não tem `Artigo(...)`, e por isso não cria nenhum artigo. Cola uma segunda etiqueta na caixa do caderno. A palavra `is` pergunta se dois nomes apontam para o mesmo objeto. Para saber mais, lê "Cada instância é um objeto diferente" no [guia](../02-objetos-classes-instancias.md).
 
 1. Substitui as linhas que vêm depois da classe por estas. A classe fica igual, com o construtor e o `retirar`:
 
@@ -510,4 +510,4 @@ O método ficou fora da classe, com o `def` encostado à margem. O Python aceita
 - [ ] Sabes dizer porque é que `mesmo_caderno = caderno` não cria um artigo novo.
 - [ ] Consegues explicar, por palavras tuas, a diferença entre a classe `Artigo` e os objetos `caderno` e `pasta`.
 
-![Rodapé](../imagens/rodape.png)
+![Rodapé](../../imagens/rodape.png)

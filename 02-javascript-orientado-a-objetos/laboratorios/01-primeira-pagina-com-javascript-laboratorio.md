@@ -1,8 +1,8 @@
-![Cabeçalho](../imagens/cabecalho.png)
+![Cabeçalho](../../imagens/cabecalho.png)
 
 # Laboratório: A primeira página com JavaScript
 
-Laboratório do tema A primeira página com JavaScript, do módulo M11, Introdução à Linguagem de Programação Orientada por Objetos. Vais construir, a partir de uma pasta vazia, uma página onde se retiram unidades do caderno A01 do inventário, com um campo, um botão e o resultado na página. Cada passo diz o que fazer, porquê e o que deves ver, e avanças ao teu ritmo. O que não acabares na aula, acabas em casa ou na aula seguinte. Tudo o que precisas está aqui; o [guia do tema](01-primeira-pagina-com-javascript.md) tem a teoria completa, para quem quiser saber mais.
+Laboratório do tema A primeira página com JavaScript, do módulo M11, Introdução à Linguagem de Programação Orientada por Objetos. Vais construir, a partir de uma pasta vazia, uma página onde se retiram unidades do caderno A01 do inventário, com um campo, um botão e o resultado na página. Cada passo diz o que fazer, porquê e o que deves ver, e avanças ao teu ritmo. O que não acabares na aula, acabas em casa ou na aula seguinte. Tudo o que precisas está aqui; o [guia do tema](../01-primeira-pagina-com-javascript.md) tem a teoria completa, para quem quiser saber mais.
 
 ## O que vais construir
 
@@ -32,7 +32,7 @@ Em todas as fases trabalhas da mesma maneira. Antes de abrires ou recarregares a
 
 ## Palavras que vais usar
 
-- Editor: o programa onde escreves e guardas os ficheiros. Neste laboratório é o VS Code. Para saber mais, vê a secção "O que muda quando o programa corre no browser" do [guia](01-primeira-pagina-com-javascript.md).
+- Editor: o programa onde escreves e guardas os ficheiros. Neste laboratório é o VS Code. Para saber mais, vê a secção "O que muda quando o programa corre no browser" do [guia](../01-primeira-pagina-com-javascript.md).
 - Browser (navegador): o programa que abre as páginas, como o Chrome, o Edge ou o Firefox. É ele que mostra a página e corre o JavaScript dela.
 - HTML: a linguagem que diz o que a página tem, como um título, um parágrafo ou um botão.
 - CSS: a linguagem que diz como a página se apresenta: a letra, as cores, os espaços.
@@ -76,7 +76,7 @@ Os nomes dos menus e dos botões do VS Code estão em inglês, como aparecem no 
 
 ## Fase 1: A estrutura da página em HTML
 
-Uma página web é um ficheiro de texto escrito em HTML. O HTML marca cada parte do texto com o que ela é: o título, um parágrafo. Cada parte marcada é um elemento, escrito entre uma etiqueta de abertura e uma de fecho. O browser lê essas marcas e mostra cada parte da maneira certa. Nesta fase escreves a estrutura mínima de uma página e abre-la no browser. Para saber mais, lê a secção "O HTML dá a estrutura da página" do [guia](01-primeira-pagina-com-javascript.md).
+Uma página web é um ficheiro de texto escrito em HTML. O HTML marca cada parte do texto com o que ela é: o título, um parágrafo. Cada parte marcada é um elemento, escrito entre uma etiqueta de abertura e uma de fecho. O browser lê essas marcas e mostra cada parte da maneira certa. Nesta fase escreves a estrutura mínima de uma página e abre-la no browser. Para saber mais, lê a secção "O HTML dá a estrutura da página" do [guia](../01-primeira-pagina-com-javascript.md).
 
 1. Cria o ficheiro da página. No `Explorer` do VS Code, passa o rato por cima do nome da pasta e carrega no ícone `New File...`. Escreve `index.html` e carrega em Enter. O nome `index.html` é o que se dá, por costume, à página principal de uma pasta, e a extensão `.html` diz ao computador que o ficheiro é uma página. O que deves ver: o ficheiro na barra lateral, aberto e vazio à direita.
 
@@ -121,7 +121,7 @@ Pensa antes de continuares: o texto "Inventário da sala" aparece duas vezes no 
 
 ## Fase 2: Os controlos da página
 
-Para retirar unidades, a página tem de perguntar quantas, e de ter um sítio para o resultado. O HTML tem elementos próprios para isso. O campo, onde se escreve, e o botão, que faz a ação, são os controlos, as partes da página com que a pessoa interage. O rótulo diz o que se escreve no campo, e a saída é onde aparece o resultado. Nesta fase acrescentas os quatro. Ainda não funcionam juntos: o botão não faz nada até à fase 6. Para saber mais, lê a secção "Rótulo, campo, botão e saída" do [guia](01-primeira-pagina-com-javascript.md).
+Para retirar unidades, a página tem de perguntar quantas, e de ter um sítio para o resultado. O HTML tem elementos próprios para isso. O campo, onde se escreve, e o botão, que faz a ação, são os controlos, as partes da página com que a pessoa interage. O rótulo diz o que se escreve no campo, e a saída é onde aparece o resultado. Nesta fase acrescentas os quatro. Ainda não funcionam juntos: o botão não faz nada até à fase 6. Para saber mais, lê a secção "Rótulo, campo, botão e saída" do [guia](../01-primeira-pagina-com-javascript.md).
 
 1. Acrescenta os controlos à página. No `index.html`, a seguir à linha do parágrafo `<p>O caderno A01 ...</p>` e antes de `</main>`, acrescenta estas linhas:
 
@@ -189,7 +189,7 @@ Pensa antes de continuares: porque é que o `id` do campo e o `for` do rótulo t
 
 ## Fase 3: A apresentação com uma folha de CSS
 
-A página funciona, mas tem o aspeto que o browser escolhe. O texto fica encostado à margem, e o campo e o botão têm uma letra mais pequena do que a do resto. O CSS serve para escolher a apresentação. Escreve-se num ficheiro à parte, a folha de estilos, feito de regras. Cada regra tem um seletor, que escolhe os elementos, e propriedades, cada uma com o seu valor, que dizem como esses elementos aparecem. As cores escolhem-se também pelo contraste, para a página se ler bem. Para saber mais, lê as secções "O CSS dá a apresentação" e "Contraste e foco visível" do [guia](01-primeira-pagina-com-javascript.md).
+A página funciona, mas tem o aspeto que o browser escolhe. O texto fica encostado à margem, e o campo e o botão têm uma letra mais pequena do que a do resto. O CSS serve para escolher a apresentação. Escreve-se num ficheiro à parte, a folha de estilos, feito de regras. Cada regra tem um seletor, que escolhe os elementos, e propriedades, cada uma com o seu valor, que dizem como esses elementos aparecem. As cores escolhem-se também pelo contraste, para a página se ler bem. Para saber mais, lê as secções "O CSS dá a apresentação" e "Contraste e foco visível" do [guia](../01-primeira-pagina-com-javascript.md).
 
 1. Cria a folha de estilos. No `Explorer`, com o rato sobre o nome da pasta, carrega em `New File...` e cria `estilos.css`. Escreve nele este conteúdo, que é o ficheiro completo:
 
@@ -291,7 +291,7 @@ Pensa antes de continuares: uma colega quer o texto do parágrafo em cinzento `#
 
 ## Fase 4: O script e a consola do browser
 
-A página tem estrutura e apresentação, mas o botão continua sem fazer nada. Quem dá comportamento à página é o JavaScript, escrito num terceiro ficheiro que a página carrega. O JavaScript corre dentro do browser, e não no editor. Para ver o que ele faz, usa-se a consola, uma parte do browser onde aparecem as mensagens do script e os erros. Para saber mais, lê a secção "O JavaScript entra pela etiqueta `script`" do [guia](01-primeira-pagina-com-javascript.md).
+A página tem estrutura e apresentação, mas o botão continua sem fazer nada. Quem dá comportamento à página é o JavaScript, escrito num terceiro ficheiro que a página carrega. O JavaScript corre dentro do browser, e não no editor. Para ver o que ele faz, usa-se a consola, uma parte do browser onde aparecem as mensagens do script e os erros. Para saber mais, lê a secção "O JavaScript entra pela etiqueta `script`" do [guia](../01-primeira-pagina-com-javascript.md).
 
 1. Cria o ficheiro do script. No `Explorer`, cria `inventario.js` e escreve nele este conteúdo, que é o ficheiro completo:
 
@@ -361,7 +361,7 @@ Pensa antes de continuares: o JavaScript desta página está num ficheiro do VS 
 
 ## Fase 5: Do Python ao JavaScript, a função `retirar`
 
-No guia 01 do M10 escreveste em Python uma função que aplica as regras de um pedido de retirada. Um pedido positivo e não maior do que o que existe é aceite; qualquer outro é recusado, sem mexer na quantidade. A regra já está pensada e testada. Nesta fase traduze-la para JavaScript e confirmas que dá os mesmos resultados. Como a lógica é a mesma, a única coisa nova é a linguagem. Para saber mais, lê as secções de "Variáveis com `const` e `let`" a "Ciclos: `for`, `while` e `for...of`" do [guia](01-primeira-pagina-com-javascript.md).
+No guia 01 do M10 escreveste em Python uma função que aplica as regras de um pedido de retirada. Um pedido positivo e não maior do que o que existe é aceite; qualquer outro é recusado, sem mexer na quantidade. A regra já está pensada e testada. Nesta fase traduze-la para JavaScript e confirmas que dá os mesmos resultados. Como a lógica é a mesma, a única coisa nova é a linguagem. Para saber mais, lê as secções de "Variáveis com `const` e `let`" a "Ciclos: `for`, `while` e `for...of`" do [guia](../01-primeira-pagina-com-javascript.md).
 
 Esta é a função de Python, do guia 01 do M10:
 
@@ -469,7 +469,7 @@ Pensa antes de continuares: a `quantidade` foi declarada com `let`, e os `pedido
 
 ## Fase 6: O botão chama a função
 
-Falta ligar a página à função. Quando alguém carrega no botão, o script tem de ler o número escrito no campo, pedir a retirada e mostrar o resultado na saída. Para isso usa quatro peças novas. A primeira encontra um elemento da página, a segunda lê o texto de um campo, e a terceira escreve o texto de um elemento. A quarta manda o browser chamar uma função quando há um clique. Para saber mais, lê a secção "Ligar um botão a uma função" do [guia](01-primeira-pagina-com-javascript.md).
+Falta ligar a página à função. Quando alguém carrega no botão, o script tem de ler o número escrito no campo, pedir a retirada e mostrar o resultado na saída. Para isso usa quatro peças novas. A primeira encontra um elemento da página, a segunda lê o texto de um campo, e a terceira escreve o texto de um elemento. A quarta manda o browser chamar uma função quando há um clique. Para saber mais, lê a secção "Ligar um botão a uma função" do [guia](../01-primeira-pagina-com-javascript.md).
 
 1. Liga o botão à função. No `inventario.js`, substitui tudo o que está a seguir à chaveta que fecha a função `retirar`, os testes da fase 5, pelo código da página. Muda também a segunda linha do comentário do início. O ficheiro completo fica assim:
 
@@ -672,4 +672,4 @@ O JavaScript desta página não se corre no editor: fora do browser não há pá
 - [ ] Sabes dizer que tipo de erro é cada um dos que provocaste: o `id` errado, os parênteses a mais e o `if` à maneira do Python.
 - [ ] Consegues explicar, por palavras tuas, o que faz cada um dos três ficheiros e o caminho de um número desde o campo até à saída da página.
 
-![Rodapé](../imagens/rodape.png)
+![Rodapé](../../imagens/rodape.png)

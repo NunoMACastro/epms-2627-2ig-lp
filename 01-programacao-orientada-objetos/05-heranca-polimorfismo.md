@@ -2,7 +2,7 @@
 
 # Herança e polimorfismo
 
-Módulo M10, Introdução à Programação Orientada por Objetos. Neste guia aprendes a escrever em Python a relação "é um", com a herança, e as duas ideias que nascem dela: o polimorfismo e a abstração. Lês o guia ao teu ritmo, de preferência em mais do que uma vez, e o que não acabares na aula acabas em casa ou na aula seguinte. Para praticar, há o [laboratório](05-heranca-polimorfismo-laboratorio.md) e a [ficha de exercícios](05-heranca-polimorfismo-exercicios.md) deste tema.
+Módulo M10, Introdução à Programação Orientada por Objetos. Neste guia aprendes a escrever em Python a relação "é um", com a herança, e as duas ideias que nascem dela: o polimorfismo e a abstração. Lês o guia ao teu ritmo, de preferência em mais do que uma vez, e o que não acabares na aula acabas em casa ou na aula seguinte. Para praticar, há o [laboratório](laboratorios/05-heranca-polimorfismo-laboratorio.md) e a [ficha de exercícios](exercicios/05-heranca-polimorfismo-exercicios.md) deste tema.
 
 Sobre duas classes podem fazer-se duas perguntas: "uma tem a outra?" e "uma é um caso da outra?". A primeira é a relação "tem": um inventário tem artigos, e uma playlist, a lista de músicas que alguém escolhe numa aplicação de música, tem músicas. É o assunto do guia 04, [Composição e modelação](04-composicao-modelacao.md). Este guia trata da segunda, a relação "é um": um carro é um veículo, e uma bicicleta também é um veículo. Em programação, esta relação escreve-se com a **herança**. Dela nascem duas ideias muito usadas na programação orientada a objetos: o polimorfismo e a abstração.
 
@@ -998,7 +998,7 @@ Tenta responder sem olhar para o texto. Se uma pergunta te deixar com dúvidas, 
 
 ## O que vem a seguir
 
-Para praticar este tema, faz o [laboratório](05-heranca-polimorfismo-laboratorio.md) e depois a [ficha de exercícios](05-heranca-polimorfismo-exercicios.md). No laboratório constróis as notificações no computador, passo a passo, provocas de propósito os erros deste guia e escreves variantes tuas. Na ficha praticas sozinho a leitura de hierarquias, a previsão de chamadas, a escolha entre herança e composição e a escrita de contratos.
+Para praticar este tema, faz o [laboratório](laboratorios/05-heranca-polimorfismo-laboratorio.md) e depois a [ficha de exercícios](exercicios/05-heranca-polimorfismo-exercicios.md). No laboratório constróis as notificações no computador, passo a passo, provocas de propósito os erros deste guia e escreves variantes tuas. Na ficha praticas sozinho a leitura de hierarquias, a previsão de chamadas, a escolha entre herança e composição e a escrita de contratos.
 
 O tema seguinte é [Síntese](06-sintese.md). Volta ao inventário, sem herança, e junta o que aprendeste sobre objetos, contratos e composição.
 

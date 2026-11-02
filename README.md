@@ -12,6 +12,8 @@ Abre a área [Programação orientada a objetos](01-programacao-orientada-objeto
 - o laboratório, para seguir passo a passo no computador, sem precisares de abrir o guia;
 - a ficha de exercícios, para praticares sozinho.
 
+Em cada área, os guias estão na pasta da área. Os laboratórios estão na pasta `laboratorios` e as fichas na pasta `exercicios`. Cada uma destas pastas tem um índice que explica o que é esse tipo de documento.
+
 ## As áreas
 
 | Área | Módulo |

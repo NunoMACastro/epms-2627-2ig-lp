@@ -1,8 +1,8 @@
-![Cabeçalho](../imagens/cabecalho.png)
+![Cabeçalho](../../imagens/cabecalho.png)
 
 # Laboratório: Encapsulamento e contratos
 
-Laboratório do tema Encapsulamento e contratos, do módulo M10, Introdução à Programação Orientada por Objetos. Vais proteger a quantidade de um artigo: começas com uma classe que aceita quantidades impossíveis e acabas com uma classe que as recusa. Cada passo diz o que fazer, porquê e o que deves ver, e avanças ao teu ritmo. O que não acabares na aula, acabas em casa ou na aula seguinte. Tudo o que precisas está aqui; o [guia do tema](03-encapsulamento-contratos.md) tem a teoria completa, para quem quiser saber mais.
+Laboratório do tema Encapsulamento e contratos, do módulo M10, Introdução à Programação Orientada por Objetos. Vais proteger a quantidade de um artigo: começas com uma classe que aceita quantidades impossíveis e acabas com uma classe que as recusa. Cada passo diz o que fazer, porquê e o que deves ver, e avanças ao teu ritmo. O que não acabares na aula, acabas em casa ou na aula seguinte. Tudo o que precisas está aqui; o [guia do tema](../03-encapsulamento-contratos.md) tem a teoria completa, para quem quiser saber mais.
 
 ## O que vais construir
 
@@ -28,17 +28,17 @@ Executa sempre o ficheiro inteiro: cada execução começa do zero, com os valor
 
 - Estado válido: o estado de um objeto em que todos os valores cumprem as regras do problema. Aqui, a regra é que a quantidade é um número inteiro, 0 ou mais.
 - Invariante: uma regra que se tem de manter verdadeira enquanto o programa funciona, antes e depois de cada operação.
-- Encapsulamento: o objeto reúne o estado e as operações, e fica responsável por manter o estado válido: é ele que verifica cada pedido antes de mudar os seus dados. Para saber mais, vê "Quem deve proteger a quantidade" no [guia](03-encapsulamento-contratos.md).
-- Método get e método set: o get devolve o valor de um atributo, e o set muda-o, depois de o verificar. Em inglês, *get* quer dizer obter e *set* quer dizer definir. Para saber mais, vê a secção "Primeiro passo: métodos get e set" do [guia](03-encapsulamento-contratos.md).
+- Encapsulamento: o objeto reúne o estado e as operações, e fica responsável por manter o estado válido: é ele que verifica cada pedido antes de mudar os seus dados. Para saber mais, vê "Quem deve proteger a quantidade" no [guia](../03-encapsulamento-contratos.md).
+- Método get e método set: o get devolve o valor de um atributo, e o set muda-o, depois de o verificar. Em inglês, *get* quer dizer obter e *set* quer dizer definir. Para saber mais, vê a secção "Primeiro passo: métodos get e set" do [guia](../03-encapsulamento-contratos.md).
 - Atributo privado por convenção: um atributo cujo nome começa por sublinhado, como `_quantidade`. É um aviso de que o código de fora da classe não o deve usar, mas o Python não o impede.
 - Exceção: um sinal de que alguma coisa correu mal, que interrompe o funcionamento normal do programa.
 - `ValueError`: o erro de valor, a exceção que se usa quando um valor não é aceitável.
 - `raise`: a instrução que lança uma exceção. Em inglês quer dizer levantar.
 - Mensagem de erro e traceback: quando o programa para a meio por causa de uma exceção, o Python escreve várias linhas. A primeira é `Traceback (most recent call last):`, "o caminho até ao erro, com a chamada mais recente no fim". A última diz o tipo de erro e o que aconteceu. Um erro de escrita, como um `IndentationError`, é encontrado antes de o programa começar. A mensagem dele não tem a linha `Traceback`: abre logo com o ficheiro e o número da linha.
 - `try` e `except`: dois blocos que tentam um pedido e dizem o que fazer se ele lançar uma exceção. *Try* quer dizer "tenta" e *except* quer dizer "exceto".
-- Propriedade, getter e setter: uma propriedade lê-se e escreve-se como um atributo, mas a leitura executa um método, o getter, e a escrita executa outro, o setter. Para saber mais, vê "Propriedades: `@property`" no [guia](03-encapsulamento-contratos.md).
+- Propriedade, getter e setter: uma propriedade lê-se e escreve-se como um atributo, mas a leitura executa um método, o getter, e a escrita executa outro, o setter. Para saber mais, vê "Propriedades: `@property`" no [guia](../03-encapsulamento-contratos.md).
 - Decorador: uma linha que começa por `@`, imediatamente antes de um `def`, e muda a maneira como esse método é usado.
-- Contrato: o que uma operação recebe, o que devolve, quando falha e o que acontece ao estado em cada caso. Para saber mais, vê "Adicionar: uma operação com contrato" no [guia](03-encapsulamento-contratos.md).
+- Contrato: o que uma operação recebe, o que devolve, quando falha e o que acontece ao estado em cada caso. Para saber mais, vê "Adicionar: uma operação com contrato" no [guia](../03-encapsulamento-contratos.md).
 - `None`: o valor especial do Python que quer dizer "nada". Em inglês, *none* quer dizer nenhum. É o que devolve um método que não tem `return`.
 - Traço: a tabela que regista, passo a passo, o que acontece em cada pedido e o estado que fica depois dele.
 
@@ -64,7 +64,7 @@ O laboratório começa de uma pasta vazia: não precisas de nenhum ficheiro do l
 
 ## Fase 1: Um estado inválido aceite sem queixa
 
-No inventário, a quantidade de um artigo é um número inteiro, 0 ou mais: não se podem ter -3 cadernos, nem dois cadernos e meio. Um artigo cujos valores cumprem todas as regras está num estado válido. A classe `Artigo` do tema 02 ainda não verifica nada: aceita qualquer valor. Nesta fase vês o que isso provoca. Para saber mais, lê a secção "Nada impede uma quantidade impossível" do [guia](03-encapsulamento-contratos.md).
+No inventário, a quantidade de um artigo é um número inteiro, 0 ou mais: não se podem ter -3 cadernos, nem dois cadernos e meio. Um artigo cujos valores cumprem todas as regras está num estado válido. A classe `Artigo` do tema 02 ainda não verifica nada: aceita qualquer valor. Nesta fase vês o que isso provoca. Para saber mais, lê a secção "Nada impede uma quantidade impossível" do [guia](../03-encapsulamento-contratos.md).
 
 1. Copia para `artigo.py` este programa. É o ficheiro completo:
 
@@ -147,7 +147,7 @@ Pensa antes de continuares: o -3 e o `TypeError` são dois erros diferentes. Qua
 
 ## Fase 2: Um set que verifica, mas não obriga
 
-Para impedir valores inválidos, uma ideia é mudar a quantidade só através de um método, que verifica o valor antes de o guardar. Esse método chama-se set, e o que devolve o valor chama-se get. Para verificar se um valor é inteiro, o set usa a função `isinstance(valor, int)`, que responde `True` ou `False`. O nome junta as palavras inglesas *is instance*, "é instância de": lê-se "o valor é um `int`?". Com 4 responde `True`; com 2.5, ou com o texto `"4"`, responde `False`. Para saber mais, lê "Primeiro passo: métodos get e set" no [guia](03-encapsulamento-contratos.md).
+Para impedir valores inválidos, uma ideia é mudar a quantidade só através de um método, que verifica o valor antes de o guardar. Esse método chama-se set, e o que devolve o valor chama-se get. Para verificar se um valor é inteiro, o set usa a função `isinstance(valor, int)`, que responde `True` ou `False`. O nome junta as palavras inglesas *is instance*, "é instância de": lê-se "o valor é um `int`?". Com 4 responde `True`; com 2.5, ou com o texto `"4"`, responde `False`. Para saber mais, lê "Primeiro passo: métodos get e set" no [guia](../03-encapsulamento-contratos.md).
 
 1. Substitui todo o conteúdo de `artigo.py` por este programa. É o ficheiro completo:
 
@@ -228,7 +228,7 @@ Esta fase resolve os dois problemas do set.
 
 Para o primeiro, o atributo passa a chamar-se `_quantidade`, com um sublinhado no início. Em Python, um nome que começa por sublinhado quer dizer, por convenção, "isto é interno da classe; o código de fora não o deve usar". É um aviso entre programadores, e não uma fechadura.
 
-Para o segundo, o set passa a recusar com uma exceção, que o código que fez o pedido não pode ignorar. A instrução `raise ValueError("A quantidade não pode ser negativa.")` cria uma exceção do tipo `ValueError`, com essa mensagem. Num método sem `try`, como todos os deste laboratório, o `raise` para o método nessa linha. As linhas que estão abaixo, dentro do método, não são executadas. A exceção é enviada para trás, para o código que chamou o método. Se ninguém a tratar, o programa para e o Python mostra a mensagem. Para saber mais, lê "Recusar a sério: `ValueError` e `raise`" no [guia](03-encapsulamento-contratos.md).
+Para o segundo, o set passa a recusar com uma exceção, que o código que fez o pedido não pode ignorar. A instrução `raise ValueError("A quantidade não pode ser negativa.")` cria uma exceção do tipo `ValueError`, com essa mensagem. Num método sem `try`, como todos os deste laboratório, o `raise` para o método nessa linha. As linhas que estão abaixo, dentro do método, não são executadas. A exceção é enviada para trás, para o código que chamou o método. Se ninguém a tratar, o programa para e o Python mostra a mensagem. Para saber mais, lê "Recusar a sério: `ValueError` e `raise`" no [guia](../03-encapsulamento-contratos.md).
 
 1. Substitui todo o conteúdo de `artigo.py` por este programa. É o ficheiro completo:
 
@@ -314,7 +314,7 @@ Pensa antes de continuares: se escrevesses no fim do programa, fora da classe, a
 
 ## Fase 4: Tratar a recusa com try e except
 
-Um programa não pode parar de cada vez que alguém se engana num número. Para continuar depois de uma recusa, usa-se `try` e `except`. O Python executa as linhas do bloco `try` uma a uma. Se uma delas lançar a exceção que o `except` indica, abandona o bloco `try` nesse ponto e salta para o bloco `except`. Depois continua normalmente, na linha a seguir. Para saber mais, lê "Tratar a recusa: `try` e `except`" no [guia](03-encapsulamento-contratos.md).
+Um programa não pode parar de cada vez que alguém se engana num número. Para continuar depois de uma recusa, usa-se `try` e `except`. O Python executa as linhas do bloco `try` uma a uma. Se uma delas lançar a exceção que o `except` indica, abandona o bloco `try` nesse ponto e salta para o bloco `except`. Depois continua normalmente, na linha a seguir. Para saber mais, lê "Tratar a recusa: `try` e `except`" no [guia](../03-encapsulamento-contratos.md).
 
 1. Em `artigo.py`, substitui as linhas que vêm depois da classe, a partir de `caderno = ...`, por estas. A classe fica igual:
 
@@ -393,7 +393,7 @@ Pensa antes de continuares: o set lança a exceção e não mostra nada no ecrã
 
 ## Fase 5: A propriedade quantidade
 
-O get e o set obrigam a escrever `caderno.get_quantidade()` e `caderno.set_quantidade(4)`. Uma propriedade deixa escrever `caderno.quantidade` e `caderno.quantidade = 4`, como num atributo normal, mas cada leitura executa um método, o getter, e cada escrita executa outro, o setter. Os dois métodos têm o mesmo nome, `quantidade`, e cada um leva por cima um decorador: `@property` no getter e `@quantidade.setter` no setter. O valor fica guardado em `_quantidade`, com sublinhado. Para saber mais, lê "Propriedades: `@property`" no [guia](03-encapsulamento-contratos.md).
+O get e o set obrigam a escrever `caderno.get_quantidade()` e `caderno.set_quantidade(4)`. Uma propriedade deixa escrever `caderno.quantidade` e `caderno.quantidade = 4`, como num atributo normal, mas cada leitura executa um método, o getter, e cada escrita executa outro, o setter. Os dois métodos têm o mesmo nome, `quantidade`, e cada um leva por cima um decorador: `@property` no getter e `@quantidade.setter` no setter. O valor fica guardado em `_quantidade`, com sublinhado. Para saber mais, lê "Propriedades: `@property`" no [guia](../03-encapsulamento-contratos.md).
 
 1. Substitui todo o conteúdo de `artigo.py` por este programa. É o ficheiro completo:
 
@@ -491,7 +491,7 @@ Pensa antes de continuares: na linha `print("Início:", caderno.quantidade)`, qu
 
 ## Fase 6: O construtor também passa pelo setter
 
-A invariante da quantidade diz que ela é sempre válida, enquanto o artigo existir. "Sempre" inclui o momento em que o artigo nasce. O construtor escreve `self.quantidade = quantidade`, sem sublinhado: é uma escrita na propriedade, por isso o valor inicial também passa pelo setter. Nesta fase vês o que acontece quando o construtor salta o setter. Para saber mais, lê "O construtor também passa pelo setter" no [guia](03-encapsulamento-contratos.md).
+A invariante da quantidade diz que ela é sempre válida, enquanto o artigo existir. "Sempre" inclui o momento em que o artigo nasce. O construtor escreve `self.quantidade = quantidade`, sem sublinhado: é uma escrita na propriedade, por isso o valor inicial também passa pelo setter. Nesta fase vês o que acontece quando o construtor salta o setter. Para saber mais, lê "O construtor também passa pelo setter" no [guia](../03-encapsulamento-contratos.md).
 
 1. No construtor, troca `self.quantidade = quantidade` por `self._quantidade = quantidade`, com sublinhado. Prevê o que vai acontecer à última linha que o programa mostrava, a da caneta com -5. Executa. O que deves ver:
 
@@ -534,7 +534,7 @@ Pensa antes de continuares: o construtor não escreve `_quantidade` em lado nenh
 
 ## Fase 7: Adicionar e retirar, com contrato
 
-Falta escrever as operações do inventário: adicionar e retirar unidades. Antes de escrever uma operação, escreve-se o seu contrato, na docstring: o que recebe, o que devolve, quando falha e o que acontece ao estado em cada caso. Cada método verifica primeiro o pedido, pela ordem do setter: o tipo, depois o valor. O pedido tem de ser um número inteiro positivo, 1 ou mais. Só depois altera a quantidade, escrevendo na propriedade, para a escrita passar pelo setter. Para saber mais, lê "Adicionar: uma operação com contrato" e "Exemplo guiado: construir o método retirar" no [guia](03-encapsulamento-contratos.md).
+Falta escrever as operações do inventário: adicionar e retirar unidades. Antes de escrever uma operação, escreve-se o seu contrato, na docstring: o que recebe, o que devolve, quando falha e o que acontece ao estado em cada caso. Cada método verifica primeiro o pedido, pela ordem do setter: o tipo, depois o valor. O pedido tem de ser um número inteiro positivo, 1 ou mais. Só depois altera a quantidade, escrevendo na propriedade, para a escrita passar pelo setter. Para saber mais, lê "Adicionar: uma operação com contrato" e "Exemplo guiado: construir o método retirar" no [guia](../03-encapsulamento-contratos.md).
 
 1. Em `artigo.py`, acrescenta à classe o método `adicionar`, a seguir ao setter, com uma linha em branco antes. A linha `def adicionar(self, unidades):` fica com a mesma indentação dos outros `def`. É uma alteração; o método é este:
 
@@ -839,4 +839,4 @@ Há um `try` à volta da linha, com um `except` do tipo dessa exceção, e é is
 - [ ] Sabes dizer porque é que o setter guarda em `_quantidade`, e porque é que o construtor escreve em `quantidade`.
 - [ ] Consegues explicar, por palavras tuas, porque é que o artigo verifica cada pedido antes de mexer na quantidade, e o que fica igual quando recusa.
 
-![Rodapé](../imagens/rodape.png)
+![Rodapé](../../imagens/rodape.png)

@@ -2,7 +2,7 @@
 
 # Composição e modelação
 
-Módulo M10, Introdução à Programação Orientada por Objetos. Neste guia reúnes os artigos num inventário e estudas as relações entre objetos, sobretudo a composição. Aprendes a decidir como se relacionam duas classes, a descrevê-las por palavras e a escrever em Python a classe `Inventario`. Lês o guia ao teu ritmo, de preferência em mais do que uma vez, e o que não acabares na aula acabas em casa ou na aula seguinte. Para praticar, há o [laboratório](04-composicao-modelacao-laboratorio.md) e a [ficha de exercícios](04-composicao-modelacao-exercicios.md) deste tema.
+Módulo M10, Introdução à Programação Orientada por Objetos. Neste guia reúnes os artigos num inventário e estudas as relações entre objetos, sobretudo a composição. Aprendes a decidir como se relacionam duas classes, a descrevê-las por palavras e a escrever em Python a classe `Inventario`. Lês o guia ao teu ritmo, de preferência em mais do que uma vez, e o que não acabares na aula acabas em casa ou na aula seguinte. Para praticar, há o [laboratório](laboratorios/04-composicao-modelacao-laboratorio.md) e a [ficha de exercícios](exercicios/04-composicao-modelacao-exercicios.md) deste tema.
 
 No guia anterior, [Encapsulamento e contratos](03-encapsulamento-contratos.md), cada artigo aprendeu a proteger a sua quantidade. Recusa um pedido impossível com `ValueError` e, quando recusa, deixa os dados exatamente como estavam. Um inventário, porém, não é um artigo sozinho: é um conjunto de artigos. E há perguntas sobre esse conjunto que nenhum artigo consegue responder por si. Que artigos existem? Há dois artigos com o mesmo código? Quantas unidades tem o artigo com o código A02? Para responder a estas perguntas precisamos de um objeto novo, o inventário, que reúne os artigos e fala com eles.
 
@@ -1005,7 +1005,7 @@ Tenta responder sem olhar para o texto. Se uma pergunta te deixar com dúvidas, 
 
 ## O que vem a seguir
 
-Para praticar este tema, faz o [laboratório](04-composicao-modelacao-laboratorio.md) e depois a [ficha de exercícios](04-composicao-modelacao-exercicios.md). No laboratório constróis o inventário no computador, um passo de cada vez, e lês o caminho de uma recusa. Na ficha praticas sozinho a descrição de classes por palavras, a escolha entre composição e agregação e a leitura de código com objetos que colaboram.
+Para praticar este tema, faz o [laboratório](laboratorios/04-composicao-modelacao-laboratorio.md) e depois a [ficha de exercícios](exercicios/04-composicao-modelacao-exercicios.md). No laboratório constróis o inventário no computador, um passo de cada vez, e lês o caminho de uma recusa. Na ficha praticas sozinho a descrição de classes por palavras, a escolha entre composição e agregação e a leitura de código com objetos que colaboram.
 
 O tema seguinte é [Herança e polimorfismo](05-heranca-polimorfismo.md), sobre a relação "é um", que em Python se escreve com a herança. A pergunta deixa de ser "o que é que este objeto tem?" e passa a ser "de que tipo mais geral é este objeto um caso?".
 

@@ -1,8 +1,8 @@
-![Cabeçalho](../imagens/cabecalho.png)
+![Cabeçalho](../../imagens/cabecalho.png)
 
 # Laboratório: Herança e polimorfismo
 
-Laboratório do tema Herança e polimorfismo, do módulo M10, Introdução à Programação Orientada por Objetos. Vais construir notificações em Python, com herança e polimorfismo: uma classe base, várias variantes que herdam dela e um ciclo que as apresenta todas. Pelo caminho, escreves o contrato de uma classe abstrata. Cada passo diz o que fazer, porquê e o que deves ver, e avanças ao teu ritmo. O que não acabares na aula, acabas em casa ou na aula seguinte. Tudo o que precisas está aqui; o [guia do tema](05-heranca-polimorfismo.md) tem a teoria completa, para quem quiser saber mais.
+Laboratório do tema Herança e polimorfismo, do módulo M10, Introdução à Programação Orientada por Objetos. Vais construir notificações em Python, com herança e polimorfismo: uma classe base, várias variantes que herdam dela e um ciclo que as apresenta todas. Pelo caminho, escreves o contrato de uma classe abstrata. Cada passo diz o que fazer, porquê e o que deves ver, e avanças ao teu ritmo. O que não acabares na aula, acabas em casa ou na aula seguinte. Tudo o que precisas está aqui; o [guia do tema](../05-heranca-polimorfismo.md) tem a teoria completa, para quem quiser saber mais.
 
 ## O que vais construir
 
@@ -34,7 +34,7 @@ Executa sempre o ficheiro inteiro. Cada execução começa do zero, com os valor
 
 ## Palavras que vais usar
 
-- Relação "é um": a relação entre um tipo particular e um tipo mais geral, como "uma bicicleta é um veículo" ou "uma notificação breve é uma notificação". Confirma-se analisando a relação entre os dois tipos. Quando a frase parece quase verdadeira, há um teste: se A é um B, tudo o que um B tem e faz tem de fazer sentido para A. Não se confunde com a relação "tem": uma mochila tem cadernos, mas não é um caderno. Para saber mais, vê "Especialização: do geral para o particular" no [guia](05-heranca-polimorfismo.md).
+- Relação "é um": a relação entre um tipo particular e um tipo mais geral, como "uma bicicleta é um veículo" ou "uma notificação breve é uma notificação". Confirma-se analisando a relação entre os dois tipos. Quando a frase parece quase verdadeira, há um teste: se A é um B, tudo o que um B tem e faz tem de fazer sentido para A. Não se confunde com a relação "tem": uma mochila tem cadernos, mas não é um caderno. Para saber mais, vê "Especialização: do geral para o particular" no [guia](../05-heranca-polimorfismo.md).
 - Herança: a forma de escrever a relação "é um" em Python. Em `class NotificacaoBreve(Notificacao):`, a classe entre parênteses é a classe base, a geral, e a que se está a escrever é a classe derivada, a particular. Lê-se "a classe `NotificacaoBreve`, que é uma `Notificacao`".
 - Herdar: a classe derivada recebe da base os seus métodos, incluindo o construtor, sem os escrever outra vez.
 - Redefinir um método: escrever, numa classe derivada, um método com o mesmo nome de um método da base. Em inglês diz-se *override*.
@@ -74,7 +74,7 @@ O laboratório começa de uma pasta vazia. Não precisas de nenhum ficheiro dos 
 
 Imagina duas classes de notificações quase iguais. As duas guardam um texto no construtor, e as duas têm um método `apresentar` que devolve um texto. Escrever as duas por inteiro repetia o construtor, e uma regra nova sobre o texto teria de ser escrita nos dois sítios.
 
-A herança resolve isto. Escreve-se uma vez o que é comum, numa classe geral, a classe base. Depois escreve-se cada variante como uma classe derivada, que recebe da base tudo o que ela tem. Só se justifica quando a frase "é um" é verdadeira, e é: "uma notificação breve é uma notificação". Para saber mais, lê "Herança em Python" no [guia](05-heranca-polimorfismo.md).
+A herança resolve isto. Escreve-se uma vez o que é comum, numa classe geral, a classe base. Depois escreve-se cada variante como uma classe derivada, que recebe da base tudo o que ela tem. Só se justifica quando a frase "é um" é verdadeira, e é: "uma notificação breve é uma notificação". Para saber mais, lê "Herança em Python" no [guia](../05-heranca-polimorfismo.md).
 
 1. Escreve no ficheiro, à mão, este conteúdo. É o ficheiro completo, por agora. Escrever, em vez de copiar, obriga-te a reparar em cada pormenor, como os parênteses na linha `class NotificacaoBreve(Notificacao):`.
 
@@ -137,7 +137,7 @@ Pensa antes de continuares: se criasses outra notificação breve, com o texto "
 
 ## Fase 2: Uma variante que redefine um método
 
-A notificação detalhada apresenta-se de outra maneira: com "Aviso interno: " antes do texto. Também é uma notificação, e por isso herda da base. Mas não lhe serve o `apresentar` que a base tem. Escreve o seu, com o mesmo nome. Quando uma classe derivada escreve um método com o mesmo nome de um método da base, diz-se que o **redefine**. Pela regra de procura, o Python encontra primeiro o da classe do objeto, e é esse que usa. Para saber mais, lê "Redefinir um método: onde o Python procura" no [guia](05-heranca-polimorfismo.md).
+A notificação detalhada apresenta-se de outra maneira: com "Aviso interno: " antes do texto. Também é uma notificação, e por isso herda da base. Mas não lhe serve o `apresentar` que a base tem. Escreve o seu, com o mesmo nome. Quando uma classe derivada escreve um método com o mesmo nome de um método da base, diz-se que o **redefine**. Pela regra de procura, o Python encontra primeiro o da classe do objeto, e é esse que usa. Para saber mais, lê "Redefinir um método: onde o Python procura" no [guia](../05-heranca-polimorfismo.md).
 
 1. Entre a classe `NotificacaoBreve` e as linhas de teste, escreve a classe `NotificacaoDetalhada`. Deixa duas linhas em branco antes e depois dela.
 
@@ -200,7 +200,7 @@ Pensa antes de continuares: quando `breve.apresentar()` executa o método escrit
 
 Uma especialização também pode acrescentar dados. A notificação assinada diz, no fim, quem a enviou: "Encomenda recebida (enviada por: Secretaria)". Além do texto, guarda a origem, e por isso o seu construtor recebe dois valores. Uma classe derivada escreve o seu próprio construtor quando tem de fazer, na criação, alguma coisa que o da base não faz. É o caso: guardar a origem. A breve e a detalhada não tinham nada a acrescentar, e por isso herdaram o construtor da base.
 
-O construtor novo tapa o da base. Mas o da base sabe guardar o texto, e queremos aproveitá-lo, para a regra sobre o texto continuar num só sítio. Por isso, a primeira linha do construtor novo é `super().__init__(texto)`. Lê-se "executa o construtor da classe base, com este texto, sobre este objeto". Para criar uma notificação, continuas a escrever o nome da classe, `NotificacaoAssinada(...)`, e não `__init__`. O `super().__init__` serve para um construtor pedir ajuda ao da base. Para saber mais, lê "Acrescentar dados numa classe derivada: `super()`" no [guia](05-heranca-polimorfismo.md).
+O construtor novo tapa o da base. Mas o da base sabe guardar o texto, e queremos aproveitá-lo, para a regra sobre o texto continuar num só sítio. Por isso, a primeira linha do construtor novo é `super().__init__(texto)`. Lê-se "executa o construtor da classe base, com este texto, sobre este objeto". Para criar uma notificação, continuas a escrever o nome da classe, `NotificacaoAssinada(...)`, e não `__init__`. O `super().__init__` serve para um construtor pedir ajuda ao da base. Para saber mais, lê "Acrescentar dados numa classe derivada: `super()`" no [guia](../05-heranca-polimorfismo.md).
 
 1. A seguir à classe `NotificacaoDetalhada`, com duas linhas em branco antes e depois, escreve a classe `NotificacaoAssinada`:
 
@@ -314,7 +314,7 @@ Pensa antes de continuares: porque é que a `NotificacaoBreve` e a `NotificacaoD
 
 ## Fase 4: O mesmo pedido a todas: polimorfismo
 
-Agora vais guardar uma notificação de cada variante numa lista e pedir a cada uma, num ciclo `for`, que se apresente. Uma lista pode guardar objetos, tal como guarda números ou textos. Em cada volta do ciclo, o nome do ciclo aponta para um dos objetos da lista. O ciclo vai ter uma única linha de trabalho, igual nas três voltas. Mesmo assim, cada volta vai dar um resultado diferente, porque o Python encontra o `apresentar` da classe de cada objeto. Chama-se **polimorfismo** a isto: o mesmo pedido, feito da mesma maneira, funciona com objetos de classes diferentes, e cada objeto responde à sua maneira. A palavra vem do grego e quer dizer "muitas formas". Para saber mais, lê "Polimorfismo: a mesma chamada, comportamentos diferentes" no [guia](05-heranca-polimorfismo.md).
+Agora vais guardar uma notificação de cada variante numa lista e pedir a cada uma, num ciclo `for`, que se apresente. Uma lista pode guardar objetos, tal como guarda números ou textos. Em cada volta do ciclo, o nome do ciclo aponta para um dos objetos da lista. O ciclo vai ter uma única linha de trabalho, igual nas três voltas. Mesmo assim, cada volta vai dar um resultado diferente, porque o Python encontra o `apresentar` da classe de cada objeto. Chama-se **polimorfismo** a isto: o mesmo pedido, feito da mesma maneira, funciona com objetos de classes diferentes, e cada objeto responde à sua maneira. A palavra vem do grego e quer dizer "muitas formas". Para saber mais, lê "Polimorfismo: a mesma chamada, comportamentos diferentes" no [guia](../05-heranca-polimorfismo.md).
 
 1. Substitui todas as linhas de teste, a partir de `assinada = ...`, por estas:
 
@@ -365,7 +365,7 @@ Pensa antes de continuares: se escrevesses uma quarta variante, que linhas do ci
 
 Até aqui, a classe `Notificacao` serviu de base às três variantes, e o seu `apresentar` devolve o texto, da maneira breve. Pensa na ideia de notificação: uma notificação "geral", que não é de nenhuma variante, apresenta-se como? Não há resposta. A maneira breve é uma das variantes, e só está na base porque é a mais simples de escrever.
 
-Uma classe assim chama-se **classe abstrata**: descreve o que é comum a várias classes, mas não serve para criar objetos diretamente. Os objetos do programa criam-se das classes derivadas. Às classes de onde se podem criar objetos chama-se **classes concretas**. Nesta ideia, o `apresentar` é um **método abstrato**: tem o nome e o contrato, mas não tem instruções gerais, e cada variante escreve as suas. Nesta fase, escreves no papel o contrato da classe abstrata e passas esse contrato para a docstring da classe base. As instruções do teu ficheiro ficam como estão. Para saber mais, lê "Abstração e classes abstratas" no [guia](05-heranca-polimorfismo.md).
+Uma classe assim chama-se **classe abstrata**: descreve o que é comum a várias classes, mas não serve para criar objetos diretamente. Os objetos do programa criam-se das classes derivadas. Às classes de onde se podem criar objetos chama-se **classes concretas**. Nesta ideia, o `apresentar` é um **método abstrato**: tem o nome e o contrato, mas não tem instruções gerais, e cada variante escreve as suas. Nesta fase, escreves no papel o contrato da classe abstrata e passas esse contrato para a docstring da classe base. As instruções do teu ficheiro ficam como estão. Para saber mais, lê "Abstração e classes abstratas" no [guia](../05-heranca-polimorfismo.md).
 
 1. Começa por uma experiência. No fim do ficheiro, depois do ciclo e encostadas à margem, acrescenta estas duas linhas:
 
@@ -505,7 +505,7 @@ Pensa antes de continuares: abstrata quer dizer vazia? Olha para o contrato que 
 
 O responsável do armário da sala quer que os avisos de material esgotado chamem a atenção. Pede uma notificação que se apresente com "URGENTE: " antes do texto, e com o texto todo em maiúsculas. "Uma notificação urgente é uma notificação", e por isso a classe nova herda da `Notificacao`. Não guarda dados novos, e por isso não escreve construtor. Apresenta-se de outra maneira, e por isso, como diz o contrato da base, redefine o `apresentar`.
 
-Para pôr um texto em maiúsculas, os textos do Python têm o método `upper` (do inglês, "de cima", como nas letras maiúsculas): `"A02 esgotou".upper()` devolve `"A02 ESGOTOU"`. O `upper` devolve um texto novo, e o texto original fica como estava. É isso que permite cumprir o contrato: o `apresentar` devolve um texto novo e não altera a notificação. Para saber mais, lê o exemplo guiado do [guia](05-heranca-polimorfismo.md).
+Para pôr um texto em maiúsculas, os textos do Python têm o método `upper` (do inglês, "de cima", como nas letras maiúsculas): `"A02 esgotou".upper()` devolve `"A02 ESGOTOU"`. O `upper` devolve um texto novo, e o texto original fica como estava. É isso que permite cumprir o contrato: o `apresentar` devolve um texto novo e não altera a notificação. Para saber mais, lê o exemplo guiado do [guia](../05-heranca-polimorfismo.md).
 
 1. A seguir à classe `NotificacaoAssinada`, com duas linhas em branco antes e depois, escreve a classe `NotificacaoUrgente`:
 
@@ -693,4 +693,4 @@ O `apresentar` de uma variante tem um `print` em vez de um `return`. O `print` d
 - [ ] Sabes dizer o que a docstring da classe base diz a quem escreve uma variante nova, e porque é que ela não obriga ninguém a cumprir o contrato.
 - [ ] Consegues explicar, por palavras tuas, o que é o polimorfismo, com o ciclo deste laboratório.
 
-![Rodapé](../imagens/rodape.png)
+![Rodapé](../../imagens/rodape.png)

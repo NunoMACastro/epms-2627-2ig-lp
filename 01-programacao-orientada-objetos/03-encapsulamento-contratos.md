@@ -2,7 +2,7 @@
 
 # Encapsulamento e contratos
 
-Módulo M10, Introdução à Programação Orientada por Objetos. Neste guia aprendes a proteger a quantidade de um artigo: o próprio objeto passa a recusar um pedido impossível e, quando recusa, deixa os seus dados exatamente como estavam. Lês o guia ao teu ritmo, de preferência em mais do que uma vez, e o que não acabares na aula acabas em casa ou na aula seguinte. Para praticar, há o [laboratório](03-encapsulamento-contratos-laboratorio.md) e a [ficha de exercícios](03-encapsulamento-contratos-exercicios.md) deste tema.
+Módulo M10, Introdução à Programação Orientada por Objetos. Neste guia aprendes a proteger a quantidade de um artigo: o próprio objeto passa a recusar um pedido impossível e, quando recusa, deixa os seus dados exatamente como estavam. Lês o guia ao teu ritmo, de preferência em mais do que uma vez, e o que não acabares na aula acabas em casa ou na aula seguinte. Para praticar, há o [laboratório](laboratorios/03-encapsulamento-contratos-laboratorio.md) e a [ficha de exercícios](exercicios/03-encapsulamento-contratos-exercicios.md) deste tema.
 
 No guia anterior, [Objetos, classes e instâncias](02-objetos-classes-instancias.md), pedimos a um artigo com 6 unidades que retirasse 2. O método fez a subtração e ficaram 4. Escolhemos de propósito um pedido que sabíamos ser possível, e avisámos que o método ainda não verificava nada. Um programa verdadeiro, porém, recebe pedidos errados: números a mais, números negativos, números com casas decimais, e até texto onde se esperava um número.
 
@@ -915,7 +915,7 @@ Se ainda confundes o que o método verifica com o que o setter verifica, volta a
 
 ## O que vem a seguir
 
-Para praticar este tema, faz o [laboratório](03-encapsulamento-contratos-laboratorio.md) e depois a [ficha de exercícios](03-encapsulamento-contratos-exercicios.md). A ficha acaba com exercícios para ires mais longe, que fazes quando quiseres aprofundar ou quando o professor os indicar.
+Para praticar este tema, faz o [laboratório](laboratorios/03-encapsulamento-contratos-laboratorio.md) e depois a [ficha de exercícios](exercicios/03-encapsulamento-contratos-exercicios.md). A ficha acaba com exercícios para ires mais longe, que fazes quando quiseres aprofundar ou quando o professor os indicar.
 
 O tema seguinte é [Composição e modelação](04-composicao-modelacao.md). Lá, os artigos deixam de estar sozinhos: um inventário vai reunir vários artigos e encaminhar pedidos para eles, e vais ver o que cabe a cada um fazer.
 

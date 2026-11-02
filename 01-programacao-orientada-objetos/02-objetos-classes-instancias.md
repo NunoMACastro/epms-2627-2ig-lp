@@ -2,7 +2,7 @@
 
 # Objetos, classes e instâncias
 
-Módulo M10, Introdução à Programação Orientada por Objetos. Neste guia vês como o Python junta os dados de um artigo e as operações que lhe dizem respeito numa só unidade, o objeto. Vês também como uma classe descreve todos os objetos do mesmo tipo: uma descrição comum, vários artigos. Lês o guia ao teu ritmo, de preferência em mais do que uma vez, e o que não acabares na aula acabas em casa ou na aula seguinte. Para praticar, há o [laboratório](02-objetos-classes-instancias-laboratorio.md) e a [ficha de exercícios](02-objetos-classes-instancias-exercicios.md) deste tema.
+Módulo M10, Introdução à Programação Orientada por Objetos. Neste guia vês como o Python junta os dados de um artigo e as operações que lhe dizem respeito numa só unidade, o objeto. Vês também como uma classe descreve todos os objetos do mesmo tipo: uma descrição comum, vários artigos. Lês o guia ao teu ritmo, de preferência em mais do que uma vez, e o que não acabares na aula acabas em casa ou na aula seguinte. Para praticar, há o [laboratório](laboratorios/02-objetos-classes-instancias-laboratorio.md) e a [ficha de exercícios](exercicios/02-objetos-classes-instancias-exercicios.md) deste tema.
 
 No guia anterior, [Entidades, estado e ações](01-entidades-estado-acoes.md), organizaste a informação sobre os materiais de uma sala e viste o problema das variáveis soltas. O programa guardava o código, o nome e a quantidade de cada artigo em variáveis separadas. Nada impedia que a quantidade de um artigo fosse entregue a outro por engano. Este guia acompanha as aulas sobre classes, objetos, atributos, o construtor e o `self`. Aqui encontras essas ideias escritas por extenso, uma de cada vez, com programas que podes executar. Os métodos deste guia ainda não verificam se um pedido é possível: é o assunto do guia seguinte.
 
@@ -571,7 +571,7 @@ Se ainda confundes classe e instância, volta ao esquema de "Classe e instância
 
 ## O que vem a seguir
 
-Para praticar este tema, faz o [laboratório](02-objetos-classes-instancias-laboratorio.md) e depois a [ficha de exercícios](02-objetos-classes-instancias-exercicios.md). A ficha acaba com exercícios para ires mais longe, que fazes quando quiseres aprofundar ou quando o professor os indicar.
+Para praticar este tema, faz o [laboratório](laboratorios/02-objetos-classes-instancias-laboratorio.md) e depois a [ficha de exercícios](exercicios/02-objetos-classes-instancias-exercicios.md). A ficha acaba com exercícios para ires mais longe, que fazes quando quiseres aprofundar ou quando o professor os indicar.
 
 O tema seguinte é [Encapsulamento e contratos](03-encapsulamento-contratos.md). Lá vais impedir que uma operação deixe os valores de um artigo num estado inválido, como os -3 cadernos de um pedido impossível.
 

@@ -1,4 +1,4 @@
-![Cabeçalho](../imagens/cabecalho.png)
+![Cabeçalho](../../imagens/cabecalho.png)
 
 # Ficha de exercícios: Encapsulamento e contratos
 
@@ -6,7 +6,7 @@ Ficha do tema Encapsulamento e contratos, do módulo M10, Introdução à Progra
 
 ## O que precisas de saber
 
-O [guia do tema](03-encapsulamento-contratos.md) e o [laboratório](03-encapsulamento-contratos-laboratorio.md). Cada exercício diz em que secção do guia está a ideia que usa.
+O [guia do tema](../03-encapsulamento-contratos.md) e o [laboratório](../laboratorios/03-encapsulamento-contratos-laboratorio.md). Cada exercício diz em que secção do guia está a ideia que usa.
 
 ## Como trabalhar
 
@@ -257,4 +257,4 @@ No inventário, o nome de um artigo não pode ser vazio. Com a classe final, `Ar
 2. O que achaste mais difícil: separar o estado do pedido, ler a mensagem de erro, ou decidir onde fica cada linha no `try`?
 3. Que ponto desta ficha ainda não consegues explicar sem voltar ao guia? É por aí que começas a próxima revisão.
 
-![Rodapé](../imagens/rodape.png)
+![Rodapé](../../imagens/rodape.png)

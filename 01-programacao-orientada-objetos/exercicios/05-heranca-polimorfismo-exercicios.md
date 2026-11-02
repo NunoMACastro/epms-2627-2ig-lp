@@ -1,4 +1,4 @@
-![Cabeçalho](../imagens/cabecalho.png)
+![Cabeçalho](../../imagens/cabecalho.png)
 
 # Ficha de exercícios: Herança e polimorfismo
 
@@ -6,7 +6,7 @@ Ficha do tema Herança e polimorfismo, do módulo M10, Introdução à Programa�
 
 ## O que precisas de saber
 
-O [guia do tema](05-heranca-polimorfismo.md) e o [laboratório](05-heranca-polimorfismo-laboratorio.md). Cada exercício usa sobretudo estas secções do guia:
+O [guia do tema](../05-heranca-polimorfismo.md) e o [laboratório](../laboratorios/05-heranca-polimorfismo-laboratorio.md). Cada exercício usa sobretudo estas secções do guia:
 
 - Exercício 1: "Especialização: do geral para o particular" e "Herança em Python".
 - Exercício 2: "Redefinir um método: onde o Python procura" e "Polimorfismo: a mesma chamada, comportamentos diferentes".
@@ -239,4 +239,4 @@ Muda a última linha do programa para `print(etiqueta.conteudo(), etiqueta.largu
 2. O que achaste mais difícil: ler a hierarquia, seguir a regra de procura, verificar um contrato ou escrever as formas concretas?
 3. Que ponto desta ficha ainda não consegues explicar sem voltar ao guia? É por aí que começas a próxima revisão.
 
-![Rodapé](../imagens/rodape.png)
+![Rodapé](../../imagens/rodape.png)

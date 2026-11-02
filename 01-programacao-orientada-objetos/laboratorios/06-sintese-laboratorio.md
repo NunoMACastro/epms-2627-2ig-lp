@@ -1,8 +1,8 @@
-![Cabeçalho](../imagens/cabecalho.png)
+![Cabeçalho](../../imagens/cabecalho.png)
 
 # Laboratório: Síntese
 
-Laboratório do tema Síntese, do módulo M10, Introdução à Programação Orientada por Objetos. Vais completar a retirada de material num pequeno inventário em Python, e explicar o que fizeste. É o laboratório que fecha o módulo, e faz-se na aula, com o professor a acompanhar. Cada passo diz o que fazer, porquê e o que deves ver, e avanças ao teu ritmo. O que não acabares na aula, acabas na aula seguinte. Tudo o que precisas está aqui; o [guia do tema](06-sintese.md) tem a teoria completa, para quem quiser saber mais.
+Laboratório do tema Síntese, do módulo M10, Introdução à Programação Orientada por Objetos. Vais completar a retirada de material num pequeno inventário em Python, e explicar o que fizeste. É o laboratório que fecha o módulo, e faz-se na aula, com o professor a acompanhar. Cada passo diz o que fazer, porquê e o que deves ver, e avanças ao teu ritmo. O que não acabares na aula, acabas na aula seguinte. Tudo o que precisas está aqui; o [guia do tema](../06-sintese.md) tem a teoria completa, para quem quiser saber mais.
 
 ## O que vais construir
 
@@ -55,7 +55,7 @@ Em todas as fases trabalhas da mesma maneira. Antes de executares, escreves no p
 
 ## Palavras que vais usar
 
-- Classe e objeto: a classe é a descrição comum, como `Artigo`, que diz que dados e que operações cada artigo tem. Cada artigo concreto é um objeto, também chamado instância, da classe. Para saber mais, vê "Classes e objetos no programa" no [guia](06-sintese.md).
+- Classe e objeto: a classe é a descrição comum, como `Artigo`, que diz que dados e que operações cada artigo tem. Cada artigo concreto é um objeto, também chamado instância, da classe. Para saber mais, vê "Classes e objetos no programa" no [guia](../06-sintese.md).
 - Atributo e estado: um atributo é um dado guardado num objeto, como o código ou a quantidade. O estado é o conjunto dos valores dos atributos num dado momento.
 - Construtor e `self`: o construtor, `__init__`, prepara cada objeto quando ele nasce. Dentro de um método, `self` é o objeto sobre o qual o método está a trabalhar: em `artigo.retirar(4)`, é o objeto `artigo`.
 - Propriedade, getter e setter: a `quantidade` de um artigo lê-se e escreve-se como um atributo. Cada leitura passa por um método, o getter (do inglês *get*, obter). Cada escrita passa por outro, o setter (de *set*, pôr), que recusa os valores inválidos.
@@ -269,7 +269,7 @@ Um programa de Python é um ficheiro de texto com a extensão `.py`. Executar o 
 
 ## Fase 1: Um programa que corre e não faz o que devia
 
-Um programa pode estar errado de três maneiras. Num erro de escrita, o Python recusa o ficheiro antes de começar: falta um parêntese, faltam os dois pontos no fim de um `def`, ou uma linha está mal indentada. Num erro de execução, o programa para a meio, com uma mensagem que começa por `Traceback`. Num erro de lógica, o programa corre do princípio ao fim, sem nenhuma mensagem, e faz uma coisa diferente da que o problema pede. O erro de lógica é o mais traiçoeiro, porque o Python não avisa de nada. Só o apanhas se souberes antes o que o programa devia mostrar. Para saber mais, lê "Um programa que corre sem erros e não faz o que devia", no [guia](06-sintese.md).
+Um programa pode estar errado de três maneiras. Num erro de escrita, o Python recusa o ficheiro antes de começar: falta um parêntese, faltam os dois pontos no fim de um `def`, ou uma linha está mal indentada. Num erro de execução, o programa para a meio, com uma mensagem que começa por `Traceback`. Num erro de lógica, o programa corre do princípio ao fim, sem nenhuma mensagem, e faz uma coisa diferente da que o problema pede. O erro de lógica é o mais traiçoeiro, porque o Python não avisa de nada. Só o apanhas se souberes antes o que o programa devia mostrar. Para saber mais, lê "Um programa que corre sem erros e não faz o que devia", no [guia](../06-sintese.md).
 
 1. Antes de executares, prevê e escreve no papel. O programa vai parar com uma mensagem de erro, ou vai correr até ao fim? O que diz sobre os dois pedidos? Que quantidade e que saídas mostra para A10 no fim?
 
@@ -347,7 +347,7 @@ Para falar de um artigo concreto, com os valores, descreve-se o seu estado, numa
 
 - O artigo A01 chama-se Caderno e tem 6 unidades.
 
-Para saber mais, lê o passo 8 do exemplo guiado do [guia](06-sintese.md).
+Para saber mais, lê o passo 8 do exemplo guiado do [guia](../06-sintese.md).
 
 1. Numa folha, escreve a descrição das duas classes do teu `inventario.py`. Parte das descrições acima e acrescenta o que este programa tem a mais. Na descrição do artigo, falta o dado que conta as saídas; na do inventário, o pedido que as consulta. Escreve também a descrição da relação entre as duas classes, com a frase que as liga e, se for uma relação "tem", o grau e as razões.
 
@@ -820,7 +820,7 @@ Não precisas de recitar definições: usa o teu programa e os valores. Não há
 
 Podes dizer em que passos recebeste ajuda: essa informação serve para orientar o trabalho seguinte.
 
-As ideias que juntaste neste laboratório são as ideias centrais do M10. A primeira é distinguir a classe dos objetos e do estado de cada um. A segunda é proteger os dados de um objeto quando ele recusa um pedido. A terceira é dar cada tarefa ao objeto que tem a informação para a fazer, como o inventário que encontra o artigo e o artigo que decide. Vão ser avaliadas no [projeto](../projeto/README.md): a tua aplicação, um livro de receitas. O projeto é avaliado no fim do M12, com demonstração, explicação e uma pequena alteração feita na hora. É a avaliação prática do M10, do M11 e do M12, cada uma com os critérios do seu módulo. Os critérios do M10 são estas três ideias, agora na tua aplicação.
+As ideias que juntaste neste laboratório são as ideias centrais do M10. A primeira é distinguir a classe dos objetos e do estado de cada um. A segunda é proteger os dados de um objeto quando ele recusa um pedido. A terceira é dar cada tarefa ao objeto que tem a informação para a fazer, como o inventário que encontra o artigo e o artigo que decide. Vão ser avaliadas no [projeto](../../projeto/README.md): a tua aplicação, um livro de receitas. O projeto é avaliado no fim do M12, com demonstração, explicação e uma pequena alteração feita na hora. É a avaliação prática do M10, do M11 e do M12, cada uma com os critérios do seu módulo. Os critérios do M10 são estas três ideias, agora na tua aplicação.
 
 O projeto começa já no fim do M10, com o modelo do teu livro de receitas, descrito por palavras, como o que escreveste na fase 2. Esta conversa é um primeiro ensaio da explicação que o projeto te vai pedir. O que é cada objeto? Onde está a regra? O que acontece aos dados quando um pedido é recusado?
 
@@ -871,4 +871,4 @@ O pedido ficou fora do `try`. A mensagem mostra o caminho do pedido, do programa
 - [ ] Sabes dizer quem recusa cada um dos pedidos da fase 5, e porquê.
 - [ ] Consegues explicar, por palavras tuas, porque é que uma recusa não muda nem a quantidade nem as saídas, e que linha do teu código o garante.
 
-![Rodapé](../imagens/rodape.png)
+![Rodapé](../../imagens/rodape.png)

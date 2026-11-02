@@ -1,8 +1,8 @@
-![Cabeçalho](../imagens/cabecalho.png)
+![Cabeçalho](../../imagens/cabecalho.png)
 
 # Laboratório: Composição e modelação
 
-Laboratório do tema Composição e modelação, do módulo M10, Introdução à Programação Orientada por Objetos. Vais construir o inventário em Python: uma classe `Inventario` que cria os artigos, os guarda e lhes passa os pedidos. Cada passo diz o que fazer, porquê e o que deves ver, e avanças ao teu ritmo. O que não acabares na aula, acabas em casa ou na aula seguinte. Tudo o que precisas está aqui; o [guia do tema](04-composicao-modelacao.md) tem a teoria completa, para quem quiser saber mais.
+Laboratório do tema Composição e modelação, do módulo M10, Introdução à Programação Orientada por Objetos. Vais construir o inventário em Python: uma classe `Inventario` que cria os artigos, os guarda e lhes passa os pedidos. Cada passo diz o que fazer, porquê e o que deves ver, e avanças ao teu ritmo. O que não acabares na aula, acabas em casa ou na aula seguinte. Tudo o que precisas está aqui; o [guia do tema](../04-composicao-modelacao.md) tem a teoria completa, para quem quiser saber mais.
 
 ## O que vais construir
 
@@ -29,9 +29,9 @@ Executa sempre o ficheiro inteiro. Cada execução começa do zero: cria um inve
 
 ## Palavras que vais usar
 
-- Inventário: o objeto que reúne os artigos de uma sala e responde às perguntas sobre o conjunto, como "já existe um artigo com o código A01?". Para saber mais, vê a secção "Artigos soltos: o que nenhum artigo consegue garantir" do [guia](04-composicao-modelacao.md).
-- Modelo: a descrição, por palavras, das classes de um programa, do que cada uma guarda e faz, e das relações entre elas. Escreve-se antes do código. Para saber mais, vê "O inventário descrito por palavras" no [guia](04-composicao-modelacao.md).
-- Composição: a relação em que o todo cria as suas partes e as guarda, e as partes não fazem sentido sem ele. Aqui, o inventário cria os artigos. Para saber mais, vê "Dois graus de "tem": composição e agregação" no [guia](04-composicao-modelacao.md).
+- Inventário: o objeto que reúne os artigos de uma sala e responde às perguntas sobre o conjunto, como "já existe um artigo com o código A01?". Para saber mais, vê a secção "Artigos soltos: o que nenhum artigo consegue garantir" do [guia](../04-composicao-modelacao.md).
+- Modelo: a descrição, por palavras, das classes de um programa, do que cada uma guarda e faz, e das relações entre elas. Escreve-se antes do código. Para saber mais, vê "O inventário descrito por palavras" no [guia](../04-composicao-modelacao.md).
+- Composição: a relação em que o todo cria as suas partes e as guarda, e as partes não fazem sentido sem ele. Aqui, o inventário cria os artigos. Para saber mais, vê "Dois graus de "tem": composição e agregação" no [guia](../04-composicao-modelacao.md).
 - Lista: um valor que guarda vários valores por ordem, escrito entre parênteses retos; `[]` é uma lista vazia. `len(lista)` (do inglês *length*, "comprimento") dá o número de elementos. `lista.append(valor)` (*append*, "acrescentar") junta um elemento no fim.
 - Ciclo `for`: repete o bloco indentado por baixo dele uma vez por cada elemento de uma lista. `for artigo in artigos:` lê-se "para cada artigo na lista artigos".
 - Atributo interno e método interno: um nome com um sublinhado no início, como `_artigos` ou `_procurar`. Avisa que só a própria classe o deve usar.
@@ -116,7 +116,7 @@ O laboratório começa de uma pasta vazia. Não precisas de nenhum ficheiro do l
 
 ## Fase 1: Uma lista para guardar os artigos
 
-Um artigo conhece os seus próprios dados, e só esses. Para saber se um código já está a ser usado, ou para encontrar o artigo com o código A02, é preciso conhecer todos os artigos. É por isso que precisamos de um objeto novo, o inventário, que os guarda todos. Vai guardá-los numa lista, que nasce vazia no construtor. Cada inventário tem a sua própria lista, porque o construtor é executado uma vez por cada inventário criado, e cada execução cria uma lista nova. O nome da lista começa por sublinhado, `_artigos`, porque é um assunto interno da classe. Se o código de fora juntasse artigos à lista diretamente, saltava a verificação do código único, que vais escrever na fase 2. Para saber mais, lê o passo 2 do exemplo guiado do [guia](04-composicao-modelacao.md).
+Um artigo conhece os seus próprios dados, e só esses. Para saber se um código já está a ser usado, ou para encontrar o artigo com o código A02, é preciso conhecer todos os artigos. É por isso que precisamos de um objeto novo, o inventário, que os guarda todos. Vai guardá-los numa lista, que nasce vazia no construtor. Cada inventário tem a sua própria lista, porque o construtor é executado uma vez por cada inventário criado, e cada execução cria uma lista nova. O nome da lista começa por sublinhado, `_artigos`, porque é um assunto interno da classe. Se o código de fora juntasse artigos à lista diretamente, saltava a verificação do código único, que vais escrever na fase 2. Para saber mais, lê o passo 2 do exemplo guiado do [guia](../04-composicao-modelacao.md).
 
 1. Depois da classe `Artigo`, deixa duas linhas em branco e acrescenta a classe `Inventario`, só com o construtor. Escreve-a à mão, em vez de a copiares: escrever obriga-te a reparar em cada pormenor, como o sublinhado de `_artigos` e os dois pontos no fim de cada `def`.
 
@@ -160,7 +160,7 @@ O inventário vai fazer duas coisas que só ele pode fazer, porque é o único q
 
 A primeira é encontrar um artigo a partir do código. Quase todos os pedidos ao inventário começam por aí, e por isso a procura fica num método próprio, `_procurar`. O sublinhado no nome diz que é um método interno: serve os outros métodos do inventário, e o código de fora não o usa.
 
-A segunda é registar um artigo novo, com o método `registar`. É aqui que está a composição: é o inventário, dentro de um método seu, que cria o artigo, com `Artigo(...)`. Antes de o criar, verifica que o código ainda não está a ser usado. Primeiro verifica, só depois altera. Para saber mais, lê os passos 3 e 4 do exemplo guiado do [guia](04-composicao-modelacao.md).
+A segunda é registar um artigo novo, com o método `registar`. É aqui que está a composição: é o inventário, dentro de um método seu, que cria o artigo, com `Artigo(...)`. Antes de o criar, verifica que o código ainda não está a ser usado. Primeiro verifica, só depois altera. Para saber mais, lê os passos 3 e 4 do exemplo guiado do [guia](../04-composicao-modelacao.md).
 
 1. Dentro da classe `Inventario`, a seguir ao construtor e com a mesma indentação dele, escreve o método `_procurar`:
 
@@ -243,7 +243,7 @@ Pensa antes de continuares: se registasses `inventario.registar("A03", "Caneta",
 
 Falta consultar e retirar unidades a partir do código. Os dois métodos começam da mesma maneira: encontrar o artigo com `_procurar`. Depois fazem o pedido a esse artigo. O inventário não verifica se as unidades são um inteiro, se são positivas nem se chegam: essas regras são do artigo, que já as verifica. Chama-se **encaminhamento** a esta forma de colaborar: o inventário encontra o artigo que sabe cumprir o pedido e passa-lho.
 
-Repara numa forma nova. Para um método do inventário usar outro método do mesmo inventário, escreve `self._procurar(codigo)`. Dentro de um método, o `self` é o próprio objeto, aqui o inventário. Assim como de fora se escreve `inventario.registar(...)`, de dentro escreve-se `self._procurar(...)`. Para saber mais, lê o passo 5 do exemplo guiado do [guia](04-composicao-modelacao.md).
+Repara numa forma nova. Para um método do inventário usar outro método do mesmo inventário, escreve `self._procurar(codigo)`. Dentro de um método, o `self` é o próprio objeto, aqui o inventário. Assim como de fora se escreve `inventario.registar(...)`, de dentro escreve-se `self._procurar(...)`. Para saber mais, lê o passo 5 do exemplo guiado do [guia](../04-composicao-modelacao.md).
 
 1. Dentro da classe `Inventario`, a seguir ao método `registar` e com a mesma indentação, escreve os métodos `quantidade_de` e `retirar`:
 
@@ -499,7 +499,7 @@ Pensa antes de continuares: na classe `Inventario`, onde está a verificação d
 
 ## Fase 4: O caminho de uma recusa
 
-Quando um método chama outro, fica parado à espera dele. Se o segundo chamar um terceiro, ficam dois à espera, e assim por diante: é a cadeia de chamadas. Quando um método lança uma exceção com `raise`, ela sobe por essa cadeia, do método onde nasceu para o que o chamou. Continua a subir até encontrar um `try` com o `except` certo. Cada método que ela atravessa sem um `try` que a apanhe é abandonado no ponto onde estava. Na fase 3, o pedido para retirar 9 unidades de A01 estava dentro de um `try`, e a exceção foi apanhada no programa principal. Agora vais vê-la subir até ao fim, sem que ninguém a apanhe: o programa para, e o Python mostra o caminho que ela fez. Para saber mais, lê o passo 8 do exemplo guiado do [guia](04-composicao-modelacao.md).
+Quando um método chama outro, fica parado à espera dele. Se o segundo chamar um terceiro, ficam dois à espera, e assim por diante: é a cadeia de chamadas. Quando um método lança uma exceção com `raise`, ela sobe por essa cadeia, do método onde nasceu para o que o chamou. Continua a subir até encontrar um `try` com o `except` certo. Cada método que ela atravessa sem um `try` que a apanhe é abandonado no ponto onde estava. Na fase 3, o pedido para retirar 9 unidades de A01 estava dentro de um `try`, e a exceção foi apanhada no programa principal. Agora vais vê-la subir até ao fim, sem que ninguém a apanhe: o programa para, e o Python mostra o caminho que ela fez. Para saber mais, lê o passo 8 do exemplo guiado do [guia](../04-composicao-modelacao.md).
 
 1. No fim do ficheiro, depois de todas as outras linhas e fora de qualquer `try`, acrescenta:
 
@@ -620,4 +620,4 @@ Um `return` ou um `raise` com a indentação errada terminou um método antes do
 - [ ] Sabes dizer porque é que `_procurar` não aparece no traceback da fase 4.
 - [ ] Consegues explicar, por palavras tuas, porque é que é o inventário, e não o artigo, que garante que não há dois artigos com o mesmo código.
 
-![Rodapé](../imagens/rodape.png)
+![Rodapé](../../imagens/rodape.png)

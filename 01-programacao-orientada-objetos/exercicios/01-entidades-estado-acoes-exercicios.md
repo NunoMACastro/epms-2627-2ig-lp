@@ -1,4 +1,4 @@
-![Cabeçalho](../imagens/cabecalho.png)
+![Cabeçalho](../../imagens/cabecalho.png)
 
 # Ficha de exercícios: Entidades, estado e ações
 
@@ -6,7 +6,7 @@ Ficha do tema Entidades, estado e ações, do módulo M10, Introdução à Progr
 
 ## O que precisas de saber
 
-O [guia do tema](01-entidades-estado-acoes.md) e o [laboratório](01-entidades-estado-acoes-laboratorio.md). Cada exercício usa uma parte do guia:
+O [guia do tema](../01-entidades-estado-acoes.md) e o [laboratório](../laboratorios/01-entidades-estado-acoes-laboratorio.md). Cada exercício usa uma parte do guia:
 
 - Exercício 1: a secção "Entidade: aquilo que escolhemos representar".
 - Exercício 2: as secções "A informação que interessa guardar" e "Comportamento: o que podemos pedir que aconteça".
@@ -193,4 +193,4 @@ Por baixo do traço, explica a diferença entre aquilo que escolheste guardar na
 2. Em algum exercício confundiste o zero do pedido com o zero do estado? Em qual?
 3. Relê as tuas respostas: em cada decisão escreveste a razão, e não só o resultado?
 
-![Rodapé](../imagens/rodape.png)
+![Rodapé](../../imagens/rodape.png)

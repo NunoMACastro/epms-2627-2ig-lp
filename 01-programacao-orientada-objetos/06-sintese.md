@@ -2,7 +2,7 @@
 
 # Síntese
 
-Módulo M10, Introdução à Programação Orientada por Objetos. Neste guia juntas as ideias do módulo num pequeno inventário em Python: classes e objetos, encapsulamento e composição, todas no mesmo programa. Lês o guia ao teu ritmo, de preferência em mais do que uma vez, e o que não acabares na aula acabas em casa ou na aula seguinte. Para praticar, há o [laboratório](06-sintese-laboratorio.md) e a [ficha de exercícios](06-sintese-exercicios.md) deste tema.
+Módulo M10, Introdução à Programação Orientada por Objetos. Neste guia juntas as ideias do módulo num pequeno inventário em Python: classes e objetos, encapsulamento e composição, todas no mesmo programa. Lês o guia ao teu ritmo, de preferência em mais do que uma vez, e o que não acabares na aula acabas em casa ou na aula seguinte. Para praticar, há o [laboratório](laboratorios/06-sintese-laboratorio.md) e a [ficha de exercícios](exercicios/06-sintese-exercicios.md) deste tema.
 
 Nos guias 02, 03 e 04 construíste, uma peça de cada vez, um pequeno inventário de materiais. No guia [02 Objetos, classes e instâncias](02-objetos-classes-instancias.md) viste que uma classe descreve todos os artigos e que cada artigo concreto é um objeto com o seu próprio estado. No guia [03 Encapsulamento e contratos](03-encapsulamento-contratos.md), o artigo aprendeu a proteger a sua quantidade. Recusa um valor impossível com `ValueError` ("erro de valor") e, quando recusa, deixa os dados exatamente como estavam. No guia [04 Composição e modelação](04-composicao-modelacao.md), um objeto novo, o inventário, passou a criar e a guardar os artigos. Também os encontra pelo código e lhes passa os pedidos.
 
@@ -668,7 +668,7 @@ Tenta responder sem olhar para o texto. Se uma pergunta te deixar com dúvidas, 
 
 ## O que vem a seguir
 
-Para praticar este tema, tens a [ficha de exercícios](06-sintese-exercicios.md) e o [laboratório](06-sintese-laboratorio.md). A ficha usa o programa do exemplo guiado: prevês quem responde a cada pedido, escreves um método novo do inventário e encontras o erro de um colega. O laboratório fecha o módulo e faz-se na aula, com o professor a acompanhar. Vais completar uma operação num programa parecido com o deste guia, explicar o modelo e mostrar o que acontece aos dados. No fim, explicas o teu trabalho ao professor numa conversa curta, sem nota.
+Para praticar este tema, tens a [ficha de exercícios](exercicios/06-sintese-exercicios.md) e o [laboratório](laboratorios/06-sintese-laboratorio.md). A ficha usa o programa do exemplo guiado: prevês quem responde a cada pedido, escreves um método novo do inventário e encontras o erro de um colega. O laboratório fecha o módulo e faz-se na aula, com o professor a acompanhar. Vais completar uma operação num programa parecido com o deste guia, explicar o modelo e mostrar o que acontece aos dados. No fim, explicas o teu trabalho ao professor numa conversa curta, sem nota.
 
 Este é o último tema do M10. No fim do módulo fazes o modelo do teu [projeto](../projeto/README.md), um livro de receitas, descrito por palavras, como o do passo 8 do exemplo guiado. As ideias deste guia são avaliadas no projeto, no fim do M12. No módulo seguinte, o M11, vais reencontrá-las em JavaScript: os objetos, os contratos e o "quem sabe o quê" continuam a ser as mesmas perguntas.
 

@@ -2,7 +2,7 @@
 
 # A primeira página com JavaScript
 
-Módulo M11, Introdução à Linguagem de Programação Orientada por Objetos. Neste guia fazes a tua primeira página web e escreves o teu primeiro programa em JavaScript, a partir do que já sabes de Python. Lês o guia ao teu ritmo, de preferência em mais do que uma vez, e o que não acabares na aula acabas em casa ou na aula seguinte. Para praticar, há o [laboratório](01-primeira-pagina-com-javascript-laboratorio.md) e a [ficha de exercícios](01-primeira-pagina-com-javascript-exercicios.md) deste tema.
+Módulo M11, Introdução à Linguagem de Programação Orientada por Objetos. Neste guia fazes a tua primeira página web e escreves o teu primeiro programa em JavaScript, a partir do que já sabes de Python. Lês o guia ao teu ritmo, de preferência em mais do que uma vez, e o que não acabares na aula acabas em casa ou na aula seguinte. Para praticar, há o [laboratório](laboratorios/01-primeira-pagina-com-javascript-laboratorio.md) e a [ficha de exercícios](exercicios/01-primeira-pagina-com-javascript-exercicios.md) deste tema.
 
 No M10, os teus programas de Python corriam no editor e mostravam texto com o `print`. Neste tema, o programa ganha uma página, com um campo para escrever e um botão para carregar, e passa a correr no browser. A linguagem que dá comportamento à página é o JavaScript. O JavaScript não vem substituir o Python, nem é uma versão mais difícil dele: é outra ferramenta, feita para correr dentro das páginas que o browser mostra. Este tema ainda não usa classes em JavaScript, que são o assunto do tema 02. A página também ainda não recusa números decimais, o que fica para o tema 03.
 
@@ -54,7 +54,7 @@ No fim deste guia, consegues:
 - A docstring, o texto que explica o que uma função faz: guia [01 Entidades, estado e ações](../01-programacao-orientada-objetos/01-entidades-estado-acoes.md), na mesma secção.
 - A função `retirar(quantidade, unidades)` e os dois pedidos ao caderno A01, que começa com 6 unidades. Retirar 2 deixa 4, e a seguir um pedido de 5 é recusado e deixa as 4. Guia [01 Entidades, estado e ações](../01-programacao-orientada-objetos/01-entidades-estado-acoes.md), na mesma secção.
 - O artigo do inventário, com código, nome e quantidade: guia [02 Objetos, classes e instâncias](../01-programacao-orientada-objetos/02-objetos-classes-instancias.md), em "O que estamos a representar".
-- O `None`, o valor que uma função de Python devolve quando não tem `return`: [laboratório 01 do M10](../01-programacao-orientada-objetos/01-entidades-estado-acoes-laboratorio.md), em "Problemas frequentes".
+- O `None`, o valor que uma função de Python devolve quando não tem `return`: [laboratório 01 do M10](../01-programacao-orientada-objetos/laboratorios/01-entidades-estado-acoes-laboratorio.md), em "Problemas frequentes".
 - Os três tipos de erro, de escrita, de execução e de lógica: guia [03 Encapsulamento e contratos](../01-programacao-orientada-objetos/03-encapsulamento-contratos.md), em "Nada impede uma quantidade impossível".
 - Criar uma pasta e um ficheiro, dar-lhes um nome sem espaços nem acentos e guardar o ficheiro: dos laboratórios do M10.
 
@@ -1024,7 +1024,7 @@ O que se vê: tentaste executar o `inventario.js` no editor, como fazias com o P
 
 ## O que vem a seguir
 
-Para praticar este tema, faz o [laboratório](01-primeira-pagina-com-javascript-laboratorio.md) e depois a [ficha de exercícios](01-primeira-pagina-com-javascript-exercicios.md). O tema seguinte é Do objeto literal à classe. Nele, o caderno deixa de estar espalhado por variáveis soltas e passa a ser um objeto, como fizeste em Python no M10, agora com as classes do JavaScript.
+Para praticar este tema, faz o [laboratório](laboratorios/01-primeira-pagina-com-javascript-laboratorio.md) e depois a [ficha de exercícios](exercicios/01-primeira-pagina-com-javascript-exercicios.md). O tema seguinte é Do objeto literal à classe. Nele, o caderno deixa de estar espalhado por variáveis soltas e passa a ser um objeto, como fizeste em Python no M10, agora com as classes do JavaScript.
 
 ## Para saber mais
 

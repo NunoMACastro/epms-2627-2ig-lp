@@ -1,4 +1,4 @@
-![Cabeçalho](../imagens/cabecalho.png)
+![Cabeçalho](../../imagens/cabecalho.png)
 
 # Ficha de exercícios: Objetos, classes e instâncias
 
@@ -6,7 +6,7 @@ Ficha do tema Objetos, classes e instâncias, do módulo M10, Introdução à Pr
 
 ## O que precisas de saber
 
-O [guia do tema](02-objetos-classes-instancias.md) e o [laboratório](02-objetos-classes-instancias-laboratorio.md). Cada exercício diz em que secção do guia está a ideia que usa.
+O [guia do tema](../02-objetos-classes-instancias.md) e o [laboratório](../laboratorios/02-objetos-classes-instancias-laboratorio.md). Cada exercício diz em que secção do guia está a ideia que usa.
 
 ## Como trabalhar
 
@@ -311,4 +311,4 @@ Por baixo do programa, escreve um parágrafo curto que responda a duas coisas. P
 2. O que achaste mais difícil: distinguir a classe da instância, o parâmetro do atributo, ou o valor devolvido do estado do objeto?
 3. Que ponto desta ficha ainda não consegues explicar sem voltar ao guia? É por aí que começas a próxima revisão.
 
-![Rodapé](../imagens/rodape.png)
+![Rodapé](../../imagens/rodape.png)

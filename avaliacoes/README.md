@@ -10,7 +10,7 @@ A avaliação prática do M10, do M11 e do M12 é o [projeto](../projeto/README.
 
 ## Os ficheiros que já não se usam
 
-- [Trabalho de síntese do M10](mini-problema.md): já não é uma avaliação. Passou a ser o [laboratório do tema 06, Síntese](../01-programacao-orientada-objetos/06-sintese-laboratorio.md), feito na aula com o professor.
+- [Trabalho de síntese do M10](mini-problema.md): já não é uma avaliação. Passou a ser o [laboratório do tema 06, Síntese](../01-programacao-orientada-objetos/laboratorios/06-sintese-laboratorio.md), feito na aula com o professor.
 - [`inventario-inicial.js`](inventario-inicial.js): o programa da versão anterior do trabalho de síntese, em JavaScript.
 
 Os dois ficam nesta pasta só para não quebrar ligações antigas.

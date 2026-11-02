@@ -2,7 +2,7 @@
 
 # Entidades, estado e ações
 
-Módulo M10, Introdução à Programação Orientada por Objetos. Este guia explica como se escolhe a informação que um programa guarda sobre uma coisa, e as ações que lhe podemos pedir. É o caminho dos materiais de uma sala aos dados de um programa. Lês ao teu ritmo, e o que não acabares na aula acabas em casa ou na aula seguinte. Para praticar, há o [laboratório](01-entidades-estado-acoes-laboratorio.md) e a [ficha de exercícios](01-entidades-estado-acoes-exercicios.md) deste tema.
+Módulo M10, Introdução à Programação Orientada por Objetos. Este guia explica como se escolhe a informação que um programa guarda sobre uma coisa, e as ações que lhe podemos pedir. É o caminho dos materiais de uma sala aos dados de um programa. Lês ao teu ritmo, e o que não acabares na aula acabas em casa ou na aula seguinte. Para praticar, há o [laboratório](laboratorios/01-entidades-estado-acoes-laboratorio.md) e a [ficha de exercícios](exercicios/01-entidades-estado-acoes-exercicios.md) deste tema.
 
 Imagina que és responsável pelos materiais de uma sala de aula. No armário há cadernos, pastas e canetas. Durante a semana, algumas unidades são usadas e saem do armário; outras chegam numa encomenda e são arrumadas. Quando alguém te pergunta "ainda temos pastas?", precisas de uma forma de responder sem abrir o armário e contar tudo outra vez.
 
@@ -47,7 +47,7 @@ No fim deste guia, consegues:
 - O `print`, que mostra valores no ecrã, também vários de uma vez, separados por vírgulas, do 10.º ano.
 - Copiar um programa para um ficheiro `.py`, guardá-lo e executá-lo no editor de Python das aulas, do 10.º ano.
 
-Se alguma destas bases estiver menos firme, há duas ajudas para fazeres por tua conta, sem entrega. O [diagnóstico de programação](../avaliacoes/diagnostico-inicial.md) é uma revisão opcional do 10.º ano. Serve para perceberes de que te recordas e onde precisas de apoio. Podes responder por palavras, desenhos, contas ou pseudocódigo, e não tens de conhecer nenhuma linguagem em particular. A [ficha de recuperação](bridge-raciocinio.md) é curta e serve para recuperar uma ideia de que vais precisar. Por exemplo, seguir os valores de uma variável ao longo de um programa, ou ler uma condição.
+Se alguma destas bases estiver menos firme, há duas ajudas para fazeres por tua conta, sem entrega. O [diagnóstico de programação](../avaliacoes/diagnostico-inicial.md) é uma revisão opcional do 10.º ano. Serve para perceberes de que te recordas e onde precisas de apoio. Podes responder por palavras, desenhos, contas ou pseudocódigo, e não tens de conhecer nenhuma linguagem em particular. A [ficha de recuperação](exercicios/bridge-raciocinio.md) é curta e serve para recuperar uma ideia de que vais precisar. Por exemplo, seguir os valores de uma variável ao longo de um programa, ou ler uma condição.
 
 ## A informação que interessa guardar
 
@@ -336,6 +336,6 @@ O que se vê: ao executar, aparece uma mensagem como `NameError: name 'retirar' 
 
 ## O que vem a seguir
 
-Para praticar este tema, faz o [laboratório](01-entidades-estado-acoes-laboratorio.md) e depois a [ficha de exercícios](01-entidades-estado-acoes-exercicios.md). O tema seguinte é [Objetos, classes e instâncias](02-objetos-classes-instancias.md): o Python passa a juntar os dados e as operações de um artigo num objeto.
+Para praticar este tema, faz o [laboratório](laboratorios/01-entidades-estado-acoes-laboratorio.md) e depois a [ficha de exercícios](exercicios/01-entidades-estado-acoes-exercicios.md). O tema seguinte é [Objetos, classes e instâncias](02-objetos-classes-instancias.md): o Python passa a juntar os dados e as operações de um artigo num objeto.
 
 ![Rodapé](../imagens/rodape.png)

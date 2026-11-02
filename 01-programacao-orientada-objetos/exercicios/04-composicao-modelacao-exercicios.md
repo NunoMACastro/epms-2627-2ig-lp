@@ -1,4 +1,4 @@
-![Cabeçalho](../imagens/cabecalho.png)
+![Cabeçalho](../../imagens/cabecalho.png)
 
 # Ficha de exercícios: Composição e modelação
 
@@ -6,7 +6,7 @@ Ficha do tema Composição e modelação, do módulo M10, Introdução à Progra
 
 ## O que precisas de saber
 
-O [guia do tema](04-composicao-modelacao.md) e o [laboratório](04-composicao-modelacao-laboratorio.md). Cada exercício usa sobretudo estas secções do guia:
+O [guia do tema](../04-composicao-modelacao.md) e o [laboratório](../laboratorios/04-composicao-modelacao-laboratorio.md). Cada exercício usa sobretudo estas secções do guia:
 
 - Exercício 1: "O inventário descrito por palavras", sobretudo "A descrição de uma classe".
 - Exercício 2: "Duas perguntas sobre duas classes: "tem" e "é um"".
@@ -262,4 +262,4 @@ print("A09:", inventario.quantidade_de("A09"))
 2. O que achaste mais difícil: escolher entre "tem" e "é um", escolher entre composição e agregação, ou descrever uma classe por palavras?
 3. Que ponto desta ficha ainda não consegues explicar sem voltar ao guia? É por aí que começas a próxima revisão.
 
-![Rodapé](../imagens/rodape.png)
+![Rodapé](../../imagens/rodape.png)

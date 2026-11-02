@@ -1,4 +1,4 @@
-![Cabeçalho](../imagens/cabecalho.png)
+![Cabeçalho](../../imagens/cabecalho.png)
 
 # Ficha de recuperação: as bases do 10.º ano
 
@@ -14,7 +14,7 @@ Esta ficha não ensina matéria nova. Usa o que aprendeste a programar no 10.º 
 - as funções, com os parâmetros e o valor que devolvem;
 - as pastas e os ficheiros de um projeto.
 
-Se fizeste o [diagnóstico](../avaliacoes/diagnostico-inicial.md), as tarefas em que paraste dizem-te por onde começar.
+Se fizeste o [diagnóstico](../../avaliacoes/diagnostico-inicial.md), as tarefas em que paraste dizem-te por onde começar.
 
 ## Como trabalhar
 
@@ -143,4 +143,4 @@ Transforma o teste de validade do exercício 5 numa função. Explica os parâme
 1. Em que exercício a tua previsão falhou, e o que te fez mudar de ideias?
 2. Se ainda não consegues explicar uma alteração sem voltares a ler o cenário, em que passo concreto precisas de apoio? Leva esse passo ao professor: é por aí que a recuperação continua.
 
-![Rodapé](../imagens/rodape.png)
+![Rodapé](../../imagens/rodape.png)

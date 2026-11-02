@@ -1,4 +1,4 @@
-![Cabeçalho](../imagens/cabecalho.png)
+![Cabeçalho](../../imagens/cabecalho.png)
 
 # Ficha de exercícios: A primeira página com JavaScript
 
@@ -6,7 +6,7 @@ Ficha do tema A primeira página com JavaScript, do módulo M11, Introdução à
 
 ## O que precisas de saber
 
-O [guia do tema](01-primeira-pagina-com-javascript.md) e o [laboratório](01-primeira-pagina-com-javascript-laboratorio.md). Cada exercício diz em que secção do guia está a ideia que usa.
+O [guia do tema](../01-primeira-pagina-com-javascript.md) e o [laboratório](../laboratorios/01-primeira-pagina-com-javascript-laboratorio.md). Cada exercício diz em que secção do guia está a ideia que usa.
 
 ## Como trabalhar
 
@@ -251,4 +251,4 @@ A personagem tem 20 pontos de vida, e cada poção cura 15. Escreve um programa 
 2. No exercício 6, o que te ajudou mais a encontrar cada erro: a mensagem, o número da linha ou a comparação com o Python?
 3. Que diferença entre o Python e o JavaScript te parece mais fácil de esquecer?
 
-![Rodapé](../imagens/rodape.png)
+![Rodapé](../../imagens/rodape.png)

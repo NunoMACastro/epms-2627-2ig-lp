@@ -1,4 +1,4 @@
-![Cabeçalho](../imagens/cabecalho.png)
+![Cabeçalho](../../imagens/cabecalho.png)
 
 # Ficha de exercícios: Síntese
 
@@ -6,7 +6,7 @@ Ficha do tema Síntese, do módulo M10, Introdução à Programação Orientada 
 
 ## O que precisas de saber
 
-O [guia do tema](06-sintese.md) e o [laboratório](06-sintese-laboratorio.md). Cada exercício usa sobretudo estas partes do guia:
+O [guia do tema](../06-sintese.md) e o [laboratório](../laboratorios/06-sintese-laboratorio.md). Cada exercício usa sobretudo estas partes do guia:
 
 - Exercício 1: o traço do passo 5 do exemplo guiado, e "Encapsulamento no programa".
 - Exercício 2: "Como o inventário encontra um artigo", em "O inventário no programa: composição e procura pelo código", e o contrato do passo 3 do exemplo guiado.
@@ -203,4 +203,4 @@ Um dos pedidos não acaba como os outros. Se o programa parar, lê a última lin
 2. No exercício 2, o que foi mais difícil: escrever o método ou escolher o que ele faz quando não encontra o código?
 3. Que ponto desta ficha ainda não consegues explicar sem voltar ao guia? É por aí que começas a próxima revisão.
 
-![Rodapé](../imagens/rodape.png)
+![Rodapé](../../imagens/rodape.png)

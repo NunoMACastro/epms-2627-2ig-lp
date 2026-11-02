@@ -1,8 +1,8 @@
-![Cabeçalho](../imagens/cabecalho.png)
+![Cabeçalho](../../imagens/cabecalho.png)
 
 # Laboratório: Entidades, estado e ações
 
-Laboratório do tema Entidades, estado e ações, do módulo M10, Introdução à Programação Orientada por Objetos. Vais escrever um pequeno inventário em Python, com os materiais guardados em variáveis soltas, e seguir os valores a cada pedido. Cada passo diz o que fazer, porquê e o que deves ver, e avanças ao teu ritmo. O que não acabares na aula, acabas na aula seguinte. Tudo o que precisas está aqui; o [guia do tema](01-entidades-estado-acoes.md) tem a teoria completa, para quem quiser saber mais.
+Laboratório do tema Entidades, estado e ações, do módulo M10, Introdução à Programação Orientada por Objetos. Vais escrever um pequeno inventário em Python, com os materiais guardados em variáveis soltas, e seguir os valores a cada pedido. Cada passo diz o que fazer, porquê e o que deves ver, e avanças ao teu ritmo. O que não acabares na aula, acabas na aula seguinte. Tudo o que precisas está aqui; o [guia do tema](../01-entidades-estado-acoes.md) tem a teoria completa, para quem quiser saber mais.
 
 ## O que vais construir
 
@@ -21,16 +21,16 @@ A forma de trabalhar é sempre a mesma. Antes de executares, escreves no papel o
 
 ## Palavras que vais usar
 
-- Artigo: cada material do inventário, com um código, um nome e uma quantidade, como o caderno A01 com 6 unidades. Para saber mais, vê a secção "A informação que interessa guardar" do [guia](01-entidades-estado-acoes.md).
-- Estado: os valores de um artigo num certo momento. Depois de retirar 2 cadernos, a quantidade do caderno passa de 6 para 4, e o artigo continua a ser o A01. Para saber mais, vê a secção "Estado: como está a informação neste momento" do [guia](01-entidades-estado-acoes.md).
+- Artigo: cada material do inventário, com um código, um nome e uma quantidade, como o caderno A01 com 6 unidades. Para saber mais, vê a secção "A informação que interessa guardar" do [guia](../01-entidades-estado-acoes.md).
+- Estado: os valores de um artigo num certo momento. Depois de retirar 2 cadernos, a quantidade do caderno passa de 6 para 4, e o artigo continua a ser o A01. Para saber mais, vê a secção "Estado: como está a informação neste momento" do [guia](../01-entidades-estado-acoes.md).
 - Pedido: o que pedimos a um artigo, como "retirar 2". Um pedido pode ser aceite ou recusado.
-- As regras do inventário: um pedido tem de ser um número inteiro positivo, isto é, 1 ou mais; e não se pode retirar mais do que existe. A quantidade nunca fica negativa, mas pode ficar em 0, que quer dizer que o material esgotou. Para saber mais, vê a secção "Uma operação tem de respeitar regras" do [guia](01-entidades-estado-acoes.md).
+- As regras do inventário: um pedido tem de ser um número inteiro positivo, isto é, 1 ou mais; e não se pode retirar mais do que existe. A quantidade nunca fica negativa, mas pode ficar em 0, que quer dizer que o material esgotou. Para saber mais, vê a secção "Uma operação tem de respeitar regras" do [guia](../01-entidades-estado-acoes.md).
 - Recusar: deixar a quantidade como estava. Um pedido recusado não põe a quantidade a zero nem apaga o artigo.
-- Traço: uma tabela com uma linha por pedido, que diz o que acontece e com que quantidade fica o artigo depois. Para saber mais, vê o exemplo guiado do [guia](01-entidades-estado-acoes.md).
+- Traço: uma tabela com uma linha por pedido, que diz o que acontece e com que quantidade fica o artigo depois. Para saber mais, vê o exemplo guiado do [guia](../01-entidades-estado-acoes.md).
 - Função: um bloco de código com nome, que recebe valores, os parâmetros, e devolve um resultado com `return`. Já a usaste no 10.º ano.
 - Docstring (do inglês, texto de documentação): o texto entre três aspas logo a seguir ao `def`, que explica a pessoas o que a função faz. O Python não o executa.
 - Atribuição: a instrução com `=`, que guarda um valor numa variável. Lê-se da direita para a esquerda: primeiro calcula-se o lado direito, depois guarda-se o resultado no nome da esquerda.
-- Variáveis soltas: variáveis que guardam pedaços do mesmo artigo, como o código, o nome e a quantidade do caderno, sem nada no programa que as ligue umas às outras. Para saber mais, vê "O problema das variáveis soltas", no [guia](01-entidades-estado-acoes.md).
+- Variáveis soltas: variáveis que guardam pedaços do mesmo artigo, como o código, o nome e a quantidade do caderno, sem nada no programa que as ligue umas às outras. Para saber mais, vê "O problema das variáveis soltas", no [guia](../01-entidades-estado-acoes.md).
 - Previsão: o que escreves no papel, antes de executar, que esperas ver no ecrã.
 
 ## O que precisas
@@ -61,7 +61,7 @@ A forma de trabalhar é sempre a mesma. Antes de executares, escreves no papel o
 
 ## Fase 1: Um programa que retira unidades, seguido passo a passo
 
-O inventário da sala tem um artigo, o caderno A01, com 6 unidades. Quando alguém pede para retirar cadernos, o programa tem de decidir se aceita ou recusa o pedido. Segue as regras do inventário: o pedido tem de ser 1 ou mais, e não pode passar do que existe. Neste programa, o código, o nome e a quantidade do caderno ficam em três variáveis separadas, e a decisão fica numa função. Para saber mais, lê a secção "A maneira habitual nos primeiros programas: programação estruturada" do [guia](01-entidades-estado-acoes.md).
+O inventário da sala tem um artigo, o caderno A01, com 6 unidades. Quando alguém pede para retirar cadernos, o programa tem de decidir se aceita ou recusa o pedido. Segue as regras do inventário: o pedido tem de ser 1 ou mais, e não pode passar do que existe. Neste programa, o código, o nome e a quantidade do caderno ficam em três variáveis separadas, e a decisão fica numa função. Para saber mais, lê a secção "A maneira habitual nos primeiros programas: programação estruturada" do [guia](../01-entidades-estado-acoes.md).
 
 1. Escreve o programa todo no ficheiro `inventario.py`, com este conteúdo, e guarda-o:
 
@@ -124,7 +124,7 @@ Pensa antes de continuares: o traço tem quatro linhas, o início e três passos
 
 ## Fase 2: O mesmo pedido, com quantidades diferentes
 
-Um pedido decide-se sempre com a quantidade que existe no momento em que chega. Por isso, o mesmo pedido pode ser aceite numa altura e recusado noutra. Nesta fase mudas o primeiro pedido e prevês, com um traço, o que acontece ao segundo. Há também dois zeros que não se podem confundir: ficar com 0 unidades é um estado válido, e pedir 0 unidades é um pedido recusado. Para saber mais, lê a secção "Uma operação tem de respeitar regras" do [guia](01-entidades-estado-acoes.md).
+Um pedido decide-se sempre com a quantidade que existe no momento em que chega. Por isso, o mesmo pedido pode ser aceite numa altura e recusado noutra. Nesta fase mudas o primeiro pedido e prevês, com um traço, o que acontece ao segundo. Há também dois zeros que não se podem confundir: ficar com 0 unidades é um estado válido, e pedir 0 unidades é um pedido recusado. Para saber mais, lê a secção "Uma operação tem de respeitar regras" do [guia](../01-entidades-estado-acoes.md).
 
 1. Na primeira chamada, troca o 2 por 6. A linha fica assim:
 
@@ -181,7 +181,7 @@ E mais uma: olha só para a primeira linha da última execução, `Caderno 6`. P
 
 ## Fase 3: A atribuição esquecida
 
-Na linha `quantidade_caderno = retirar(quantidade_caderno, 2)` há duas coisas a acontecer. Lê-se da direita para a esquerda. Primeiro, o Python chama a função com 6 e 2, e a função verifica o pedido e devolve 4. Só depois a atribuição guarda esse 4 na variável. A função, por si só, não muda a variável: recebe um número e devolve outro. Nesta fase vais ver o que acontece quando falta a atribuição. Para saber mais, lê a secção "A maneira habitual nos primeiros programas: programação estruturada" do [guia](01-entidades-estado-acoes.md).
+Na linha `quantidade_caderno = retirar(quantidade_caderno, 2)` há duas coisas a acontecer. Lê-se da direita para a esquerda. Primeiro, o Python chama a função com 6 e 2, e a função verifica o pedido e devolve 4. Só depois a atribuição guarda esse 4 na variável. A função, por si só, não muda a variável: recebe um número e devolve outro. Nesta fase vais ver o que acontece quando falta a atribuição. Para saber mais, lê a secção "A maneira habitual nos primeiros programas: programação estruturada" do [guia](../01-entidades-estado-acoes.md).
 
 1. Na primeira chamada, apaga só a parte da esquerda, `quantidade_caderno =`, com o espaço que vem a seguir ao `=`, e deixa o resto. A linha tem de começar junto à margem, como as outras linhas fora da função. Fica assim:
 
@@ -212,7 +212,7 @@ Pensa antes de continuares: na linha `quantidade_caderno = retirar(quantidade_ca
 
 ## Fase 4: A variável trocada
 
-Até aqui o programa tinha um só artigo. Com dois artigos, cada um ocupa três variáveis, e a ligação entre as três variáveis de um artigo só existe nos nomes que lhes demos. O Python não sabe que `codigo_pasta`, `nome_pasta` e `quantidade_pasta` descrevem a mesma pasta: para ele, são só valores com nomes. Nesta fase vais ver o que isso permite. Para saber mais, lê "O problema das variáveis soltas", no [guia](01-entidades-estado-acoes.md).
+Até aqui o programa tinha um só artigo. Com dois artigos, cada um ocupa três variáveis, e a ligação entre as três variáveis de um artigo só existe nos nomes que lhes demos. O Python não sabe que `codigo_pasta`, `nome_pasta` e `quantidade_pasta` descrevem a mesma pasta: para ele, são só valores com nomes. Nesta fase vais ver o que isso permite. Para saber mais, lê "O problema das variáveis soltas", no [guia](../01-entidades-estado-acoes.md).
 
 1. Substitui todo o conteúdo do ficheiro por este programa, que acrescenta o artigo A02, "Pasta", com 2 unidades, e guarda:
 
@@ -360,4 +360,4 @@ O ficheiro não foi guardado antes de executar, ou estás a executar outro fiche
 - [ ] Guardaste o ficheiro e a folha, e entregaste-os pelo meio indicado pelo professor.
 - [ ] Consegues explicar, por palavras tuas, porque é que o Python não deu pela variável trocada, e como é que deste pelo engano.
 
-![Rodapé](../imagens/rodape.png)
+![Rodapé](../../imagens/rodape.png)
