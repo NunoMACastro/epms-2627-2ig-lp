@@ -32,7 +32,7 @@ Nos exercícios, usa só os dados que eles dão, que são inventados. As resolu�
 ## Outras pastas
 
 - [Exemplos](exemplos/programacao-orientada-objetos/encapsulamento/README.md): código para ler e correr.
-- [Avaliações](avaliacoes/README.md): o diagnóstico inicial, uma revisão opcional da programação do 10.º ano.
+- [Avaliações](avaliacoes/README.md): o diagnóstico inicial, uma revisão opcional da programação do 10.º ano, e o exercício de avaliação contínua das apps do telemóvel.
 - [Projeto](projeto/README.md): a aplicação que vais construir do fim do M10 ao M13. O enunciado diz os temas por onde podes escolher, o que a aplicação tem de ter, as etapas e a avaliação. A avaliação prática do M10, do M11 e do M12 é feita com este projeto, no fim do M12.
 
 ![Rodapé](imagens/rodape.png)
