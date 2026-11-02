@@ -17,6 +17,7 @@ Abre a área [Programação orientada a objetos](01-programacao-orientada-objeto
 | Área | Módulo |
 | --- | --- |
 | [Programação orientada a objetos](01-programacao-orientada-objetos/README.md) | M10, Introdução à Programação Orientada por Objetos |
+| [JavaScript orientado a objetos](02-javascript-orientado-a-objetos/README.md) | M11, Introdução à Linguagem de Programação Orientada por Objetos |
 
 ## Como estudar
 
