@@ -61,6 +61,6 @@ O projeto continua no M11, com a primeira versão da aplicação no computador. 
 
 ## Para treinares em casa
 
-Se quiseres treinar, tens cinco [temas de treino](temas-de-treino.md), com a mesma estrutura do livro de receitas: jogos, cartas, treinos, músicas e equipas. São opcionais e não contam para a nota.
+Se quiseres treinar, tens seis [temas de treino](temas-de-treino.md), com a mesma estrutura do livro de receitas: jogos, cartas, treinos, músicas, equipas e apps. São opcionais e não contam para a nota.
 
 ![Rodapé](../imagens/rodape.png)

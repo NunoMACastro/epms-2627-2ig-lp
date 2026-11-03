@@ -6,7 +6,7 @@ Aqui tens um programa em Python para cada um dos [temas de treino](temas-de-trei
 
 O teu programa não tem de ser igual a este. Os nomes dos métodos podem ser outros, e há mais do que uma maneira certa de o organizar. O que tem de fazer é o mesmo: aceitar o que as regras deixam, recusar o resto com uma mensagem e não mudar nada quando recusa.
 
-Os cinco programas usam classes, métodos, herança com `super()` e listas de objetos. Não usam o `raise`, nem o `try` e o `except`. Seguem sempre a mesma ideia:
+Os seis programas usam classes, métodos, herança com `super()` e listas de objetos. Não usam o `raise`, nem o `try` e o `except`. Seguem sempre a mesma ideia:
 
 - cada número com uma regra tem um método que diz se um valor serve, com `True` ou `False`, como `raridade_valida(valor)` nas cartas;
 - o método `verificar()` diz o que está mal num registo novo: devolve a mensagem do primeiro problema, ou um texto vazio, `""`, se estiver tudo certo;
@@ -15,7 +15,7 @@ Os cinco programas usam classes, métodos, herança com `super()` e listas de ob
 
 Na variante, `super().verificar()` e `super().descricao()` chamam os métodos da classe base, como `super().__init__` chama o construtor dela. Assim, as regras e a primeira parte da linha da lista escrevem-se num só sítio. Se escreveste a variante a repetir as verificações e a descrição, sem esse `super()`, também está certo. E se usaste o `raise`, o `try` e o `except`, como nos guias, também está certo.
 
-Em quatro temas, a coleção cria os registos, como o inventário do guia 04 cria os artigos: é uma composição. Na playlist, as músicas são criadas fora e a playlist recebe-as já feitas: é uma agregação, como a playlist do guia 04.
+Em cinco temas, a coleção cria os registos, como o inventário do guia 04 cria os artigos: é uma composição. Na playlist, as músicas são criadas fora e a playlist recebe-as já feitas: é uma agregação, como a playlist do guia 04.
 
 ## Coleção de jogos
 
@@ -1217,5 +1217,257 @@ Com 10 pontos ou mais, no fim:
 ```
 
 No princípio, só os LBO têm 10 pontos ou mais. Depois de somarem 3 pontos, os ACR passam de 9 para 12 e entram também. Os TVE somaram os 0 pontos de um jogo perdido sem erro e ficaram iguais.
+
+## Apps do telemóvel
+
+A idade mínima não é um intervalo: tem de ser um destes cinco valores, e o 10, que fica entre o 7 e o 12, é recusado. Atualizar uma app muda o tamanho para o valor novo, em vez de o somar, como se somavam as horas nos jogos e os pontos no campeonato. E o tamanho não aceita o 0, ao contrário das horas dos jogos e dos pontos do campeonato.
+
+### O programa
+
+```python
+# Apps do telemóvel: a resolução em Python do tema de treino.
+# A app guarda o tamanho, o jogo é uma app com a idade mínima, e o telemóvel
+# instala e guarda as apps. Não há exceções: cada pedido devolve "" quando é
+# aceite, ou a mensagem da recusa. No fim, o programa principal experimenta as
+# operações aceites e as quatro recusas.
+
+
+class App:
+    """App instalada: código, nome e tamanho em MB.
+
+    As regras dos dados estão nesta classe: verificar() diz o que está mal numa
+    app nova, e atualizar() só aceita um tamanho válido. Uma variante que se
+    descreva de outra maneira redefine descricao().
+    """
+
+    def __init__(self, codigo, nome, tamanho):
+        """Guarda os dados da app. Quem cria uma app pede-lhe depois que se verifique."""
+        self.codigo = codigo
+        self.nome = nome
+        self.tamanho = tamanho
+
+    def tamanho_valido(self, valor):
+        """Diz se o valor serve para tamanho: True se for um número inteiro de 1 a 4000."""
+        if not isinstance(valor, int):
+            return False
+        return valor >= 1 and valor <= 4000
+
+    def verificar(self):
+        """Verifica os dados da app.
+
+        Devolve: "" se estiver tudo certo, ou a mensagem do primeiro problema.
+        """
+        # O strip tira os espaços das pontas: um nome só com espaços também é vazio.
+        if self.nome.strip() == "":
+            return "O nome não pode ficar vazio."
+        if not self.tamanho_valido(self.tamanho):
+            return "O tamanho tem de ser um número inteiro de 1 a 4000."
+        return ""
+
+    def atualizar(self, valor):
+        """Muda o tamanho para o novo valor, se for um número inteiro de 1 a 4000.
+
+        Devolve: "" se o mudou, ou a mensagem da recusa, e então o tamanho não muda.
+        """
+        # A mesma regra de verificar(): uma atualização não pode estragar a app.
+        if not self.tamanho_valido(valor):
+            return "O tamanho tem de ser um número inteiro de 1 a 4000."
+        self.tamanho = valor
+        return ""
+
+    def descricao(self):
+        """Devolve a linha da lista, como "A01 Mensagens, 150 MB"."""
+        return self.codigo + " " + self.nome + ", " + str(self.tamanho) + " MB"
+
+
+class Jogo(App):
+    """Jogo: tudo o que uma app tem e a idade mínima para jogar."""
+
+    def __init__(self, codigo, nome, tamanho, idade):
+        """Guarda o código, o nome e o tamanho, pelo construtor da app, e a idade mínima."""
+        super().__init__(codigo, nome, tamanho)
+        self.idade = idade
+
+    def idade_valida(self, valor):
+        """Diz se o valor serve para idade mínima: True se for 3, 7, 12, 16 ou 18."""
+        # Sem o isinstance, 7.0 passava, porque 7.0 == 7 em Python.
+        if not isinstance(valor, int):
+            return False
+        # A idade não é um intervalo: tem de ser um destes cinco valores.
+        return valor in [3, 7, 12, 16, 18]
+
+    def verificar(self):
+        """Verifica os dados como uma app simples e, depois, a idade mínima.
+
+        Devolve: "" se estiver tudo certo, ou a mensagem do primeiro problema.
+        """
+        # super() dá acesso à versão da classe base de verificar(): as regras do
+        # nome e do tamanho ficam escritas num só sítio.
+        mensagem = super().verificar()
+        if mensagem != "":
+            return mensagem
+        if not self.idade_valida(self.idade):
+            return "A idade mínima tem de ser 3, 7, 12, 16 ou 18."
+        return ""
+
+    def descricao(self):
+        """Devolve a descrição de uma app, com a idade mínima no fim."""
+        return super().descricao() + ", a partir dos " + str(self.idade) + " anos"
+
+
+class Telemovel:
+    """Telemóvel que instala, guarda e controla as suas apps.
+
+    O telemóvel é o dono das apps: cria-as nos métodos instalar e guarda-as
+    numa lista interna, _apps, que o código de fora não usa. Só guarda uma app
+    que passou na verificação, e garante a regra que nenhuma app consegue
+    garantir sozinha: não há duas apps com o mesmo código. Cada pedido devolve
+    "" quando é aceite, ou a mensagem da recusa.
+    """
+
+    def __init__(self):
+        """Cria um telemóvel sem apps."""
+        self._apps = []
+
+    def _codigo_existe(self, codigo):
+        """Método interno: diz se já há uma app com este código (True ou False)."""
+        for app in self._apps:
+            if app.codigo == codigo:
+                return True
+        return False
+
+    def _guardar(self, app):
+        """Método interno: guarda uma app nova, se o código estiver livre e os dados certos.
+
+        Devolve: "" se a guardou, ou a mensagem da recusa, e então o telemóvel não muda.
+        """
+        if self._codigo_existe(app.codigo):
+            return "Já existe uma app com o código " + app.codigo + "."
+        # Cada app usa o verificar() da sua classe: o jogo também verifica a idade.
+        mensagem = app.verificar()
+        if mensagem != "":
+            return mensagem
+        self._apps.append(app)
+        return ""
+
+    def instalar_app(self, codigo, nome, tamanho):
+        """Cria uma app simples e guarda-a, se for válida. Devolve "" ou a mensagem da recusa."""
+        return self._guardar(App(codigo, nome, tamanho))
+
+    def instalar_jogo(self, codigo, nome, tamanho, idade):
+        """Cria um jogo e guarda-o, se for válido. Devolve "" ou a mensagem da recusa."""
+        return self._guardar(Jogo(codigo, nome, tamanho, idade))
+
+    def atualizar(self, codigo, tamanho):
+        """Encaminha para a app com este código o tamanho novo.
+
+        Devolve: a resposta da app, ou a mensagem de que o código não existe.
+        """
+        for app in self._apps:
+            if app.codigo == codigo:
+                return app.atualizar(tamanho)
+        return "Não existe nenhuma app com o código " + codigo + "."
+
+    def lista(self):
+        """Devolve uma lista com a descrição de cada app, pela ordem em que foi instalada."""
+        descricoes = []
+        for app in self._apps:
+            # Cada app usa o descricao() da sua classe: o ciclo não pergunta o tipo.
+            descricoes.append(app.descricao())
+        return descricoes
+
+    def com_mais_de_1000_mb(self):
+        """Devolve as descrições das apps com mais de 1000 MB, sem mudar nenhuma."""
+        descricoes = []
+        for app in self._apps:
+            # "> 1000": uma app de 1000 MB certos não entra.
+            if app.tamanho > 1000:
+                descricoes.append(app.descricao())
+        return descricoes
+
+
+def mostrar(titulo, descricoes):
+    """Mostra um título e, por baixo, uma descrição por linha."""
+    print(titulo)
+    for descricao in descricoes:
+        print("  " + descricao)
+
+
+def mostrar_resultado(pedido, mensagem):
+    """Mostra o pedido e diz se foi aceite ou, se foi recusado, porquê."""
+    if mensagem == "":
+        print(pedido + ": aceite.")
+    else:
+        print(pedido + ": recusado. " + mensagem)
+
+
+telemovel = Telemovel()
+mensagem = telemovel.instalar_app("A01", "Mensagens", 150)
+mostrar_resultado("Instalar A01", mensagem)
+mensagem = telemovel.instalar_jogo("A02", "Corrida na Cidade", 300, 7)
+mostrar_resultado("Instalar A02", mensagem)
+mensagem = telemovel.instalar_app("A03", "Mapas", 1200)
+mostrar_resultado("Instalar A03", mensagem)
+# Os dois limites do tamanho são aceites: 1 e 4000.
+mensagem = telemovel.instalar_app("A04", "Lanterna", 1)
+mostrar_resultado("Instalar A04", mensagem)
+mensagem = telemovel.instalar_jogo("A05", "Mundo Aberto", 4000, 16)
+mostrar_resultado("Instalar A05", mensagem)
+mostrar("Lista inicial:", telemovel.lista())
+
+# As quatro recusas: nenhuma muda o telemóvel.
+mensagem = telemovel.instalar_app("A01", "Calculadora", 20)
+mostrar_resultado("Instalar outra A01", mensagem)
+mensagem = telemovel.instalar_app("A06", "", 20)
+mostrar_resultado("Instalar A06 sem nome", mensagem)
+mensagem = telemovel.instalar_app("A06", "Calculadora", 4001)
+mostrar_resultado("Instalar A06 com 4001 MB", mensagem)
+mensagem = telemovel.instalar_jogo("A06", "Quebra-Cabeças", 80, 10)
+mostrar_resultado("Instalar A06 para maiores de 10", mensagem)
+
+mensagem = telemovel.atualizar("A01", 180)
+mostrar_resultado("Atualizar A01 para 180 MB", mensagem)
+mensagem = telemovel.atualizar("A01", 0)
+mostrar_resultado("Atualizar A01 para 0 MB", mensagem)
+mensagem = telemovel.atualizar("A09", 50)
+mostrar_resultado("Atualizar A09", mensagem)
+
+mostrar("Lista no fim:", telemovel.lista())
+mostrar("Com mais de 1000 MB:", telemovel.com_mais_de_1000_mb())
+```
+
+### O que o programa mostra
+
+```text
+Instalar A01: aceite.
+Instalar A02: aceite.
+Instalar A03: aceite.
+Instalar A04: aceite.
+Instalar A05: aceite.
+Lista inicial:
+  A01 Mensagens, 150 MB
+  A02 Corrida na Cidade, 300 MB, a partir dos 7 anos
+  A03 Mapas, 1200 MB
+  A04 Lanterna, 1 MB
+  A05 Mundo Aberto, 4000 MB, a partir dos 16 anos
+Instalar outra A01: recusado. Já existe uma app com o código A01.
+Instalar A06 sem nome: recusado. O nome não pode ficar vazio.
+Instalar A06 com 4001 MB: recusado. O tamanho tem de ser um número inteiro de 1 a 4000.
+Instalar A06 para maiores de 10: recusado. A idade mínima tem de ser 3, 7, 12, 16 ou 18.
+Atualizar A01 para 180 MB: aceite.
+Atualizar A01 para 0 MB: recusado. O tamanho tem de ser um número inteiro de 1 a 4000.
+Atualizar A09: recusado. Não existe nenhuma app com o código A09.
+Lista no fim:
+  A01 Mensagens, 180 MB
+  A02 Corrida na Cidade, 300 MB, a partir dos 7 anos
+  A03 Mapas, 1200 MB
+  A04 Lanterna, 1 MB
+  A05 Mundo Aberto, 4000 MB, a partir dos 16 anos
+Com mais de 1000 MB:
+  A03 Mapas, 1200 MB
+  A05 Mundo Aberto, 4000 MB, a partir dos 16 anos
+```
+
+Os dois limites do tamanho, 1 e 4000 MB, são aceites. A atualização para 0 MB é recusada, e A01 fica com os 180 MB da atualização anterior. Só A03 e A05 têm mais de 1000 MB: uma app com 1000 MB certos não entrava no filtro, porque a comparação é `> 1000`.
 
 ![Rodapé](../imagens/rodape.png)

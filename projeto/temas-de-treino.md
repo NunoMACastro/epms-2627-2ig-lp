@@ -2,7 +2,7 @@
 
 # Temas para treinar em casa
 
-Estes cinco temas servem para treinares em casa o que vais fazer no [livro de receitas](README.md). São opcionais e não contam para a nota.
+Estes seis temas servem para treinares em casa o que vais fazer no [livro de receitas](README.md). São opcionais e não contam para a nota.
 
 Escolhe um tema e escreve o programa em Python, com classes, como nos guias do M10. Cada tema tem três classes: a do registo, a da variante, que tem tudo o que o registo tem e mais um dado, e a da coleção que os junta. O enunciado de cada tema diz o nome das três.
 
@@ -200,6 +200,45 @@ O programa recusa:
 - um nome vazio;
 - pontos que não sejam um número inteiro, 0 ou mais, tanto nos pontos de uma equipa como nos ganhos num jogo;
 - um número de lugares que não seja um número inteiro de 500 a 90 000.
+
+Quando recusa, mostra uma mensagem a dizer porquê, e nada muda.
+
+## Apps do telemóvel
+
+Queremos um programa para gerir as apps instaladas num telemóvel. Para cada app, guardamos um código, um nome e o tamanho, em MB. O código não se pode repetir, o nome não pode ficar vazio, e o tamanho é um número inteiro de 1 a 4000.
+
+Por exemplo:
+
+| Código | Nome | Tamanho, em MB |
+| --- | --- | ---: |
+| A01 | Mensagens | 150 |
+| A03 | Mapas | 1200 |
+
+Uma app pode ser um jogo. Um jogo tem tudo o que uma app tem e também a idade mínima para jogar, que tem de ser uma destas: 3, 7, 12, 16 ou 18 anos. Por exemplo, o A02, Corrida na Cidade, com 300 MB, é para jogadores a partir dos 7 anos.
+
+As três classes são a app, o jogo e o telemóvel.
+
+Quando se vê a lista, as apps aparecem assim:
+
+```text
+A01 Mensagens, 150 MB
+A02 Corrida na Cidade, 300 MB, a partir dos 7 anos
+A03 Mapas, 1200 MB
+```
+
+Deves poder:
+
+- instalar uma app, simples ou jogo;
+- ver a lista das apps;
+- atualizar uma app, ou seja, mudar o tamanho dela para o novo valor;
+- ver só as apps que ocupam mais de 1000 MB.
+
+O programa recusa:
+
+- um código que já existe;
+- um nome vazio;
+- um tamanho que não seja um número inteiro de 1 a 4000, tanto ao instalar como ao atualizar;
+- uma idade mínima que não seja 3, 7, 12, 16 ou 18.
 
 Quando recusa, mostra uma mensagem a dizer porquê, e nada muda.
 

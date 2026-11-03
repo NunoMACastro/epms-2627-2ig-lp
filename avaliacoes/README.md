@@ -5,7 +5,6 @@
 O que já se divulgou das avaliações e das atividades desta disciplina.
 
 - [Diagnóstico inicial](diagnostico-inicial.md): uma revisão opcional da programação do 10.º ano, para recordares ideias de programação e perceberes onde precisas de apoio. Fazes por tua conta, sem entrega e sem nota.
-- [As apps do telemóvel](programacao-orientada-objetos-apps-do-telemovel.md): um exercício de avaliação contínua de programação orientada a objetos, em Python, feito na aula em 90 minutos. Não tem nota própria.
 
 A avaliação prática do M10, do M11 e do M12 é o [projeto](../projeto/README.md), no fim do M12.
 
