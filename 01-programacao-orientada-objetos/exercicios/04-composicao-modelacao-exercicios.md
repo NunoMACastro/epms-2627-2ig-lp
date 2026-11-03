@@ -18,7 +18,7 @@ O [guia do tema](../04-composicao-modelacao.md) e o [laboratório](../laboratori
 
 Faz os exercícios 1 a 5 pela ordem. São a parte obrigatória. Cada exercício treina uma coisa só, e a ordem vai do mais direto para o que pede uma pequena decisão tua. O desafio opcional é para quem acabar. Os dois exercícios de "Para ires mais longe" são para quem quer treinar mais com outros casos: podes fazer só um, ou os que o professor indicar.
 
-Responde no caderno diário ou numa folha, com o número de cada exercício. Quando um exercício pede uma justificação, a justificação é a parte mais importante da resposta. Uma escolha certa sem razão escrita vale pouco. Uma escolha discutível bem justificada mostra que percebeste as regras.
+As respostas escritas vão para comentários, com `#`, no ficheiro `.py` do exercício. Um exercício sem código, como o 1, o 2 e o 5, tem um ficheiro só com comentários, com o número do exercício no nome. Começa cada resposta pelo número da alínea. Quando um exercício pede uma justificação, a justificação é a parte mais importante da resposta. Uma escolha certa sem razão escrita vale pouco. Uma escolha discutível bem justificada mostra que percebeste as regras.
 
 Um programa completo pode ser copiado para um ficheiro `.py` e executado no editor de Python que usas nas aulas. Os excertos não correm sozinhos, e o enunciado diz sempre de que outro código dependem. Entrega as respostas pelo meio indicado pelo professor.
 
@@ -158,10 +158,14 @@ print("Depois de tentar retirar 9:", inventario.quantidade_de("A01"))
 
 Retirar 2 deixou 4. Retirar 9 foi recusado com a mensagem "A quantidade não pode ser negativa.", e o artigo manteve as 4. O colega ficou convencido de que o método funciona.
 
-1. Descobre um pedido de retirada que mostre que esta versão tem um erro. Escreve o pedido, o que devia acontecer e o que acontece. Diz também que tipo de erro é: de escrita, de execução ou de lógica. Confirma executando.
-2. Segue esse pedido na versão do colega, volta a volta, e explica por palavras o que lhe falta.
-3. Corrige o método. Depois volta a correr os três pedidos, os dois do colega e o teu, e confirma que todos dão o que devem.
-4. Porque é que os dois testes do colega não apanharam o erro? Compara-os com os pedidos do traço do passo 6 do exemplo guiado.
+Descobre um pedido de retirada que mostre o erro desta versão, e corrige o método. No fim, os três pedidos, os dois do colega e o teu, dão o que devem. Segue a rotina da depuração e escreve-a num comentário no fim do ficheiro, com `#`:
+
+1. O pedido que mostra o erro, o que devia acontecer e o que acontece. Diz também que tipo de erro é: de escrita, de execução ou de lógica.
+2. O que falta à versão do colega, por palavras, a partir do caminho que o teu pedido faz nela, volta a volta.
+3. A linha que mudaste, e como ficou.
+4. O que deram os três pedidos depois da correção.
+
+Responde também, no mesmo comentário: porque é que os dois testes do colega não apanharam o erro? Compara-os com os pedidos do traço do passo 6 do exemplo guiado.
 
 ## Exercício 5: Descrever um modelo
 
@@ -178,7 +182,7 @@ Lê a descrição:
 - Exercício 1: relê, no guia, a que pergunta responde cada parte da descrição de uma classe, e porque é que a descrição não leva valores.
 - Exercício 2: analisa cada relação nos dois sentidos e verifica qual das frases é verdadeira. Na resposta ao colega, aplica o teste ao pé da letra, como o guia o aplica ao inventário, a cada frase da descrição do `Aluno`.
 - Exercício 3: relê a comparação entre o `Inventario` e a `Playlist`, no passo 9 do exemplo guiado.
-- Exercício 4: segue a versão do colega volta a volta, com um pedido à tua escolha, e escreve que linha é executada a seguir, até o método acabar.
+- Exercício 4: segue a versão do colega volta a volta, com um pedido à tua escolha, e vê que linha é executada a seguir, até o método acabar.
 - Exercício 5: começa pelas duas perguntas que decidem, aplicadas à descrição, e só depois escreves as descrições das classes. Na alínea 3, pensa no que a requisição precisa de guardar em cada uma das duas escolhas.
 - Desafio: responde às quatro perguntas de "Dois graus de "tem": composição e agregação" para o armário e o artigo, uma a uma, antes de decidires.
 - Mais longe 1: em cada par, imagina a aplicação a funcionar. O que acontece à parte quando o todo é apagado?
@@ -193,11 +197,11 @@ Artigos arrumados em armários. A escola decide registar também em que armário
 
 ## Para ires mais longe
 
-Esta parte é opcional, para quem acabou os cinco exercícios e quer treinar mais com outros casos. O Mais longe 1 dá mais prática da escolha entre composição e agregação. O Mais longe 2 segue pedidos pelo inventário, com o código sem erros. Se o exercício 4 te custou, o Mais longe 2 ajuda a rever o caminho de um pedido antes de voltares a ele. Responde com o título de cada um, por exemplo "Mais longe 2".
+Esta parte é opcional, para quem acabou os cinco exercícios e quer treinar mais com outros casos. O Mais longe 1 dá mais prática da escolha entre composição e agregação. O Mais longe 2 segue pedidos pelo inventário, com o código sem erros. Se o exercício 4 te custou, o Mais longe 2 ajuda a rever o caminho de um pedido antes de voltares a ele. As respostas vão para comentários, como nos outros exercícios, com o título de cada um, por exemplo "Mais longe 2".
 
 ### Mais longe 1: Composição ou agregação
 
-Para cada par, o primeiro é o todo e o segundo é a parte. Copia a tabela e responde às duas perguntas que decidem, de "Dois graus de "tem": composição e agregação", no guia. Depois escreve a decisão.
+Para cada par, o primeiro é o todo e o segundo é a parte. Responde às duas perguntas que decidem, de "Dois graus de "tem": composição e agregação", no guia, e escreve a decisão, com uma linha de comentário por par.
 
 | Todo e parte | A parte faz sentido sem o todo? | Quem cria a parte? | Decisão |
 | --- | --- | --- | --- |
@@ -237,23 +241,22 @@ print("A07:", inventario.quantidade_de("A07"))
 print("A09:", inventario.quantidade_de("A09"))
 ```
 
-1. Sem executar, copia e completa esta tabela. Na coluna "Quem recusa", escolhe entre o método `_procurar` do inventário, o método `retirar` do artigo, o setter do artigo ou ninguém.
+Prevê, sem executar, quem recusa cada pedido da tabela e que mensagem aparece, e as duas últimas linhas que o programa mostra. Na coluna "Quem recusa", escolhe entre o método `_procurar` do inventário, o método `retirar` do artigo, o setter do artigo ou ninguém.
 
-   | Pedido | Quem recusa | Mensagem mostrada, se houver |
-   | --- | --- | --- |
-   | `retirar("A09", 2)` | A completar | A completar |
-   | `retirar("A06", 1)` | A completar | A completar |
-   | `retirar("A07", 0)` | A completar | A completar |
-   | `retirar("A07", 5)` | A completar | A completar |
+| Pedido | Quem recusa | Mensagem mostrada, se houver |
+| --- | --- | --- |
+| `retirar("A09", 2)` | A completar | A completar |
+| `retirar("A06", 1)` | A completar | A completar |
+| `retirar("A07", 0)` | A completar | A completar |
+| `retirar("A07", 5)` | A completar | A completar |
 
-2. Escreve as duas últimas linhas que o programa vai mostrar.
-3. Executa e compara com as tuas respostas. Se alguma estiver diferente, explica o que tinhas pensado e onde estava o engano.
+Confirma executando. Se alguma linha for diferente da tua previsão, explica num comentário o que tinhas pensado e onde estava o engano.
 
 ## Critérios de conclusão
 
 - Fizeste os exercícios 1 a 5.
 - Em cada decisão escreveste a razão, e não só a escolha.
-- No exercício 4, confirmaste no computador o pedido que mostra o erro e, depois da correção, voltaste a correr os três pedidos.
+- No exercício 4, confirmaste no computador o pedido que mostra o erro e, depois da correção, voltaste a correr os três pedidos. O comentário do fim do ficheiro tem a rotina da depuração.
 - No exercício 5, descreveste as duas classes e a relação, e justificaste a decisão com as duas perguntas que decidem. Escolheste também o que acontece a uma requisição anulada, com a razão.
 
 ## Autoavaliação

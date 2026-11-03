@@ -6,11 +6,11 @@ Laboratório do tema Entidades, estado e ações, do módulo M10, Introdução �
 
 ## O que vais construir
 
-No fim, tens um ficheiro `inventario.py` com dois materiais de uma sala, um caderno e uma pasta, guardados em variáveis. Tens também uma função, `retirar`, que aceita ou recusa cada pedido de unidades. Pelo caminho, vais prever no papel o que o programa mostra quando mudas os pedidos. E vais ver dois enganos que o Python deixa passar sem nenhuma mensagem de erro: uma atribuição esquecida e uma variável trocada.
+No fim, tens um ficheiro `inventario.py` com dois materiais de uma sala, um caderno e uma pasta, guardados em variáveis. Tens também uma função, `retirar`, que aceita ou recusa cada pedido de unidades. Pelo caminho, vais prever o que o programa mostra quando mudas os pedidos. E vais ver dois enganos que o Python deixa passar sem nenhuma mensagem de erro: uma atribuição esquecida e uma variável trocada.
 
 Ficas a saber seguir os valores de um programa passo a passo, numa tabela. E ficas a saber dar por um engano comparando o que previste com o que aparece no ecrã.
 
-A forma de trabalhar é sempre a mesma. Antes de executares, escreves no papel o que esperas ver. Depois executas e comparas. Quando o resultado é diferente do que previste, explica a diferença antes de continuares: é essa explicação que mais te ensina.
+A forma de trabalhar é sempre a mesma. Antes de executares, prevês o que vais ver. Depois executas e comparas. Quando o resultado é diferente do que previste, procura a explicação antes de continuares: é ela que mais te ensina.
 
 | Fase | O que muda | O que funciona no fim |
 | --- | --- | --- |
@@ -31,13 +31,12 @@ A forma de trabalhar é sempre a mesma. Antes de executares, escreves no papel o
 - Docstring (do inglês, texto de documentação): o texto entre três aspas logo a seguir ao `def`, que explica a pessoas o que a função faz. O Python não o executa.
 - Atribuição: a instrução com `=`, que guarda um valor numa variável. Lê-se da direita para a esquerda: primeiro calcula-se o lado direito, depois guarda-se o resultado no nome da esquerda.
 - Variáveis soltas: variáveis que guardam pedaços do mesmo artigo, como o código, o nome e a quantidade do caderno, sem nada no programa que as ligue umas às outras. Para saber mais, vê "O problema das variáveis soltas", no [guia](../01-entidades-estado-acoes.md).
-- Previsão: o que escreves no papel, antes de executar, que esperas ver no ecrã.
+- Previsão: o que esperas ver no ecrã, decidido antes de executar.
 
 ## O que precisas
 
 - O Python 3, a partir da versão 3.10, que é a linguagem em que escreves o programa. Confirma a versão no terminal, com o comando `python3 --version` (no Windows, `py --version`). Deve aparecer `Python 3.` e um número igual ou maior do que 10, como `Python 3.12.4`. Se nunca usaste o terminal, pede ajuda ao professor: este laboratório não volta a precisar dele. Com uma versão mais antiga, o laboratório funciona na mesma, e só muda o texto de algumas mensagens de erro.
 - O editor de Python das aulas, onde escreves, guardas e executas o ficheiro. Executar quer dizer correr o ficheiro inteiro, com o botão ou a tecla de executar do editor (em muitos editores, é a tecla F5). O que o programa mostra aparece numa janela do editor, a consola.
-- Papel e caneta, para as previsões, para os traços e para as respostas.
 
 ## Se alguma coisa falhar
 
@@ -94,7 +93,7 @@ O inventário da sala tem um artigo, o caderno A01, com 6 unidades. Quando algu�
 
    Leitura guiada: o programa tem duas partes. A primeira, do `def` ao segundo `return`, define a função `retirar`, que recebe a quantidade que existe e as unidades pedidas. A linha do `if` verifica as duas regras de uma vez: `unidades > 0` (o pedido é positivo) e `unidades <= quantidade` (há unidades suficientes). O `and` (em português, "e") exige que as duas sejam verdadeiras. Se forem, a função devolve a conta; se não, devolve a quantidade que recebeu, sem mudanças. Definir a função não a executa: só a prepara. A segunda parte guarda o caderno em três variáveis e faz dois pedidos. Cada pedido é uma atribuição: a função calcula a quantidade nova, e o `=` guarda-a em `quantidade_caderno`. Cada `print` mostra o nome e a quantidade.
 
-2. Antes de executares, escreve no papel as duas linhas que esperas ver. Aplica as regras do inventário a cada pedido, pela ordem em que estão no programa, e lembra-te de que o segundo pedido chega com a quantidade que o primeiro deixou.
+2. Antes de executares, prevê as duas linhas que vão aparecer. Aplica as regras do inventário a cada pedido, pela ordem em que estão no programa, e lembra-te de que o segundo pedido chega com a quantidade que o primeiro deixou.
 
 3. Executa o ficheiro. O que deves ver:
 
@@ -134,7 +133,7 @@ Um pedido decide-se sempre com a quantidade que existe no momento em que chega. 
 
    Esta linha não corre sozinha: substitui a primeira chamada do programa que já tens no ficheiro, e depende da função e das variáveis definidas antes dela. Deixa a segunda chamada como está, com o pedido de 5.
 
-2. Antes de executares, copia este traço para o papel e completa-o. Depois escreve as duas linhas que esperas ver.
+2. Antes de executares, completa de cabeça este traço, e prevê as duas linhas que vão aparecer.
 
    | Passo | Pedido | O que acontece | Quantidade depois |
    | --- | --- | --- | ---: |
@@ -152,7 +151,7 @@ Um pedido decide-se sempre com a quantidade que existe no momento em que chega. 
 
    Repara que retirar 6 com 6 unidades é aceite: o pedido é válido, e ficar com zero unidades é um estado válido.
 
-3. Agora troca o 6 por 0, na mesma linha. Desta vez, faz tu o traço no papel, com as mesmas quatro colunas, a começar em 6. Escreve as duas linhas que esperas ver, guarda e executa. O que deves ver:
+3. Agora troca o 6 por 0, na mesma linha. Desta vez, segue tu o traço de cabeça, com as mesmas quatro colunas, a começar em 6. Prevê as duas linhas que vão aparecer, guarda e executa. O que deves ver:
 
    ```text
    Caderno 6
@@ -173,7 +172,7 @@ Um pedido decide-se sempre com a quantidade que existe no momento em que chega. 
 
 ### Paragem 2
 
-O programa voltou a mostrar `Caderno 4` duas vezes, e tens no papel os dois traços.
+O programa voltou a mostrar `Caderno 4` duas vezes, e seguiste os dois traços.
 
 Pensa antes de continuares: o pedido de 5 foi recusado na experiência com o pedido de 6, e aceite na experiência com o pedido de 0. Porque é que o mesmo pedido teve respostas diferentes? A resposta: o pedido é o mesmo, mas encontrou quantidades diferentes. Na primeira experiência, chegou depois de a quantidade ter ficado em 0, e não havia unidades suficientes. Na segunda, chegou com 6 unidades, porque o pedido de 0 foi recusado e não mexeu na quantidade. Cada linha do traço começa na quantidade deixada pela anterior, e as regras verificam-se com essa quantidade.
 
@@ -191,16 +190,16 @@ Na linha `quantidade_caderno = retirar(quantidade_caderno, 2)` há duas coisas a
 
    Como na fase anterior, esta linha substitui a primeira chamada do ficheiro e depende do resto do programa. Não mexas na segunda chamada.
 
-2. Antes de executares, escreve no papel as duas linhas que esperas ver. Guarda e executa. O que deves ver, sem nenhuma mensagem de erro:
+2. Antes de executares, prevê as duas linhas que vão aparecer. Guarda e executa. O que deves ver, sem nenhuma mensagem de erro:
 
    ```text
    Caderno 6
    Caderno 1
    ```
 
-3. Responde no papel: a função foi chamada e fez a conta? Que valor devolveu, e o que aconteceu a esse valor? A resposta: sim, a função foi chamada, verificou o pedido, fez a conta 6 - 2 e devolveu 4. Esse 4 não foi guardado em lado nenhum e perdeu-se. Por isso, `quantidade_caderno` continuou com 6, e o pedido de 5 foi verificado com 6 e aceite.
+3. Pensa: a função foi chamada e fez a conta? Que valor devolveu, e o que aconteceu a esse valor? A resposta: sim, a função foi chamada, verificou o pedido, fez a conta 6 - 2 e devolveu 4. Esse 4 não foi guardado em lado nenhum e perdeu-se. Por isso, `quantidade_caderno` continuou com 6, e o pedido de 5 foi verificado com 6 e aceite.
 
-4. Responde também: a saída é igual à da experiência com o pedido de 0, no passo 3 da fase 2, mas o que aconteceu dentro do programa não foi igual. Qual é a diferença? A resposta: na fase 2, a função recusou o pedido de 0 e devolveu 6, e a atribuição guardou esse 6 na variável. Aqui, a função aceitou o pedido de 2 e devolveu 4, mas não havia atribuição, e o 4 perdeu-se. O mesmo ecrã pode ter causas diferentes. Para as distinguir, é preciso ler o código ou fazer o traço.
+4. Pensa também: a saída é igual à da experiência com o pedido de 0, no passo 3 da fase 2, mas o que aconteceu dentro do programa não foi igual. Qual é a diferença? A resposta: na fase 2, a função recusou o pedido de 0 e devolveu 6, e a atribuição guardou esse 6 na variável. Aqui, a função aceitou o pedido de 2 e devolveu 4, mas não havia atribuição, e o 4 perdeu-se. O mesmo ecrã pode ter causas diferentes. Para as distinguir, é preciso ler o código ou fazer o traço.
 
 5. O Python não mostrou nenhum erro, porque chamar uma função sem guardar o que ela devolve é uma instrução válida. Volta a escrever `quantidade_caderno =` no início da linha, guarda e executa. O que deves ver: `Caderno 4` duas vezes.
 
@@ -248,7 +247,7 @@ Até aqui o programa tinha um só artigo. Com dois artigos, cada um ocupa três 
 
    Leitura guiada: a função é a mesma da fase 1. Depois vêm os dois artigos, cada um em três variáveis, separados por uma linha em branco. A seguir há um só pedido, para a pasta, com um engano que o comentário de cima descreve. No fim, os dois `print` mostram os dois artigos.
 
-2. Antes de executares, escreve no papel as duas linhas que esperas ver. Segue os valores que a linha do pedido usa de facto, e não o que o comentário diz que queríamos. Executa. O que deves ver:
+2. Antes de executares, prevê as duas linhas que vão aparecer. Segue os valores que a linha do pedido usa de facto, e não o que o comentário diz que queríamos. Executa. O que deves ver:
 
    ```text
    Caderno 6
@@ -257,7 +256,7 @@ Até aqui o programa tinha um só artigo. Com dois artigos, cada um ocupa três 
 
    A pasta tinha 2 unidades, pedimos para retirar 1, e ficou com 5. A função recebeu 6 e 1, fez a conta 6 - 1, e a atribuição guardou o 5 na variável da pasta.
 
-3. Encontra a linha com o engano: é a que está logo a seguir ao comentário que começa por `# Queríamos retirar 1 pasta`. Responde no papel: que variável está errada nessa linha, e que variável devia lá estar? A resposta: está errada a `quantidade_caderno`, dentro dos parênteses. Devia lá estar a `quantidade_pasta`, porque o pedido é sobre a pasta.
+3. Encontra a linha com o engano: é a que está logo a seguir ao comentário que começa por `# Queríamos retirar 1 pasta`. Pensa: que variável está errada nessa linha, e que variável devia lá estar? A resposta: está errada a `quantidade_caderno`, dentro dos parênteses. Devia lá estar a `quantidade_pasta`, porque o pedido é sobre a pasta.
 
 4. Corrige a linha, trocando só essa variável. Fica assim:
 
@@ -265,14 +264,14 @@ Até aqui o programa tinha um só artigo. Com dois artigos, cada um ocupa três 
    quantidade_pasta = retirar(quantidade_pasta, 1)
    ```
 
-   A linha depende da função e das variáveis do programa acima. O comentário que está por cima dela deixou de ser verdade, porque já não há engano para descrever: apaga-o. Antes de executares, escreve as duas linhas que esperas ver. Guarda e executa. O que deves ver:
+   A linha depende da função e das variáveis do programa acima. O comentário que está por cima dela deixou de ser verdade, porque já não há engano para descrever: apaga-o. Antes de executares, prevê as duas linhas que vão aparecer. Guarda e executa. O que deves ver:
 
    ```text
    Caderno 6
    Pasta 1
    ```
 
-5. Responde no papel: na versão com o engano, o Python mostrou alguma mensagem de erro? Se o comentário não existisse, como é que terias dado pelo engano? A resposta: não houve nenhuma mensagem de erro. Sem o comentário, dás pelo engano comparando a previsão com o ecrã. Quem escreveu no papel que a pasta ia ficar com 1 unidade vê `Pasta 5` e sabe que alguma coisa está errada. É por isso que, em todas as fases, escreves a previsão antes de executar.
+5. Pensa: na versão com o engano, o Python mostrou alguma mensagem de erro? Se o comentário não existisse, como é que terias dado pelo engano? A resposta: não houve nenhuma mensagem de erro. Sem o comentário, dás pelo engano comparando a previsão com o ecrã. Quem previu que a pasta ia ficar com 1 unidade vê `Pasta 5` e sabe que alguma coisa está errada. É por isso que, em todas as fases, fazes a previsão antes de executar.
 
 ### Paragem 4
 
@@ -349,15 +348,14 @@ O ficheiro não foi guardado antes de executar, ou estás a executar outro fiche
 
 ## Desafios
 
-1. Um terceiro artigo. Continua no ficheiro da paragem 4. Acrescenta o artigo com o código `A04`, o nome `Borracha` e 5 unidades, guardado em três variáveis com nomes que sigam o padrão das do caderno e da pasta. Escreve as três linhas a seguir às variáveis da pasta, separadas delas por uma linha em branco. No fim do ficheiro, acrescenta dois pedidos para retirar 3 borrachas, um a seguir ao outro. Põe a seguir a cada um uma linha que mostre o nome e a quantidade da borracha. Escreve cada pedido como uma atribuição, como os da fase 4. Antes de executares, faz o traço da borracha no papel e escreve as duas linhas novas que esperas ver. Pista: o segundo pedido chega com a quantidade que o primeiro deixou.
-2. A operação adicionar. O programa só sabe retirar unidades, e um inventário também precisa de as adicionar quando chega material. Escreve a função `adicionar(quantidade, unidades)` a seguir à função `retirar`, com duas linhas em branco antes e depois. Deve devolver a quantidade mais as unidades, se o pedido for aceite, e a quantidade que recebeu, sem mudanças, se o pedido for recusado. Escreve uma docstring, como a de `retirar`, que diga isto por palavras. Antes de escreveres, decide no papel: o `if` da função `retirar` faz duas perguntas, `unidades > 0` e `unidades <= quantidade`. Qual delas faz sentido num pedido para adicionar, e qual não faz? Depois, no fim do ficheiro, acrescenta dois pedidos à borracha, cada um seguido de uma linha que mostre o nome e a quantidade: adicionar 4 e, a seguir, adicionar 0. Completa no papel o traço da borracha desde o início, com os quatro pedidos, e escreve as linhas que esperas ver. No fim, o programa deve mostrar seis linhas: duas do caderno e da pasta, e quatro da borracha. Pista: relê as regras do inventário, em "Palavras que vais usar", palavra a palavra, e vê a que pedidos se aplica cada uma.
+1. Um terceiro artigo. Continua no ficheiro da paragem 4. Acrescenta o artigo com o código `A04`, o nome `Borracha` e 5 unidades, guardado em três variáveis com nomes que sigam o padrão das do caderno e da pasta. Escreve as três linhas a seguir às variáveis da pasta, separadas delas por uma linha em branco. No fim do ficheiro, acrescenta dois pedidos para retirar 3 borrachas, um a seguir ao outro. Põe a seguir a cada um uma linha que mostre o nome e a quantidade da borracha. Escreve cada pedido como uma atribuição, como os da fase 4. Antes de executares, segue de cabeça o traço da borracha e prevê as duas linhas novas. Pista: o segundo pedido chega com a quantidade que o primeiro deixou.
+2. A operação adicionar. O programa só sabe retirar unidades, e um inventário também precisa de as adicionar quando chega material. Escreve a função `adicionar(quantidade, unidades)` a seguir à função `retirar`, com duas linhas em branco antes e depois. Deve devolver a quantidade mais as unidades, se o pedido for aceite, e a quantidade que recebeu, sem mudanças, se o pedido for recusado. Escreve uma docstring, como a de `retirar`, que diga isto por palavras. Antes de escreveres, decide: o `if` da função `retirar` faz duas perguntas, `unidades > 0` e `unidades <= quantidade`. Qual delas faz sentido num pedido para adicionar, e qual não faz? Depois, no fim do ficheiro, acrescenta dois pedidos à borracha, cada um seguido de uma linha que mostre o nome e a quantidade: adicionar 4 e, a seguir, adicionar 0. Segue de cabeça o traço da borracha desde o início, com os quatro pedidos, e prevê as linhas que vão aparecer. No fim, o programa deve mostrar seis linhas: duas do caderno e da pasta, e quatro da borracha. Pista: relê as regras do inventário, em "Palavras que vais usar", palavra a palavra, e vê a que pedidos se aplica cada uma.
 
 ## Antes de terminares
 
 - [ ] O ficheiro `inventario.py` da pasta `tema-01` corre e mostra `Caderno 6` e `Pasta 1`, como na paragem 4.
 - [ ] Desfizeste as alterações que fizeste de propósito nas fases 2 e 3.
-- [ ] Tens no papel as previsões, os traços da fase 2 e as respostas das fases 3 e 4.
-- [ ] Guardaste o ficheiro e a folha, e entregaste-os pelo meio indicado pelo professor.
+- [ ] Guardaste o ficheiro e entregaste-o pelo meio indicado pelo professor.
 - [ ] Consegues explicar, por palavras tuas, porque é que o Python não deu pela variável trocada, e como é que deste pelo engano.
 
 ![Rodapé](../../imagens/rodape.png)

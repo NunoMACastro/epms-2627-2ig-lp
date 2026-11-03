@@ -18,7 +18,7 @@ O [guia do tema](../06-sintese.md) e o [laboratório](../laboratorios/06-sintese
 
 Faz os exercícios 1 a 3 pela ordem. São a parte obrigatória. Cada um treina uma coisa só e pede uma pequena decisão que o exemplo guiado não tomou por ti. O desafio opcional é para quem acabar. O exercício de "Para ires mais longe" tem casos que enganam, para quem quer treinar mais.
 
-Responde no caderno diário ou numa folha, com o número de cada exercício. Escreve sempre a tua previsão antes de executar. Se a execução der outra coisa, procura a explicação em vez de mudar a previsão. Entrega as respostas pelo meio indicado pelo professor.
+As respostas escritas vão para comentários, com `#`, no ficheiro `.py` do exercício, com o número de cada alínea antes da resposta. Antes de executares, pensa sempre no resultado que esperas, tirado do enunciado. Se a execução der outra coisa, procura a explicação. Entrega as respostas pelo meio indicado pelo professor.
 
 ## O cenário
 
@@ -63,7 +63,7 @@ print("A01:", inventario.quantidade_de("A01"))
 print("A02:", inventario.quantidade_de("A02"))
 ```
 
-1. Sem executar, copia e completa a tabela. Cada linha começa no estado deixado pela anterior. Na coluna "Quem responde", escolhe entre o método `_procurar` do inventário, o método `retirar` do artigo, o setter do artigo ou ninguém, se o pedido for aceite.
+1. Prevê, sem executar, quem responde a cada pedido, a mensagem mostrada e o estado dos dois artigos depois dele. Cada pedido começa no estado deixado pelo anterior. Na coluna "Quem responde", escolhe entre o método `_procurar` do inventário, o método `retirar` do artigo, o setter do artigo ou ninguém, se o pedido for aceite.
 
    | Pedido | Quem responde | Mensagem mostrada | A01 depois | A02 depois |
    | --- | --- | --- | ---: | ---: |
@@ -72,8 +72,9 @@ print("A02:", inventario.quantidade_de("A02"))
    | `acertar("A03", 4)` | A completar | A completar | A completar | A completar |
    | `retirar("A02", 0)` | A completar | A completar | A completar | A completar |
 
+   Confirma executando: as seis linhas do ecrã têm de bater com a tua previsão. Se alguma for diferente, escreve num comentário o que tinhas pensado e onde estava o engano.
+
 2. Os pedidos 1 e 4 têm, os dois, um zero. Explica, em duas frases, porque é que têm respostas diferentes.
-3. Executa e compara as seis linhas do ecrã com a tua tabela. Se alguma for diferente, escreve o que tinhas pensado e onde estava o engano.
 
 ## Exercício 2: Perguntar ao inventário se um código existe
 
@@ -83,8 +84,7 @@ Antes de registar um artigo novo, a pessoa que trata do inventário quer poder p
 - devolve `True` se o inventário tiver um artigo com esse código, e `False` se não tiver;
 - nunca falha e não muda nada.
 
-1. Escreve o método dentro da classe `Inventario`, com uma docstring que diga o contrato.
-2. Testa-o com estas linhas, que substituem as que vêm depois das classes. Antes de executares, escreve as quatro linhas que esperas ver.
+1. Escreve o método dentro da classe `Inventario`, com uma docstring que diga o contrato. Testa-o com estas linhas, que substituem as que vêm depois das classes:
 
    ```python partial
    inventario = Inventario()
@@ -99,7 +99,7 @@ Antes de registar um artigo novo, a pessoa que trata do inventário quer poder p
    print(vazio.existe("A01"))
    ```
 
-3. Explica, em duas frases, como é que o teu método chega a cada uma das duas respostas, `True` e `False`.
+2. Explica, em duas frases, como é que o teu método chega a cada uma das duas respostas, `True` e `False`.
 
 ## Exercício 3: Encontrar o erro de um colega
 
@@ -130,16 +130,18 @@ except ValueError as erro:
 print("A01 no fim:", inventario.quantidade_de("A01"))
 ```
 
-1. Antes de executares, escreve as três linhas que o programa devia mostrar se o método estivesse certo, como no passo 6.
-2. Executa com a versão do colega e assinala as linhas que são diferentes da tua resposta à alínea 1. Diz também que tipo de erro é: de escrita, de execução ou de lógica.
-3. Explica o erro, por palavras, em duas ou três frases. A tua explicação tem de dizer para que objeto aponta o `self` dentro deste método, e o que acontece, por isso, ao valor 5 e ao valor -1.
-4. Corrige o método, mudando uma única linha. Depois volta a correr o programa inteiro, confirma que as três linhas passam a ser as da alínea 1 e diz o que mudou em cada uma.
+Encontra o erro e corrige o método, mudando uma única linha. No fim, o programa mostra as três linhas que mostraria com o `acertar` do passo 6. Segue a rotina da depuração e escreve-a num comentário no fim do ficheiro, com `#`:
+
+1. As linhas que o programa devia mostrar se o método estivesse certo, como no passo 6, e as que mostra com a versão do colega. Diz também que tipo de erro é: de escrita, de execução ou de lógica.
+2. A explicação do erro, por palavras, em duas ou três frases. Tem de dizer para que objeto aponta o `self` dentro deste método, e o que acontece, por isso, ao valor 5 e ao valor -1.
+3. A linha que mudaste, e como ficou.
+4. O que mudou em cada uma das três linhas, quando voltaste a correr o programa inteiro.
 
 ## Apoio
 
-- Exercício 1: faz o traço como no passo 5 do exemplo guiado, um pedido de cada vez, a partir do estado deixado pelo anterior. Para cada pedido, relê o método que ele chama e diz que pergunta faz cada `if`.
-- Exercício 2: escreve primeiro o método por palavras: o que faz quando encontra o código, e o que faz quando não o encontra. Depois confirma as quatro linhas do teste, uma a uma, com essas palavras.
-- Exercício 3: segue o pedido `acertar("A02", 5)` linha a linha, como no passo 7 do exemplo guiado. Depois de cada linha, escreve que objeto mudou, se algum mudou.
+- Exercício 1: faz o traço como no passo 5 do exemplo guiado, um pedido de cada vez, a partir do estado deixado pelo anterior. Para cada pedido, relê o método que ele chama e vê que pergunta faz cada `if`.
+- Exercício 2: descreve primeiro o método por palavras, num comentário: o que faz quando encontra o código, e o que faz quando não o encontra. Depois confirma as quatro linhas do teste, uma a uma, com essas palavras.
+- Exercício 3: segue o pedido `acertar("A02", 5)` linha a linha, como no passo 7 do exemplo guiado. Depois de cada linha, vê que objeto mudou, se algum mudou.
 - Desafio: responde às duas perguntas que decidem olhando para o código, e não para os nomes das classes. Procura as linhas onde o artigo é criado e as linhas que o guardam.
 - Mais longe 1: para cada pedido, segue primeiro `_procurar` com o código tal como está escrito, e só depois o setter com o valor.
 
@@ -168,7 +170,7 @@ print("Sala 12, A01:", sala_12.quantidade_de("A01"))
 print("Sala 14, A01:", sala_14.quantidade_de("A01"))
 ```
 
-1. Antes de executares, escreve as duas linhas que esperas ver. Depois executa e compara.
+1. Prevê as duas linhas que o programa mostra, e confirma executando.
 2. Com o método `acrescentar`, a relação entre `Inventario` e `Artigo` passa a ser uma composição ou uma agregação? Responde com as duas perguntas que decidem, de "Dois graus de "tem": composição e agregação", no guia 04.
 3. Explica porque é que a sala 14 mostra a quantidade que mostra, se ninguém lhe pediu nenhuma retirada.
 4. Pensa no inventário de uma sala, em que as 6 unidades de A01 são as que estão naquela sala. Qual das duas versões te parece mais adequada: a do `registar` ou a do `acrescentar`? Justifica em duas frases.
@@ -179,7 +181,7 @@ Esta parte é opcional, para quem acabou os três exercícios e quer treinar com
 
 ### Mais longe 1: Pedidos que enganam
 
-Cada linha da tabela é um caso separado, num inventário acabado de criar com A01 a 6 e A02 a 2, como no exercício 1. Para cada pedido, escreve quem responde, a mensagem que aparece, e se o programa continua ou para. Depois confirma, escrevendo cada pedido dentro de um `try` com `except ValueError as erro`.
+Cada linha da tabela é um caso separado, num inventário acabado de criar com A01 a 6 e A02 a 2, como no exercício 1. Para cada pedido, prevê quem responde, a mensagem que aparece, e se o programa continua ou para. Confirma escrevendo cada pedido dentro de um `try` com `except ValueError as erro`.
 
 | Pedido | Quem responde | Mensagem | O programa continua ou para? |
 | --- | --- | --- | --- |
@@ -188,14 +190,14 @@ Cada linha da tabela é um caso separado, num inventário acabado de criar com A
 | `acertar("A01", 7.0)` | A completar | A completar | A completar |
 | `acertar(1, 7)` | A completar | A completar | A completar |
 
-Um dos pedidos não acaba como os outros. Se o programa parar, lê a última linha da mensagem de erro e explica porque é que o `except ValueError` não a apanhou.
+Um dos pedidos não acaba como os outros. Se o programa parar, lê a última linha da mensagem de erro e explica, num comentário, porque é que o `except ValueError` não a apanhou.
 
 ## Critérios de conclusão
 
 - Fizeste os exercícios 1 a 3.
-- No exercício 1, a tabela foi feita antes de executar, e cada linha parte do estado deixado pela anterior.
-- No exercício 2, o método tem a docstring com o contrato, e as quatro linhas do teste batem com a tua previsão, incluindo a do inventário vazio.
-- No exercício 3, a explicação diz para que objeto aponta o `self`, e voltaste a correr o programa inteiro depois da correção.
+- No exercício 1, previste antes de executar, e cada pedido partiu do estado deixado pelo anterior.
+- No exercício 2, o método tem a docstring com o contrato, e as quatro linhas do teste dão o que o contrato promete, incluindo a do inventário vazio.
+- No exercício 3, o comentário do fim do ficheiro diz para que objeto aponta o `self`, e voltaste a correr o programa inteiro depois da correção.
 
 ## Autoavaliação
 

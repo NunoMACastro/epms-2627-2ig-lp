@@ -20,7 +20,7 @@ Pelo caminho, provocas de propósito os erros de que mais vais precisar de recon
 | 6 | O construtor e o setter | Sabes porque é que o construtor também passa pelo setter |
 | 7 | Os métodos `adicionar` e `retirar`, com contrato | A classe final, conferida com um traço |
 
-Em todas as fases trabalhas da mesma maneira. Antes de executares, escreves no papel o que esperas ver. Depois executas e comparas. Quando o resultado é diferente do que previste, explica a diferença antes de continuares: é essa explicação que mais te ensina.
+Em todas as fases trabalhas da mesma maneira. Antes de executares, prevês o que vais ver. Depois executas e comparas. Quando o resultado é diferente do que previste, procura a explicação antes de continuares: é ela que mais te ensina.
 
 Executa sempre o ficheiro inteiro: cada execução começa do zero, com os valores escritos no programa. Em várias fases vais estragar o programa de propósito, para veres um erro acontecer. Faz a alteração pedida, observa, e desfaz a alteração antes de passares à fase seguinte.
 
@@ -46,7 +46,6 @@ Executa sempre o ficheiro inteiro: cada execução começa do zero, com os valor
 
 - O editor de Python que usas nas aulas, para escrever e executar os programas. Confirma que funciona: num ficheiro de ensaio, escreve `print("Olá")` e executa. Deve aparecer `Olá`, o que quer dizer que o editor está a executar programas de Python.
 - O Python 3, a partir da versão 3.10. Nas versões mais antigas, algumas mensagens de erro são um pouco diferentes, e o laboratório diz onde.
-- Papel e caneta, para as previsões, o traço e as respostas.
 
 O laboratório começa de uma pasta vazia: não precisas de nenhum ficheiro do laboratório anterior.
 
@@ -100,7 +99,7 @@ No inventário, a quantidade de um artigo é um número inteiro, 0 ou mais: não
 
    Leitura guiada: a classe é a do tema 02, com o construtor e o `retirar`, que subtrai sem verificar. Depois da classe, cria-se o caderno com 6 unidades. Seguem-se três blocos de duas linhas, cada um com uma alteração e um `print`. O primeiro pede ao `retirar` mais unidades do que as que existem. Os outros dois escrevem diretamente no atributo, com o ponto e o sinal `=`, sem passar por nenhum método.
 
-2. Antes de executares, escreve no papel: o Python vai aceitar as três alterações? Que três linhas esperas ver? Depois executa. O que deves ver:
+2. Antes de executares, prevê: o Python vai aceitar as três alterações? Que três linhas esperas ver? Depois executa. O que deves ver:
 
    ```text
    Depois de retirar 9: -3
@@ -116,7 +115,7 @@ No inventário, a quantidade de um artigo é um número inteiro, 0 ou mais: não
    caderno.retirar(1)
    ```
 
-   Antes de executares, responde no papel: o que achas que vai acontecer, e porquê?
+   Antes de executares, prevê o que vai acontecer, e porquê.
 
 4. Executa. As três linhas aparecem, e depois o programa para com uma mensagem de erro parecida com esta:
 
@@ -135,7 +134,7 @@ No inventário, a quantidade de um artigo é um número inteiro, 0 ou mais: não
 
    Esta mensagem chama-se traceback. A primeira linha, `Traceback (most recent call last):`, quer dizer "o caminho até ao erro, com a chamada mais recente no fim". A última linha diz o tipo de erro e o que aconteceu. As linhas `File` dizem onde: o fim de cada uma diz onde estava essa linha, `in <module>` no programa principal e `in retirar` dentro do método `retirar`. `TypeError` quer dizer erro de tipo. O resto da linha diz: tipos não suportados na operação `-`, entre um `str` e um `int`. `str` é o nome que o Python dá aos textos, e `int` aos números inteiros. O Python não sabe subtrair um número a um texto.
 
-5. Responde no papel: em que linha do programa aparece o erro? Em que linha está a causa? Porque é que um estado inválido costuma rebentar longe do sítio onde foi criado?
+5. Pensa: em que linha do programa aparece o erro? Em que linha está a causa? Porque é que um estado inválido costuma rebentar longe do sítio onde foi criado?
 
    A resposta: o erro aparece na linha 28, `caderno.retirar(1)`, se copiaste o programa exatamente como está, e rebenta dentro do método `retirar`, na linha 14. A causa está na linha 26, `caderno.quantidade = "muitos"`, duas linhas acima. Um estado inválido rebenta longe porque o programa aceita guardá-lo sem se queixar. O problema só aparece quando outra operação tenta usar o valor como se fosse válido. O erro está onde o valor é usado, e a causa está onde foi guardado.
 
@@ -186,7 +185,7 @@ Para impedir valores inválidos, uma ideia é mudar a quantidade só através de
 
    Leitura guiada: a classe tem dois métodos novos. O `get_quantidade` só devolve o valor do atributo. O `set_quantidade` tem um `if`: se o valor for inteiro e não for negativo, guarda-o; se não, mostra uma mensagem e não guarda nada. Depois da classe, o programa faz um pedido ao set e, a seguir, escreve diretamente no atributo.
 
-2. Escreve no papel as três linhas que esperas ver. Depois executa. O que deves ver:
+2. Prevê as três linhas que vão aparecer. Depois executa. O que deves ver:
 
    ```text
    Valor recusado: -3
@@ -212,7 +211,7 @@ Para impedir valores inválidos, uma ideia é mudar a quantidade só através de
 
    `None` é o valor especial do Python que quer dizer "nada". É o que devolve um método que não tem `return`, como o `set_quantidade`.
 
-4. Responde no papel: com o que o set devolve, consegue o código que o chamou saber que o pedido foi recusado?
+4. Pensa: com o que o set devolve, consegue o código que o chamou saber que o pedido foi recusado?
 
    A resposta: não. O set devolve `None` quer aceite quer recuse, por isso o código que o chamou não tem nada que distinga os dois casos. A mensagem "Valor recusado" é para uma pessoa a olhar para o ecrã, e não para o programa. É o segundo problema do set: a recusa não chega a quem fez o pedido.
 
@@ -266,7 +265,7 @@ Para o segundo, o set passa a recusar com uma exceção, que o código que fez o
 
    Leitura guiada: na classe, o construtor guarda a quantidade em `_quantidade`, e o get lê-a daí. O set tem duas verificações, cada uma com o seu `raise`, e só no fim a linha que guarda. `if not isinstance(valor, int):` lê-se "se o valor não for inteiro": o `not` inverte a resposta do `isinstance`. Depois da classe, há dois pedidos ao set, um com 4 e outro com -3.
 
-2. Antes de executares, escreve no papel as linhas que esperas ver, incluindo a última linha da mensagem de erro. Depois executa. O que deves ver:
+2. Antes de executares, prevê as linhas que vão aparecer, incluindo a última linha da mensagem de erro. Depois executa. O que deves ver:
 
    ```text
    Quantidade: 4
@@ -281,7 +280,7 @@ Para o segundo, o set passa a recusar com uma exceção, que o código que fez o
 
    `ValueError` quer dizer erro de valor. O pedido de 4 foi aceite e o de -3 foi recusado, desta vez a sério: o programa parou.
 
-3. Um traceback lê-se de baixo para cima. Responde no papel: qual é o tipo do erro, e qual é a mensagem? Em que método foi lançado? Que linha do programa fez o pedido? A linha `print("Esta linha já não é executada.")` apareceu? Porquê?
+3. Um traceback lê-se de baixo para cima. Pensa: qual é o tipo do erro, e qual é a mensagem? Em que método foi lançado? Que linha do programa fez o pedido? A linha `print("Esta linha já não é executada.")` apareceu? Porquê?
 
    A resposta: o tipo é `ValueError`, e a mensagem é "A quantidade não pode ser negativa.". Foi lançado no método `set_quantidade`, na linha 21, a do `raise`, como mostra a entrada logo acima da última linha. O pedido veio da linha 28, `caderno.set_quantidade(-3)`, na entrada de cima. A linha do `print` final não apareceu, porque a exceção chegou ao programa principal, ninguém a tratou, e o programa parou.
 
@@ -341,9 +340,9 @@ Um programa não pode parar de cada vez que alguém se engana num número. Para 
 
    Isto quer dizer que o set recusou o -3, o `except` apanhou a recusa, e o programa continuou até ao fim. A frase "Esta linha só é executada..." não apareceu, porque o Python abandonou o bloco `try` na linha do pedido. A quantidade continua 6. Para confirmar que uma recusa funcionou, ver a mensagem não chega: é preciso confirmar também que o estado não mudou.
 
-3. Uma experiência sobre o tipo da exceção. Na linha `except ValueError as erro:`, troca `ValueError` por `TypeError`. Antes de executares, escreve no papel o que achas que vai acontecer.
+3. Uma experiência sobre o tipo da exceção. Na linha `except ValueError as erro:`, troca `ValueError` por `TypeError`. Antes de executares, prevê o que vai acontecer.
 
-4. Executa. O programa para com uma mensagem de erro que acaba em `ValueError: A quantidade não pode ser negativa.`, como se não houvesse `try`. Responde: porque é que o `except` não apanhou a exceção? O que diz a linha `except` sobre as exceções que apanha?
+4. Executa. O programa para com uma mensagem de erro que acaba em `ValueError: A quantidade não pode ser negativa.`, como se não houvesse `try`. Pensa: porque é que o `except` não apanhou a exceção? O que diz a linha `except` sobre as exceções que apanha?
 
    A resposta: o `except` diz o tipo de exceção que apanha. Um `except TypeError` deixa passar um `ValueError`, e um `except ValueError` deixa passar um `TypeError`. Este dizia `TypeError`, e a exceção era um `ValueError`, por isso passou ao lado. A linha `except ValueError as erro:` diz duas coisas: que tipo de exceção apanha e que nome dá à exceção apanhada.
 
@@ -461,7 +460,7 @@ O get e o set obrigam a escrever `caderno.get_quantidade()` e `caderno.set_quant
 
    Isto quer dizer que a escrita `caderno.quantidade = 2.5` passou pelo setter, que a recusou, e a quantidade ficou 10. A última linha mostra que até a criação da caneta com -5 foi recusada. Vais ver porquê na fase 6.
 
-3. Primeiro perigo: o nome igual. Na última linha do setter, troca `self._quantidade = valor` por `self.quantidade = valor`, sem sublinhado. Antes de executares, responde no papel: escrever em `self.quantidade` executa que método? O que vai acontecer?
+3. Primeiro perigo: o nome igual. Na última linha do setter, troca `self._quantidade = valor` por `self.quantidade = valor`, sem sublinhado. Antes de executares, prevê: escrever em `self.quantidade` executa que método? O que vai acontecer?
 
 4. Executa. O programa para logo na criação do primeiro artigo. A mensagem repete três vezes a entrada da linha `self.quantidade = valor` e diz quantas vezes mais se repetiu, numa linha como esta:
 
@@ -477,7 +476,7 @@ O get e o set obrigam a escrever `caderno.get_quantidade()` e `caderno.set_quant
 
    Nas versões mais antigas do Python, a última linha acrescenta mais umas palavras no fim, como `while calling a Python object`, "ao chamar um objeto do Python". `RecursionError` quer dizer erro de recursão, e a mensagem diz: excedida a profundidade máxima de recursão. Recursão é o nome que se dá a uma função que se chama a si própria.
 
-5. Responde no papel: porque é que o setter se chama a si próprio? Porque é que o Python acaba por parar?
+5. Pensa: porque é que o setter se chama a si próprio? Porque é que o Python acaba por parar?
 
    A resposta: a última linha do setter escreve na propriedade `quantidade`, e escrever na propriedade é executar o setter. Cada execução do setter chega a essa linha e executa outra vez o setter, sem fim. O Python tem um limite para o número de chamadas que podem estar a meio ao mesmo tempo, perto de mil. Quando o ultrapassa, para com um `RecursionError`. É por isso que a propriedade e o atributo onde o valor fica têm de ter nomes diferentes: `quantidade` e `_quantidade`.
 
@@ -520,7 +519,7 @@ A invariante da quantidade diz que ela é sempre válida, enquanto o artigo exis
    NameError: name 'caneta' is not defined
    ```
 
-   `NameError` quer dizer erro de nome, e a mensagem diz: o nome `caneta` não está definido. Responde no papel: porque é que o nome `caneta` não existe?
+   `NameError` quer dizer erro de nome, e a mensagem diz: o nome `caneta` não está definido. Pensa: porque é que o nome `caneta` não existe?
 
    A resposta: na linha `caneta = Artigo("A03", "Caneta", -5)`, o construtor chamou o setter, e o setter lançou `ValueError`. A exceção interrompeu o construtor e também a atribuição ao nome `caneta`, que não chegou a acontecer. O artigo inválido não ficou disponível para o resto do programa, e é isso que queremos.
 
@@ -639,7 +638,7 @@ Falta escrever as operações do inventário: adicionar e retirar unidades. Ante
    print("Pasta no fim:", pasta.quantidade)
    ```
 
-5. Antes de executares, faz o traço dos quatro pedidos ao caderno, que começa com 6 unidades. Cada linha começa na quantidade deixada pela anterior. Copia a tabela para o papel e preenche as duas últimas colunas:
+5. Antes de executares, segue o traço dos quatro pedidos ao caderno, que começa com 6 unidades. Cada linha começa na quantidade deixada pela anterior. Prevê, de cabeça, as duas últimas colunas:
 
    | Pedido | Verificações do método | O setter recebe | Resposta | Quantidade depois |
    | --- | --- | --- | --- | ---: |
@@ -648,7 +647,7 @@ Falta escrever as operações do inventário: adicionar e retirar unidades. Ante
    | `retirar(0)` | não é positivo: `ValueError` | Não chega a ser chamado | | |
    | `retirar(-3)` | não é positivo: `ValueError` | Não chega a ser chamado | | |
 
-6. Executa e compara as seis linhas com o teu traço. O que deves ver:
+6. Executa e compara as seis linhas com a tua previsão. O que deves ver:
 
    ```text
    Depois de retirar 2: 4
@@ -816,7 +815,7 @@ Há um `try` à volta da linha, com um `except` do tipo dessa exceção, e é is
 
 1. Um limite máximo. Diz-se que, quando uma regra muda, só é preciso mudar a classe, e o resto do programa continua a fazer os mesmos pedidos. Vais comprová-lo. A regra nova: a quantidade de um artigo não pode passar de 100 unidades. Pode ser 100, mas não 101. Parte do ficheiro da paragem 7.
 
-   Antes de mexer no código, decide e escreve no papel três coisas. Em que método da classe vais escrever a regra, e porquê? Em que posição, em relação às verificações que já lá estão? Que mensagem vais usar? Escreve a regra. Depois, confirma que não precisaste de mudar o construtor, o `adicionar` nem o `retirar`.
+   Antes de mexer no código, decide três coisas. Em que método da classe vais escrever a regra, e porquê? Em que posição, em relação às verificações que já lá estão? Que mensagem vais usar? Escreve as três decisões num comentário por cima da regra, e depois a regra. No fim, confirma que não precisaste de mudar o construtor, o `adicionar` nem o `retirar`.
 
    Depois substitui as linhas que vêm depois da classe por testes teus, cada um no seu `try` quando puder ser recusado, que mostrem estes quatro casos:
 
@@ -825,7 +824,7 @@ Há um `try` à volta da linha, com um `except` do tipo dessa exceção, e é is
    - ao mesmo caderno, adicionar 94;
    - acertar a quantidade do caderno para 101.
 
-   Para cada caso, escreve antes de executar se vai ser aceite ou recusado, quem recusa e a quantidade do caderno depois. Executa e compara. No fim, responde numa frase: porque é que o `adicionar` passou a respeitar o limite, se não lhe tocaste? Pista: segue, no `adicionar`, o caminho do valor novo até ao sítio onde é guardado.
+   Para cada caso, prevê se vai ser aceite ou recusado, quem recusa e a quantidade do caderno depois. No fim do ficheiro, responde num comentário, numa frase: porque é que o `adicionar` passou a respeitar o limite, se não lhe tocaste? Pista: segue, no `adicionar`, o caminho do valor novo até ao sítio onde é guardado.
 
 2. Perguntar se está esgotado. Acrescenta à classe um método `esgotado()`, que responde `True` se a quantidade for zero e `False` se não for. Escreve primeiro o contrato na docstring, com as quatro partes: o que recebe, o que devolve, quando falha e o que acontece ao estado. Depois testa-o com um artigo, antes e depois de lhe retirares todas as unidades. Pista: pensa se este método precisa de verificar algum valor, ou se só consulta.
 
@@ -833,8 +832,7 @@ Há um `try` à volta da linha, com um `except` do tipo dessa exceção, e é is
 
 - [ ] O ficheiro `artigo.py` executa e mostra as seis linhas do passo 6 da fase 7 e `Caderno depois de retirar 4: 0`.
 - [ ] Desfizeste todas as alterações provocadas de propósito: o ficheiro está igual ao da paragem 7.
-- [ ] Tens no papel as previsões, as respostas de cada fase e o traço da fase 7.
-- [ ] Guardaste o `artigo.py` e a folha e, se fizeste os desafios, a versão com os desafios, e entregaste-os pelo meio indicado pelo professor.
+- [ ] Guardaste o `artigo.py` e, se fizeste os desafios, a versão com os desafios, e entregaste-os pelo meio indicado pelo professor.
 - [ ] Sabes ler um traceback de baixo para cima e dizer onde o erro aparece e onde está a causa.
 - [ ] Sabes dizer porque é que o setter guarda em `_quantidade`, e porque é que o construtor escreve em `quantidade`.
 - [ ] Consegues explicar, por palavras tuas, porque é que o artigo verifica cada pedido antes de mexer na quantidade, e o que fica igual quando recusa.

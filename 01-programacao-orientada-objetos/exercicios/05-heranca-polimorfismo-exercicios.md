@@ -2,7 +2,7 @@
 
 # Ficha de exercícios: Herança e polimorfismo
 
-Ficha do tema Herança e polimorfismo, do módulo M10, Introdução à Programação Orientada por Objetos. Praticas a leitura de hierarquias, a previsão de chamadas, a escolha entre herança e composição e a verificação de contratos. Praticas também o contrato de uma classe abstrata, escrito no papel, e a escrita de classes concretas que o cumprem. Fazes sozinho, ao teu ritmo: o que não acabares na aula, acabas em casa ou na aula seguinte.
+Ficha do tema Herança e polimorfismo, do módulo M10, Introdução à Programação Orientada por Objetos. Praticas a leitura de hierarquias, a previsão de chamadas, a escolha entre herança e composição e a verificação de contratos. Praticas também o contrato de uma classe abstrata, escrito por palavras, e a escrita de classes concretas que o cumprem. Fazes sozinho, ao teu ritmo: o que não acabares na aula, acabas em casa ou na aula seguinte.
 
 ## O que precisas de saber
 
@@ -21,7 +21,7 @@ Faz os exercícios 1 a 6 pela ordem. São a parte obrigatória. Cada exercício 
 
 As notificações do guia ficam de fora de propósito. Os exercícios usam outros exemplos, com as mesmas regras, para perceberes se as regras foram compreendidas ou só decoradas.
 
-Responde no caderno diário ou numa folha, com o número de cada exercício. Nos exercícios que pedem uma previsão, escreve-a antes de executar o programa: é a previsão, e não a execução, que mostra o que percebeste. Um programa completo pode ser copiado para um ficheiro `.py` e executado no editor de Python que usas nas aulas. Os excertos não correm sozinhos, e o enunciado diz sempre de que outro código dependem. Entrega as respostas pelo meio indicado pelo professor.
+As respostas escritas vão para comentários, com `#`, no ficheiro `.py` do exercício. Um exercício sem código, como o 1, o 3 e o 5, tem um ficheiro só com comentários, com o número do exercício no nome. Começa cada resposta pelo número da alínea. Nos exercícios que pedem uma previsão, prevê antes de executar o programa: é a previsão, e não a execução, que mostra o que percebeste. Um programa completo pode ser copiado para um ficheiro `.py` e executado no editor de Python que usas nas aulas. Os excertos não correm sozinhos, e o enunciado diz sempre de que outro código dependem. Entrega as respostas pelo meio indicado pelo professor.
 
 ## Exercício 1: Ler uma hierarquia
 
@@ -91,15 +91,15 @@ for etiqueta in etiquetas:
 
 O método `largura` só vai ser usado no exercício de "Para ires mais longe", no fim da ficha. Por agora, não precisas dele.
 
-1. Copia e completa esta tabela, com a regra de procura do guia:
+Prevê as três linhas que o ciclo mostra, com a regra de procura do guia. Em cada volta, decide de que classe é o objeto e onde o Python encontra o `conteudo`:
 
-   | Volta | Classe do objeto | Onde o Python encontra `conteudo` | Linha mostrada |
-   | --- | --- | --- | --- |
-   | 1 | A completar | A completar | A completar |
-   | 2 | A completar | A completar | A completar |
-   | 3 | A completar | A completar | A completar |
+| Volta | Classe do objeto | Onde o Python encontra `conteudo` | Linha mostrada |
+| --- | --- | --- | --- |
+| 1 | A completar | A completar | A completar |
+| 2 | A completar | A completar | A completar |
+| 3 | A completar | A completar | A completar |
 
-2. Executa e compara com a tua tabela.
+Confirma executando.
 
 ## Exercício 3: Herança ou composição
 
@@ -143,7 +143,7 @@ class EtiquetaComTracos(Etiqueta):
 ```
 
 1. Sem executar, diz, para cada variante, se cumpre o contrato. Se achares que não cumpre, diz que parte do contrato falha.
-2. Troca as linhas do programa principal do exercício 2, a partir de `etiquetas = [`, por estas. Prevê as quatro linhas que vão aparecer, e só depois executa e compara.
+2. Troca as linhas do programa principal do exercício 2, a partir de `etiquetas = [`, por estas. Uma das variantes não dá o que devia: encontra-a e corrige-a, mudando só o que for preciso. No fim, as quatro linhas dão o que devem, também as das variantes que já estavam certas.
 
    ```python partial
    etiquetas = [
@@ -158,16 +158,19 @@ class EtiquetaComTracos(Etiqueta):
    print(etiquetas[2].texto)
    ```
 
-3. Uma das variantes não deu o que devia. Escreve o caso que falhou, o que devia aparecer e o que apareceu. O que devia aparecer tira-se do contrato e da docstring, e não do código. Diz também que tipo de erro é: de escrita, de execução ou de lógica.
-4. Escreve, numa frase, uma hipótese para a causa: o que é que a linha do `return` dessa variante devolve, em vez do texto?
-5. Corrige a variante, mudando só o que for preciso. Depois volta a correr o programa e confirma que as quatro linhas dão o que devem, também as das variantes que já estavam certas.
+   Segue a rotina da depuração e escreve-a num comentário no fim do ficheiro, com `#`:
+
+   1. O caso que falhou, o que devia aparecer e o que apareceu. O que devia aparecer tira-se do contrato e da docstring, e não do código. Diz também que tipo de erro é: de escrita, de execução ou de lógica.
+   2. Uma hipótese para a causa, numa frase: o que é que a linha do `return` dessa variante devolve, em vez do texto?
+   3. A linha que mudaste, e como ficou.
+   4. O que deram as quatro linhas quando voltaste a correr o programa.
 
 ## Exercício 5: O contrato de uma classe abstrata
 
 Um programa de geometria tem uma classe `Forma`, para figuras planas como retângulos e quadrados. Todas as formas têm uma área.
 
 1. Explica, numa frase, porque é que `Forma` deve ser uma classe abstrata. Noutra frase, explica porque é que `area` deve ser um método abstrato.
-2. Escreve no papel o contrato abstrato de `Forma`, por palavras ou organizado por indentação, como em "Escrever o contrato abstrato no papel", no guia. Tem de dizer o que todas as formas sabem fazer e o que cada forma concreta tem de completar. O contrato de `area` tem de estar por inteiro: o que recebe, o que devolve e o que não faz.
+2. Escreve num comentário o contrato abstrato de `Forma`, por palavras ou organizado por indentação, como em "Escrever o contrato abstrato no papel", no guia. Tem de dizer o que todas as formas sabem fazer e o que cada forma concreta tem de completar. O contrato de `area` tem de estar por inteiro: o que recebe, o que devolve e o que não faz.
 
 ## Exercício 6: Escrever duas formas concretas
 
@@ -189,19 +192,19 @@ Repara que a `Forma` não tem construtor nem o método `area`. Por isso, o contr
 1. Completa a docstring da `Forma` com o contrato de `area` que escreveste no exercício 5: o que recebe, o que devolve e o que não faz. Escreve-o depois da última frase, antes das três aspas que fecham.
 2. Acrescenta ao programa a classe `Retangulo`, derivada de `Forma`. Cria-se com a largura e a altura, por exemplo `Retangulo(4, 3)`, e a sua área é a largura vezes a altura.
 3. Acrescenta a classe `Quadrado`, também derivada de `Forma`, que se cria só com o lado, por exemplo `Quadrado(5)`. Decide tu que atributo guarda e como calcula a área.
-4. No fim do programa, cria uma lista com `Retangulo(4, 3)`, `Quadrado(5)` e `Retangulo(2, 7)`, e mostra a área de cada forma com um ciclo `for`. Escreve as três áreas que esperas antes de executar.
-5. No fim do programa, acrescenta as linhas `geral = Forma()` e `print(geral.area())`, e executa. Escreve a última linha da mensagem de erro e diz, por palavras tuas, o que significa.
+4. No fim do programa, cria uma lista com `Retangulo(4, 3)`, `Quadrado(5)` e `Retangulo(2, 7)`, e mostra a área de cada forma com um ciclo `for`.
+5. No fim do programa, acrescenta as linhas `geral = Forma()` e `print(geral.area())`, e executa. Num comentário no fim do ficheiro, escreve a última linha da mensagem de erro e o que ela significa, por palavras tuas.
 
 ## Apoio
 
-- Exercício 1: lê a árvore de baixo para cima, ligação a ligação, com a frase "é um", como no guia. Escreve no papel cada frase que leres.
+- Exercício 1: lê a árvore de baixo para cima, ligação a ligação, com a frase "é um", como no guia, uma frase por ligação.
 - Exercício 2: para cada volta, faz as duas perguntas da regra de procura. De que classe é o objeto? Essa classe escreve `conteudo`?
 - Exercício 3: compara as relações "é um" e "tem" em cada caso e identifica a que for verdadeira. Na pergunta ao colega, compara as classes derivadas linha a linha: o que tem cada uma escrito por baixo da docstring?
-- Exercício 4: verifica as três partes do contrato em cada variante, uma parte de cada vez. Na alínea 3, a linha que não esperavas é uma pista: lê-a palavra a palavra. *Built-in method* quer dizer "método embutido", um método que já vem com o Python.
+- Exercício 4: verifica as três partes do contrato em cada variante, uma parte de cada vez. Na alínea 2, a linha que não esperavas é uma pista: lê-a palavra a palavra. *Built-in method* quer dizer "método embutido", um método que já vem com o Python.
 - Exercício 5: começa pelo contrato da `Notificacao`, no guia, e pergunta, linha a linha, o que muda quando se fala de formas.
 - Exercício 6: antes de escreveres cada construtor, decide que valores a forma recebe quando é criada. Não dês a um atributo o nome de um método: `self.area` tapava o método `area`.
 - Desafio: em cada alínea, imagina um programa que recebe um retângulo e confia no que um retângulo promete.
-- Mais longe 1: responde às três perguntas da alínea 1 pela ordem em que estão escritas, e escreve cada resposta antes de passares à seguinte.
+- Mais longe 1: responde às três perguntas da alínea 1 pela ordem em que estão escritas: cada resposta serve à seguinte.
 
 ## Desafio opcional
 
@@ -212,7 +215,7 @@ Um quadrado é um retângulo? Um colega diz que, no exercício 6, `Quadrado` dev
 
 ## Para ires mais longe
 
-Esta parte é opcional, para quem acabou os seis exercícios e quer treinar mais. Responde com o título do exercício, "Mais longe 1".
+Esta parte é opcional, para quem acabou os seis exercícios e quer treinar mais. As respostas vão para comentários, como nos outros exercícios, com o título do exercício, "Mais longe 1".
 
 ### Mais longe 1: Um método herdado que chama um método redefinido
 
@@ -221,17 +224,16 @@ Volta ao programa do exercício 2, com a lista e o ciclo originais. A classe `Et
 Muda a última linha do programa para `print(etiqueta.conteudo(), etiqueta.largura())`.
 
 1. Para a terceira etiqueta, a com moldura, responde por esta ordem. Em que classe é que o Python encontra `largura`? Dentro de `largura`, o `self` aponta para que objeto? E, por isso, que `conteudo` é chamado na linha `len(self.conteudo())`?
-2. Escreve as três linhas que o programa vai mostrar agora.
-3. Executa e compara. Se a terceira linha te surpreendeu, explica porquê, com a última parte de "Redefinir um método: onde o Python procura", no guia.
+2. Prevê as três linhas que o programa vai mostrar agora, e confirma executando. Se a terceira linha te surpreendeu, explica porquê, com a última parte de "Redefinir um método: onde o Python procura", no guia.
 
 ## Critérios de conclusão
 
-- Fizeste os exercícios 1 a 6, com as previsões escritas antes de executar.
-- Em cada previsão escreveste o raciocínio, e não só o resultado.
-- Na tabela do exercício 2, cada volta diz onde o Python encontra o `conteudo`.
-- No exercício 4, escreveste o caso que falhou, o que devia aparecer, o que apareceu e o tipo de erro. Depois da correção, voltaste a correr o programa inteiro.
+- Fizeste os exercícios 1 a 6, e previste antes de executar.
+- Em cada justificação escreveste o raciocínio, e não só o resultado.
+- No exercício 2, sabes dizer, em cada volta, onde o Python encontra o `conteudo`.
+- No exercício 4, o comentário do fim do ficheiro tem o caso que falhou, o que devia aparecer, o que apareceu e o tipo de erro. Depois da correção, voltaste a correr o programa inteiro.
 - No exercício 5, o contrato diz o que `area` recebe, o que devolve e o que não faz.
-- No exercício 6, a docstring da `Forma` tem o contrato de `area`, o programa mostra as três áreas que previste, e explicaste a mensagem de erro da forma geral.
+- No exercício 6, a docstring da `Forma` tem o contrato de `area`, o programa mostra as três áreas certas, e explicaste a mensagem de erro da forma geral.
 
 ## Autoavaliação
 

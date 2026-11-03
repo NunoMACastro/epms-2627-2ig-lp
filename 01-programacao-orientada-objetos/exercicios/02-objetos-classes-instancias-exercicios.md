@@ -12,9 +12,9 @@ O [guia do tema](../02-objetos-classes-instancias.md) e o [laboratório](../labo
 
 Faz os exercícios 1 a 6 pela ordem. São a parte obrigatória, e cada um treina uma coisa só, do mais direto para o que pede uma pequena decisão tua. O desafio opcional é para quem acabar. Os exercícios de "Para ires mais longe" são mais longos e servem para aprofundar: fazes os que quiseres, ou os que o professor indicar.
 
-Responde no caderno diário ou numa folha, com o número de cada exercício. Nos exercícios com código, escreve a previsão antes de executar: é a previsão, e não a execução, que mostra o que percebeste. Se a execução der outra coisa, procura a explicação em vez de mudar a previsão.
+Guarda os teus scripts na pasta `tema-02`, a do laboratório, com os nomes que cada exercício indica. Uma resposta escrita fica num comentário no script, com `#`, no início ou junto da linha a que diz respeito. Num exercício sem programa para executar, o script tem só comentários. Antes de executares, pensa no que esperas ver: é a previsão, e não a execução, que mostra o que percebeste. Se a execução der outra coisa, procura a explicação em vez de mudar a previsão.
 
-Um programa completo pode ser copiado para um ficheiro `.py` e executado no editor de Python que usas nas aulas. Os excertos não correm sozinhos, e o enunciado diz sempre de que outro código dependem. Entrega as respostas pelo meio indicado pelo professor.
+Um programa completo pode ser copiado para um script e executado no editor de Python que usas nas aulas. Os excertos não correm sozinhos, e o enunciado diz sempre de que outro código dependem. O desenho do exercício 3 faz-se numa folha. Entrega os scripts e a folha pelo meio indicado pelo professor.
 
 ## Exercício 1: Classe, instância ou valor de atributo
 
@@ -25,6 +25,8 @@ regua = Artigo("A06", "Régua", 10)
 livro = Livro("L12", "Atlas escolar", 3)
 cacifo_b = Cacifo(14, "Piso 1")
 ```
+
+Escreve as respostas no script `classificar.py`, só com comentários.
 
 1. Classifica cada um destes nove itens como classe, nome de uma instância ou valor de atributo: `Livro`, `"Régua"`, `cacifo_b`, `14`, `Artigo`, `livro`, `"Atlas escolar"`, `regua` e `Cacifo`. Um nome de variável como `regua` não é a instância: é o nome que aponta para ela ("Cada instância é um objeto diferente", no guia).
 2. Escolhe uma das três linhas e descreve o que ela faz numa frase que use as palavras classe, instância e valor de atributo.
@@ -49,6 +51,8 @@ cacifo = Cacifo(14, "Piso 1")
 print(cacifo.numero, cacifo.piso)
 ```
 
+Copia-o para o script `cacifo.py`. As respostas escritas deste exercício ficam num comentário no início do script.
+
 1. Na linha `self.piso = piso`, o que é `self.piso` e o que é `piso`? Qual dos dois continua a existir depois de o construtor terminar? ("O parâmetro `self`", no guia.)
 2. Um colega achou os nomes compridos e reescreveu o construtor com nomes curtos. É um excerto: para o experimentares, substitui o construtor do programa acima por este.
 
@@ -59,7 +63,7 @@ print(cacifo.numero, cacifo.piso)
            self.piso = p
    ```
 
-   Com o construtor do colega, e com a mesma linha `cacifo = Cacifo(14, "Piso 1")`, qual destas duas linhas funciona: `print(cacifo.numero)` ou `print(cacifo.n)`? Escreve a previsão com uma frase de justificação. Depois experimenta: substitui a última linha do programa por estas duas linhas, uma a seguir à outra.
+   Com o construtor do colega, e com a mesma linha `cacifo = Cacifo(14, "Piso 1")`, qual destas duas linhas funciona: `print(cacifo.numero)` ou `print(cacifo.n)`? Decide sem executar, e justifica numa frase. Para confirmares, substitui a última linha do programa por estas duas linhas, uma a seguir à outra.
 
 3. Os dois construtores fazem o mesmo trabalho. Qual dos dois preferias encontrar num programa escrito por outra pessoa, e porquê?
 
@@ -100,13 +104,15 @@ print(a.quantidade, b.quantidade, c.quantidade, d.quantidade)
 print(a is d, b is c)
 ```
 
-1. Sem executar: quantos objetos do tipo `Artigo` existem no fim do programa, e quantos nomes apontam para eles? Desenha uma caixa por objeto e uma etiqueta por nome, colada na caixa para onde o nome aponta. É a comparação das etiquetas de "Cada instância é um objeto diferente", no guia.
-2. A linha `d = c` não tem `Artigo(...)` e não usa o nome `a`. Para que objeto fica a apontar o nome `d`? Explica numa frase.
-3. Escreve as duas linhas que esperas ver no ecrã. Depois executa e compara.
+Copia-o para o script `etiquetas.py`.
+
+1. Sem executar: quantos objetos do tipo `Artigo` existem no fim do programa, e quantos nomes apontam para eles? Desenha numa folha uma caixa por objeto e uma etiqueta por nome, colada na caixa para onde o nome aponta. É a comparação das etiquetas de "Cada instância é um objeto diferente", no guia.
+2. A linha `d = c` não tem `Artigo(...)` e não usa o nome `a`. Para que objeto fica a apontar o nome `d`? Explica numa frase, num comentário junto dessa linha.
+3. Sem executar, prevê as duas linhas que o programa mostra, e confirma-as no script.
 
 ## Exercício 4: O valor devolvido e o estado
 
-Este exercício usa a classe `Artigo` do segundo programa do guia, a mesma do exercício 3. É um excerto: para o executares, copia esse programa e substitui as linhas que vêm depois da classe (a partir de `caderno = ...`) por estas.
+Este exercício usa a classe `Artigo` do segundo programa do guia, a mesma do exercício 3. É um excerto: para o executares, copia esse programa para o script `marcador.py` e substitui as linhas que vêm depois da classe (a partir de `caderno = ...`) por estas.
 
 ```python partial
 marcador = Artigo("A07", "Marcador", 12)
@@ -117,13 +123,13 @@ print(marcador.retirar(1))
 print(marcador.quantidade)
 ```
 
-1. Escreve as três linhas que esperas ver. Depois executa e compara.
-2. Na primeira linha do ecrã aparecem dois números diferentes. Explica porquê numa ou duas frases, usando as palavras "devolve" e "atributo" ("O método retirar em Python", no guia).
-3. A linha `print(marcador.retirar(1))` faz duas coisas. Diz quais, pela ordem em que acontecem.
+1. Sem executar, prevê as três linhas que o programa mostra, e confirma-as no script.
+2. Na primeira linha do ecrã aparecem dois números diferentes. Explica porquê numa ou duas frases, num comentário no início do script, usando as palavras "devolve" e "atributo" ("O método retirar em Python", no guia).
+3. A linha `print(marcador.retirar(1))` faz duas coisas. Diz quais, pela ordem em que acontecem, num comentário junto dessa linha.
 
 ## Exercício 5: Da saída para o código
 
-Copia o primeiro programa do guia, em "A classe Artigo em Python". Substitui as linhas que vêm depois da classe (a partir de `caderno = ...`) por estas duas, que são um excerto:
+Copia o primeiro programa do guia, em "A classe Artigo em Python", para o script `agrafador.py`. Substitui as linhas que vêm depois da classe (a partir de `caderno = ...`) por estas duas, que são um excerto:
 
 ```python partial
 print(primeiro.nome, primeiro.quantidade)
@@ -137,8 +143,8 @@ Agrafador 2
 A08 Furador
 ```
 
-1. Escreve as duas linhas que faltam, executa e confirma a saída. A saída não mostra todos os valores de que o construtor precisa: os que faltam escolhes tu. Explica numa frase porque é que tens de os escrever na mesma, se não aparecem no ecrã.
-2. Um colega escreveu a primeira linha assim: `primeiro = Artigo("Agrafador", "A09", 2)`. Prevê o que mostra a primeira linha do ecrã com a linha dele, e explica porque é que o Python não se queixou.
+1. Escreve as duas linhas que faltam. A saída não mostra todos os valores de que o construtor precisa: os que faltam escolhes tu. Num comentário no início do script, explica numa frase porque é que tens de os escrever na mesma, se não aparecem no ecrã.
+2. Um colega escreveu a primeira linha assim: `primeiro = Artigo("Agrafador", "A09", 2)`. Prevê o que mostra a primeira linha do ecrã com a linha dele. No mesmo comentário, explica porque é que o Python não se queixou.
 
 ## Exercício 6: Um construtor que não aceita os valores
 
@@ -169,21 +175,23 @@ TypeError: Artigo.__init__() takes 3 positional arguments but 4 were given
 
 Em português: o construtor da classe `Artigo` aceita 3 argumentos posicionais, mas recebeu 4. "Posicionais" quer dizer que os valores são entregues aos parâmetros pela ordem em que estão escritos. O primeiro valor vai para o primeiro parâmetro, o segundo para o segundo, e assim por diante.
 
-1. O colega escreveu três valores entre parênteses, e a mensagem diz que o construtor recebeu 4. Porque é que este construtor só aceita 3? A ideia está em "Criar as instâncias", no guia.
-2. Corrige o programa mudando uma única linha. Executa e confirma que aparece `Caderno 6`.
+Copia o programa para o script `colega.py`.
+
+1. O colega escreveu três valores entre parênteses, e a mensagem diz que o construtor recebeu 4. Porque é que este construtor só aceita 3? Responde num comentário junto da linha que corriges na alínea 2. A ideia está em "Criar as instâncias", no guia.
+2. Corrige o programa mudando uma única linha, para mostrar `Caderno 6`.
 
 ## Apoio
 
 - Exercício 1: para cada item, pergunta-te: é a descrição comum? É o nome que fica a apontar para um objeto criado? É um valor que fica guardado dentro dele?
 - Exercício 2: relê, no guia, o parágrafo sobre a linha `self.codigo = codigo`.
 - Exercício 3: desenha primeiro as caixas, uma por cada linha que tem `Artigo(...)`. Depois cola as etiquetas, linha a linha, pela ordem do programa.
-- Exercício 4: faz um traço com duas colunas, o atributo `quantidade` do marcador e a variável `restam`. Muda cada coluna só na linha que a muda.
+- Exercício 4: segue um traço com duas colunas, o atributo `quantidade` do marcador e a variável `restam`. Muda cada coluna só na linha que a muda.
 - Exercício 5: os valores entram no construtor pela ordem dos parâmetros do `def __init__`, seja qual for a ordem em que aparecem no ecrã.
 - Exercício 6: conta os lugares na linha do `def __init__` e os valores que o Python lhes entrega, sem esqueceres o que ele entrega sozinho.
 - Desafio: em cada teste, pergunta-te que objeto é o `self` e que objeto o método altera.
-- Mais longe 1: na coluna de `escolhido`, escreve para que caixa aponta a etiqueta depois de cada linha. Um pedido feito através de `escolhido` vai para essa caixa.
+- Mais longe 1: no traço, diz para que caixa aponta a etiqueta `escolhido` depois de cada linha. Um pedido feito através de `escolhido` vai para essa caixa.
 - Mais longe 2: pensa em quem vai usar o método. Precisa do valor logo, ou consulta o atributo quando quiser?
-- Mais longe 3: para cada versão, segue a chamada linha a linha e escreve o valor de `self.quantidade` antes e depois.
+- Mais longe 3: para cada versão, segue a chamada linha a linha e vê o valor de `self.quantidade` antes e depois.
 - Mais longe 4: escolhe primeiro o artigo que vai acabar em zero. As retiradas dele têm de somar exatamente a quantidade com que começou.
 
 ## Desafio opcional
@@ -218,9 +226,11 @@ pasta.retirar(1)
 print("Teste 2:", caderno.quantidade, pasta.quantidade)
 ```
 
-1. Prevê as duas linhas. Depois executa e compara.
-2. O teste 1 dá o resultado certo e o teste 2 não. Explica porquê, usando a palavra `self`, e corrige o método.
-3. Sem a correção, o colega usou a mesma classe noutro programa, em que os artigos se chamam `regua` e `esquadro` e não há nenhum nome `caderno`. Prevê o que acontece na primeira chamada a `retirar`. Depois experimenta: mantém a classe do colega, sem a corrigir, e substitui as linhas que vêm depois dela por estas, que são um excerto.
+Copia o programa para o script `desafio.py`.
+
+1. Sem executar, prevê as duas linhas que o programa mostra.
+2. O teste 1 dá o resultado certo e o teste 2 não. Explica porquê num comentário no início do script, usando a palavra `self`, e corrige o método.
+3. Sem a correção, o colega usou a mesma classe noutro programa, em que os artigos se chamam `regua` e `esquadro` e não há nenhum nome `caderno`. Prevê o que acontece na primeira chamada a `retirar`. Para confirmares, mantém a classe do colega, sem a corrigir, e substitui as linhas que vêm depois dela por estas, que são um excerto.
 
    ```python partial
    regua = Artigo("A06", "Régua", 10)
@@ -237,7 +247,7 @@ print("Teste 2:", caderno.quantidade, pasta.quantidade)
 
 ### Mais longe 1: Um nome que muda de objeto
 
-Este excerto não corre sozinho: precisa da classe `Artigo` com o método `retirar`, tal como está no segundo programa do guia. Para o executares, copia esse programa e substitui as linhas que vêm depois da classe (a partir de `caderno = ...`) por estas:
+Este excerto não corre sozinho: precisa da classe `Artigo` com o método `retirar`, tal como está no segundo programa do guia. Para o executares, copia esse programa para o script `escolhido.py` e substitui as linhas que vêm depois da classe (a partir de `caderno = ...`) por estas:
 
 ```python partial
 caneta = Artigo("A03", "Caneta", 8)
@@ -250,15 +260,15 @@ escolhido.retirar(3)
 print(caneta.quantidade, borracha.quantidade)
 ```
 
-Constrói um traço com uma linha por instrução e três colunas. As colunas são a quantidade da caneta, a quantidade da borracha e o objeto para onde aponta o nome `escolhido` depois dessa instrução. Escreve a linha que esperas ver no ecrã e só depois executa. No fim, explica por palavras o que mudou na linha `escolhido = caneta` e o que não mudou.
+Escreve o traço no script, num comentário no fim de cada instrução. O comentário diz a quantidade da caneta, a da borracha e o objeto para onde aponta o nome `escolhido` depois dessa instrução. Prevê a linha que o programa mostra. Num comentário no fim do script, explica por palavras o que mudou na linha `escolhido = caneta` e o que não mudou.
 
 ### Mais longe 2: Um método novo, adicionar
 
-Acrescenta à classe `Artigo` do segundo programa do guia um método `adicionar`, que acrescenta unidades à quantidade de um artigo. Não precisas de verificar se o pedido é válido: isso fica para o guia 03.
+No script `adicionar.py`, com o segundo programa do guia, acrescenta à classe `Artigo` um método `adicionar`, que acrescenta unidades à quantidade de um artigo. Não precisas de verificar se o pedido é válido: isso fica para o guia 03.
 
-Antes de escreveres o método, tens de tomar uma decisão que o guia não tomou por ti: o que é que `adicionar` devolve? Pode devolver a quantidade que fica, como o `retirar`, ou pode não devolver nada. Escolhe uma das opções e justifica-a numa frase, a pensar em quem vai usar o método. Escreve a docstring do método de acordo com a tua escolha.
+Há uma decisão que o guia não tomou por ti: o que é que `adicionar` devolve? Pode devolver a quantidade que fica, como o `retirar`, ou pode não devolver nada. Escolhe uma das opções e justifica-a numa frase, num comentário por cima do método, a pensar em quem vai usar o método. A docstring do método diz o que escolheste.
 
-Depois escreve, no fim do programa, as linhas necessárias para adicionar 4 unidades à pasta e em seguida retirar-lhe 1, e para mostrar as quantidades dos dois artigos no fim. Prevê o que vai aparecer no ecrã e confirma executando.
+No fim do programa, acrescenta as linhas que adicionam 4 unidades à pasta e em seguida lhe retiram 1, e que mostram as quantidades dos dois artigos no fim.
 
 ### Mais longe 3: Dois colegas, dois erros
 
@@ -282,7 +292,7 @@ Versão do colega B:
         return self.quantidade
 ```
 
-Para cada versão, e para um caderno com 6 unidades a que se pede `caderno.retirar(2)`, responde:
+Experimenta as duas versões no script `dois_colegas.py`. Para cada versão, e para um caderno com 6 unidades a que se pede `caderno.retirar(2)`, responde num comentário no início do script:
 
 1. Que valor devolve o método?
 2. Com que quantidade fica o caderno depois da chamada?
@@ -292,16 +302,15 @@ Termina com esta pergunta: se só olhasses para o valor devolvido, qual das duas
 
 ### Mais longe 4: A tua própria representação
 
-Escolhe dois materiais da sala inventados por ti, com código, nome e quantidade inicial. Escreve um programa completo, com a classe `Artigo` do segundo programa do guia, que crie as duas instâncias. O programa faz depois uma sequência de três chamadas a `retirar`, todas possíveis, de forma que um dos artigos acabe com a quantidade exatamente em zero. Terás de escolher os números com cuidado antes de escrever as chamadas.
+Escolhe dois materiais da sala inventados por ti, com código, nome e quantidade inicial. Escreve o script `representacao.py`, com a classe `Artigo` do segundo programa do guia, que crie as duas instâncias. O programa faz depois uma sequência de três chamadas a `retirar`, todas possíveis, de forma que um dos artigos acabe com a quantidade exatamente em zero. Terás de escolher os números com cuidado antes de escrever as chamadas.
 
-Antes de executares, escreve o traço da sequência, com a quantidade dos dois artigos depois de cada chamada. Depois executa, mostrando as quantidades no fim, e compara com o traço.
+O traço da sequência fica num comentário no fim de cada chamada, com a quantidade dos dois artigos depois dela. O programa mostra as quantidades no fim.
 
-Por baixo do programa, escreve um parágrafo curto que responda a duas coisas. Primeiro, onde está a classe, onde estão as instâncias e que valores mudaram. Depois, o que responderias a um colega que propusesse escrever uma classe diferente para cada um dos teus dois materiais.
+Num comentário no fim do script, escreve um parágrafo curto que responda a duas coisas. Primeiro, onde está a classe, onde estão as instâncias e que valores mudaram. Depois, o que responderias a um colega que propusesse escrever uma classe diferente para cada um dos teus dois materiais.
 
 ## Critérios de conclusão
 
-- Fizeste os exercícios 1 a 6, com as previsões escritas antes de executar.
-- Em cada exercício com código, comparaste a previsão com o que apareceu e explicaste as diferenças.
+- Fizeste os exercícios 1 a 6, cada um no seu script, com as respostas escritas em comentários, e o desenho do exercício 3.
 - Nas respostas por palavras, usaste as palavras que os enunciados pedem, como classe, instância, valor de atributo, "devolve" e "atributo".
 - O programa do exercício 6 está corrigido numa só linha e mostra `Caderno 6`.
 

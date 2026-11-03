@@ -31,7 +31,7 @@ Se não fizeste o diagnóstico, escolhe a base de que te lembras pior. Não tens
 
 Os algoritmos estão em pseudocódigo: uma forma de escrever os passos de um programa que serve para raciocinar, e não para executar num programa específico. Nesta notação, `=` dá um valor a uma variável e `==` compara dois valores, como em Python. `Escreve:` mostra um valor no ecrã, e `devolver` entrega o resultado de uma função. Os blocos marcam-se só pela indentação, também como em Python. Em Python, `Se` é `if`, `Senão` é `else:`, `Para cada x em lista` é `for x in lista:`, `Função` é `def`, `devolver` é `return`, `Escreve:` é `print` e `e` é `and`.
 
-Responde em papel, por palavras, com tabelas ou em pseudocódigo. Escreve sempre a resposta antes de experimentares. Se passares um algoritmo para Python e o executares, compara o resultado com o que tinhas previsto.
+Responde em papel, por palavras, com tabelas ou em pseudocódigo, como na algoritmia do 10.º ano. Se passares um algoritmo para Python e o executares, compara o resultado com a tua resposta.
 
 A última alínea dos exercícios 1 a 4 é de encontrar o erro. Há um programa com um erro: tu escolhes valores, ou observas, o que mostra o erro, explicas a causa e corriges.
 
@@ -41,7 +41,7 @@ Não há entrega: as respostas ficam contigo. Se ficares preso, leva a dúvida a
 
 Um programa transforma uma situação inicial seguindo instruções. Para perceberes o resultado, acompanha os valores pela ordem em que mudam. Seguir os valores assim, instrução a instrução, chama-se fazer o traço do algoritmo.
 
-Três ideias ajudam a seguir os valores. Uma atribuição substitui o valor anterior da variável. Uma condição escolhe um caminho. Um ciclo repete passos. Antes de corrigires código, escreve o que esperas e compara com o que cada instrução faz.
+Três ideias ajudam a seguir os valores. Uma atribuição substitui o valor anterior da variável. Uma condição escolhe um caminho. Um ciclo repete passos. Antes de corrigires código, decide o que esperas e compara-o com o que cada instrução faz.
 
 O stock de um material diz quantas unidades existem, e cada pedido retira unidades. A regra é esta. Só é permitido retirar uma quantidade positiva que não ultrapasse o stock.
 
@@ -136,7 +136,7 @@ Transforma o teste de validade do exercício 5 numa função. Explica os parâme
 
 - Fizeste pelo menos um dos exercícios 1 a 4 e o exercício 5, com o traço.
 - Para um erro que encontraste, escreveste uma frase com esta forma: "O erro era…; confirmei-o com…; corrigi-o porque…; voltei a testar com…".
-- Consegues explicar a um colega, ou ao professor, uma alteração a um destes algoritmos, sem voltares a ler o cenário.
+- Consegues explicar, por palavras tuas, uma alteração a um destes algoritmos, sem voltares a ler o cenário.
 
 ## Autoavaliação
 

@@ -8,10 +8,10 @@ Laboratório do tema Síntese, do módulo M10, Introdução à Programação Ori
 
 Vais trabalhar com um pequeno programa em Python que acompanha os materiais de uma sala. O programa já conhece dois artigos e já sabe registá-los. Também já sabe consultar a quantidade de cada um e as suas saídas, mas ainda não sabe retirar unidades. Primeiro explicas como os dados estão organizados. Depois completas a operação que falta, verificas os resultados com casos escolhidos e explicas a correção que fizeste. No fim, mostras o teu trabalho ao professor numa conversa curta.
 
-No fim do laboratório tens:
+No fim do laboratório tens uma pasta `tema-06` com dois ficheiros:
 
-- uma pasta `tema-06` com dois ficheiros: o `inventario.py`, com a retirada completa nas duas classes, e o `ensaios.py`, com os casos que experimentaste;
-- uma folha com o modelo do programa, o plano dos dois métodos, as tabelas de previsão e as frases que explicam a correção.
+- o `inventario.py`, com a retirada completa nas duas classes e, num comentário no fim, o modelo do programa, o plano dos dois métodos e as frases que explicam a correção;
+- o `ensaios.py`, com os casos que experimentaste.
 
 ### O problema: os artigos e as suas saídas
 
@@ -37,7 +37,7 @@ Repara que, enquanto ninguém adicionar unidades, a quantidade e as saídas de u
 | Fase | O que fazes | O que tens no fim |
 | --- | --- | --- |
 | 1 | Executas o programa inicial e lês o que ele mostra | Sabes dizer que tipo de erro tem o programa |
-| 2 | Descreves por palavras, no papel, o modelo do programa | A descrição das duas classes e da relação entre elas, e o estado dos dois artigos, confirmados pelo professor |
+| 2 | Descreves por palavras, num comentário, o modelo do programa | A descrição das duas classes e da relação entre elas, e o estado dos dois artigos, confirmados pelo professor |
 | 3 | Escreves por palavras o plano dos dois métodos `retirar` | O plano, confirmado pelo professor |
 | 4 | Completas os dois métodos e comparas o programa com a tua previsão | O programa principal aceita o pedido de 4 e recusa o de 5 |
 | 5 | Crias o `ensaios.py` e experimentas outros casos | Os quatro ensaios e os dois pedidos seguidos, confirmados pelo professor |
@@ -47,11 +47,13 @@ Repara que, enquanto ninguém adicionar unidades, a quantidade e as saídas de u
 
 O professor acompanha o laboratório do princípio ao fim. Podes trabalhar sozinho ou em par, como ele indicar. Em par, os dois têm de conseguir explicar tudo o que está escrito, porque o professor pode fazer a pergunta a qualquer um.
 
-Algumas paragens começam pela frase "Mostra ao professor antes de leres a resposta". Quer dizer o que diz: chamas o professor e mostras o que fizeste. Só depois de ele o confirmar lês a resposta do laboratório e passas à fase seguinte. Há uma razão para isto. Cada fase usa a anterior: um modelo mal percebido leva a escrever uma regra no objeto errado, e uma previsão errada faz-te procurar um erro onde ele não está. Se o professor encontrar alguma coisa a corrigir, não te dá a resposta. Faz-te uma pergunta, ou aponta para uma linha do teu código ou da tua tabela, e tu corriges e voltas a mostrar. Enquanto esperas, lê a explicação do início da fase seguinte.
+Algumas paragens começam pela frase "Mostra ao professor antes de leres a resposta". Quer dizer o que diz: chamas o professor e mostras o que fizeste. Só depois de ele o confirmar lês a resposta do laboratório e passas à fase seguinte. Há uma razão para isto. Cada fase usa a anterior: um modelo mal percebido leva a escrever uma regra no objeto errado, e uma previsão errada faz-te procurar um erro onde ele não está. Se o professor encontrar alguma coisa a corrigir, não te dá a resposta. Faz-te uma pergunta, ou aponta para uma linha do teu código ou do teu comentário, e tu corriges e voltas a mostrar. Enquanto esperas, lê a explicação do início da fase seguinte.
 
 Este laboratório não tem nota. É prática guiada: serve para juntares as ideias do módulo com ajuda, antes de as usares sozinho no projeto. Pedir ajuda faz parte do trabalho, e o professor está lá para isso.
 
-Em todas as fases trabalhas da mesma maneira. Antes de executares, escreves no papel o que esperas ver. Depois executas e comparas. Quando o resultado é diferente do que previste, procura a explicação antes de continuares: é essa explicação que mais te ensina. Se a previsão estiver errada, não a apagues para ficar igual ao ecrã. Escreve ao lado o que estava errado e porquê.
+Em todas as fases trabalhas da mesma maneira. Antes de executares, pensa no que esperas ver. Depois executas e comparas. Quando o resultado é diferente do que previste, procura a explicação antes de continuares: é essa explicação que mais te ensina.
+
+O que o laboratório te pede para escrever, o modelo, os planos e as explicações, vai para um comentário no fim do `inventario.py`. Fica depois do programa principal, com `#` no início de cada linha. No fim, o código não muda de linha.
 
 ## Palavras que vais usar
 
@@ -68,7 +70,7 @@ Em todas as fases trabalhas da mesma maneira. Antes de executares, escreves no p
 - Modelo: a descrição por palavras das classes de um programa e das relações entre elas. Diz o que cada objeto guarda, com que valores se cria e o que se lhe pode pedir.
 - Saídas: o total de unidades de um artigo que já saíram da sala por retiradas aceites.
 - Invariante: uma regra que tem de continuar verdadeira depois de cada operação, como a regra da quantidade, que nunca pode ser negativa.
-- Traço: a tabela que regista, pedido a pedido, o que acontece e como fica o estado depois. Faz-se no papel, antes de executar.
+- Traço: a tabela que regista, pedido a pedido, o que acontece e como fica o estado depois. Prevê-se antes de executar.
 - `pass`: a instrução que não faz nada (do inglês, "passa"). Marca o sítio onde vai entrar código.
 - Programa principal: as linhas encostadas à margem, no fim do ficheiro, fora das classes. São elas que dizem o que o programa faz.
 - Erro de escrita, de execução e de lógica: no de escrita, o Python recusa o ficheiro antes de começar. O de execução para o programa a meio. No de lógica, o programa corre até ao fim e faz uma coisa diferente da que devia.
@@ -78,7 +80,6 @@ Em todas as fases trabalhas da mesma maneira. Antes de executares, escreves no p
 
 - O editor de Python que usas nas aulas, para escrever e executar os programas. Confirma que funciona: num ficheiro de ensaio, escreve `print("Olá")` e executa. Deve aparecer `Olá`, o que quer dizer que o editor está a executar programas de Python.
 - O Python 3, a partir da versão 3.10. Nas versões mais antigas, algumas mensagens de erro são um pouco diferentes, e o laboratório diz onde.
-- Papel e caneta, para o modelo, as previsões, o plano e as respostas.
 
 O laboratório começa de uma pasta vazia. Não precisas de nenhum ficheiro de outro laboratório: o programa inicial está todo aqui.
 
@@ -271,7 +272,7 @@ Um programa de Python é um ficheiro de texto com a extensão `.py`. Executar o 
 
 Um programa pode estar errado de três maneiras. Num erro de escrita, o Python recusa o ficheiro antes de começar: falta um parêntese, faltam os dois pontos no fim de um `def`, ou uma linha está mal indentada. Num erro de execução, o programa para a meio, com uma mensagem que começa por `Traceback`. Num erro de lógica, o programa corre do princípio ao fim, sem nenhuma mensagem, e faz uma coisa diferente da que o problema pede. O erro de lógica é o mais traiçoeiro, porque o Python não avisa de nada. Só o apanhas se souberes antes o que o programa devia mostrar. Para saber mais, lê "Um programa que corre sem erros e não faz o que devia", no [guia](../06-sintese.md).
 
-1. Antes de executares, prevê e escreve no papel. O programa vai parar com uma mensagem de erro, ou vai correr até ao fim? O que diz sobre os dois pedidos? Que quantidade e que saídas mostra para A10 no fim?
+1. Antes de executares, prevê: o programa vai parar com uma mensagem de erro, ou vai correr até ao fim? O que diz sobre os dois pedidos? Que quantidade e que saídas mostra para A10 no fim?
 
 2. Executa o ficheiro inteiro. O que deves ver:
 
@@ -288,7 +289,7 @@ Um programa pode estar errado de três maneiras. Num erro de escrita, o Python r
 
    A resposta à previsão: o programa corre até ao fim, sem nenhuma mensagem de erro. Os dois métodos `retirar` só têm o `pass`, que não faz nada e não lança nada. Por isso nenhum pedido salta para o `except`, e o programa principal escreve "aceite" nos dois. No fim, A10 continua com quantidade 6 e saídas 0. Se o programa parar com uma mensagem de erro, a cópia ficou com algum engano: compara-a com o bloco de "Preparar o projeto" e vê os [problemas frequentes](#problemas-frequentes).
 
-3. Responde por escrito, a olhar para o ecrã. Cada pergunta tem a resposta logo a seguir; escreve a tua antes de a leres.
+3. Responde de cabeça, a olhar para o ecrã. Cada pergunta tem a resposta logo a seguir; pensa na tua antes de a leres.
 
    1. O pedido para retirar 4 unidades de A10 devia ser aceite, tendo em conta os dados iniciais? Porquê?
 
@@ -306,7 +307,7 @@ Um programa pode estar errado de três maneiras. Num erro de escrita, o Python r
 
       A resposta: de lógica. O programa corre do princípio ao fim sem nenhuma mensagem do Python, mas não faz o que o problema pede. Um erro de escrita impedia-o de começar, e um erro de execução parava-o a meio.
 
-4. Guarda estas respostas: vais precisar delas na fase 6, para as comparares com o programa corrigido.
+4. Vais voltar a estas respostas na fase 6, para as comparares com o programa corrigido.
 
 ### Paragem 1
 
@@ -349,7 +350,7 @@ Para falar de um artigo concreto, com os valores, descreve-se o seu estado, numa
 
 Para saber mais, lê o passo 8 do exemplo guiado do [guia](../06-sintese.md).
 
-1. Numa folha, escreve a descrição das duas classes do teu `inventario.py`. Parte das descrições acima e acrescenta o que este programa tem a mais. Na descrição do artigo, falta o dado que conta as saídas; na do inventário, o pedido que as consulta. Escreve também a descrição da relação entre as duas classes, com a frase que as liga e, se for uma relação "tem", o grau e as razões.
+1. Num comentário no fim do `inventario.py`, escreve a descrição das duas classes do programa. Parte das descrições acima e acrescenta o que este programa tem a mais. Na descrição do artigo, falta o dado que conta as saídas; na do inventário, o pedido que as consulta. Escreve também a descrição da relação entre as duas classes, com a frase que as liga e, se for uma relação "tem", o grau e as razões.
 
 2. Por baixo, escreve o estado dos dois artigos no início do programa, numa frase para cada um, com os valores de cada dado.
 
@@ -387,7 +388,7 @@ O estado dos dois artigos no início do programa:
 - O artigo A10 chama-se Régua, tem 6 unidades e 0 saídas.
 - O artigo A11 chama-se Cola, tem 3 unidades e 0 saídas.
 
-Se escreveste `_quantidade` e `_saidas`, sabe que são os atributos internos onde os valores vivem; a descrição mostra a interface pública, com a quantidade e as saídas. Se identificaste um artigo por um nome, como `regua`, diz ao professor que esse nome não existe no programa: o que identifica cada artigo é o código. Se escreveste valores na descrição de uma classe, tira-os: os valores de um artigo concreto vão só no estado dele.
+Se escreveste `_quantidade` e `_saidas`, sabe que são os atributos internos onde os valores vivem; a descrição mostra a interface pública, com a quantidade e as saídas. Se identificaste um artigo por um nome, como `regua`, corrige-o: esse nome não existe no programa, e o que identifica cada artigo é o código. Se escreveste valores na descrição de uma classe, tira-os: os valores de um artigo concreto vão só no estado dele.
 
 As respostas:
 
@@ -428,7 +429,7 @@ O plano é uma tabela com duas colunas. Na primeira, os passos do método, pela 
 
 As saídas não aparecem no plano do `adicionar`, porque uma entrada de material não é uma saída.
 
-1. Copia para a folha o plano do método `retirar` do artigo e completa-o. Os dois primeiros passos já estão escritos. Acrescenta os passos que faltam, pela ordem em que devem acontecer, com a segunda coluna preenchida em cada um. Usa a forma que escolheste para a falta de unidades.
+1. No comentário do fim do `inventario.py`, escreve o plano do método `retirar` do artigo, com um passo por linha. Depois de cada passo, escreve dois pontos e o que já mudou no artigo se o pedido for recusado nesse passo. Os dois primeiros passos já estão na tabela abaixo. Acrescenta os que faltam, pela ordem em que devem acontecer. Usa a forma que escolheste para a falta de unidades.
 
    | Passo do `retirar` do artigo | O que já mudou no artigo, se o pedido for recusado neste passo |
    | --- | --- |
@@ -436,7 +437,7 @@ As saídas não aparecem no plano do `adicionar`, porque uma entrada de material
    | Verificar se as unidades são 1 ou mais | Nada |
    | A completar | A completar |
 
-2. Escreve, numa tabela igual, o plano do método `retirar` do inventário, desta vez sem nenhuma linha começada.
+2. Escreve, da mesma maneira, o plano do método `retirar` do inventário, desta vez sem nenhum passo começado.
 
 ### Paragem 3
 
@@ -476,7 +477,7 @@ No artigo, as duas verificações do pedido escrevem-se como no método `adicion
 
 2. No método `retirar` da classe `Artigo`, faz o mesmo: apaga o comentário "Por completar" e o `pass`, e escreve as linhas do teu plano, pela ordem do plano.
 
-3. Antes de executares, copia esta tabela para a folha e preenche as colunas de previsão. Cada linha começa no estado deixado pela anterior.
+3. Antes de executares, prevê de cabeça as colunas de previsão desta tabela. Cada linha começa no estado deixado pela anterior.
 
    | Momento | Resposta prevista | A10: quantidade e saídas previstas | A11: quantidade e saídas previstas | O que observaste no ecrã |
    | --- | --- | --- | --- | --- |
@@ -486,11 +487,11 @@ No artigo, as duas verificações do pedido escrevem-se como no método `adicion
 
 4. Executa o ficheiro inteiro. Se aparecer uma mensagem de erro do Python, lê primeiro a última linha, que diz o tipo de erro, e depois as de cima, que dizem onde aconteceu. Os [problemas frequentes](#problemas-frequentes) ajudam com as mensagens mais comuns.
 
-5. Quando o programa correr até ao fim, preenche a última coluna. Confirma também a regra da soma: a quantidade e as saídas de A10 continuam a somar 6? Se a previsão e a observação forem diferentes, não alteres a previsão só para ficar igual ao ecrã. Procura primeiro qual das duas está errada, e escreve porquê. Se for o programa, corrige-o e volta a executar o ficheiro inteiro.
+5. Quando o programa correr até ao fim, compara o ecrã com a tua previsão, linha a linha. Confirma também a regra da soma: a quantidade e as saídas de A10 continuam a somar 6? Se a previsão e o ecrã forem diferentes, procura primeiro qual dos dois está errado, e escreve porquê no comentário do fim do ficheiro. Se for o programa, corrige-o e volta a executar o ficheiro inteiro.
 
 ### Paragem 4
 
-Mostra ao professor antes de leres a resposta: a tabela, com as previsões e as observações e, se alguma previsão foi diferente do ecrã, a explicação da diferença.
+Mostra ao professor antes de leres a resposta: o que o programa mostra e, se alguma previsão foi diferente do ecrã, a explicação da diferença, no comentário do fim.
 
 O que deves ver, se deixaste a falta de unidades ao setter:
 
@@ -735,7 +736,7 @@ Os dois pedidos do programa principal são para o mesmo artigo. Não experimenta
 
    Leitura guiada: este bloco depende das classes e do inventário criados acima, e não é para executar sozinho. Mostra o estado dos dois artigos antes, faz um pedido dentro de um `try` e mostra o estado depois. A linha `inventario.retirar("A11", 3)` é o pedido.
 
-2. Copia esta tabela para a folha. Em cada ensaio, preenche primeiro as colunas de previsão. Depois muda o código e as unidades da linha do pedido para os da tabela, e executa o ficheiro inteiro, para voltares a começar com os valores iniciais.
+2. Faz os quatro ensaios desta tabela. Em cada ensaio, prevê primeiro de cabeça as colunas de previsão. Depois muda o código e as unidades da linha do pedido para os da tabela, e executa o ficheiro inteiro, para voltares a começar com os valores iniciais.
 
    | Pedido | Aceite ou recusado, e quem recusa | Mensagem prevista | A10 depois: quantidade e saídas | A11 depois: quantidade e saídas | Resultado observado |
    | --- | --- | --- | --- | --- | --- |
@@ -746,11 +747,11 @@ Os dois pedidos do programa principal são para o mesmo artigo. Não experimenta
 
    Em cada ensaio, lê as quatro linhas de estado, as de A10 e as de A11, antes e depois do pedido. Um pedido feito a A11 não deve mudar A10, e só confirmas isso se olhares para as duas.
 
-3. Faz ainda um último ensaio, desta vez com dois pedidos seguidos, sem reiniciar entre eles: retirar 3 unidades de A11 e, logo a seguir, retirar 1. Para isso, volta a pôr o pedido `inventario.retirar("A11", 3)`. Depois copia o bloco do `try` e do `except` e cola a cópia logo a seguir ao primeiro, antes da linha `print("Depois")`, com o pedido de 1 unidade. Prevê e regista as duas respostas e o estado final dos dois artigos. Depois executa e explica, em duas frases, o que a segunda resposta diz sobre um artigo vazio, e porque é que as saídas de A11 têm o valor que têm.
+3. Faz ainda um último ensaio, desta vez com dois pedidos seguidos, sem reiniciar entre eles: retirar 3 unidades de A11 e, logo a seguir, retirar 1. Para isso, volta a pôr o pedido `inventario.retirar("A11", 3)`. Depois copia o bloco do `try` e do `except` e cola a cópia logo a seguir ao primeiro, antes da linha `print("Depois")`, com o pedido de 1 unidade. Prevê as duas respostas e o estado final dos dois artigos. Depois executa e escreve duas frases num comentário no fim do `ensaios.py`. Uma diz o que a segunda resposta mostra sobre um artigo vazio, e a outra porque é que as saídas de A11 têm o valor que têm.
 
 ### Paragem 5
 
-Mostra ao professor antes de leres a resposta: a tabela dos quatro ensaios e o ensaio dos dois pedidos seguidos, com as duas frases.
+Mostra ao professor antes de leres a resposta: os quatro ensaios, que voltas a executar se ele pedir, e o ensaio dos dois pedidos seguidos, com as duas frases.
 
 A tabela de referência. Em todas as linhas, o ensaio começou com A10 em 6 e 0 e A11 em 3 e 0:
 
@@ -796,7 +797,7 @@ Pensa antes de continuares: 1.5 é mais do que 1. Porque é que o pedido de 1.5 
 
 Encontrar e corrigir um erro acaba com uma explicação feita com valores: o que esperavas, o que viste, a causa e a confirmação de que ficou resolvido. É a mesma rotina que segues sempre que um programa falha. Nesta fase escreves essa explicação para a correção que fizeste.
 
-1. Volta às respostas que escreveste na fase 1, antes de completares os métodos. Escolhe um pedido que o programa inicial tratava mal e que o teu programa agora trata de acordo com o contrato. Escreve quatro frases, cada uma com valores ou instruções concretas:
+1. Volta às respostas da fase 1, antes de completares os métodos. Escolhe um pedido que o programa inicial tratava mal e que o teu programa agora trata de acordo com o contrato. No comentário do fim do `inventario.py`, escreve quatro frases, cada uma com valores ou instruções concretas:
 
    1. "Esperava ...": o que o pedido devia fazer à quantidade e às saídas.
    2. "Observei ...": o que o programa inicial mostrou.
@@ -816,7 +817,7 @@ Não precisas de recitar definições: usa o teu programa e os valores. Não há
 - explicar que forma escolheste para recusar a falta de unidades, a do setter ou a da verificação no método, e porquê (fase 3);
 - mostrar como confirmaste que A10 não mudou nos ensaios feitos com A11 (fase 5);
 - prever o resultado de um pedido com outros valores, escolhido pelo professor, antes de o executares (fases 4 e 5);
-- encontrar e corrigir um erro que o professor introduza numa cópia do teu programa. Segue a rotina de sempre. Reproduz o erro com um caso e diz que tipo de erro é. Escreve uma hipótese e confirma-a com os valores. Corrige a causa e volta a correr tudo (fase 6).
+- encontrar e corrigir um erro que o professor introduza numa cópia do teu programa. Segue a rotina de sempre. Reproduz o erro com um caso e diz que tipo de erro é. Escreve uma hipótese num comentário no fim da cópia e confirma-a com os valores. Corrige a causa e volta a correr tudo (fase 6).
 
 Podes dizer em que passos recebeste ajuda: essa informação serve para orientar o trabalho seguinte.
 
@@ -856,18 +857,19 @@ O pedido ficou fora do `try`. A mensagem mostra o caminho do pedido, do programa
 
 ## Desafios
 
-1. Os ensaios que faltam. No `ensaios.py`, ensaia `retirar("A11", -1)` e `retirar("A11", "2")`, um de cada vez, como na fase 5. Antes de cada um, escreve se o pedido é aceite ou recusado, quem o recusa, a mensagem e o estado dos dois artigos depois. Depois de executares, diz, para cada um, que linha do teu método o recusou. Pista: segue o teu método pela ordem das linhas, com o valor do pedido.
+1. Os ensaios que faltam. No `ensaios.py`, ensaia `retirar("A11", -1)` e `retirar("A11", "2")`, um de cada vez, como na fase 5. Antes de cada um, prevê se o pedido é aceite ou recusado, quem o recusa, a mensagem e o estado dos dois artigos depois. Depois de executares, escreve, num comentário no fim do `ensaios.py`, que linha do teu método recusou cada um. Pista: segue o teu método pela ordem das linhas, com o valor do pedido.
 
-2. Um terceiro artigo. No `ensaios.py`, regista um terceiro artigo, A12, Tesoura, com 4 unidades, a seguir aos registos de A10 e A11. Acrescenta uma linha que mostre A12 no "Antes" e no "Depois". No lugar do pedido, faz três pedidos seguidos a A12, cada um no seu `try`: retirar 1, depois 2, depois 2. Antes de executares, faz uma tabela com a resposta a cada pedido, a quantidade e as saídas de A12 depois de cada um, e a soma das duas. Confirma, no fim, que A10 e A11 não mudaram. Pista: cada pedido parte do estado deixado pelo anterior, e a soma diz-te se contaste bem as saídas.
+2. Um terceiro artigo. No `ensaios.py`, regista um terceiro artigo, A12, Tesoura, com 4 unidades, a seguir aos registos de A10 e A11. Acrescenta uma linha que mostre A12 no "Antes" e no "Depois". No lugar do pedido, faz três pedidos seguidos a A12, cada um no seu `try`: retirar 1, depois 2, depois 2. Antes de executares, prevê a resposta a cada pedido, a quantidade e as saídas de A12 depois de cada um, e a soma das duas. Confirma, no fim, que A10 e A11 não mudaram. Pista: cada pedido parte do estado deixado pelo anterior, e a soma diz-te se contaste bem as saídas.
 
-3. A outra forma. Faz uma cópia do `ensaios.py` com o nome `outra-forma.py`. Nela, troca a forma de recusar a falta de unidades: se a deixaste ao setter, verifica-a no próprio método, e ao contrário. Corre lá os quatro ensaios e os dois pedidos seguidos da fase 5. Que mensagens mudam, e quais ficam iguais? Porquê? No fim, diz em duas frases qual das duas formas preferes, e porquê. Pista: procura os pedidos que ultrapassam a quantidade.
+3. A outra forma. Faz uma cópia do `ensaios.py` com o nome `outra-forma.py`. Nela, troca a forma de recusar a falta de unidades: se a deixaste ao setter, verifica-a no próprio método, e ao contrário. Corre lá os quatro ensaios e os dois pedidos seguidos da fase 5. Responde num comentário no fim do `outra-forma.py`: que mensagens mudam, e quais ficam iguais? Porquê? E, em duas frases, qual das duas formas preferes, e porquê? Pista: procura os pedidos que ultrapassam a quantidade.
 
 ## Antes de terminares
 
 - [ ] O `inventario.py` executa e mostra as oito linhas da paragem 4, com a mensagem da forma que escolheste.
 - [ ] O `ensaios.py` tem o bloco da fase 5, e fizeste os quatro ensaios e os dois pedidos seguidos.
-- [ ] Tens na folha a descrição das classes e da relação, o estado dos dois artigos e as respostas da fase 2. Tens também os dois planos, as tabelas das fases 4 e 5 e as quatro frases.
-- [ ] Guardaste a pasta `tema-06` e a folha, e entregaste-as pelo meio indicado pelo professor. Guarda uma cópia para ti: vais voltar a precisar destas ideias no projeto.
+- [ ] O comentário do fim do `inventario.py` tem a descrição das classes e da relação, o estado dos dois artigos e as respostas da fase 2. Tem também os dois planos e as quatro frases da fase 6.
+- [ ] O comentário do fim do `ensaios.py` tem as duas frases dos pedidos seguidos.
+- [ ] Guardaste a pasta `tema-06` e entregaste-a pelo meio indicado pelo professor. Guarda uma cópia para ti: vais voltar a precisar destas ideias no projeto.
 - [ ] Sabes dizer quem recusa cada um dos pedidos da fase 5, e porquê.
 - [ ] Consegues explicar, por palavras tuas, porque é que uma recusa não muda nem a quantidade nem as saídas, e que linha do teu código o garante.
 

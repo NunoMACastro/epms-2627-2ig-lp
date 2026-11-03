@@ -23,7 +23,7 @@ Entre parênteses estão os valores que cada pedido recebe, os parâmetros do m�
 | 3 | Acrescentas os métodos `quantidade_de` e `retirar` | O programa completo responde a oito pedidos, e confere com o traço |
 | 4 | Fazes um pedido impossível fora de um `try` | Lês, no ecrã, o caminho que a recusa fez até parar o programa |
 
-Em todas as fases trabalhas da mesma maneira. Antes de executares o programa, escreves no papel o que esperas ver. Depois executas e comparas. Quando o resultado é diferente do que previste, explica a diferença antes de continuares: é essa explicação que mais te ensina. Escrever primeiro obriga-te a pensar; executar primeiro só te mostra o que o Python fez.
+Em todas as fases trabalhas da mesma maneira. Antes de executares o programa, pensa no que esperas ver. Depois executas e comparas. Quando o resultado é diferente do que previste, procura a razão da diferença antes de continuares: é isso que mais te ensina. Prever primeiro obriga-te a pensar; executar primeiro só te mostra o que o Python fez.
 
 Executa sempre o ficheiro inteiro. Cada execução começa do zero: cria um inventário novo e repete todos os pedidos, pela ordem em que estão escritos.
 
@@ -38,7 +38,7 @@ Executa sempre o ficheiro inteiro. Cada execução começa do zero: cria um inve
 - Propriedade, getter e setter: a `quantidade` de um artigo lê-se e escreve-se como um atributo. Cada leitura passa por um método, o getter (do inglês *get*, obter). Cada escrita passa por outro, o setter (de *set*, pôr), que recusa os valores inválidos. Vem do tema 03.
 - Exceção: um sinal de que alguma coisa correu mal, que interrompe o funcionamento normal do programa. `raise` lança uma exceção. `ValueError` ("erro de valor") é a exceção que usamos para recusar um valor ou um pedido. `try` e `except` apanham-na, para o programa continuar. Vem do tema 03.
 - Encaminhamento: o inventário recebe um pedido, encontra o artigo que sabe cumpri-lo e passa-lho, sem verificar nada sobre as unidades.
-- Traço: a tabela que regista, passo a passo, o que acontece em cada instrução ou em cada pedido, e como fica o estado depois dele. Faz-se no papel, antes de executar, para comparar com o que o programa mostra.
+- Traço: a tabela que regista, passo a passo, o que acontece em cada instrução ou em cada pedido, e como fica o estado depois dele. Prevê-se antes de executar, para comparar com o que o programa mostra.
 - Cadeia de chamadas: os métodos que estão parados, cada um à espera do seguinte, desde o programa principal até ao sítio onde o Python está a trabalhar.
 - Mensagem de erro: o texto que o Python mostra quando para por causa de um erro. Quando o erro acontece com o programa a correr, a primeira linha é `Traceback (most recent call last)`, que quer dizer "o rasto, com a chamada mais recente no fim". Num erro de escrita, como um `SyntaxError` ("erro de sintaxe") ou um `IndentationError` ("erro de indentação"), o Python nem começa a correr o programa. Nos dois casos, a última linha diz o tipo de erro e o que aconteceu.
 
@@ -46,7 +46,6 @@ Executa sempre o ficheiro inteiro. Cada execução começa do zero: cria um inve
 
 - O editor de Python que usas nas aulas, para escrever e executar os programas. Confirma que funciona: num ficheiro de ensaio, escreve `print("Olá")` e executa. Deve aparecer `Olá`, o que quer dizer que o editor está a executar programas de Python.
 - O Python 3, a partir da versão 3.10. Nas versões mais antigas, algumas mensagens de erro são um pouco diferentes, e o laboratório diz onde.
-- Papel e caneta, para as previsões, o traço e as respostas.
 
 O laboratório começa de uma pasta vazia. Não precisas de nenhum ficheiro do laboratório anterior: a classe `Artigo` do tema 03 está toda aqui.
 
@@ -138,7 +137,7 @@ Um artigo conhece os seus próprios dados, e só esses. Para saber se um código
    print(inventario._artigos)
    ```
 
-3. Antes de executares, escreve no papel o que esperas ver. Depois executa. O que deves ver:
+3. Antes de executares, pensa no que esperas ver. Depois executa. O que deves ver:
 
    ```text
    []
@@ -312,7 +311,7 @@ Repara numa forma nova. Para um método do inventário usar outro método do mes
 
    Leitura guiada: são os oito pedidos do traço e, pelo meio e no fim, três consultas que mostram as quantidades. Os pedidos que podem ser recusados estão dentro de um `try`, e o `except` mostra a mensagem de quem recusou. O programa principal nunca escreve `Artigo(...)` nem guarda um artigo num nome seu: fala sempre com o inventário, usando os códigos.
 
-3. Antes de executares, faz o traço dos oito pedidos no papel. Cada linha começa no estado deixado pela anterior. As quatro primeiras linhas estão feitas; copia a tabela e completa as que têm um ponto de interrogação.
+3. Antes de executares, faz de cabeça o traço dos oito pedidos. Cada linha começa no estado deixado pela anterior. As quatro primeiras linhas estão feitas: lê-as e prevê as que têm um ponto de interrogação.
 
    | Pedido | Quem responde | Resposta | Artigos no inventário depois |
    | --- | --- | --- | --- |
@@ -336,7 +335,7 @@ Repara numa forma nova. Para um método do inventário usar outro método do mes
 
    A consulta de A03 falha, e isso prova que o registo recusado da caneta não deixou nada para trás: o artigo nunca chegou à lista.
 
-4. A partir do traço, escreve no papel as linhas que o programa vai mostrar. Os pedidos aceites não mostram nada; só as recusas e as consultas escrevem uma linha. Depois executa. O que deves ver:
+4. A partir do traço, prevê as linhas que o programa vai mostrar. Os pedidos aceites não mostram nada; só as recusas e as consultas escrevem uma linha. Depois executa. O que deves ver:
 
    ```text
    Registo de A01 recusado: Já existe um artigo com o código A01.
@@ -355,7 +354,7 @@ Repara numa forma nova. Para um método do inventário usar outro método do mes
 
 ### Paragem 3
 
-O programa mostra as oito linhas do passo 4, e o traço que fizeste confere com elas.
+O programa mostra as oito linhas do passo 4, e elas conferem com o traço do passo 3.
 
 O ficheiro `inventario.py` completo, como deve estar agora:
 
@@ -507,7 +506,7 @@ Quando um método chama outro, fica parado à espera dele. Se o segundo chamar u
    inventario.retirar("A01", 9)
    ```
 
-2. Antes de executares, escreve no papel a lista dos métodos por onde achas que o pedido passa até ao erro, do primeiro ao último.
+2. Antes de executares, prevê a lista dos métodos por onde o pedido passa até ao erro, do primeiro ao último.
 
 3. Executa. As oito linhas do programa aparecem, como antes, e no fim aparece um traceback.
 
@@ -522,7 +521,7 @@ Quando um método chama outro, fica parado à espera dele. Se o segundo chamar u
 
    A última linha de todas é `ValueError: A quantidade não pode ser negativa.`.
 
-4. Responde no papel, a olhar para o teu traceback. Cada pergunta tem a resposta logo a seguir; escreve a tua antes de a leres.
+4. Responde de cabeça, a olhar para o teu traceback. Cada pergunta tem a resposta logo a seguir; pensa na tua antes de a leres.
 
    1. `<module>` (do inglês, "módulo") é o nome que o Python dá ao programa principal, o código que está encostado à margem. Porque é que esta é a primeira entrada?
 
@@ -592,30 +591,29 @@ Um `return` ou um `raise` com a indentação errada terminou um método antes do
 
 1. Adicionar unidades a um artigo. Escreve, dentro da classe `Inventario`, o método `adicionar(codigo, unidades)`, com este contrato. Recebe o código de um artigo e as unidades a adicionar. Não devolve nada. Falha, com `ValueError`, se não houver nenhum artigo com esse código, ou se o próprio artigo recusar o pedido pelas regras do seu método `adicionar`. Em qualquer falha, nenhuma quantidade muda. Escreve-lhe uma docstring.
 
-   Antes de escreveres o método, responde no papel: que regras sobre as unidades vai verificar o método do inventário, e quais vai deixar ao artigo?
+   Responde, num comentário no fim do `inventario.py`: que regras sobre as unidades vai verificar o método do inventário, e quais vai deixar ao artigo?
 
-   Depois escolhe tu os testes. Escreve três pedidos de adição, cada um no seu `try`, depois das linhas que já estão no fim do ficheiro. Um tem de ser aceite, outro recusado pelo inventário, e o terceiro recusado pelo artigo. Para cada pedido, escreve antes de executar se vai ser aceite ou recusado, quem recusa, com que mensagem e como ficam as quantidades. No fim, mostra com `quantidade_de` a quantidade de cada artigo existente que usaste nos testes.
+   Os testes escolhes tu. Escreve três pedidos de adição, cada um no seu `try`, depois das linhas que já estão no fim do ficheiro. Um tem de ser aceite, outro recusado pelo inventário, e o terceiro recusado pelo artigo. Para cada pedido, prevê se vai ser aceite ou recusado, quem recusa, com que mensagem e como ficam as quantidades, e confirma ao executar. No fim, mostra com `quantidade_de` a quantidade de cada artigo existente que usaste nos testes.
 
    Pista: para escolheres os testes, pensa em que regras verifica cada objeto e por que ordem o pedido passa por eles.
 
 2. O total de unidades do inventário. Escreve o método `total_unidades()`, que devolve a soma das quantidades de todos os artigos do inventário. Não recebe nada além do `self`, não muda nenhuma quantidade e não falha.
 
-   Antes de escreveres, decide e escreve no papel duas coisas. Porque é que este método pertence ao `Inventario`, e não ao `Artigo`? E o que deve devolver um inventário que ainda não tem nenhum artigo?
+   Responde, no comentário do fim do ficheiro, a duas perguntas. Porque é que este método pertence ao `Inventario`, e não ao `Artigo`? E o que deve devolver um inventário que ainda não tem nenhum artigo?
 
-   Para somar, usa um acumulador: uma variável preparada antes de um ciclo `for` sobre a lista interna, que em cada volta junta a quantidade de um artigo. Testa com dois casos. Mostra o total do inventário do teu programa, e depois cria um inventário novo, vazio, e mostra o total dele. Antes de executares, calcula à mão o total do primeiro, a partir das quantidades que os artigos têm nesse momento.
+   Para somar, usa um acumulador: uma variável preparada antes de um ciclo `for` sobre a lista interna, que em cada volta junta a quantidade de um artigo. Testa com dois casos. Mostra o total do inventário do teu programa, e depois cria um inventário novo, vazio, e mostra o total dele. O total certo do primeiro calcula-se de cabeça, a partir das quantidades que os artigos têm nesse momento.
 
    Pista: pensa bem no valor com que o acumulador deve começar, e em que sítio do método ficam a linha que o prepara e o `return`.
 
-3. Os artigos esgotados. Escreve o método `esgotados()`, que devolve uma lista com os códigos dos artigos que têm quantidade 0. Se nenhum artigo estiver esgotado, devolve uma lista vazia. Testa-o duas vezes: uma com o inventário tal como está, e outra depois de retirares todas as unidades de um dos artigos. Antes de cada teste, escreve a lista que esperas ver.
+3. Os artigos esgotados. Escreve o método `esgotados()`, que devolve uma lista com os códigos dos artigos que têm quantidade 0. Se nenhum artigo estiver esgotado, devolve uma lista vazia. Testa-o duas vezes: uma com o inventário tal como está, e outra depois de retirares todas as unidades de um dos artigos. Antes de cada teste, prevê a lista que vai aparecer.
 
-4. A descrição com as operações novas. No papel, escreve de novo a descrição da classe `Inventario` de "O que vais construir", agora com os métodos que acrescentaste nos desafios. Depois responde numa frase: a descrição da relação entre as duas classes mudou com as operações novas? Porquê?
+4. A descrição com as operações novas. No comentário do fim do `inventario.py`, escreve de novo a descrição da classe `Inventario` de "O que vais construir", agora com os métodos que acrescentaste nos desafios. Responde também numa frase: a descrição da relação entre as duas classes mudou com as operações novas? Porquê?
 
 ## Antes de terminares
 
 - [ ] O ficheiro `inventario.py` executa e mostra as oito linhas da paragem 3.
 - [ ] Apagaste as linhas de teste das fases 1, 2 e 4: o ficheiro está igual ao da paragem 3, mais o que fizeste nos desafios.
-- [ ] Tens no papel as previsões, o traço da fase 3 e as respostas da fase 4.
-- [ ] Guardaste o `inventario.py` e a folha e, se fizeste o desafio 4, a descrição, e entregaste-os pelo meio indicado pelo professor.
+- [ ] Guardaste o `inventario.py`, com as respostas dos desafios que fizeste no comentário do fim, e entregaste-o pelo meio indicado pelo professor.
 - [ ] Sabes dizer quem recusa cada um dos pedidos da fase 3, e porquê.
 - [ ] Sabes dizer porque é que `_procurar` não aparece no traceback da fase 4.
 - [ ] Consegues explicar, por palavras tuas, porque é que é o inventário, e não o artigo, que garante que não há dois artigos com o mesmo código.

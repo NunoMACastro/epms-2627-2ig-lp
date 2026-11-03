@@ -25,10 +25,10 @@ Lê-a de baixo para cima, com a frase "é um": `NotificacaoAssinada` é uma `Not
 | 2 | Acrescentas a `NotificacaoDetalhada`, que redefine o método `apresentar` | Duas variantes que se apresentam de maneiras diferentes |
 | 3 | Acrescentas a `NotificacaoAssinada`, com um dado novo e `super()` | Uma variante que guarda a origem e aproveita o construtor da base |
 | 4 | Pões as três variantes numa lista e apresenta-las com um ciclo `for` | O mesmo pedido, três respostas diferentes |
-| 5 | Escreves o contrato abstrato da `Notificacao`, no papel e na docstring da classe base | O programa da fase 4, igual, com o contrato escrito na classe base |
+| 5 | Escreves o contrato abstrato da `Notificacao`, primeiro por palavras e depois na docstring da classe base | O programa da fase 4, igual, com o contrato escrito na classe base |
 | 6 | Acrescentas a `NotificacaoUrgente`, sem mexer no ciclo | Quatro variantes no mesmo ciclo, e o texto guardado intacto |
 
-Em todas as fases trabalhas da mesma maneira. Antes de executares o programa, escreves no papel o que esperas ver. Depois executas e comparas. Quando o resultado é diferente do que previste, explica a diferença antes de continuares: é essa explicação que mais te ensina.
+Em todas as fases trabalhas da mesma maneira. Antes de executares o programa, pensa no que esperas ver. Depois executas e comparas. Quando o resultado é diferente do que previste, procura a razão da diferença antes de continuares: é isso que mais te ensina.
 
 Executa sempre o ficheiro inteiro. Cada execução começa do zero, com os valores escritos no programa. Nas fases 2, 3 e 6 vais estragar o programa de propósito, para veres um erro acontecer, e na fase 5 fazes uma experiência curta. Faz sempre a alteração pedida, observa e desfaz a alteração antes de continuares.
 
@@ -42,7 +42,7 @@ Executa sempre o ficheiro inteiro. Cada execução começa do zero, com os valor
 - `super()`: dá acesso aos métodos da classe base, para o mesmo objeto. O nome vem de superclasse, o outro nome da classe base. `super().__init__(texto)`, dentro de um construtor, pede ao construtor da base que faça a sua parte.
 - Polimorfismo: o mesmo pedido, feito da mesma maneira, funciona com objetos de classes diferentes, e cada um responde à sua maneira.
 - Contrato: o que um método promete, a quem o chama. Aqui: o método `apresentar` não recebe nada além do `self`, devolve um texto e não altera a notificação.
-- Classe abstrata e método abstrato: uma classe abstrata descreve o que é comum a várias classes, mas não serve para criar objetos diretamente. Um método abstrato tem o nome e o contrato, mas não tem instruções: cada classe derivada tem de o escrever. Neste laboratório, ficam escritos como contrato, no papel e na docstring da classe base.
+- Classe abstrata e método abstrato: uma classe abstrata descreve o que é comum a várias classes, mas não serve para criar objetos diretamente. Um método abstrato tem o nome e o contrato, mas não tem instruções: cada classe derivada tem de o escrever. Neste laboratório, ficam escritos como contrato, por palavras e na docstring da classe base.
 - Árvore de especialização, ou hierarquia de especialização: um desenho em que cada ramo liga uma classe geral a uma classe mais particular. Lê-se de baixo para cima, com a frase "é um".
 - Modelo: a descrição das classes de um programa, do que cada uma guarda e faz, e das relações entre elas, escrita antes do código. A árvore e as frases de "O que vais construir", e o contrato que escreves na fase 5, fazem parte do modelo das notificações.
 - Lista e ciclo `for`: uma lista guarda vários valores por ordem, entre parênteses retos, e pode guardar objetos. O `for` repete o bloco indentado por baixo dele uma vez por cada elemento da lista. Vêm do 10.º ano.
@@ -54,7 +54,6 @@ Executa sempre o ficheiro inteiro. Cada execução começa do zero, com os valor
 
 - O editor de Python que usas nas aulas, para escrever e executar os programas. Confirma que funciona: num ficheiro de ensaio, escreve `print("Olá")` e executa. Deve aparecer `Olá`, o que quer dizer que o editor está a executar programas de Python.
 - O Python 3, a partir da versão 3.10. Nas versões mais antigas, algumas mensagens de erro são um pouco diferentes, e o laboratório diz onde.
-- Papel e caneta, para as previsões, as tabelas, as respostas, o contrato e a árvore.
 
 O laboratório começa de uma pasta vazia. Não precisas de nenhum ficheiro dos laboratórios anteriores.
 
@@ -111,7 +110,7 @@ A herança resolve isto. Escreve-se uma vez o que é comum, numa classe geral, a
    print(isinstance(breve, Notificacao))
    ```
 
-4. Antes de executares, responde no papel. A classe `NotificacaoBreve` não escreve construtor: que construtor vai ser executado na primeira linha, e onde está escrito? E que `apresentar` vai ser executado na terceira linha? Escreve também as quatro linhas que esperas ver. Depois executa. O que deves ver:
+4. Antes de executares, responde de cabeça. A classe `NotificacaoBreve` não escreve construtor: que construtor vai ser executado na primeira linha, e onde está escrito? E que `apresentar` vai ser executado na terceira linha? Prevê também as quatro linhas que vão aparecer. Depois executa. O que deves ver:
 
    ```text
    Contagem concluída
@@ -161,7 +160,7 @@ A notificação detalhada apresenta-se de outra maneira: com "Aviso interno: " a
    print(detalhada.apresentar())
    ```
 
-3. Antes de executares, copia para o papel esta tabela e completa a segunda linha, com a regra de procura. A primeira já está feita.
+3. Antes de executares, lê esta tabela e prevê a segunda linha, com a regra de procura. A primeira já está feita.
 
    | Chamada | Classe do objeto | Essa classe escreve `apresentar`? | Onde o Python encontra `apresentar` | Resultado |
    | --- | --- | --- | --- | --- |
@@ -177,16 +176,16 @@ A notificação detalhada apresenta-se de outra maneira: com "Aviso interno: " a
 
    A segunda linha da tabela: a classe do objeto é `NotificacaoDetalhada`, que escreve o seu `apresentar`; o Python encontra-o na própria classe, e o resultado é `Aviso interno: Material em falta`. Repara que o `apresentar` da `Notificacao` continua lá: a notificação breve usou-o na primeira linha. Redefinir não apaga o método da base. Só o tapa para os objetos da classe derivada.
 
-4. Agora, uma experiência. Na classe `NotificacaoDetalhada`, apaga o método `apresentar` inteiro: a linha do `def`, a docstring e a linha do `return`. Deixa só a docstring da classe. Antes de executares, escreve o que achas que a segunda linha vai mostrar. Depois executa. O que deves ver:
+4. Agora, uma experiência. Na classe `NotificacaoDetalhada`, apaga o método `apresentar` inteiro: a linha do `def`, a docstring e a linha do `return`. Deixa só a docstring da classe. Antes de executares, prevê o que a segunda linha vai mostrar. Depois executa. O que deves ver:
 
    ```text
    Contagem concluída
    Material em falta
    ```
 
-   A segunda linha passou a mostrar o texto sem o aviso, e não apareceu nenhum erro. Responde no papel: de que classe veio o `apresentar` usado agora, e porquê? Porque é que o Python não se queixou?
+   A segunda linha passou a mostrar o texto sem o aviso, e não apareceu nenhum erro. Responde de cabeça: de que classe veio o `apresentar` usado agora, e porquê? Porque é que o Python não se queixou?
 
-   A resposta: o `apresentar` veio da classe base, `Notificacao`. A detalhada deixou de ter o seu, e o Python, pela regra de procura, foi buscá-lo à base. Não se queixou porque, para ele, não falta nada: a classe herda um `apresentar` que funciona. Mas a notificação detalhada passou a apresentar-se como breve, e ninguém foi avisado. Guarda esta resposta, porque vais voltar a ela na fase 5.
+   A resposta: o `apresentar` veio da classe base, `Notificacao`. A detalhada deixou de ter o seu, e o Python, pela regra de procura, foi buscá-lo à base. Não se queixou porque, para ele, não falta nada: a classe herda um `apresentar` que funciona. Mas a notificação detalhada passou a apresentar-se como breve, e ninguém foi avisado. Vais voltar a esta resposta na fase 5.
 
 5. Volta a escrever o método `apresentar` da classe `NotificacaoDetalhada`, como no passo 1, e executa. O aviso deve voltar à segunda linha.
 
@@ -235,7 +234,7 @@ O construtor novo tapa o da base. Mas o da base sabe guardar o texto, e queremos
    Encomenda recebida (enviada por: Secretaria)
    ```
 
-4. Agora, a experiência do esquecimento. No construtor de `NotificacaoAssinada`, apaga a linha `super().__init__(texto)`. Antes de executares, responde no papel: em que linha do programa achas que vai aparecer o erro, na que cria a notificação ou na que a apresenta? Depois executa.
+4. Agora, a experiência do esquecimento. No construtor de `NotificacaoAssinada`, apaga a linha `super().__init__(texto)`. Antes de executares, prevê: em que linha do programa vai aparecer o erro, na que cria a notificação ou na que a apresenta? Depois executa.
 
    O programa mostra `Secretaria` e depois para. A última linha da mensagem de erro deve ser esta:
 
@@ -245,7 +244,7 @@ O construtor novo tapa o da base. Mas o da base sabe guardar o texto, e queremos
 
    Em português: o objeto do tipo `NotificacaoAssinada` não tem o atributo `texto`. Um `AttributeError` ("erro de atributo") aparece quando se pede a um objeto um atributo que ele não tem.
 
-5. Lê a mensagem de baixo para cima. Por cima da última linha há duas entradas, cada uma com uma linha que começa por `File`, com o caminho do teu ficheiro e o número da linha. A de baixo acaba em `in apresentar`, e por baixo dela está a linha `return self.texto + " (enviada por: " + self.origem + ")"`. A de cima acaba em `in <module>`, que quer dizer "no programa principal", com a linha `print(assinada.apresentar())`. A partir do Python 3.11, aparecem também linhas com `~` e `^`, que sublinham a parte da linha onde o erro aconteceu. Responde no papel:
+5. Lê a mensagem de baixo para cima. Por cima da última linha há duas entradas, cada uma com uma linha que começa por `File`, com o caminho do teu ficheiro e o número da linha. A de baixo acaba em `in apresentar`, e por baixo dela está a linha `return self.texto + " (enviada por: " + self.origem + ")"`. A de cima acaba em `in <module>`, que quer dizer "no programa principal", com a linha `print(assinada.apresentar())`. A partir do Python 3.11, aparecem também linhas com `~` e `^`, que sublinham a parte da linha onde o erro aconteceu. Responde de cabeça, antes de leres as respostas:
 
    1. Em que método estava o Python quando o erro aconteceu?
    2. A criação da notificação correu bem, e o erro só apareceu na chamada seguinte. Porquê?
@@ -331,7 +330,7 @@ Agora vais guardar uma notificação de cada variante numa lista e pedir a cada 
 
    Leitura guiada: a lista é escrita com os três objetos criados dentro dos parênteses retos, um por linha, separados por vírgulas. É o mesmo que criar uma lista vazia e fazer três `append`, só que mais curto. A vírgula depois do último objeto é opcional; escreve-se para que, ao acrescentar um elemento numa linha nova, não seja preciso mexer na de cima. O ciclo dá três voltas, e em cada uma o nome `aviso` aponta para uma das notificações.
 
-2. Antes de executares, copia para o papel esta tabela e completa-a, uma volta de cada vez.
+2. Antes de executares, lê esta tabela e prevê cada linha, uma volta de cada vez.
 
    | Volta | Classe do objeto | Onde o Python encontra `apresentar` | Linha mostrada |
    | --- | --- | --- | --- |
@@ -339,7 +338,7 @@ Agora vais guardar uma notificação de cada variante numa lista e pedir a cada 
    | 2 | A completar | A completar | A completar |
    | 3 | A completar | A completar | A completar |
 
-3. Executa e compara com a tua tabela. O que deves ver:
+3. Executa e compara com a tua previsão. O que deves ver:
 
    ```text
    Contagem concluída
@@ -365,7 +364,7 @@ Pensa antes de continuares: se escrevesses uma quarta variante, que linhas do ci
 
 Até aqui, a classe `Notificacao` serviu de base às três variantes, e o seu `apresentar` devolve o texto, da maneira breve. Pensa na ideia de notificação: uma notificação "geral", que não é de nenhuma variante, apresenta-se como? Não há resposta. A maneira breve é uma das variantes, e só está na base porque é a mais simples de escrever.
 
-Uma classe assim chama-se **classe abstrata**: descreve o que é comum a várias classes, mas não serve para criar objetos diretamente. Os objetos do programa criam-se das classes derivadas. Às classes de onde se podem criar objetos chama-se **classes concretas**. Nesta ideia, o `apresentar` é um **método abstrato**: tem o nome e o contrato, mas não tem instruções gerais, e cada variante escreve as suas. Nesta fase, escreves no papel o contrato da classe abstrata e passas esse contrato para a docstring da classe base. As instruções do teu ficheiro ficam como estão. Para saber mais, lê "Abstração e classes abstratas" no [guia](../05-heranca-polimorfismo.md).
+Uma classe assim chama-se **classe abstrata**: descreve o que é comum a várias classes, mas não serve para criar objetos diretamente. Os objetos do programa criam-se das classes derivadas. Às classes de onde se podem criar objetos chama-se **classes concretas**. Nesta ideia, o `apresentar` é um **método abstrato**: tem o nome e o contrato, mas não tem instruções gerais, e cada variante escreve as suas. Nesta fase, completas o contrato da classe abstrata, por palavras, e passas esse contrato para a docstring da classe base. As instruções do teu ficheiro ficam como estão. Para saber mais, lê "Abstração e classes abstratas" no [guia](../05-heranca-polimorfismo.md).
 
 1. Começa por uma experiência. No fim do ficheiro, depois do ciclo e encostadas à margem, acrescenta estas duas linhas:
 
@@ -374,7 +373,7 @@ Uma classe assim chama-se **classe abstrata**: descreve o que é comum a várias
    print(geral.apresentar())
    ```
 
-   Antes de executares, escreve no papel o que achas que aparece por baixo das três linhas da fase 4. Depois executa. O que deves ver:
+   Antes de executares, prevê o que aparece por baixo das três linhas da fase 4. Depois executa. O que deves ver:
 
    ```text
    Contagem concluída
@@ -383,7 +382,7 @@ Uma classe assim chama-se **classe abstrata**: descreve o que é comum a várias
    Olá
    ```
 
-   Responde no papel: que `apresentar` foi usado na última linha? A notificação geral devia ter uma maneira própria de se apresentar?
+   Responde de cabeça: que `apresentar` foi usado na última linha? A notificação geral devia ter uma maneira própria de se apresentar?
 
    A resposta: foi o `apresentar` da `Notificacao`, que devolve o texto da maneira breve. O Python criou a notificação geral sem se queixar, porque, para ele, a `Notificacao` é uma classe como outra qualquer. Mas uma notificação geral não tem maneira própria de se apresentar, porque não é de nenhuma variante. É a ideia de classe abstrata, e não o Python, que diz que os objetos do programa se criam das variantes.
 
@@ -391,7 +390,7 @@ Uma classe assim chama-se **classe abstrata**: descreve o que é comum a várias
 
    Depois de responderes, apaga as duas linhas.
 
-2. No papel, completa o contrato abstrato da `Notificacao`, escrito nesta forma, organizada por indentação. As três primeiras linhas já estão feitas.
+2. Completa de cabeça o contrato abstrato da `Notificacao`, escrito nesta forma, organizada por indentação. As três primeiras linhas já estão feitas.
 
    ```text
    Classe abstrata Notificacao
@@ -428,13 +427,13 @@ Uma classe assim chama-se **classe abstrata**: descreve o que é comum a várias
            return self.texto
    ```
 
-   Leitura guiada: começa pela docstring da classe. Uma docstring pode ter várias linhas. A primeira diz, numa frase, o que a classe é, e depois de uma linha em branco vem o resto da explicação. As três aspas que fecham ficam numa linha sozinhas. A docstring da classe diz o que todas as notificações têm e sabem fazer. Diz também que, no modelo, a `Notificacao` é abstrata: o modelo é a descrição que fizeste no papel. A docstring do `apresentar` leva o contrato do método, o mesmo que escreveste no papel. O construtor e a linha do `return` ficaram como estavam.
+   Leitura guiada: começa pela docstring da classe. Uma docstring pode ter várias linhas. A primeira diz, numa frase, o que a classe é, e depois de uma linha em branco vem o resto da explicação. As três aspas que fecham ficam numa linha sozinhas. A docstring da classe diz o que todas as notificações têm e sabem fazer. Diz também que, no modelo, a `Notificacao` é abstrata: o modelo é a descrição do passo 2. A docstring do `apresentar` leva o contrato do método, o mesmo que completaste no passo 2. O construtor e a linha do `return` ficaram como estavam.
 
-4. Antes de executares, escreve o que achas que o programa vai mostrar agora. Depois executa. O que deves ver são as três linhas da fase 4, iguais. As docstrings explicam o programa a quem o lê, mas não mudam o que ele faz.
+4. Antes de executares, prevê o que o programa vai mostrar agora. Depois executa. O que deves ver são as três linhas da fase 4, iguais. As docstrings explicam o programa a quem o lê, mas não mudam o que ele faz.
 
-5. Pensa outra vez na experiência da fase 2, em que apagaste o `apresentar` da detalhada. Responde no papel: se repetisses agora essa experiência, com o contrato na docstring, o que aconteceria? A docstring obriga a detalhada a ter o seu `apresentar`?
+5. Pensa outra vez na experiência da fase 2, em que apagaste o `apresentar` da detalhada. Responde de cabeça: se repetisses agora essa experiência, com o contrato na docstring, o que aconteceria? A docstring obriga a detalhada a ter o seu `apresentar`?
 
-   A resposta: aconteceria o mesmo que na fase 2. A detalhada apresentava-se como a base, sem o aviso, e não aparecia nenhum erro. A docstring explica o contrato a quem escreve uma variante, mas não obriga ninguém a cumpri-lo: o Python não verifica se as variantes fazem o que as docstrings dizem. Cumprir o contrato fica a cargo de quem escreve cada variante. É por isso que o contrato tem de estar escrito por inteiro, e que escreves a previsão antes de executar. Quem previu `Aviso interno: Material em falta` e viu `Material em falta` deu logo pelo esquecimento.
+   A resposta: aconteceria o mesmo que na fase 2. A detalhada apresentava-se como a base, sem o aviso, e não aparecia nenhum erro. A docstring explica o contrato a quem escreve uma variante, mas não obriga ninguém a cumpri-lo: o Python não verifica se as variantes fazem o que as docstrings dizem. Cumprir o contrato fica a cargo de quem escreve cada variante. É por isso que o contrato tem de estar escrito por inteiro, e que fazes a previsão antes de executar. Quem previu `Aviso interno: Material em falta` e viu `Material em falta` deu logo pelo esquecimento.
 
 ### Paragem 5
 
@@ -499,7 +498,7 @@ for aviso in avisos:
     print(aviso.apresentar())
 ```
 
-Pensa antes de continuares: abstrata quer dizer vazia? Olha para o contrato que escreveste no papel. A resposta: não. A primeira linha do contrato diz o que todas as notificações têm, um texto guardado na criação, e isso é igual em todas. O teu ficheiro escreve-o uma só vez, no construtor da base, que todas as variantes herdam. Abstrata quer dizer incompleta de propósito: há uma parte, a maneira de se apresentar, que fica para cada variante.
+Pensa antes de continuares: abstrata quer dizer vazia? Olha para o contrato do passo 2. A resposta: não. A primeira linha do contrato diz o que todas as notificações têm, um texto guardado na criação, e isso é igual em todas. O teu ficheiro escreve-o uma só vez, no construtor da base, que todas as variantes herdam. Abstrata quer dizer incompleta de propósito: há uma parte, a maneira de se apresentar, que fica para cada variante.
 
 ## Fase 6: Uma variante nova, sem mudar o ciclo
 
@@ -528,7 +527,7 @@ Para pôr um texto em maiúsculas, os textos do Python têm o método `upper` (d
 
    `avisos[3]` é o quarto elemento da lista, porque os índices começam em 0.
 
-3. Antes de executares, escreve as cinco linhas que esperas ver. Depois executa. O que deves ver:
+3. Antes de executares, prevê as cinco linhas que vão aparecer. Depois executa. O que deves ver:
 
    ```text
    Contagem concluída
@@ -540,7 +539,7 @@ Para pôr um texto em maiúsculas, os textos do Python têm o método `upper` (d
 
    A quarta linha vem do `apresentar` da `NotificacaoUrgente`. A última confirma o contrato: o texto guardado continua em minúsculas, porque o `upper` devolveu um texto novo e o atributo `texto` não foi tocado.
 
-4. Responde no papel: que linhas do ciclo `for` tiveste de mudar para a variante nova funcionar? A resposta: nenhuma. Escreveste uma classe nova e juntaste um objeto à lista. O ciclo é, letra a letra, o da fase 4. É isto que o polimorfismo permite.
+4. Responde de cabeça: que linhas do ciclo `for` tiveste de mudar para a variante nova funcionar? A resposta: nenhuma. Escreveste uma classe nova e juntaste um objeto à lista. O ciclo é, letra a letra, o da fase 4. É isto que o polimorfismo permite.
 
 5. Uma experiência, para veres o contrato a ser quebrado. No `apresentar` da `NotificacaoUrgente`, substitui a linha do `return` por estas duas, com a mesma indentação:
 
@@ -551,7 +550,7 @@ Para pôr um texto em maiúsculas, os textos do Python têm o método `upper` (d
 
    Executa. As quatro primeiras linhas ficam iguais, mas a última passa a `Texto guardado na urgente: A02 ESGOTOU`. O método mudou o atributo `texto`, que passou a apontar para o texto em maiúsculas, e o contrato diz que o `apresentar` não altera a notificação. Repara que nenhuma mensagem de erro avisou: só a última linha mostra o problema. Volta a pôr a linha do `return` como estava no passo 1, e executa outra vez para confirmar que a última linha voltou a `A02 esgotou`.
 
-6. No papel, copia a árvore de "O que vais construir" e acrescenta-lhe a `NotificacaoUrgente`. Depois escreve uma frase que diga o que a classe nova acrescenta ou muda em relação à `Notificacao`. A resposta: a árvore ganha um ramo novo, por baixo da `Notificacao`, ao lado dos outros três.
+6. Pensa em como fica a árvore de "O que vais construir" com a `NotificacaoUrgente`. Pensa também numa frase que diga o que a classe nova acrescenta ou muda em relação à `Notificacao`. A resposta: a árvore ganha um ramo novo, por baixo da `Notificacao`, ao lado dos outros três.
 
    ```text
    Notificacao
@@ -671,9 +670,9 @@ O `apresentar` de uma variante tem um `print` em vez de um `return`. O `print` d
 
 ## Desafios
 
-1. Uma variante tua, sem dados novos. Inventa uma maneira nova de apresentar uma notificação, só a partir do texto. Por exemplo, pôr o texto entre parênteses retos, ou começar por "Lembrete: ". Escolhe tu, desde que seja diferente das variantes deste laboratório. Escreve a classe, com uma docstring em cada classe e em cada método. Antes de a escreveres, decide e escreve no papel: esta variante precisa de construtor próprio? Porquê?
+1. Uma variante tua, sem dados novos. Inventa uma maneira nova de apresentar uma notificação, só a partir do texto. Por exemplo, pôr o texto entre parênteses retos, ou começar por "Lembrete: ". Escolhe tu, desde que seja diferente das variantes deste laboratório. Escreve a classe, com uma docstring em cada classe e em cada método. Responde, num comentário no fim do `notificacoes.py`: esta variante precisa de construtor próprio? Porquê?
 
-   Depois junta um objeto da tua variante à lista `avisos`. Antes de executares, escreve a linha nova que esperas ver. Por fim, acrescenta uma linha que mostre o atributo `texto` da tua notificação depois do ciclo, e confirma que não mudou.
+   Junta também um objeto da tua variante à lista `avisos`, e prevê a linha nova antes de executares. Acrescenta ainda uma linha que mostre o atributo `texto` da tua notificação depois do ciclo, e confirma que não mudou.
 
    Pista: pensa no que a variante tem de guardar que a base ainda não guarde.
 
@@ -681,14 +680,14 @@ O `apresentar` de uma variante tem um `print` em vez de um `return`. O `print` d
 
    Pista: lembra-te do que aconteceu na fase 3, quando faltou uma linha no construtor.
 
-3. A árvore e a descrição do teu programa. No papel, escreve a árvore de especialização do teu programa final, sem copiar a de "O que vais construir" nem a da fase 6. Põe a `Notificacao` no topo e todas as variantes que o teu ficheiro tem, também as tuas. Depois escreve, para cada variante, uma frase com "é uma `Notificacao`" e o que ela acrescenta ou redefine.
+3. A árvore e a descrição do teu programa. Desenha no papel a árvore de especialização do teu programa final, sem copiar a de "O que vais construir" nem a da fase 6. Põe a `Notificacao` no topo e todas as variantes que o teu ficheiro tem, também as tuas. Por baixo da árvore, escreve, para cada variante, uma frase com "é uma `Notificacao`" e o que ela acrescenta ou redefine.
 
 ## Antes de terminares
 
 - [ ] O ficheiro `notificacoes.py` executa e mostra as cinco linhas da paragem 6, mais as linhas das tuas variantes, se fizeste os desafios.
 - [ ] Desfizeste as experiências: o `apresentar` da detalhada voltou, a linha do `super()` voltou e o `return` da urgente está como no passo 1 da fase 6. Apagaste também as duas linhas da notificação geral, da fase 5.
-- [ ] Tens no papel as previsões, as tabelas das fases 2 e 4, as respostas das fases 3 e 5, o contrato da fase 5 e a árvore da fase 6.
-- [ ] Guardaste o `notificacoes.py` e a folha, e entregaste-os pelo meio indicado pelo professor.
+- [ ] A docstring da `Notificacao` tem o contrato da fase 5.
+- [ ] Guardaste o `notificacoes.py`, com as respostas dos desafios que fizeste no comentário do fim, e entregaste-o pelo meio indicado pelo professor. Se fizeste o desafio 3, entregaste também o desenho da árvore.
 - [ ] Sabes dizer onde é que o Python encontrou o `apresentar` de cada volta do ciclo.
 - [ ] Sabes dizer o que a docstring da classe base diz a quem escreve uma variante nova, e porque é que ela não obriga ninguém a cumprir o contrato.
 - [ ] Consegues explicar, por palavras tuas, o que é o polimorfismo, com o ciclo deste laboratório.

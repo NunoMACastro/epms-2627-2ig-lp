@@ -31,7 +31,7 @@ Os exercícios 1 a 5 são a parte obrigatória. Resolve-os pela ordem: cada um t
 
 O desafio opcional e os exercícios de "Para ires mais longe" são para quem acabar a parte obrigatória, ou para quando o professor os indicar.
 
-Quase tudo se faz em papel. O exercício 5 tem um programa completo, que podes executar no fim para confirmares as tuas previsões. Responde no caderno diário ou numa folha, com o número de cada exercício. Cada exercício pede uma decisão que o exemplo guiado do guia não tomou por ti. Escreve o raciocínio, e não só a resposta final: é o raciocínio que o professor vai querer ouvir-te explicar. Quando um exercício pede uma justificação, a justificação é a parte mais importante da resposta: uma escolha certa sem razão escrita vale pouco. Entrega as respostas pelo meio indicado pelo professor.
+Quase tudo se faz em papel. O exercício 5 tem um programa completo, que podes executar no fim para confirmares as tuas previsões. Responde numa folha, com o número de cada exercício. Cada exercício pede uma decisão que o exemplo guiado do guia não tomou por ti. Escreve o raciocínio, e não só a resposta final. Quando um exercício pede uma justificação, a justificação é a parte mais importante da resposta: uma escolha certa sem razão escrita vale pouco. Entrega as respostas pelo meio indicado pelo professor.
 
 ## Exercício 1: As entidades de um torneio
 
@@ -170,7 +170,7 @@ A ficha A03, "Caneta", tem 4 unidades. Vais construir dois traços, cada um a co
 
 No primeiro traço, os pedidos são, por esta ordem: adicionar 5 e depois retirar 7. No segundo traço, os mesmos pedidos aparecem pela ordem inversa: retirar 7 e depois adicionar 5.
 
-Usa colunas iguais às do exemplo guiado do guia. Compara a quantidade final dos dois traços e explica porque são diferentes, se os pedidos são os mesmos. Termina com uma frase que explique a um colega porque é que, num traço, não se pode trocar a ordem das linhas.
+Usa colunas iguais às do exemplo guiado do guia. Compara a quantidade final dos dois traços e explica porque são diferentes, se os pedidos são os mesmos. Termina com uma frase que explique porque é que, num traço, não se pode trocar a ordem das linhas.
 
 ### Mais longe 3: Uma ficha tua
 

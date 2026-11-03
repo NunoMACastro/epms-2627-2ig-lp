@@ -12,9 +12,9 @@ O [guia do tema](../01-primeira-pagina-com-javascript.md) e o [laboratório](../
 
 Faz os exercícios 1 a 6 pela ordem. São a parte obrigatória, e cada um treina uma coisa só. O desafio opcional é para quem acabar. Os exercícios de "Para ires mais longe" são mais longos e servem para aprofundar: fazes os que quiseres, ou os que o professor indicar.
 
-Responde no caderno diário ou numa folha, com o número de cada exercício. Nos exercícios com código, escreve a previsão antes de abrires a página: é a previsão, e não o resultado, que mostra o que percebeste. Se o browser mostrar outra coisa, procura a explicação em vez de mudar a previsão. Entrega as respostas pelo meio indicado pelo professor.
+As respostas escritas vão para comentários no fim do `exercicios.js` da página de treino, que preparas a seguir: com `//`, ou entre `/*` e `*/` quando ocupam várias linhas. Começa cada resposta pelo número do exercício e da alínea. O HTML do exercício 1 e o CSS do exercício 2 também ficam num comentário, porque não correm no `exercicios.js`. Nos exercícios com código, pensa no resultado antes de abrires a página: é a previsão, e não o resultado, que mostra o que percebeste. Se o browser mostrar outra coisa, procura a explicação. Entrega a pasta `ficha-01` pelo meio indicado pelo professor.
 
-Para os exercícios que correm JavaScript, prepara uma página de treino. Cria uma pasta `ficha-01` e, dentro dela, um `index.html` com o conteúdo seguinte e um `exercicios.js` vazio. O código de cada exercício vai para o `exercicios.js`, e os resultados aparecem na consola do browser. Quando passares a outro exercício, apaga o código do anterior, ou põe-no num comentário.
+Para os exercícios que correm JavaScript, prepara uma página de treino. Cria uma pasta `ficha-01` e, dentro dela, um `index.html` com o conteúdo seguinte e um `exercicios.js` vazio. O código de cada exercício vai para o `exercicios.js`, e os resultados aparecem na consola do browser. Quando passares a outro exercício, apaga o código do anterior, ou põe-no num comentário. Os comentários com as respostas ficam no fim do ficheiro.
 
 ```html
 <!doctype html>
@@ -75,7 +75,7 @@ A página tem um botão "Beber poção", sobre um fundo branco. Há três propos
 
 ## Exercício 3: Prever na consola
 
-Para cada uma destas expressões, escreve no caderno o valor que esperas, e só depois escreve a expressão na consola do browser e carrega em Enter. ("Números, textos e valores lógicos" e "Operadores", no guia.)
+Prevê o valor de cada uma destas expressões, e só depois escreve a expressão na consola do browser e carrega em Enter. ("Números, textos e valores lógicos" e "Operadores", no guia.)
 
 1. `40 + 25 + " de vida"`
 2. `"Moedas: " + 3 * 2`
@@ -86,7 +86,7 @@ Para cada uma destas expressões, escreve no caderno o valor que esperas, e só 
 
 A consola mostra os textos entre plicas, como `'Caderno'`, ou entre aspas, conforme o browser. As plicas dizem que o valor é um texto, e não fazem parte dele.
 
-Para cada previsão errada, explica numa frase porque é que a consola mostrou outro valor. Depois, escolhe uma das expressões que te enganaram e escreve outra, com números teus, que engane da mesma maneira.
+Para cada previsão errada, explica numa frase, num comentário, porque é que a consola mostrou outro valor. Escolhe também uma das expressões que te enganaram e escreve outra, com números teus, que engane da mesma maneira.
 
 ## Exercício 4: Traduzir uma função de Python
 
@@ -102,7 +102,7 @@ def beber_pocao(vida, cura):
 ```
 
 1. Traduz a função para JavaScript, no `exercicios.js`. Os nomes seguem a convenção do JavaScript, e a função leva JSDoc, com o `@param` de cada parâmetro e o `@returns`. ("Variáveis com `const` e `let`", "Funções com `function` e `return`" e o passo 1 do "Exemplo guiado", no guia.)
-2. Acrescenta, por baixo da função, um `console.log` que chame a função com cada um destes pares de valores. Antes de abrires a página, escreve o resultado que esperas de cada uma, pela regra do cenário.
+2. Testa a função com um `console.log` por baixo dela para cada um destes pares de valores. O resultado esperado de cada chamada tira-se da regra do cenário, e não do código.
 
    | Vida | Cura | O que esperas |
    | ---: | ---: | --- |
@@ -122,8 +122,7 @@ const moedasPorNivel = [3, 0, 5, 2];
 
 É só a primeira linha do programa, que vais completar.
 
-1. No `exercicios.js`, escreve um programa que comece por esta linha e que use um `for...of` para somar as moedas de todos os níveis. No fim, mostra na consola o texto `Total de moedas: ` seguido do total. ("Ciclos: `for`, `while` e `for...of`", no guia.) Antes de abrires a página, escreve o total que esperas.
-2. Muda o array para `[]`, um array sem nenhum valor, que é o de uma personagem que ainda não jogou nenhum nível. Prevê o que a consola mostra, e confirma.
+No `exercicios.js`, escreve um programa que comece por esta linha e que use um `for...of` para somar as moedas de todos os níveis. No fim, mostra na consola o texto `Total de moedas: ` seguido do total. ("Ciclos: `for`, `while` e `for...of`", no guia.) O programa tem de dar o total certo também com o array `[]`, um array sem nenhum valor, que é o de uma personagem que ainda não jogou nenhum nível.
 
 ## Exercício 6: Três hábitos do Python
 
@@ -155,9 +154,13 @@ console.log(descreverMochila([], true));
 
 O `string[]` do JSDoc quer dizer "um array de textos".
 
-1. Abre a página com a consola aberta. Escreve a mensagem de erro que aparece, com o número da linha, e diz que tipo de erro é: de escrita, de execução ou de lógica. ("Quando a página não faz o que devia", no guia.)
-2. Corrige só a causa desse erro, guarda e recarrega. Repete os passos 1 e 2 até a consola não mostrar nenhum erro. Escreve, para cada erro que encontraste, a mensagem, a linha e a correção.
-3. Com os três erros corrigidos, prevê as três linhas que a consola vai mostrar, e confirma.
+Põe a função a funcionar, sem mudares o que ela faz: no fim, a consola não mostra nenhum erro e mostra as três frases da mochila. ("Quando a página não faz o que devia", no guia.) Para cada erro que a consola mostrar, segue a rotina da depuração e escreve-a num comentário no fim do `exercicios.js`, para o código não mudar de linha:
+
+1. A mensagem de erro, com o número da linha, e o tipo de erro: de escrita, de execução ou de lógica.
+2. A causa, numa frase.
+3. A correção: a linha que mudaste, e como ficou.
+
+Com os três erros corrigidos, prevê as três linhas que a consola vai mostrar, e confirma.
 
 ## Apoio
 
@@ -222,7 +225,7 @@ function aoCarregarEmBeber() {
 botaoBeber.addEventListener("click", aoCarregarEmBeber);
 ```
 
-Cria os dois ficheiros numa pasta nova, abre a página e segue a rotina da depuração do guia. Escreve a mensagem e a linha que a consola mostra. Como os `id` estão iguais, essa causa fica de fora: escreve outra hipótese e como a verificaste. Por fim, escreve a correção. Explica porque é que a linha apontada pela mensagem não é a linha onde está a causa.
+Cria os dois ficheiros numa pasta nova e põe o botão a funcionar. Segue a rotina da depuração do guia e escreve-a num comentário no fim do `pocao.js`. Escreve a mensagem e a linha que a consola mostra. Como os `id` estão iguais, essa causa fica de fora: escreve outra hipótese e como a verificaste. Por fim, escreve a correção. Explica também, no mesmo comentário, porque é que a linha apontada pela mensagem não é a linha onde está a causa.
 
 ## Para ires mais longe
 
@@ -230,20 +233,20 @@ Cria os dois ficheiros numa pasta nova, abre a página e segue a rotina da depur
 
 Faz uma página com um campo "Pontos de cura", com o seu rótulo, um botão "Beber poção" e uma saída que mostra `Vida: ` seguido da vida da personagem. A personagem começa com 40 pontos de vida. Cada clique lê o campo, chama a tua função do exercício 4 e mostra a vida nova. A saída mostra a vida inicial logo que a página abre.
 
-Testa a página com esta sequência, sem recarregar, e escreve antes a tua previsão para cada pedido: `25`, depois `50`, depois `10`. Depois recarrega e escreve `abc` no campo. Explica o que a saída mostra com o `abc`, e porquê. Não precisas de corrigir este último caso: a recusa dos valores impossíveis é o assunto do tema 03.
+Testa a página com esta sequência, sem recarregar: `25`, depois `50`, depois `10`. O resultado esperado de cada pedido tira-se da regra do cenário. Depois recarrega e escreve `abc` no campo. Explica, num comentário no fim do teu ficheiro de JavaScript, o que a saída mostra com o `abc`, e porquê. Não precisas de corrigir este último caso: a recusa dos valores impossíveis é o assunto do tema 03.
 
 ### Mais longe 2: Quantas poções
 
-A personagem tem 20 pontos de vida, e cada poção cura 15. Escreve um programa com um `while` que use a tua função do exercício 4 para contar quantas poções a personagem tem de beber até a vida chegar a 100. No fim, mostra na consola o número de poções e a vida final. Antes de abrires a página, faz a conta no caderno, com uma tabela da vida antes e depois de cada poção.
+A personagem tem 20 pontos de vida, e cada poção cura 15. Escreve um programa com um `while` que use a tua função do exercício 4 para contar quantas poções a personagem tem de beber até a vida chegar a 100. No fim, mostra na consola o número de poções e a vida final. Antes de abrires a página, segue de cabeça a vida antes e depois de cada poção, para saberes o resultado certo.
 
 ## Critérios de conclusão
 
 - Os dois rótulos do exercício 1 estão ligados aos seus campos, e sabes como o confirmar no browser.
 - Escolheste no exercício 2 uma proposta com pelo menos 4,5 para 1 e escreveste a regra de CSS dela.
-- Tens no caderno as seis previsões do exercício 3, e explicaste as que falharam.
-- A tua função do exercício 4 tem JSDoc e dá na consola os resultados que previste para as três chamadas.
+- No exercício 3, previste as seis expressões antes de as escreveres na consola, e explicaste num comentário as que falharam.
+- A tua função do exercício 4 tem JSDoc e dá na consola os resultados que a regra do cenário pede para as três chamadas.
 - O teu ciclo do exercício 5 mostra o total das moedas, também com o array vazio.
-- Encontraste e corrigiste os três hábitos do Python do exercício 6, com a mensagem, a linha e o tipo de cada erro que a consola mostrou.
+- Encontraste e corrigiste os três hábitos do Python do exercício 6. O comentário do fim do `exercicios.js` tem a mensagem, a linha e o tipo de cada erro que a consola mostrou.
 
 ## Autoavaliação
 

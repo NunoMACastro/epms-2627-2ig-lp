@@ -28,7 +28,7 @@ primeira-pagina/
 
 Esta é a árvore da pasta no fim do laboratório.
 
-Em todas as fases trabalhas da mesma maneira. Antes de abrires ou recarregares a página, escreve no papel o que esperas ver. Depois compara. Quando o resultado for diferente da tua previsão, explica a diferença antes de continuares. Várias fases pedem-te para provocares um erro de propósito: faz a alteração, observa e desfaz a alteração antes de seguires.
+Em todas as fases trabalhas da mesma maneira. Antes de abrires ou recarregares a página, pensa no que esperas ver. Depois compara. Quando o resultado for diferente da tua previsão, procura a razão da diferença antes de continuares. Várias fases pedem-te para provocares um erro de propósito: faz a alteração, observa e desfaz a alteração antes de seguires.
 
 ## Palavras que vais usar
 
@@ -55,7 +55,6 @@ Em todas as fases trabalhas da mesma maneira. Antes de abrires ou recarregares a
 
 - O VS Code, para criar e escrever os três ficheiros. Confirma que o tens: abre-o, e no menu `Help` escolhe `About` (no macOS, o menu `Code` e `About Visual Studio Code`). Aparece uma janela com o número da versão, o que quer dizer que o editor está instalado.
 - Um browser atual: o Chrome, o Edge ou o Firefox. Confirma que o tens abrindo-o. As mensagens de erro deste laboratório são as do Chrome e do Edge, que escrevem igual. O Firefox usa outras palavras, mas mostra as mensagens no mesmo sítio, com o ficheiro e a linha.
-- Papel e caneta, para as previsões e as respostas.
 
 O laboratório começa de uma pasta vazia: não precisas de nenhum ficheiro anterior. A página abre-se com um duplo clique, e não precisas de instalar mais nada.
 
@@ -660,7 +659,7 @@ O JavaScript desta página não se corre no editor: fora do browser não há pá
 
 1. Avisar quando o pedido é recusado. Hoje, quem faz um pedido impossível vê a mesma frase de sempre e não fica a saber que o pedido foi recusado. Muda a página para que, num pedido recusado, a saída mostre `Pedido recusado. Unidades do caderno A01: 6.`, com a quantidade certa. Pista: guarda a quantidade antes do pedido numa variável e compara-a com a de depois.
 2. Um botão para adicionar unidades. Acrescenta um segundo botão, "Adicionar", que usa o mesmo campo e soma unidades ao caderno. Escreve primeiro uma função `adicionar(quantidade, unidades)`, com JSDoc, que só aceita pedidos positivos e devolve a quantidade sem mudanças nos outros casos. Pista: testa a função na consola com 6 e 3, 6 e 0 e 6 e -2 antes de lhe ligares o botão.
-3. A pasta A02. Acrescenta à página a pasta A02, que começa com 2 unidades, com o seu próprio campo, o seu botão e a sua saída. Depois responde: quantas variáveis, quantos `id` e quantas funções novas precisaste? Que problema do guia 01 do M10 voltou a aparecer? Pista: conta tudo o que tiveste de repetir para a pasta, e imagina o mesmo para cinquenta artigos.
+3. A pasta A02. Acrescenta à página a pasta A02, que começa com 2 unidades, com o seu próprio campo, o seu botão e a sua saída. Responde, num comentário no fim do `inventario.js`: quantas variáveis, quantos `id` e quantas funções novas precisaste? Que problema do guia 01 do M10 voltou a aparecer? Pista: conta tudo o que tiveste de repetir para a pasta, e imagina o mesmo para cinquenta artigos.
 
 ## Antes de terminares
 
