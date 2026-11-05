@@ -716,7 +716,7 @@ Repara na quinta linha. A consulta de A03 falha, e isso prova que o registo recu
 
 ### Passo 7: o programa completo e a comparação com o traço
 
-Este é o programa completo, com a classe final `Inventario`. Os pedidos do fim são os do traço do passo 6, pela mesma ordem. Antes de o correres, escreve, para cada linha que o programa vai mostrar, a mensagem que esperas, a partir do traço.
+Este é o programa completo, com a classe final `Inventario`. Os pedidos do fim são os do traço do passo 6, pela mesma ordem. Antes de o correres, prevê, para cada linha que o programa vai mostrar, a mensagem que esperas, a partir do traço.
 
 ```python
 # O inventário que cria e guarda os seus artigos: o programa do exemplo guiado do guia 04.

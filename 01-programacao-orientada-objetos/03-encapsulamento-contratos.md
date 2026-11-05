@@ -865,7 +865,7 @@ Como se corrige: escreve no `except` o tipo de exceção que o método lança, a
 
 ## Verificar o que aprendeste
 
-Tenta responder sem olhar para o texto. Se uma pergunta te deixar com dúvidas, volta à secção indicada. As perguntas 7 e 8 pedem que executes um programa. Escreve a previsão antes; se a execução der outra coisa, procura a explicação em vez de mudar a previsão.
+Tenta responder sem olhar para o texto. Se uma pergunta te deixar com dúvidas, volta à secção indicada. As perguntas 7 e 8 pedem que executes um programa. Faz a previsão antes, de cabeça; se a execução der outra coisa, procura a explicação em vez de mudar a previsão.
 
 1. Porque é que mostrar uma mensagem depois de guardar -3 não resolve nada? ("Nada impede uma quantidade impossível")
 2. Qual é a diferença entre juntar dados e métodos numa classe e ter encapsulamento? ("Quem deve proteger a quantidade")

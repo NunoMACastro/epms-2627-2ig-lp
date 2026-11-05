@@ -108,7 +108,7 @@ A tabela seguinte serve de mapa para o resto do guia. A coluna da direita diz on
 
 Este é o programa à volta do qual trabalha todo o guia. É o programa final do exemplo guiado do guia 04, com as docstrings de `registar` e de `retirar` do inventário mais curtas. Tem uma diferença: a classe `Inventario` tem um método a mais, `acertar`, que acerta a quantidade de um artigo depois de uma contagem. As instruções das outras partes das classes são as mesmas do guia 04, e por isso o comportamento também é.
 
-Antes de correres este programa, escreve no papel as duas linhas que ele devia mostrar, se fizesse o que o programa principal pede. O programa principal são as linhas encostadas à margem, no fim do ficheiro.
+Antes de correres este programa, tenta prever as duas linhas que ele devia mostrar, se fizesse o que o programa principal pede. O programa principal são as linhas encostadas à margem, no fim do ficheiro.
 
 ```python
 # O programa de partida do guia 06: o inventário, com o método acertar por escrever.
@@ -236,7 +236,7 @@ A01: 6
 A02: 2
 ```
 
-Se escreveste `A02: 5` na segunda linha, a tua previsão está certa sobre o que o programa devia fazer. É o programa que está errado, e a subsecção "Um programa que corre sem erros e não faz o que devia" explica porquê.
+Se pensaste em `A02: 5` para a segunda linha, a tua previsão está certa sobre o que o programa devia fazer. É o programa que está errado, e a subsecção "Um programa que corre sem erros e não faz o que devia" explica porquê.
 
 Leitura guiada: um programa com mais de cem linhas não se lê de cima para baixo, linha a linha, na primeira vez. Lê-se por zonas, e começa-se pelo fim, como mostra a subsecção seguinte.
 
@@ -258,7 +258,7 @@ O `pass` faz mais falta noutro caso. Um `def` precisa de pelo menos uma instruç
 
 O guia 03, em "Nada impede uma quantidade impossível", distinguiu três tipos de erro. Um **erro de escrita** impede o Python de perceber o programa: falta um parêntese, faltam os dois pontos no fim de um `def`, ou uma linha está mal indentada. O programa nem chega a começar, e o Python mostra uma mensagem com `SyntaxError` ("erro de sintaxe") ou `IndentationError` ("erro de indentação"). Um **erro de execução** para o programa a meio, com uma mensagem que começa por `Traceback` ("rasto"). Um **erro de lógica** é diferente: o programa corre do princípio ao fim, sem nenhuma mensagem, mas faz uma coisa diferente da que o problema pede.
 
-O nosso programa tem um erro de lógica, e é o tipo de erro mais traiçoeiro, porque o Python não avisa de nada. A única forma de o apanhar é saber antes o que o programa devia mostrar e comparar com o que mostrou. Se não tivesses pensado que A02 devia ficar com 5, a linha `A02: 2` parecia perfeitamente normal. É por isso que, em todos os guias, escreves a previsão antes de executar: a previsão é o que te permite reparar que alguma coisa está errada.
+O nosso programa tem um erro de lógica, e é o tipo de erro mais traiçoeiro, porque o Python não avisa de nada. A única forma de o apanhar é saber antes o que o programa devia mostrar e comparar com o que mostrou. Se não tivesses pensado que A02 devia ficar com 5, a linha `A02: 2` parecia perfeitamente normal. É por isso que, em todos os guias, fazes a previsão antes de executar: a previsão é o que te permite reparar que alguma coisa está errada.
 
 ## Classes e objetos no programa
 
@@ -378,7 +378,7 @@ Repara no que esta linha não faz: não escreve em `artigo._quantidade`. O inven
 
 Antes de executarmos, fazemos o traço de quatro pedidos seguidos a um inventário com A01 a 6 e A02 a 2. Cada linha começa no estado deixado pela anterior. A coluna "Quem responde" diz que peça do programa aceitou ou recusou o pedido.
 
-Antes de leres a tabela, faz tu o traço no papel, com as mesmas colunas, para os pedidos `acertar("A02", 5)`, `acertar("A01", -1)`, `acertar("A09", 3)` e `retirar("A02", 4)`. Depois compara.
+Antes de leres a tabela, faz tu o traço de cabeça, com as mesmas colunas, para os pedidos `acertar("A02", 5)`, `acertar("A01", -1)`, `acertar("A09", 3)` e `retirar("A02", 4)`. Depois compara.
 
 | Pedido | Quem responde | Resposta | A01 depois | A02 depois |
 | --- | --- | --- | ---: | ---: |

@@ -622,7 +622,7 @@ A terceira linha é a mais importante. A docstring da `NotificacaoEsquecida` pro
 
 Fica então claro o que a docstring faz e o que não faz. Explica o contrato a quem escreve uma variante, no sítio onde ele o vai procurar. Mas não obriga ninguém a cumpri-lo: o Python não verifica se as variantes fazem o que as docstrings dizem. É o que já viste em "O contrato comum", com o `isinstance`. Cumprir o contrato fica a cargo de quem escreve cada variante.
 
-Por isso, o contrato tem de estar escrito por inteiro, e a previsão antes de executar ganha outra importância. Quem leu a docstring da `NotificacaoEsquecida` e previu `[A02 esgotou]` para a terceira linha dá logo pelo esquecimento. É a previsão escrita, comparada com o que o programa mostra, que apanha uma variante que não cumpre o contrato.
+Por isso, o contrato tem de estar escrito por inteiro, e a previsão antes de executar ganha outra importância. Quem leu a docstring da `NotificacaoEsquecida` e previu `[A02 esgotou]` para a terceira linha dá logo pelo esquecimento. É a previsão, comparada com o que o programa mostra, que apanha uma variante que não cumpre o contrato.
 
 ## Herança ou composição
 
@@ -951,7 +951,7 @@ O que se vê: nenhuma mensagem de erro. Uma variante que escreveste apresenta-se
 
 Porque acontece: o método da variante tem outro nome, como `apresenta` ou `Apresentar`. Para o Python, é um método novo, que ninguém chama. Quando o ciclo pede `apresentar`, o Python segue a regra de procura, não o encontra na variante e usa o da base. Também acontece quando o `def` ficou encostado à margem, fora da classe: o método deixa de pertencer à variante.
 
-Como se corrige: confirma, letra a letra, que o método se chama exatamente como o da base, e que o `def` está indentado dentro da classe. O Python não avisa deste erro. Quem dá por ele é a previsão escrita antes de executar.
+Como se corrige: confirma, letra a letra, que o método se chama exatamente como o da base, e que o `def` está indentado dentro da classe. O Python não avisa deste erro. Quem dá por ele é a previsão feita antes de executar.
 
 ## Palavras novas deste guia
 
@@ -992,7 +992,7 @@ Tenta responder sem olhar para o texto. Se uma pergunta te deixar com dúvidas, 
 6. O que faz `super().__init__(texto)`, quando é que uma classe derivada a escreve, e o que acontece se for esquecida? ("Acrescentar dados numa classe derivada: `super()`")
 7. Usa o ciclo das três variantes para explicar o que é o polimorfismo. O que é que ele poupa em relação à cadeia de `isinstance`, e o que lhe acrescenta a herança? ("Polimorfismo: a mesma chamada, comportamentos diferentes")
 8. Escreve o contrato de `apresentar` e dá um exemplo de uma variante que o quebra, mesmo com o nome certo. ("O contrato comum")
-9. O que são uma classe abstrata e um método abstrato? Escreve no papel o contrato abstrato de `Notificacao`. O que faz a docstring da classe base, e o que não faz? ("Abstração e classes abstratas")
+9. O que são uma classe abstrata e um método abstrato? Descreve por palavras o contrato abstrato de `Notificacao`. O que faz a docstring da classe base, e o que não faz? ("Abstração e classes abstratas")
 10. Dá um exemplo de uma herança sem sentido e diz qual é a relação certa. ("Herança ou composição")
 11. Prevê o resultado de cada volta do ciclo do exemplo guiado, dizendo o `apresentar` que o Python usa em cada uma. (Exemplo guiado, passo 5)
 

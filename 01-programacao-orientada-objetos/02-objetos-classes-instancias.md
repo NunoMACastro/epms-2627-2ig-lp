@@ -401,7 +401,7 @@ Cada passo do papel corresponde a uma parte da chamada `caderno.retirar(2)`, que
 
 O valor devolvido é o do `return self.quantidade`, lido depois do passo 4.
 
-O papel diz também que o código e o nome de A01 ficaram iguais. Para o confirmar, juntamos ao segundo programa duas linhas que mostram cada artigo inteiro, atributo a atributo. Antes de correres, escreve as cinco linhas que esperas ver. As três primeiras já as conheces.
+O papel diz também que o código e o nome de A01 ficaram iguais. Para o confirmar, juntamos ao segundo programa duas linhas que mostram cada artigo inteiro, atributo a atributo. Antes de correres, prevê as cinco linhas que esperas ver. As três primeiras já as conheces.
 
 ```python
 # Exemplo guiado do guia 02: retirar duas unidades ao artigo A01.
@@ -524,7 +524,7 @@ Como se corrige: põe o `def` com quatro espaços e as linhas de dentro do méto
 
 ## Verificar o que aprendeste
 
-Tenta responder sem olhar para o texto. Se uma pergunta te deixar com dúvidas, volta à secção indicada. As perguntas 6 e 7 pedem que executes um programa. Escreve a previsão antes; se a execução der outra coisa, procura a explicação em vez de mudar a previsão.
+Tenta responder sem olhar para o texto. Se uma pergunta te deixar com dúvidas, volta à secção indicada. As perguntas 6 e 7 pedem que executes um programa. Faz a previsão antes, de cabeça; se a execução der outra coisa, procura a explicação em vez de mudar a previsão.
 
 1. Qual é a diferença entre a classe `Artigo` e o objeto `caderno`? ("Classe: a descrição comum" e "Classe e instância")
 2. Quando é executado o construtor, e quem o chama? ("A classe Artigo em Python")
