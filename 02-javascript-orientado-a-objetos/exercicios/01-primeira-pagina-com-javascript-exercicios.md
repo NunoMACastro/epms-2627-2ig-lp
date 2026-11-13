@@ -2,19 +2,13 @@
 
 # Ficha de exercícios: A primeira página com JavaScript
 
-Ficha do tema A primeira página com JavaScript, do módulo M11, Introdução à Linguagem de Programação Orientada por Objetos. Praticas, em exercícios curtos, o rótulo ligado ao campo, o contraste das cores e os operadores do JavaScript. Praticas também a tradução de uma função de Python, um ciclo sobre um array e a procura de erros na consola. Fazes sozinho, ao teu ritmo: o que não acabares na aula, acabas em casa ou na aula seguinte.
+Praticas o rótulo de um campo, o contraste das cores, os operadores, a tradução de uma função de Python, um ciclo e a procura de erros na consola. Os exercícios 1 a 6 são obrigatórios. Entregas a pasta `ficha-01` pelo meio que o professor indicar. As respostas escritas vão para comentários no fim do `exercicios.js`, cada uma começada pelo número do exercício e, quando a há, da alínea. Para rever: o [guia do tema](../01-primeira-pagina-com-javascript.md) e o [laboratório](../laboratorios/01-primeira-pagina-com-javascript-laboratorio.md).
 
-## O que precisas de saber
+## O cenário
 
-O [guia do tema](../01-primeira-pagina-com-javascript.md) e o [laboratório](../laboratorios/01-primeira-pagina-com-javascript-laboratorio.md). Cada exercício diz em que secção do guia está a ideia que usa.
+Num jogo de aventura, a personagem tem pontos de vida, de 0 a 100, apanha moedas em cada nível e leva uma mochila com itens. A vida nunca passa de 100.
 
-## Como trabalhar
-
-Faz os exercícios 1 a 6 pela ordem. São a parte obrigatória, e cada um treina uma coisa só. O desafio opcional é para quem acabar. Os exercícios de "Para ires mais longe" são mais longos e servem para aprofundar: fazes os que quiseres, ou os que o professor indicar.
-
-As respostas escritas vão para comentários no fim do `exercicios.js` da página de treino, que preparas a seguir: com `//`, ou entre `/*` e `*/` quando ocupam várias linhas. Começa cada resposta pelo número do exercício e da alínea. O HTML do exercício 1 e o CSS do exercício 2 também ficam num comentário, porque não correm no `exercicios.js`. Nos exercícios com código, pensa no resultado antes de abrires a página: é a previsão, e não o resultado, que mostra o que percebeste. Se o browser mostrar outra coisa, procura a explicação. Entrega a pasta `ficha-01` pelo meio indicado pelo professor.
-
-Para os exercícios que correm JavaScript, prepara uma página de treino. Cria uma pasta `ficha-01` e, dentro dela, um `index.html` com o conteúdo seguinte e um `exercicios.js` vazio. O código de cada exercício vai para o `exercicios.js`, e os resultados aparecem na consola do browser. Quando passares a outro exercício, apaga o código do anterior, ou põe-no num comentário. Os comentários com as respostas ficam no fim do ficheiro.
+Cria a pasta `ficha-01`, com este `index.html`, a página de treino, e um `exercicios.js` vazio:
 
 ```html
 <!doctype html>
@@ -34,15 +28,11 @@ Para os exercícios que correm JavaScript, prepara uma página de treino. Cria u
 </html>
 ```
 
-Abres a página com um duplo clique no `index.html`, na janela de ficheiros do computador, e a consola com F12 no Windows ou Cmd+Option+I no macOS.
-
-## O cenário
-
-Num jogo de aventura, a personagem tem pontos de vida, de 0 a 100, apanha moedas em cada nível e leva uma mochila com itens. A vida nunca passa de 100. Todos os dados são inventados.
+O código de cada exercício vai para o `exercicios.js`, e o do exercício anterior fica com `//` no início de cada linha. No VS Code, seleciona as linhas e escolhe `Toggle Line Comment`, no menu `Edit`. O `/*` e o `*/` não servem, porque o `*/` do JSDoc fecha o comentário antes do tempo.
 
 ## Exercício 1: O rótulo e o campo
 
-A página da loja do jogo tem este excerto de HTML, com dois campos. É um excerto: estaria dentro do `main` de uma página completa.
+A página da loja do jogo tem dois campos, neste excerto do `main`:
 
 ```html
 <p>
@@ -55,13 +45,23 @@ A página da loja do jogo tem este excerto de HTML, com dois campos. É um excer
 </p>
 ```
 
-1. Para cada um dos dois rótulos, diz se está ligado ao seu campo e porquê. ("Rótulo, campo, botão e saída", no guia.)
-2. Reescreve as linhas que precisam de mudar, para os dois rótulos ficarem ligados aos seus campos. O JavaScript da loja já usa os `id` dos dois campos tal como estão.
-3. Diz como confirmas no browser, sem ler o código, que os dois rótulos ficaram ligados.
+O JavaScript da loja já usa os dois `id` tal como estão.
+
+1. Diz, para cada rótulo, se está ligado ao seu campo, e porquê.
+2. Copia o excerto para o `main` do `index.html` da ficha, por baixo do parágrafo, e corrige-o para os dois rótulos ficarem ligados. Confirma no browser, sem leres o código, que ficaram.
+
+Rever: [Os controlos da página](../01-primeira-pagina-com-javascript.md#os-controlos-da-página).
+
+<details>
+<summary>Pista</summary>
+
+Para cada rótulo, procura o valor do `for` e o `id` do campo que está ao lado, e compara-os letra a letra.
+
+</details>
 
 ## Exercício 2: As cores do botão
 
-A página tem um botão "Beber poção", sobre um fundo branco. Há três propostas para as cores do botão. A razão de contraste de cada uma foi medida com uma calculadora de contraste.
+A loja tem um botão "Beber poção". Para as cores do botão há três propostas, com a razão de contraste medida numa calculadora:
 
 | Proposta | Texto | Fundo do botão | Razão de contraste |
 | --- | --- | --- | ---: |
@@ -69,13 +69,22 @@ A página tem um botão "Beber poção", sobre um fundo branco. Há três propos
 | B | `#000000`, preto | `#ff9900`, laranja | 9,81 para 1 |
 | C | `#ffffff`, branco | `#2e7d32`, verde-escuro | 5,13 para 1 |
 
-1. Que propostas servem para o texto do botão? Porquê? ("Contraste e foco visível", no guia.)
-2. Escolhe uma das propostas que servem e escreve a regra de CSS que dá essas cores ao botão.
-3. Um colega prefere a proposta A, porque "o laranja com o branco chama mais a atenção". O que lhe respondes, com o número da tabela?
+1. Que propostas servem para o texto do botão, e porquê?
+2. Escolhe uma das que servem e escreve a regra de CSS que dá essas cores ao botão. A regra também vai num comentário, porque a página de treino não tem folha de estilos.
+3. Um colega prefere a proposta A, porque "o laranja com o branco chama mais a atenção", e não quer largar o fundo laranja. O que lhe propões, e com que número da tabela o convences?
+
+Rever: [As cores escolhem-se pelo contraste](../01-primeira-pagina-com-javascript.md#as-cores-escolhem-se-pelo-contraste) e [A apresentação com uma folha de CSS](../01-primeira-pagina-com-javascript.md#a-apresentação-com-uma-folha-de-css).
+
+<details>
+<summary>Pista</summary>
+
+Compara cada razão com o mínimo do guia para o texto de tamanho normal.
+
+</details>
 
 ## Exercício 3: Prever na consola
 
-Prevê o valor de cada uma destas expressões, e só depois escreve a expressão na consola do browser e carrega em Enter. ("Números, textos e valores lógicos" e "Operadores", no guia.)
+Descobre, sem correr, o valor de cada expressão, e confirma-o depois na consola do browser:
 
 1. `40 + 25 + " de vida"`
 2. `"Moedas: " + 3 * 2`
@@ -84,13 +93,22 @@ Prevê o valor de cada uma destas expressões, e só depois escreve a expressão
 5. `"100" === 100 || 100 >= 100`
 6. `!(25 > 30) && 25 !== 30`
 
-A consola mostra os textos entre plicas, como `'Caderno'`, ou entre aspas, conforme o browser. As plicas dizem que o valor é um texto, e não fazem parte dele.
+As plicas, ou as aspas, que a consola põe à volta de um texto só mostram que o valor é um texto.
 
-Para cada previsão errada, explica numa frase, num comentário, porque é que a consola mostrou outro valor. Escolhe também uma das expressões que te enganaram e escreve outra, com números teus, que engane da mesma maneira.
+Cada valor em que falhaste leva um comentário, numa frase, com a razão. Depois, inventa outra expressão, com números teus, que engane da mesma maneira que uma das que te enganaram, ou que a que achaste mais difícil. Escreve-a no comentário, com o valor que dá e a razão, numa frase.
+
+Rever: [Os operadores que enganam quem vem do Python](../01-primeira-pagina-com-javascript.md#os-operadores-que-enganam-quem-vem-do-python) e [O resto do Python, escrito em JavaScript](../01-primeira-pagina-com-javascript.md#o-resto-do-python-escrito-em-javascript).
+
+<details>
+<summary>Pista</summary>
+
+Segue cada expressão como o browser: uma operação de cada vez, pela ordem certa. Em cada passo, vê se o resultado é um número, um texto ou um valor lógico.
+
+</details>
 
 ## Exercício 4: Traduzir uma função de Python
 
-No jogo, beber uma poção soma pontos de vida, mas a vida nunca passa de 100. Esta função de Python já faz a conta:
+No jogo, beber uma poção soma pontos de vida, sem a vida passar de 100. Esta função de Python faz a conta:
 
 ```python
 def beber_pocao(vida, cura):
@@ -101,32 +119,34 @@ def beber_pocao(vida, cura):
     return nova_vida
 ```
 
-1. Traduz a função para JavaScript, no `exercicios.js`. Os nomes seguem a convenção do JavaScript, e a função leva JSDoc, com o `@param` de cada parâmetro e o `@returns`. ("Variáveis com `const` e `let`", "Funções com `function` e `return`" e o passo 1 do "Exemplo guiado", no guia.)
-2. Testa a função com um `console.log` por baixo dela para cada um destes pares de valores. O resultado esperado de cada chamada tira-se da regra do cenário, e não do código.
+Traduz a função para JavaScript, no `exercicios.js`, com os nomes à maneira do JavaScript e com JSDoc: o `@param` de cada parâmetro e o `@returns`. Testa-a por baixo, com um `console.log` para cada caso: vida 40 e cura 25, vida 90 e cura 25, vida 75 e cura 25. O resultado certo de cada caso tira-se da regra do cenário, e não do código.
 
-   | Vida | Cura | O que esperas |
-   | ---: | ---: | --- |
-   | 40 | 25 | |
-   | 90 | 25 | |
-   | 75 | 25 | |
+A variável que guarda a vida nova declaraste-a com `const` ou com `let`? Justifica a escolha.
 
-3. A variável que guarda a vida nova declaraste-a com `const` ou com `let`? Justifica a escolha.
+Rever: [Do Python ao JavaScript, a função `retirar`](../01-primeira-pagina-com-javascript.md#do-python-ao-javascript-a-função-retirar), [`const` para o que não muda, `let` para o que muda](../01-primeira-pagina-com-javascript.md#const-para-o-que-não-muda-let-para-o-que-muda) e [O resto do Python, escrito em JavaScript](../01-primeira-pagina-com-javascript.md#o-resto-do-python-escrito-em-javascript).
 
 ## Exercício 5: Um ciclo pelas moedas
 
 O jogo guarda num array as moedas que a personagem apanhou em cada nível:
 
-```js partial
+```js
 const moedasPorNivel = [3, 0, 5, 2];
 ```
 
-É só a primeira linha do programa, que vais completar.
+No `exercicios.js`, escreve um programa que comece por esta linha e some, com um `for...of`, as moedas de todos os níveis. No fim, a consola mostra `Total de moedas: ` seguido do total. O programa tem de dar o total certo também com `[]`, o array de uma personagem que ainda não jogou nenhum nível.
 
-No `exercicios.js`, escreve um programa que comece por esta linha e que use um `for...of` para somar as moedas de todos os níveis. No fim, mostra na consola o texto `Total de moedas: ` seguido do total. ("Ciclos: `for`, `while` e `for...of`", no guia.) O programa tem de dar o total certo também com o array `[]`, um array sem nenhum valor, que é o de uma personagem que ainda não jogou nenhum nível.
+Rever: [Os ciclos `for` do JavaScript](../01-primeira-pagina-com-javascript.md#os-ciclos-for-do-javascript).
+
+<details>
+<summary>Pista</summary>
+
+O total tem de existir antes do ciclo. Experimenta o programa com o `[]`: sem nenhum nível jogado, quantas moedas tem a personagem? Se a consola mostrar outra coisa, segue o programa linha a linha com esse array.
+
+</details>
 
 ## Exercício 6: Três hábitos do Python
 
-Uma colega escreveu esta função para descrever a mochila da personagem. O código tem três hábitos do Python, um deles repetido em mais do que uma linha, e por isso não corre. Copia-o para o `exercicios.js`.
+Uma colega escreveu esta função para descrever a mochila da personagem. O código tem três hábitos do Python, um deles em mais do que uma linha, e por isso não corre. Copia-o para o `exercicios.js`.
 
 ```js partial
 // Ficha 01, exercício 6: a função da colega, que tem três erros.
@@ -154,24 +174,37 @@ console.log(descreverMochila([], true));
 
 O `string[]` do JSDoc quer dizer "um array de textos".
 
-Põe a função a funcionar, sem mudares o que ela faz: no fim, a consola não mostra nenhum erro e mostra as três frases da mochila. ("Quando a página não faz o que devia", no guia.) Para cada erro que a consola mostrar, segue a rotina da depuração e escreve-a num comentário no fim do `exercicios.js`, para o código não mudar de linha:
+Põe a função a funcionar sem mudares o que ela faz. No fim, a consola não mostra nenhum erro e mostra a frase certa para cada uma das três mochilas. O comentário do fim do `exercicios.js` leva, para cada um dos três erros:
 
-1. A mensagem de erro, com o número da linha, e o tipo de erro: de escrita, de execução ou de lógica.
-2. A causa, numa frase.
-3. A correção: a linha que mudaste, e como ficou.
+- a mensagem que a consola mostra para ele, com o número da linha, e o tipo de erro: de escrita, de execução ou de lógica;
+- a causa, numa frase;
+- a linha que mudaste, e como ficou.
 
-Com os três erros corrigidos, prevê as três linhas que a consola vai mostrar, e confirma.
+Rever: [Quando a página não faz o que devia](../01-primeira-pagina-com-javascript.md#quando-a-página-não-faz-o-que-devia) e [O resto do Python, escrito em JavaScript](../01-primeira-pagina-com-javascript.md#o-resto-do-python-escrito-em-javascript).
 
-## Apoio
+<details>
+<summary>Pista</summary>
 
-- Exercício 1: relê, no guia, o que o atributo `for` de um rótulo tem de ter.
-- Exercício 2: o texto de tamanho normal precisa de pelo menos 4,5 para 1. Numa regra, a cor do texto é o `color` e a do fundo é o `background-color`.
-- Exercício 3: o `+` com um texto junta em vez de somar, e o JavaScript faz os `+` da esquerda para a direita. O `%` é o resto da divisão.
-- Exercício 4: relê, no guia, a secção "Os nomes em JavaScript" e a tabela do passo 1 do exemplo guiado, que traduz outra função linha a linha.
-- Exercício 5: o total tem de existir antes do ciclo e de mudar dentro dele. Pensa no valor com que começa, para que o primeiro nível conte bem.
-- Exercício 6: cada correção pode fazer aparecer o erro seguinte, porque o browser para no primeiro que encontra. Compara cada linha com as secções "Decisões com `if` e `else`", "Números, textos e valores lógicos" e "Os arrays e o `for...of`" do guia.
+O browser para no primeiro erro que encontra, e por isso cada correção pode fazer aparecer outro. Quando a mensagem aponta para um símbolo que parece certo, olha para o que está antes dele, na mesma linha.
 
-## Desafio opcional
+</details>
+
+## Desafios
+
+### Desafio 1: Quantas poções
+
+A personagem tem 20 pontos de vida, e cada poção cura 15. Tira os `//` da tua função do exercício 4. Com um `while` e essa função, escreve um programa que conte quantas poções a personagem tem de beber até a vida chegar a 100. No fim, a consola mostra o número de poções e a vida final. O resultado certo tira-se da regra do cenário, e não do programa.
+
+Rever: [Os ciclos `for` do JavaScript](../01-primeira-pagina-com-javascript.md#os-ciclos-for-do-javascript) e [O resto do Python, escrito em JavaScript](../01-primeira-pagina-com-javascript.md#o-resto-do-python-escrito-em-javascript).
+
+<details>
+<summary>Pista</summary>
+
+Se a página deixar de responder e a consola não mostrar o resultado do desafio, fecha o separador da página. Depois, olha para a condição do `while`: com a tua função, a vida pode alguma vez passar de 100?
+
+</details>
+
+### Desafio 2: O botão que não funciona
 
 Um colega fez uma página com um botão "Beber poção", que soma 25 pontos de vida a uma personagem que começa com 40. O botão não funciona, e a consola mostra um erro. Os `id` do HTML e do JavaScript estão escritos exatamente da mesma maneira.
 
@@ -225,33 +258,39 @@ function aoCarregarEmBeber() {
 botaoBeber.addEventListener("click", aoCarregarEmBeber);
 ```
 
-Cria os dois ficheiros numa pasta nova e põe o botão a funcionar. Segue a rotina da depuração do guia e escreve-a num comentário no fim do `pocao.js`. Escreve a mensagem e a linha que a consola mostra. Como os `id` estão iguais, essa causa fica de fora: escreve outra hipótese e como a verificaste. Por fim, escreve a correção. Explica também, no mesmo comentário, porque é que a linha apontada pela mensagem não é a linha onde está a causa.
+Cria os dois ficheiros numa pasta nova, dentro da `ficha-01`, e põe o botão a funcionar. A rotina da depuração fica num comentário no fim do `pocao.js`. Leva a mensagem e a linha que a consola mostra, uma hipótese que não seja a dos `id`, como a verificaste e a correção. Explica também porque é que a linha da mensagem não é a linha onde está a causa.
 
-## Para ires mais longe
+Rever: [Quando a página não faz o que devia](../01-primeira-pagina-com-javascript.md#quando-a-página-não-faz-o-que-devia).
 
-### Mais longe 1: A página da poção
+<details>
+<summary>Pista</summary>
 
-Faz uma página com um campo "Pontos de cura", com o seu rótulo, um botão "Beber poção" e uma saída que mostra `Vida: ` seguido da vida da personagem. A personagem começa com 40 pontos de vida. Cada clique lê o campo, chama a tua função do exercício 4 e mostra a vida nova. A saída mostra a vida inicial logo que a página abre.
+A mensagem diz que o `botaoBeber` vale `null`. Confirma esse valor na consola, e procura uma razão para o `querySelector` não ter encontrado um botão que está na página.
 
-Testa a página com esta sequência, sem recarregar: `25`, depois `50`, depois `10`. O resultado esperado de cada pedido tira-se da regra do cenário. Depois recarrega e escreve `abc` no campo. Explica, num comentário no fim do teu ficheiro de JavaScript, o que a saída mostra com o `abc`, e porquê. Não precisas de corrigir este último caso: a recusa dos valores impossíveis é o assunto do tema 03.
+</details>
 
-### Mais longe 2: Quantas poções
+### Desafio 3: A página da poção
 
-A personagem tem 20 pontos de vida, e cada poção cura 15. Escreve um programa com um `while` que use a tua função do exercício 4 para contar quantas poções a personagem tem de beber até a vida chegar a 100. No fim, mostra na consola o número de poções e a vida final. Antes de abrires a página, segue de cabeça a vida antes e depois de cada poção, para saberes o resultado certo.
+Queremos uma página para a personagem beber poções, numa pasta nova dentro da `ficha-01`. A personagem começa com 40 pontos de vida. A página tem um campo "Pontos de cura", com o seu rótulo, um botão "Beber poção" e uma saída com o texto `Vida: ` seguido da vida. A saída mostra a vida logo que a página abre. Cada clique dá à personagem uma poção com os pontos de cura do campo, pela regra do cenário, com a tua função do exercício 4.
+
+Testa a página sem recarregar, com `25`, depois `50`, depois `10`: o resultado certo de cada pedido tira-se da regra do cenário. Depois recarrega a página, escreve `abc` no campo e carrega no botão. Num comentário no fim do teu ficheiro de JavaScript, explica o que a saída mostra com o `abc`, e porquê. Não precisas de corrigir este caso.
+
+Rever: [O script encontra os elementos da página](../01-primeira-pagina-com-javascript.md#o-script-encontra-os-elementos-da-página), [O botão chama a função](../01-primeira-pagina-com-javascript.md#o-botão-chama-a-função) e [O `Number` converte o texto num número](../01-primeira-pagina-com-javascript.md#o-number-converte-o-texto-num-número).
+
+<details>
+<summary>Pista</summary>
+
+Se o pedido de 25 não der o resultado certo, confirma de que tipo é o valor que a tua função recebe: um número ou um texto?
+
+</details>
 
 ## Critérios de conclusão
 
-- Os dois rótulos do exercício 1 estão ligados aos seus campos, e sabes como o confirmar no browser.
-- Escolheste no exercício 2 uma proposta com pelo menos 4,5 para 1 e escreveste a regra de CSS dela.
-- No exercício 3, previste as seis expressões antes de as escreveres na consola, e explicaste num comentário as que falharam.
-- A tua função do exercício 4 tem JSDoc e dá na consola os resultados que a regra do cenário pede para as três chamadas.
-- O teu ciclo do exercício 5 mostra o total das moedas, também com o array vazio.
-- Encontraste e corrigiste os três hábitos do Python do exercício 6. O comentário do fim do `exercicios.js` tem a mensagem, a linha e o tipo de cada erro que a consola mostrou.
-
-## Autoavaliação
-
-1. Em que exercício a tua previsão falhou mais vezes? O que é que isso te diz sobre o que ainda tens de rever no guia?
-2. No exercício 6, o que te ajudou mais a encontrar cada erro: a mensagem, o número da linha ou a comparação com o Python?
-3. Que diferença entre o Python e o JavaScript te parece mais fácil de esquecer?
+- No exercício 1, os dois rótulos estão ligados aos seus campos, com os `id` como estavam, e o comentário diz porque é que cada rótulo não estava ligado.
+- No exercício 2, a regra de CSS é a de uma proposta que serve, e a resposta ao colega usa os números da tabela.
+- No exercício 3, cada valor em que falhaste tem um comentário com a razão, e a tua expressão tem o valor e a razão.
+- A função do exercício 4 tem JSDoc e dá na consola o resultado certo nos três casos, e o comentário justifica o `const` ou o `let`.
+- O programa do exercício 5 mostra o total certo, também com o array vazio.
+- A função do exercício 6 corre sem erros. O comentário do fim do `exercicios.js` tem as três mensagens da consola, uma por erro, com a linha, o tipo, a causa e a correção.
 
 ![Rodapé](../../imagens/rodape.png)
