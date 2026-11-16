@@ -2,25 +2,7 @@
 
 # Ficha de exercícios: Composição e modelação
 
-Ficha do tema Composição e modelação, do módulo M10, Introdução à Programação Orientada por Objetos. Praticas a descrição de classes por palavras, a escolha entre "tem" e "é um" e a escolha entre composição e agregação. Praticas também a leitura de código com objetos que colaboram. Fazes sozinho, ao teu ritmo: o que não acabares na aula, acabas em casa ou na aula seguinte.
-
-## O que precisas de saber
-
-O [guia do tema](../04-composicao-modelacao.md) e o [laboratório](../laboratorios/04-composicao-modelacao-laboratorio.md). Cada exercício usa sobretudo estas secções do guia:
-
-- Exercício 1: "O inventário descrito por palavras", sobretudo "A descrição de uma classe".
-- Exercício 2: "Duas perguntas sobre duas classes: "tem" e "é um"".
-- Exercício 3: "Dois graus de "tem": composição e agregação" e "Agregação em Python: a playlist e as músicas".
-- Exercício 4: o exemplo guiado, "Exemplo guiado: construir a classe `Inventario`", sobretudo os passos 3, 5 e 6. Os três tipos de erro (de escrita, de execução e de lógica) estão no guia 03, em "Nada impede uma quantidade impossível".
-- Exercício 5: "Dois graus de "tem": composição e agregação" e "O inventário descrito por palavras".
-
-## Como trabalhar
-
-Faz os exercícios 1 a 5 pela ordem. São a parte obrigatória. Cada exercício treina uma coisa só, e a ordem vai do mais direto para o que pede uma pequena decisão tua. O desafio opcional é para quem acabar. Os dois exercícios de "Para ires mais longe" são para quem quer treinar mais com outros casos: podes fazer só um, ou os que o professor indicar.
-
-As respostas escritas vão para comentários, com `#`, no ficheiro `.py` do exercício. Um exercício sem código, como o 1, o 2 e o 5, tem um ficheiro só com comentários, com o número do exercício no nome. Começa cada resposta pelo número da alínea. Quando um exercício pede uma justificação, a justificação é a parte mais importante da resposta. Uma escolha certa sem razão escrita vale pouco. Uma escolha discutível bem justificada mostra que percebeste as regras.
-
-Um programa completo pode ser copiado para um ficheiro `.py` e executado no editor de Python que usas nas aulas. Os excertos não correm sozinhos, e o enunciado diz sempre de que outro código dependem. Entrega as respostas pelo meio indicado pelo professor.
+Praticas a descrição de uma classe por palavras e duas escolhas: entre "tem" e "é um", e entre composição e agregação. Procuras também o erro de um colega no inventário. Os exercícios 1 a 5 são obrigatórios. Cada exercício faz-se num script novo, na pasta `tema-04` do laboratório, com o nome que o enunciado dá. As respostas por palavras vão para um comentário no fim desse script. Entregas os cinco scripts como o professor indicar e, se fizeste os desafios, também os deles. Para rever: o [guia do tema](../04-composicao-modelacao.md) e o [laboratório](../laboratorios/04-composicao-modelacao-laboratorio.md).
 
 ## Exercício 1: Ler a descrição de uma classe
 
@@ -30,30 +12,50 @@ Esta é a descrição, por palavras, da classe `Personagem` de um jogo de comput
 - Uma personagem cria-se com esses três valores.
 - A uma personagem pode pedir-se que sofra dano, com `sofrer_dano(pontos)`; que descanse, com `descansar()`; e que diga quantos pontos de vida lhe faltam, com `vida_em_falta()`.
 
+Cria o script `personagem.py` e responde só com comentários.
+
 1. Escreve o nome da classe, os seus atributos e os seus métodos.
-2. Qual dos métodos recebe informação quando é chamado, e que informação recebe?
-3. Descreve por palavras o estado de uma personagem chamada Aurora, com valores à tua escolha para a vida e o nível. Depois explica, numa ou duas frases, porque é que "chama-se Aurora" não entra na descrição da classe `Personagem`.
+2. Que método recebe informação quando é chamado, e que informação recebe?
+3. Descreve por palavras o estado de uma personagem chamada Aurora, com valores à tua escolha para a vida e o nível.
+
+Rever: [O inventário descrito por palavras](../04-composicao-modelacao.md#o-inventário-descrito-por-palavras) e [Classe: a descrição comum](../02-objetos-classes-instancias.md#classe-a-descrição-comum).
+
+<details>
+<summary>Pista</summary>
+
+Cada frase da descrição responde a uma pergunta: o que guarda cada personagem, com que valores se cria e o que se lhe pode pedir. A descrição vale para todas as personagens. O estado da alínea 3 é o de uma só, e por isso leva os valores dela.
+
+</details>
 
 ## Exercício 2: "Tem" ou "é um"
 
-Para cada par, escreve a frase verdadeira: "A tem B" ou "A é um B". Se nenhuma das duas for verdadeira, escreve uma frase tua que diga como se relacionam.
+Cria o script `tem_ou_e_um.py` e responde só com comentários. Para cada par, escreve a frase verdadeira: "A tem B" ou "A é um B". Se nenhuma das duas for verdadeira, escreve uma frase tua que diga como se relacionam.
 
 1. Telemóvel e bateria.
 2. Caneta e material de escrita.
 3. Portátil e computador.
 4. Artigo e inventário, por esta ordem.
 
-Depois, responde a um colega. Para um programa da secretaria da escola, ele propõe que "a Turma é um Aluno, porque também tem um nome e um número". Esta é a descrição da classe `Aluno` desse programa:
+Depois, responde a um colega. Para um programa da secretaria da escola, ele propõe que "a Turma é um Aluno, porque também tem um nome e um número". A classe `Aluno` desse programa descreve-se assim:
 
 - Cada aluno guarda um nome, um número e a data de nascimento.
 - Um aluno cria-se com esses três valores.
 - A um aluno pode pedir-se que diga a sua idade, com `idade()`, e que receba uma nota numa disciplina, com `receber_nota(disciplina, nota)`.
 
-Responde-lhe em três ou quatro frases, com o teste de "Duas perguntas sobre duas classes: "tem" e "é um"", no guia. O teste diz: "se A é um B, tudo o que B tem e faz tem de fazer sentido para A".
+Responde-lhe em três ou quatro frases, com o teste que o guia faz quando a frase "é um" parece quase certa.
+
+Rever: [Duas perguntas sobre duas classes: "tem" e "é um"](../04-composicao-modelacao.md#duas-perguntas-sobre-duas-classes-tem-e-é-um).
+
+<details>
+<summary>Pista</summary>
+
+Experimenta cada par nos dois sentidos, com as duas frases. Na resposta ao colega, pega em cada frase da descrição do `Aluno` e pergunta se faz sentido para uma turma.
+
+</details>
 
 ## Exercício 3: Descobrir a relação a partir do código
 
-Lê este programa completo. Não precisas de o executar para responder, mas podes fazê-lo no fim para confirmar que funciona.
+Este programa junta o horário de uma turma e os clubes da escola:
 
 ```python
 # Ficha 04, exercício 3: o horário de uma turma e os clubes da escola.
@@ -103,7 +105,7 @@ class Clube:
         self._socios = []
 
     def inscrever(self, aluno):
-        """Inscreve no clube um aluno que já existe."""
+        """Inscreve um aluno no clube."""
         self._socios.append(aluno)
 
     def numero_de_socios(self):
@@ -124,13 +126,132 @@ teatro.inscrever(aluno)
 print(horario.numero_de_aulas(), xadrez.numero_de_socios(), teatro.numero_de_socios())
 ```
 
-1. Na classe `Horario`, indica a linha onde as aulas são criadas. Quem as cria?
-2. Na classe `Clube`, o método `inscrever` cria algum aluno? De onde vem o aluno que ele guarda?
-3. Com base nas tuas respostas, diz se cada uma das relações, `Horario` com `Aula` e `Clube` com `Aluno`, é uma composição ou uma agregação. Confirma a decisão com a pergunta "a parte faz sentido sem o todo?".
+Copia-o para o script `horario_e_clubes.py`. Num comentário no fim do script, diz se cada relação é uma composição ou uma agregação. Justifica cada decisão com as duas perguntas que decidem. Para a pergunta "quem cria a parte?", copia também a linha do programa que lhe responde.
+
+1. `Horario` com `Aula`.
+2. `Clube` com `Aluno`.
+
+Rever: [Dois graus de "tem": composição e agregação](../04-composicao-modelacao.md#dois-graus-de-tem-composição-e-agregação) e [Da descrição ao código, e do código à descrição](../04-composicao-modelacao.md#da-descrição-ao-código-e-do-código-à-descrição).
+
+<details>
+<summary>Pista</summary>
+
+As duas classes guardam as partes numa lista, e por isso a lista não decide. Relê, no guia, como se vê no código quem cria a parte.
+
+</details>
 
 ## Exercício 4: Um erro no encaminhamento
 
-Um colega escreveu esta versão do método `retirar` do inventário. É um excerto. Para a experimentares, copia o programa completo do exemplo guiado do guia, o do passo 7, ou o `inventario.py` da paragem 3 do laboratório, que faz o mesmo. Depois substitui o `retirar` da classe `Inventario` por este.
+Este exercício e o desafio 2 usam as duas classes do [programa completo do exemplo guiado](../04-composicao-modelacao.md#passo-4-o-programa-completo-e-a-comparação-com-o-traço), `Artigo` e `Inventario`, sem as linhas que vêm depois delas:
+
+```python
+# As classes Artigo e Inventario do exemplo guiado do guia 04.
+
+class Artigo:
+    """Artigo do inventário: código, nome e uma quantidade sempre válida.
+
+    É a classe final do guia 03, com as docstrings encurtadas.
+    """
+
+    def __init__(self, codigo, nome, quantidade):
+        """Cria o artigo. A quantidade inicial passa pelo setter."""
+        self.codigo = codigo
+        self.nome = nome
+        self.quantidade = quantidade
+
+    @property
+    def quantidade(self):
+        """Getter: devolve a quantidade atual, sem a alterar."""
+        return self._quantidade
+
+    @quantidade.setter
+    def quantidade(self, valor):
+        """Setter: guarda o valor se for um inteiro não negativo; senão, lança ValueError."""
+        if not isinstance(valor, int):
+            raise ValueError("A quantidade tem de ser um número inteiro.")
+        if valor < 0:
+            raise ValueError("A quantidade não pode ser negativa.")
+        self._quantidade = valor
+
+    def adicionar(self, unidades):
+        """Acrescenta unidades (inteiro, 1 ou mais); senão, lança ValueError."""
+        if not isinstance(unidades, int):
+            raise ValueError("As unidades a adicionar têm de ser um número inteiro.")
+        if unidades <= 0:
+            raise ValueError("As unidades a adicionar têm de ser 1 ou mais.")
+        self.quantidade = self.quantidade + unidades
+
+    def retirar(self, unidades):
+        """Retira unidades (inteiro, 1 ou mais, até ao que existe); senão, lança ValueError."""
+        if not isinstance(unidades, int):
+            raise ValueError("As unidades a retirar têm de ser um número inteiro.")
+        if unidades <= 0:
+            raise ValueError("As unidades a retirar têm de ser 1 ou mais.")
+        # A falta de unidades é recusada pelo setter: o resultado seria negativo.
+        self.quantidade = self.quantidade - unidades
+
+
+class Inventario:
+    """Inventário que cria, guarda e controla os seus artigos.
+
+    O inventário é o dono dos artigos: cria-os em registar e guarda-os numa
+    lista interna, _artigos, que o código de fora não usa. Garante a regra
+    que nenhum artigo consegue garantir sozinho: não há dois artigos com o
+    mesmo código. Os pedidos sobre um artigo são encaminhados para esse
+    artigo, que continua a proteger a sua própria quantidade.
+    """
+
+    def __init__(self):
+        """Cria um inventário vazio, ainda sem artigos."""
+        self._artigos = []
+
+    def _procurar(self, codigo):
+        """Método interno: devolve o artigo com este código.
+
+        Falha: lança ValueError se não houver nenhum artigo com este código.
+        """
+        for artigo in self._artigos:
+            if artigo.codigo == codigo:
+                return artigo
+        raise ValueError("Não existe nenhum artigo com o código " + codigo + ".")
+
+    def registar(self, codigo, nome, quantidade):
+        """Cria um artigo novo e guarda-o no inventário.
+
+        Recebe: o código, o nome e a quantidade inicial do artigo.
+        Devolve: nada (None).
+        Falha: lança ValueError se já existir um artigo com este código, ou
+        se a quantidade inicial for inválida (quem a recusa é o setter do
+        artigo). Em qualquer falha, o inventário fica como estava.
+        """
+        for artigo in self._artigos:
+            if artigo.codigo == codigo:
+                raise ValueError("Já existe um artigo com o código " + codigo + ".")
+        novo = Artigo(codigo, nome, quantidade)
+        self._artigos.append(novo)
+
+    def quantidade_de(self, codigo):
+        """Devolve a quantidade do artigo com este código, sem a alterar.
+
+        Falha: lança ValueError se não houver nenhum artigo com este código.
+        """
+        artigo = self._procurar(codigo)
+        return artigo.quantidade
+
+    def retirar(self, codigo, unidades):
+        """Encaminha um pedido de retirada para o artigo com este código.
+
+        Recebe: o código do artigo e as unidades a retirar.
+        Devolve: nada (None).
+        Falha: lança ValueError se não houver nenhum artigo com este código,
+        ou se o próprio artigo recusar o pedido, pelas regras do seu método
+        retirar. Em qualquer falha, nenhuma quantidade muda.
+        """
+        artigo = self._procurar(codigo)
+        artigo.retirar(unidades)
+```
+
+Um colega escreveu esta versão do método `retirar` do inventário:
 
 ```python partial
     def retirar(self, codigo, unidades):
@@ -140,10 +261,11 @@ Um colega escreveu esta versão do método `retirar` do inventário. É um excer
                 artigo.retirar(unidades)
 ```
 
-O colega testou-a com estas linhas, que substituem as que vêm depois das classes, a partir de `inventario = Inventario()`:
+Testou-a com este programa principal:
 
 ```python partial
 inventario = Inventario()
+inventario.registar("A02", "Pasta", 2)
 inventario.registar("A01", "Caderno", 6)
 
 inventario.retirar("A01", 2)
@@ -156,113 +278,123 @@ except ValueError as erro:
 print("Depois de tentar retirar 9:", inventario.quantidade_de("A01"))
 ```
 
-Retirar 2 deixou 4. Retirar 9 foi recusado com a mensagem "A quantidade não pode ser negativa.", e o artigo manteve as 4. O colega ficou convencido de que o método funciona.
+Retirar 2 deixou 4. Retirar 9 foi recusado com a mensagem "A quantidade não pode ser negativa.", e o caderno manteve as 4. Para o colega, o método está certo.
 
-Descobre um pedido de retirada que mostre o erro desta versão, e corrige o método. No fim, os três pedidos, os dois do colega e o teu, dão o que devem. Segue a rotina da depuração e escreve-a num comentário no fim do ficheiro, com `#`:
+No script `encaminhamento.py`, copia as classes do início do exercício e troca o `retirar` do `Inventario`, o último método da classe, pelo do colega. Escreve por baixo o programa dele. Descobre um pedido de retirada que mostre o erro, e corrige o método. No fim, os três pedidos, os dois do colega e o teu, dão o que devem.
 
-1. O pedido que mostra o erro, o que devia acontecer e o que acontece. Diz também que tipo de erro é: de escrita, de execução ou de lógica.
-2. O que falta à versão do colega, por palavras, a partir do caminho que o teu pedido faz nela, volta a volta.
-3. A linha que mudaste, e como ficou.
-4. O que deram os três pedidos depois da correção.
+Num comentário no fim do script, escreve como encontraste e corrigiste o erro:
 
-Responde também, no mesmo comentário: porque é que os dois testes do colega não apanharam o erro? Compara-os com os pedidos do traço do passo 6 do exemplo guiado.
+- o pedido que mostra o erro, o que devia acontecer, o que acontece e que tipo de erro é: de escrita, de execução ou de lógica;
+- o que falta à versão do colega, e em que sítio do método o teu pedido devia ter sido recusado;
+- o que mudaste no método, e como ficou;
+- o que deram os três pedidos depois da correção.
+
+Explica também, no mesmo comentário, porque é que os dois testes do colega não apanharam o erro.
+
+Rever: [O inventário cria os artigos e encontra-os pelo código](../04-composicao-modelacao.md#o-inventário-cria-os-artigos-e-encontra-os-pelo-código), [O inventário passa os pedidos aos artigos](../04-composicao-modelacao.md#o-inventário-passa-os-pedidos-aos-artigos) e [Nada impede uma quantidade impossível](../03-encapsulamento-contratos.md#nada-impede-uma-quantidade-impossível).
+
+<details>
+<summary>Pista</summary>
+
+Lê outra vez a docstring do `retirar` do `Inventario`, nas classes do início do exercício. Que pedidos promete ela recusar? O colega experimentou todos? Um pedido que não é recusado não mostra nada. Para veres o que aconteceu ao teu, põe um `print` logo a seguir a ele, dentro do `try`, como a linha `Aceite:` da ficha 03.
+
+</details>
 
 ## Exercício 5: Descrever um modelo
 
-Lê a descrição:
+Queremos descrever um programa para as requisições de material que os professores fazem ao armazém da escola. Cada requisição tem um número e uma data, e é formada por linhas. Cada linha diz o código de um artigo e as unidades pedidas, e não faz sentido fora da sua requisição.
 
-> Os professores fazem requisições de material ao armazém da escola. Cada requisição tem um número e uma data, e é formada por linhas. Cada linha diz o código de um artigo e as unidades pedidas. As linhas são criadas pela requisição, quando o professor acrescenta um pedido, e não fazem sentido fora dela. Uma requisição pode ser anulada.
+Deves poder acrescentar a uma requisição o código de um artigo e as unidades: é a requisição que cria essa linha. Deves poder também anular uma requisição.
 
-1. Descreve por palavras as classes `Requisicao` e `LinhaRequisicao`, como no guia: o que cada objeto guarda, com que valores se cria e o que se lhe pode pedir. Usa só o que a descrição justifica, sem inventar mais nada.
-2. Descreve a relação entre as duas classes: a frase, se é uma composição ou uma agregação, e as respostas às duas perguntas que decidem.
-3. Há uma decisão que a descrição não toma por ti. Diz que uma requisição pode ser anulada, mas não diz o que acontece depois. A requisição anulada pode desaparecer, com as suas linhas. Ou pode ficar guardada, marcada como anulada, para se saber mais tarde o que foi pedido. Escolhe uma das duas e diz o que muda na tua descrição da `Requisicao`. As duas escolhas podem estar certas, se a justificação estiver.
+Cria o script `requisicao.py` e responde só com comentários.
 
-## Apoio
+1. Descreve por palavras as classes `Requisicao` e `LinhaRequisicao`, nas três partes que o guia usa para o inventário. Usa só o que o enunciado justifica, sem inventar mais nada.
+2. Descreve a relação entre as duas classes: a frase "tem", se é uma composição ou uma agregação, e as respostas às duas perguntas que decidem.
+3. O enunciado não diz o que acontece a uma requisição anulada. Pode desaparecer, com as suas linhas, ou ficar guardada, marcada como anulada, para se saber mais tarde o que foi pedido. Escolhe uma das duas, com a razão, e diz o que muda na tua descrição da `Requisicao`. As duas escolhas podem estar certas.
 
-- Exercício 1: relê, no guia, a que pergunta responde cada parte da descrição de uma classe, e porque é que a descrição não leva valores.
-- Exercício 2: analisa cada relação nos dois sentidos e verifica qual das frases é verdadeira. Na resposta ao colega, aplica o teste ao pé da letra, como o guia o aplica ao inventário, a cada frase da descrição do `Aluno`.
-- Exercício 3: relê a comparação entre o `Inventario` e a `Playlist`, no passo 9 do exemplo guiado.
-- Exercício 4: segue a versão do colega volta a volta, com um pedido à tua escolha, e vê que linha é executada a seguir, até o método acabar.
-- Exercício 5: começa pelas duas perguntas que decidem, aplicadas à descrição, e só depois escreves as descrições das classes. Na alínea 3, pensa no que a requisição precisa de guardar em cada uma das duas escolhas.
-- Desafio: responde às quatro perguntas de "Dois graus de "tem": composição e agregação" para o armário e o artigo, uma a uma, antes de decidires.
-- Mais longe 1: em cada par, imagina a aplicação a funcionar. O que acontece à parte quando o todo é apagado?
-- Mais longe 2: faz como no traço do passo 6 do exemplo guiado, um pedido de cada vez, a partir do estado deixado pelo anterior.
+Rever: [O inventário descrito por palavras](../04-composicao-modelacao.md#o-inventário-descrito-por-palavras) e [Dois graus de "tem": composição e agregação](../04-composicao-modelacao.md#dois-graus-de-tem-composição-e-agregação).
 
-## Desafio opcional
+<details>
+<summary>Pista</summary>
 
-Artigos arrumados em armários. A escola decide registar também em que armário está cada artigo. Um armário agrupa alguns artigos do inventário. Um artigo pode mudar de armário quando se arruma a sala. Se um armário for retirado da sala, os artigos que lá estavam continuam no inventário e passam para outro armário.
+Começa pela relação: procura no enunciado a frase que responde a cada uma das duas perguntas que decidem. Só depois descreves as classes. Na alínea 3, pensa no que a requisição tem de guardar em cada uma das duas escolhas.
 
-1. A relação entre `Armario` e `Artigo` é uma composição ou uma agregação? Justifica com as perguntas de "Dois graus de "tem": composição e agregação", no guia.
-2. O mesmo artigo fica ligado ao inventário por uma composição e ao armário por outra relação. Isto é uma contradição? Explica, pensando em quem cria o artigo e em quem o guarda.
+</details>
 
-## Para ires mais longe
+## Desafios
 
-Esta parte é opcional, para quem acabou os cinco exercícios e quer treinar mais com outros casos. O Mais longe 1 dá mais prática da escolha entre composição e agregação. O Mais longe 2 segue pedidos pelo inventário, com o código sem erros. Se o exercício 4 te custou, o Mais longe 2 ajuda a rever o caminho de um pedido antes de voltares a ele. As respostas vão para comentários, como nos outros exercícios, com o título de cada um, por exemplo "Mais longe 2".
+### Desafio 1: Composição ou agregação
 
-### Mais longe 1: Composição ou agregação
+Em cada par, o primeiro é o todo e o segundo é a parte. Cria o script `pares.py` e responde só com comentários, com uma linha por par: a resposta às duas perguntas que decidem e a decisão.
 
-Para cada par, o primeiro é o todo e o segundo é a parte. Responde às duas perguntas que decidem, de "Dois graus de "tem": composição e agregação", no guia, e escreve a decisão, com uma linha de comentário por par.
+1. Uma conversa de uma aplicação de mensagens e uma mensagem.
+2. A equipa de futsal da escola e um aluno que joga nela.
+3. O carrinho de compras de uma loja na internet e um produto.
 
-| Todo e parte | A parte faz sentido sem o todo? | Quem cria a parte? | Decisão |
-| --- | --- | --- | --- |
-| Conversa de uma aplicação de mensagens e mensagem | A completar | A completar | A completar |
-| Equipa de futsal da escola e jogador | A completar | A completar | A completar |
-| Documento de texto e parágrafo | A completar | A completar | A completar |
-| Carrinho de compras de uma loja na internet e produto | A completar | A completar | A completar |
+Rever: [Dois graus de "tem": composição e agregação](../04-composicao-modelacao.md#dois-graus-de-tem-composição-e-agregação).
 
-No último par, pensa no que acontece ao produto quando o carrinho é esvaziado ou abandonado. Pensa também se o mesmo produto pode estar no carrinho de outra pessoa ao mesmo tempo. Compara com a linha de encomenda do guia: uma linha "2 camisolas" pertence a uma encomenda, mas a camisola, o produto, existe na loja antes e depois da encomenda.
+<details>
+<summary>Pista</summary>
 
-### Mais longe 2: Seguir pedidos pelo inventário
+Imagina a aplicação a funcionar. Para a pergunta "quem cria a parte?", pensa no momento em que a parte aparece pela primeira vez na aplicação.
 
-Este exercício usa as classes `Artigo` e `Inventario` do programa completo do exemplo guiado do guia, o do passo 7, sem alterações. Para executar o excerto, copia esse programa, ou o `inventario.py` da paragem 3 do laboratório, que faz o mesmo. Depois substitui as linhas que vêm depois das classes, a partir de `inventario = Inventario()`, por estas:
+</details>
+
+### Desafio 2: Seguir pedidos pelo inventário
+
+No script `pedidos.py`, copia as classes do [exercício 4](#exercício-4-um-erro-no-encaminhamento), sem alterações, e escreve por baixo estas linhas:
 
 ```python partial
 inventario = Inventario()
 inventario.registar("A07", "Marcador", 5)
-inventario.registar("A09", "Agrafador", 1)
-
-try:
-    inventario.retirar("A09", 2)
-except ValueError as erro:
-    print("Pedido 1:", erro)
-
-try:
-    inventario.retirar("A06", 1)
-except ValueError as erro:
-    print("Pedido 2:", erro)
 
 try:
     inventario.retirar("A07", 0)
 except ValueError as erro:
-    print("Pedido 3:", erro)
+    print("Pedido 1:", erro)
 
-inventario.retirar("A07", 5)
+try:
+    inventario.retirar("A06", 0)
+except ValueError as erro:
+    print("Pedido 2:", erro)
+
 print("A07:", inventario.quantidade_de("A07"))
-print("A09:", inventario.quantidade_de("A09"))
 ```
 
-Prevê, sem executar, quem recusa cada pedido da tabela e que mensagem aparece, e as duas últimas linhas que o programa mostra. Na coluna "Quem recusa", escolhe entre o método `_procurar` do inventário, o método `retirar` do artigo, o setter do artigo ou ninguém.
+Descobre de cabeça o que o programa mostra, e executa para confirmares. Num comentário no fim do script, diz quem recusa cada pedido: o `_procurar` do inventário, o `retirar` do artigo ou o setter. O pedido 2 tem dois problemas: explica porque é que é esse método a recusá-lo, e não outro.
 
-| Pedido | Quem recusa | Mensagem mostrada, se houver |
-| --- | --- | --- |
-| `retirar("A09", 2)` | A completar | A completar |
-| `retirar("A06", 1)` | A completar | A completar |
-| `retirar("A07", 0)` | A completar | A completar |
-| `retirar("A07", 5)` | A completar | A completar |
+Rever: [O inventário passa os pedidos aos artigos](../04-composicao-modelacao.md#o-inventário-passa-os-pedidos-aos-artigos) e [O caminho de uma recusa](../04-composicao-modelacao.md#o-caminho-de-uma-recusa).
 
-Confirma executando. Se alguma linha for diferente da tua previsão, explica num comentário o que tinhas pensado e onde estava o engano.
+<details>
+<summary>Pista</summary>
+
+Segue cada pedido pelos métodos por onde passa, pela ordem em que correm. Em cada método, vê que verificações faz antes de passar o pedido ao seguinte.
+
+</details>
+
+### Desafio 3: Artigos arrumados em armários
+
+A escola decide registar também em que armário está cada artigo. Um armário agrupa alguns artigos do inventário. Um artigo pode mudar de armário quando se arruma a sala. Se um armário for retirado da sala, os artigos que lá estavam continuam no inventário e passam para outro armário.
+
+Cria o script `armarios.py` e responde só com comentários.
+
+1. A relação entre `Armario` e `Artigo` é uma composição ou uma agregação? Justifica com as quatro perguntas do guia.
+2. O artigo já pertence ao inventário, numa composição. Pode estar também ligado a um armário? Explica, a pensar em quem cria o artigo e em quem o guarda.
+
+Rever: [Dois graus de "tem": composição e agregação](../04-composicao-modelacao.md#dois-graus-de-tem-composição-e-agregação) e [O nosso inventário: composição](../04-composicao-modelacao.md#o-nosso-inventário-composição).
+
+<details>
+<summary>Pista</summary>
+
+Para a pergunta "quem cria a parte?", lembra-te de onde está, no programa do guia, a linha que cria cada artigo.
+
+</details>
 
 ## Critérios de conclusão
 
-- Fizeste os exercícios 1 a 5.
-- Em cada decisão escreveste a razão, e não só a escolha.
-- No exercício 4, confirmaste no computador o pedido que mostra o erro e, depois da correção, voltaste a correr os três pedidos. O comentário do fim do ficheiro tem a rotina da depuração.
-- No exercício 5, descreveste as duas classes e a relação, e justificaste a decisão com as duas perguntas que decidem. Escolheste também o que acontece a uma requisição anulada, com a razão.
-
-## Autoavaliação
-
-1. Em que exercício hesitaste mais entre duas respostas, e o que te fez decidir?
-2. O que achaste mais difícil: escolher entre "tem" e "é um", escolher entre composição e agregação, ou descrever uma classe por palavras?
-3. Que ponto desta ficha ainda não consegues explicar sem voltar ao guia? É por aí que começas a próxima revisão.
+- Fizeste os exercícios 1 a 5, cada um no seu script, com as respostas por palavras num comentário no fim.
+- Em cada decisão, escreveste a razão, e não só a escolha.
+- No exercício 4, o teu pedido é recusado depois da correção, e os dois pedidos do colega continuam a dar o mesmo.
+- No exercício 5, a descrição da `Requisicao` está de acordo com o que escolheste para uma requisição anulada.
 
 ![Rodapé](../../imagens/rodape.png)

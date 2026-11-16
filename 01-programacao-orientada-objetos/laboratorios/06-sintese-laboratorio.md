@@ -2,100 +2,29 @@
 
 # Laboratório: Síntese
 
-Laboratório do tema Síntese, do módulo M10, Introdução à Programação Orientada por Objetos. Vais completar a retirada de material num pequeno inventário em Python, e explicar o que fizeste. É o laboratório que fecha o módulo, e faz-se na aula, com o professor a acompanhar. Cada passo diz o que fazer, porquê e o que deves ver, e avanças ao teu ritmo. O que não acabares na aula, acabas na aula seguinte. Tudo o que precisas está aqui; o [guia do tema](../06-sintese.md) tem a teoria completa, para quem quiser saber mais.
-
 ## O que vais construir
 
-Vais trabalhar com um pequeno programa em Python que acompanha os materiais de uma sala. O programa já conhece dois artigos e já sabe registá-los. Também já sabe consultar a quantidade de cada um e as suas saídas, mas ainda não sabe retirar unidades. Primeiro explicas como os dados estão organizados. Depois completas a operação que falta, verificas os resultados com casos escolhidos e explicas a correção que fizeste. No fim, mostras o teu trabalho ao professor numa conversa curta.
+Completas a retirada de material num inventário em Python, em que cada artigo guarda também as suas saídas: as unidades que já saíram em retiradas aceites. Antes do código, descreves o modelo do programa e o plano da operação. Depois, confirmas o resultado com ensaios, explicas a correção num comentário e, no fim, conversas com o professor.
 
-No fim do laboratório tens uma pasta `tema-06` com dois ficheiros:
-
-- o `inventario.py`, com a retirada completa nas duas classes e, num comentário no fim, o modelo do programa, o plano dos dois métodos e as frases que explicam a correção;
-- o `ensaios.py`, com os casos que experimentaste.
-
-### O problema: os artigos e as suas saídas
-
-| Código | Nome | Quantidade inicial | Saídas iniciais |
-| --- | --- | ---: | ---: |
-| A10 | Régua | 6 | 0 |
-| A11 | Cola | 3 | 0 |
-
-Cada linha representa um artigo. Os códigos são diferentes, os nomes estão preenchidos e as quantidades são válidas. Estes dados já vêm escritos no programa: não precisas de criar outros artigos nem de os pedir a quem usa o programa.
-
-Há uma informação nova em relação aos temas anteriores. A equipa que usa o programa quer saber quantas unidades de cada artigo já saíram da sala desde que o programa começou, para perceber que materiais se gastam mais. Por isso, cada artigo guarda, além da quantidade, as suas **saídas**: o total de unidades que já saíram por retiradas aceites. Um artigo acabado de criar tem zero saídas. As saídas obedecem a três regras:
-
-- uma retirada aceite aumenta as saídas no número de unidades retiradas, ao mesmo tempo que diminui a quantidade;
-- uma retirada recusada não muda nada: nem a quantidade, nem as saídas;
-- adicionar unidades é uma entrada de material, e não uma saída, por isso não muda as saídas.
-
-Por exemplo, se a um artigo com 6 unidades e 0 saídas forem retiradas 2 unidades e depois 1, fica com 3 unidades e 3 saídas. Se a seguir for recusado um pedido de 9, continua com 3 unidades e 3 saídas.
-
-Repara que, enquanto ninguém adicionar unidades, a quantidade e as saídas de um artigo somam sempre o mesmo: a quantidade com que ele começou. No exemplo, 6 e 0, depois 4 e 2, depois 3 e 3: a soma é sempre 6. Chama-se **invariante** a uma regra que tem de continuar verdadeira depois de cada operação, como a regra da quantidade, que nunca pode ser negativa. A regra da soma não é uma invariante, porque uma adição a muda; mas neste laboratório ninguém adiciona, e por isso serve para verificar os teus resultados. Se a soma mudar sem nenhuma adição, há uma saída contada a mais ou a menos.
-
-### As fases
-
-| Fase | O que fazes | O que tens no fim |
-| --- | --- | --- |
-| 1 | Executas o programa inicial e lês o que ele mostra | Sabes dizer que tipo de erro tem o programa |
-| 2 | Descreves por palavras, num comentário, o modelo do programa | A descrição das duas classes e da relação entre elas, e o estado dos dois artigos, confirmados pelo professor |
-| 3 | Escreves por palavras o plano dos dois métodos `retirar` | O plano, confirmado pelo professor |
-| 4 | Completas os dois métodos e comparas o programa com a tua previsão | O programa principal aceita o pedido de 4 e recusa o de 5 |
-| 5 | Crias o `ensaios.py` e experimentas outros casos | Os quatro ensaios e os dois pedidos seguidos, confirmados pelo professor |
-| 6 | Explicas a correção, com valores | As quatro frases, e a conversa com o professor |
-
-### Como trabalhas com o professor
-
-O professor acompanha o laboratório do princípio ao fim. Podes trabalhar sozinho ou em par, como ele indicar. Em par, os dois têm de conseguir explicar tudo o que está escrito, porque o professor pode fazer a pergunta a qualquer um.
-
-Algumas paragens começam pela frase "Mostra ao professor antes de leres a resposta". Quer dizer o que diz: chamas o professor e mostras o que fizeste. Só depois de ele o confirmar lês a resposta do laboratório e passas à fase seguinte. Há uma razão para isto. Cada fase usa a anterior: um modelo mal percebido leva a escrever uma regra no objeto errado, e uma previsão errada faz-te procurar um erro onde ele não está. Se o professor encontrar alguma coisa a corrigir, não te dá a resposta. Faz-te uma pergunta, ou aponta para uma linha do teu código ou do teu comentário, e tu corriges e voltas a mostrar. Enquanto esperas, lê a explicação do início da fase seguinte.
-
-Este laboratório não tem nota. É prática guiada: serve para juntares as ideias do módulo com ajuda, antes de as usares sozinho no projeto. Pedir ajuda faz parte do trabalho, e o professor está lá para isso.
-
-Em todas as fases trabalhas da mesma maneira. Antes de executares, pensa no que esperas ver. Depois executas e comparas. Quando o resultado é diferente do que previste, procura a explicação antes de continuares: é essa explicação que mais te ensina.
-
-O que o laboratório te pede para escrever, o modelo, os planos e as explicações, vai para um comentário no fim do `inventario.py`. Fica depois do programa principal, com `#` no início de cada linha. No fim, o código não muda de linha.
-
-## Palavras que vais usar
-
-- Classe e objeto: a classe é a descrição comum, como `Artigo`, que diz que dados e que operações cada artigo tem. Cada artigo concreto é um objeto, também chamado instância, da classe. Para saber mais, vê "Classes e objetos no programa" no [guia](../06-sintese.md).
-- Atributo e estado: um atributo é um dado guardado num objeto, como o código ou a quantidade. O estado é o conjunto dos valores dos atributos num dado momento.
-- Construtor e `self`: o construtor, `__init__`, prepara cada objeto quando ele nasce. Dentro de um método, `self` é o objeto sobre o qual o método está a trabalhar: em `artigo.retirar(4)`, é o objeto `artigo`.
-- Propriedade, getter e setter: a `quantidade` de um artigo lê-se e escreve-se como um atributo. Cada leitura passa por um método, o getter (do inglês *get*, obter). Cada escrita passa por outro, o setter (de *set*, pôr), que recusa os valores inválidos.
-- Atributo interno: um atributo com um sublinhado no início do nome, como `_quantidade` ou `_saidas`. Avisa que só a própria classe o deve usar.
-- Exceção: um sinal de que alguma coisa correu mal, que interrompe o funcionamento normal do programa. `raise` lança uma exceção, e para o método nessa linha. `ValueError` ("erro de valor") é a exceção que usamos para recusar um valor ou um pedido. `try` e `except` apanham-na, para o programa continuar.
-- Contrato: o que uma operação recebe, o que devolve, quando falha e o que acontece aos dados em cada caso.
-- Encaminhamento: o inventário recebe um pedido, encontra o artigo que sabe cumpri-lo e passa-lho, sem verificar nada sobre as unidades.
-- Composição: a relação "tem" em que o todo cria as suas partes e as guarda, e as partes não fazem sentido sem ele.
-- Agregação: a relação "tem" em que o todo recebe partes já criadas fora dele, que existem sem ele, como as músicas de uma playlist.
-- Modelo: a descrição por palavras das classes de um programa e das relações entre elas. Diz o que cada objeto guarda, com que valores se cria e o que se lhe pode pedir.
-- Saídas: o total de unidades de um artigo que já saíram da sala por retiradas aceites.
-- Invariante: uma regra que tem de continuar verdadeira depois de cada operação, como a regra da quantidade, que nunca pode ser negativa.
-- Traço: a tabela que regista, pedido a pedido, o que acontece e como fica o estado depois. Prevê-se antes de executar.
-- `pass`: a instrução que não faz nada (do inglês, "passa"). Marca o sítio onde vai entrar código.
-- Programa principal: as linhas encostadas à margem, no fim do ficheiro, fora das classes. São elas que dizem o que o programa faz.
-- Erro de escrita, de execução e de lógica: no de escrita, o Python recusa o ficheiro antes de começar. O de execução para o programa a meio. No de lógica, o programa corre até ao fim e faz uma coisa diferente da que devia.
-- Mensagem de erro: o texto que o Python mostra quando para por causa de um erro. Quando o erro acontece com o programa a correr, a primeira linha é `Traceback (most recent call last)`, "o rasto, com a chamada mais recente no fim". A última linha diz o tipo de erro e o que aconteceu.
+1. [Fase 1: Um programa que corre e não faz o que devia](#fase-1-um-programa-que-corre-e-não-faz-o-que-devia)
+2. [Fase 2: O modelo antes do código](#fase-2-o-modelo-antes-do-código)
+3. [Fase 3: O plano da retirada](#fase-3-o-plano-da-retirada)
+4. [Fase 4: Os dois métodos, e a sequência do programa](#fase-4-os-dois-métodos-e-a-sequência-do-programa)
+5. [Fase 5: Outros casos, cada um num ensaio](#fase-5-outros-casos-cada-um-num-ensaio)
+6. [Fase 6: Explicar a correção](#fase-6-explicar-a-correção)
 
 ## O que precisas
 
-- O editor de Python que usas nas aulas, para escrever e executar os programas. Confirma que funciona: num ficheiro de ensaio, escreve `print("Olá")` e executa. Deve aparecer `Olá`, o que quer dizer que o editor está a executar programas de Python.
-- O Python 3, a partir da versão 3.10. Nas versões mais antigas, algumas mensagens de erro são um pouco diferentes, e o laboratório diz onde.
+- O Python 3.10 ou mais recente. No terminal, `python3 --version` mostra a versão que tens (no Windows, o comando é `py --version`), numa linha como `Python 3.12.4`. Com uma versão mais antiga, tudo corre da mesma maneira, e mudam só algumas mensagens de erro, que o texto indica.
+- O editor de Python com que fizeste os laboratórios dos temas anteriores.
 
-O laboratório começa de uma pasta vazia. Não precisas de nenhum ficheiro de outro laboratório: o programa inicial está todo aqui.
-
-Um programa de Python é um ficheiro de texto com a extensão `.py`. Executar o programa é pedir ao Python que siga as instruções do ficheiro, de cima para baixo. Executa sempre o ficheiro inteiro. Cada execução começa do zero: cria um inventário novo, regista os dois artigos com os valores iniciais e repete todos os pedidos, pela ordem em que estão escritos.
-
-## Se alguma coisa falhar
-
-1. Guardaste o ficheiro antes de executar? O editor executa o que está guardado no disco. Guarda e executa outra vez.
-2. Estás a executar o ficheiro certo? Confirma que o separador aberto é o `inventario.py`, ou o `ensaios.py` na fase 5, da pasta `tema-06`.
-3. Apareceu uma mensagem de erro? Lê primeiro a última linha, que diz o tipo de erro e o que aconteceu. Depois lê as de cima, que dizem onde aconteceu. Procura essa última linha em [Problemas frequentes](#problemas-frequentes).
-4. Perdeste-te? Até à fase 4, copia outra vez o programa inicial de "Preparar o projeto". Na fase 5 e seguintes, parte do ficheiro completo da [paragem 4](#paragem-4).
+Começas com uma pasta vazia, porque o programa inicial vem todo em [Preparar o projeto](#preparar-o-projeto).
 
 ## Preparar o projeto
 
-1. Na pasta onde guardas os trabalhos de LP, cria uma pasta nova chamada `tema-06`. Dentro dela, cria um ficheiro novo chamado `inventario.py`. O nome tem de acabar em `.py`, para o editor o reconhecer como um programa de Python, e não deve ter espaços nem acentos.
-2. Copia para `inventario.py` o programa inicial completo, desde a primeira linha até à última, a que mostra a quantidade e as saídas de A11 no fim. É o ficheiro completo:
+1. Na pasta dos teus trabalhos de LP, cria a pasta `tema-06` e, dentro dela, o ficheiro `inventario.py`, com o nome escrito assim, sem espaços nem acentos. Os ficheiros deste laboratório ficam todos nessa pasta.
+
+2. Copia para o `inventario.py` a primeira parte do programa inicial, a docstring do ficheiro e a classe `Artigo`:
 
    ```python
    """Laboratório do tema 06: o inventário de uma sala, com as saídas de cada artigo.
@@ -171,8 +100,15 @@ Um programa de Python é um ficheiro de texto com a extensão `.py`. Executar o 
            """
            # Por completar: o artigo decide se o pedido é possível e altera os seus dados.
            pass
+   ```
 
+   Repara em duas coisas. A propriedade `saidas` tem o `@property` e o getter, e não tem setter. É uma propriedade só com getter: de fora lê-se, como em `artigo.saidas`, mas não se escreve. E o `retirar` só tem um comentário "Por completar" e o `pass`, uma instrução que não faz nada e só marca o sítio onde o código vai entrar. É um dos dois métodos que vais escrever. Rever: [A propriedade `quantidade`](../03-encapsulamento-contratos.md#a-propriedade-quantidade).
 
+   Guarda e executa. O que deves ver: nada, porque o ficheiro só define a classe, e nenhuma linha cria um artigo. Se aparecer uma mensagem de erro, a cópia ficou com um engano: vê [Se alguma coisa falhar](#se-alguma-coisa-falhar).
+
+3. Deixa duas linhas em branco depois do `pass` do `Artigo` e copia a segunda parte, a classe `Inventario`. A linha `class Inventario:` fica encostada à margem, como a da classe `Artigo`, e o `def` de cada método a quatro espaços:
+
+   ```python
    class Inventario:
        """Inventário que cria, guarda e controla os seus artigos.
 
@@ -236,8 +172,13 @@ Um programa de Python é um ficheiro de texto com a extensão `.py`. Executar o 
            """
            # Por completar: o inventário encontra o artigo pelo código e passa-lhe o pedido.
            pass
+   ```
 
+   O `retirar` do inventário também está por completar. Guarda e executa: continua a não aparecer nada.
 
+4. Deixa outra vez duas linhas em branco e copia a última parte, o programa principal, encostado à margem:
+
+   ```python
    # Os dois artigos do laboratório. Os dados são fictícios e já estão verificados.
    inventario = Inventario()
    inventario.registar("A10", "Régua", 6)
@@ -264,17 +205,15 @@ Um programa de Python é um ficheiro de texto com a extensão `.py`. Executar o 
    print("A11: quantidade", inventario.quantidade_de("A11"), "e saídas", inventario.saidas_de("A11"))
    ```
 
-   Leitura guiada: o texto entre três aspas no início é a docstring do ficheiro, que diz para que serve o programa. Na classe `Artigo`, a quantidade é uma propriedade. O `@property` faz do primeiro `def quantidade` o getter, e o `@quantidade.setter` faz do segundo o setter, que verifica o valor antes de o guardar. As saídas são diferentes. Têm o `@property` e o getter, mas não têm setter: o código de fora consulta-as com `artigo.saidas`, mas não as pode alterar pela propriedade (`artigo.saidas = 5` dá `AttributeError`). O valor vive no atributo interno `_saidas`, que o construtor põe a zero. Esse atributo continua acessível, mas o sublinhado avisa que não se mexe nele de fora. A classe `Inventario` cria os artigos em `registar` e encontra-os pelo código em `_procurar`. Os métodos `quantidade_de` e `saidas_de` encontram um artigo e devolvem um dado dele. Os dois métodos `retirar`, um em cada classe, só têm um comentário e a instrução `pass`, que não faz nada. São eles que vais completar.
+   Guarda, mas não executes ainda: a fase 1 começa com uma previsão.
 
-3. Guarda o ficheiro. Antes de o executares, lê-o por zonas, porque um programa com mais de cem linhas não se lê de cima para baixo na primeira vez. Começa pelo programa principal, as linhas encostadas à margem no fim do ficheiro. Cria um inventário, regista os dois artigos, mostra o início, faz dois pedidos de retirada a A10 e mostra o fim. Depois procura, na classe `Inventario`, os métodos que o programa principal chama. Só depois desce à classe `Artigo`. Procura as duas linhas que dizem "Por completar": estão no método `retirar` do inventário e no método `retirar` do artigo.
+5. Lê o programa por zonas, a começar pelo fim. Primeiro, o programa principal, as linhas que vêm depois das classes: cria o inventário, regista A10 e A11, mostra o início, pede duas retiradas a A10 e mostra o fim. Depois, procura na classe `Inventario` os métodos que ele chama, e só no fim desce à classe `Artigo`. Rever: [Um programa lê-se por zonas](../06-sintese.md#um-programa-lê-se-por-zonas).
 
 ## Fase 1: Um programa que corre e não faz o que devia
 
-Um programa pode estar errado de três maneiras. Num erro de escrita, o Python recusa o ficheiro antes de começar: falta um parêntese, faltam os dois pontos no fim de um `def`, ou uma linha está mal indentada. Num erro de execução, o programa para a meio, com uma mensagem que começa por `Traceback`. Num erro de lógica, o programa corre do princípio ao fim, sem nenhuma mensagem, e faz uma coisa diferente da que o problema pede. O erro de lógica é o mais traiçoeiro, porque o Python não avisa de nada. Só o apanhas se souberes antes o que o programa devia mostrar. Para saber mais, lê "Um programa que corre sem erros e não faz o que devia", no [guia](../06-sintese.md).
+Executas o programa inicial e vês se ele faz o que devia. Quando não faz, tem um erro de lógica, o tipo de erro de que o Python não avisa. Rever: [Um programa que corre e não faz o que devia](../06-sintese.md#um-programa-que-corre-e-não-faz-o-que-devia) e [Nada impede uma quantidade impossível](../03-encapsulamento-contratos.md#nada-impede-uma-quantidade-impossível).
 
-1. Antes de executares, prevê: o programa vai parar com uma mensagem de erro, ou vai correr até ao fim? O que diz sobre os dois pedidos? Que quantidade e que saídas mostra para A10 no fim?
-
-2. Executa o ficheiro inteiro. O que deves ver:
+1. Antes de executares, prevê: o que diz o programa sobre os dois pedidos a A10? E com que quantidade e que saídas fica A10 no fim? Depois guarda e executa o ficheiro inteiro. O que deves ver:
 
    ```text
    Início
@@ -287,27 +226,21 @@ Um programa pode estar errado de três maneiras. Num erro de escrita, o Python r
    A11: quantidade 3 e saídas 0
    ```
 
-   A resposta à previsão: o programa corre até ao fim, sem nenhuma mensagem de erro. Os dois métodos `retirar` só têm o `pass`, que não faz nada e não lança nada. Por isso nenhum pedido salta para o `except`, e o programa principal escreve "aceite" nos dois. No fim, A10 continua com quantidade 6 e saídas 0. Se o programa parar com uma mensagem de erro, a cópia ficou com algum engano: compara-a com o bloco de "Preparar o projeto" e vê os [problemas frequentes](#problemas-frequentes).
+   A resposta: corre até ao fim, sem nenhuma mensagem de erro, e diz "aceite" aos dois pedidos. No fim, A10 continua com quantidade 6 e saídas 0. Os dois métodos `retirar` só têm o `pass`, que não faz nada nem lança nenhuma exceção, e por isso nenhum pedido chega ao `except`. Se o programa parar com uma mensagem, a cópia ficou com um engano: vê [Se alguma coisa falhar](#se-alguma-coisa-falhar).
 
-3. Responde de cabeça, a olhar para o ecrã. Cada pergunta tem a resposta logo a seguir; pensa na tua antes de a leres.
+2. Responde de cabeça, a olhar para o ecrã. Pensa na tua resposta antes de leres a que vem a seguir.
 
-   1. O pedido para retirar 4 unidades de A10 devia ser aceite, tendo em conta os dados iniciais? Porquê?
+   1. O pedido para retirar 4 unidades de A10 devia ser aceite?
 
-      A resposta: sim. 4 é um número inteiro, é 1 ou mais, e não ultrapassa as 6 unidades de A10.
+      A resposta: sim. 4 é um número inteiro, é 1 ou mais e não passa das 6 unidades de A10.
 
-   2. O que diz o programa sobre esse pedido?
+   2. O programa escreveu "aceite" nesse pedido. Isso prova que as 4 unidades saíram?
 
-      A resposta: diz "aceite". Mas repara de onde vem essa palavra. O programa principal escreve "aceite" sempre que o `try` chega ao fim sem exceção. Como o `pass` não lança nada, a mensagem não prova que o pedido foi cumprido.
+      A resposta: não. O programa principal escreve "aceite" sempre que o `try` chega ao fim sem exceção, e um método que não faz nada também não lança nenhuma. O que mostra se o pedido foi cumprido é o estado de A10 depois dele, e continua em 6 e 0.
 
-   3. Que quantidade e que saídas ficaram guardadas em A10 no fim?
+   3. Porque é que este erro é de lógica, e não de escrita nem de execução?
 
-      A resposta: quantidade 6 e saídas 0. Nada mudou.
-
-   4. Que tipo de erro tem o programa: de escrita, de execução ou de lógica? Explica a diferença numa frase.
-
-      A resposta: de lógica. O programa corre do princípio ao fim sem nenhuma mensagem do Python, mas não faz o que o problema pede. Um erro de escrita impedia-o de começar, e um erro de execução parava-o a meio.
-
-4. Vais voltar a estas respostas na fase 6, para as comparares com o programa corrigido.
+      A resposta: com um erro de escrita, o Python recusava o ficheiro antes de começar, e com um de execução o programa parava a meio. Este programa corre do princípio ao fim, sem nenhuma mensagem, e faz uma coisa diferente da que o problema pede.
 
 ### Paragem 1
 
@@ -317,133 +250,130 @@ Pensa antes de continuares: o pedido de 5 também aparece como "aceite". Depois 
 
 ## Fase 2: O modelo antes do código
 
-Antes de mexeres no código, vais descrever por palavras como os dados estão organizados. Um modelo mal percebido leva a escrever uma regra no objeto errado. Uma descrição escrita mostra o modelo sem teres de ler o programa linha a linha, e permite discuti-lo com o professor antes de escreveres código.
+Descreves por palavras, num comentário no fim do `inventario.py`, as duas classes, a relação entre elas e o estado dos dois artigos. É o modelo do programa, e escreve-se antes de mexer no código, para cada regra ir parar ao objeto certo. Rever: [O modelo antes do código](../06-sintese.md#o-modelo-antes-do-código) e [O inventário descrito por palavras](../04-composicao-modelacao.md#o-inventário-descrito-por-palavras).
 
-O modelo de um programa é a descrição das suas classes e das relações entre elas. A descrição de cada classe tem três partes. A primeira diz o que cada objeto guarda, e corresponde aos atributos. A segunda diz com que valores se cria um objeto, e corresponde aos parâmetros do construtor. A terceira diz o que se pode pedir a cada objeto, e corresponde aos métodos, com os parâmetros entre parênteses.
+1. Cola este comentário no fim do `inventario.py`, depois do programa principal. É o modelo do inventário do tema 04, dito por outras palavras, e ainda sem as saídas. Fica no fim do ficheiro, com `#` no início de cada linha, para o Python não o ler como código e para as linhas do programa não mudarem de número.
 
-A descrição mostra a interface pública da classe, aquilo que quem a usa vê e pode pedir. Por isso não se escreve o `self`, nem o `__init__`, nem os nomes internos com sublinhado: fala-se da quantidade, e não de `_quantidade`. A lista `_artigos` do inventário também não se escreve. A descrição diz só que o inventário guarda os seus artigos, porque a lista é a forma como o programa os guarda. E a descrição de uma classe vale para todos os objetos dela, e por isso não leva valores.
+   ```python partial
+   # O modelo do programa
+   #
+   # Artigo
+   # - Cada artigo guarda um código, um nome e uma quantidade, que é sempre um
+   #   número inteiro não negativo.
+   # - Um artigo cria-se com o código, o nome e a quantidade inicial.
+   # - A um artigo pode pedir-se que adicione unidades, com adicionar(unidades),
+   #   e que retire unidades, com retirar(unidades).
+   #
+   # Inventario
+   # - Cada inventário guarda os seus artigos, e nunca dois com o mesmo código.
+   # - Um inventário cria-se vazio, sem nenhum valor.
+   # - A um inventário pode pedir-se que registe um artigo novo, com
+   #   registar(codigo, nome, quantidade); que diga a quantidade de um artigo,
+   #   com quantidade_de(codigo); e que retire unidades de um artigo, com
+   #   retirar(codigo, unidades).
+   #
+   # A relação entre as duas classes
+   # - Um inventário tem artigos, e é uma composição.
+   # - Um artigo só faz sentido dentro do seu inventário, porque é uma linha
+   #   do registo.
+   # - É o inventário que cria cada artigo, quando se lhe pede que o registe.
+   # - Cada artigo pertence a um só inventário e desaparece se o inventário
+   #   desaparecer.
+   ```
 
-A relação entre duas classes descreve-se com a frase que as liga, "tem" ou "é um". Numa relação "tem", diz-se também o grau, composição ou agregação, e as razões que o justificam. As razões respondem a quatro perguntas: a parte faz sentido sem o todo? Quem cria a parte? A parte pode estar em dois todos ao mesmo tempo? O que lhe acontece se o todo desaparecer? Numa composição, o todo cria as suas partes e guarda-as, e as partes não fazem sentido sem ele.
+   Completa-o com o que este programa tem a mais. Na classe `Artigo`, falta o dado que conta as saídas e com quantas começa; na classe `Inventario`, o pedido que as consulta. Confirma também se a relação muda com as saídas, e corrige-a se mudar.
 
-Este é o modelo do inventário do tema 04, que ainda não tinha as saídas. Primeiro, a descrição da classe `Artigo`:
+2. Por baixo, escreve o estado dos dois artigos no início do programa, numa frase para cada um, com o valor de cada dado, também das saídas. No tema 04, o estado do caderno acabado de registar era: "O artigo A01 chama-se Caderno e tem 6 unidades."
 
-- Cada artigo guarda um código, um nome e uma quantidade, que é sempre um número inteiro não negativo.
-- Um artigo cria-se com o código, o nome e a quantidade inicial.
-- A um artigo pode pedir-se que adicione unidades, com `adicionar(unidades)`, e que retire unidades, com `retirar(unidades)`.
-
-Depois, a da classe `Inventario`:
-
-- Cada inventário guarda os seus artigos, e nunca dois com o mesmo código.
-- Um inventário cria-se vazio, sem nenhum valor.
-- A um inventário pode pedir-se que registe um artigo novo, com `registar(codigo, nome, quantidade)`; que diga a quantidade de um artigo, com `quantidade_de(codigo)`; e que retire unidades de um artigo, com `retirar(codigo, unidades)`.
-
-E por fim a da relação entre as duas:
-
-- Um inventário tem artigos, e é uma composição.
-- Um artigo só faz sentido dentro do seu inventário, porque é uma linha do registo.
-- É o inventário que cria cada artigo, quando se lhe pede que o registe.
-- Cada artigo pertence a um só inventário e desaparece se o inventário desaparecer.
-
-Para falar de um artigo concreto, com os valores, descreve-se o seu estado, numa frase. Os artigos deste programa não têm nome no programa principal: o programa chega a eles pelo inventário e pelo código. Por isso, cada artigo identifica-se pelo código. Este é o estado do caderno A01 do tema 04, acabado de registar:
-
-- O artigo A01 chama-se Caderno e tem 6 unidades.
-
-Para saber mais, lê o passo 8 do exemplo guiado do [guia](../06-sintese.md).
-
-1. Num comentário no fim do `inventario.py`, escreve a descrição das duas classes do programa. Parte das descrições acima e acrescenta o que este programa tem a mais. Na descrição do artigo, falta o dado que conta as saídas; na do inventário, o pedido que as consulta. Escreve também a descrição da relação entre as duas classes, com a frase que as liga e, se for uma relação "tem", o grau e as razões.
-
-2. Por baixo, escreve o estado dos dois artigos no início do programa, numa frase para cada um, com os valores de cada dado.
-
-3. Por baixo da descrição, responde:
+3. Por baixo do estado, responde, no mesmo comentário:
 
    1. Neste programa, a relação entre `Inventario` e `Artigo` é uma composição ou uma agregação? Justifica com duas perguntas: a parte faz sentido sem o todo? Quem cria a parte? Indica a linha do programa onde os artigos são criados.
    2. Que objeto encontra o artigo a partir do código? Que objeto decide se há unidades suficientes? Que objeto guarda as saídas?
    3. Porque é que faz sentido que a propriedade `saidas` não tenha setter? Pensa no que podia acontecer às saídas se qualquer parte do programa as pudesse escrever.
 
+   Guarda e executa. O que deves ver: as oito linhas da fase 1, iguais, porque um comentário não muda o que o programa faz. Se aparecer uma mensagem de erro numa linha de português, falta-lhe o `#`: vê [Se alguma coisa falhar](#se-alguma-coisa-falhar).
+
 ### Paragem 2
 
-Mostra ao professor antes de leres a resposta: a descrição das duas classes e da relação, o estado dos dois artigos e as três respostas.
+Mostra ao professor antes de leres a resposta: a descrição das classes e da relação, o estado dos dois artigos e as três respostas. Chama-o e mostra-lhe o ecrã. Se houver alguma coisa a corrigir, ele não te dá a resposta: aponta-te uma linha ou faz-te uma pergunta, e tu corriges e voltas a mostrar. Nas paragens 3, 4 e 5 é igual.
 
-A descrição de referência da classe `Artigo`:
+O comentário de referência, com o modelo e o estado:
 
-- Cada artigo guarda um código, um nome, uma quantidade, que é sempre um número inteiro não negativo, e as saídas, o total de unidades que já saíram por retiradas aceites.
-- Um artigo cria-se com o código, o nome e a quantidade inicial, e começa sem nenhuma saída.
-- A um artigo pode pedir-se que adicione unidades, com `adicionar(unidades)`, e que retire unidades, com `retirar(unidades)`.
+```python partial
+# O modelo do programa
+#
+# Artigo
+# - Cada artigo guarda um código, um nome, uma quantidade, que é sempre um
+#   número inteiro não negativo, e as saídas, o total de unidades que já
+#   saíram por retiradas aceites.
+# - Um artigo cria-se com o código, o nome e a quantidade inicial, e começa
+#   sem nenhuma saída.
+# - A um artigo pode pedir-se que adicione unidades, com adicionar(unidades),
+#   e que retire unidades, com retirar(unidades).
+#
+# Inventario
+# - Cada inventário guarda os seus artigos, e nunca dois com o mesmo código.
+# - Um inventário cria-se vazio, sem nenhum valor.
+# - A um inventário pode pedir-se que registe um artigo novo, com
+#   registar(codigo, nome, quantidade); que diga a quantidade de um artigo,
+#   com quantidade_de(codigo), ou as saídas de um artigo, com
+#   saidas_de(codigo); e que retire unidades de um artigo, com
+#   retirar(codigo, unidades).
+#
+# A relação entre as duas classes
+# - Um inventário tem artigos, e é uma composição.
+# - Um artigo só faz sentido dentro do seu inventário, porque é uma linha
+#   do registo.
+# - É o inventário que cria cada artigo, quando se lhe pede que o registe.
+# - Cada artigo pertence a um só inventário e desaparece se o inventário
+#   desaparecer.
+#
+# O estado no início do programa
+# - O artigo A10 chama-se Régua, tem 6 unidades e 0 saídas.
+# - O artigo A11 chama-se Cola, tem 3 unidades e 0 saídas.
+```
 
-A da classe `Inventario`:
-
-- Cada inventário guarda os seus artigos, e nunca dois com o mesmo código.
-- Um inventário cria-se vazio, sem nenhum valor.
-- A um inventário pode pedir-se que registe um artigo novo, com `registar(codigo, nome, quantidade)`; que diga a quantidade de um artigo, com `quantidade_de(codigo)`; e que retire unidades de um artigo, com `retirar(codigo, unidades)`. Pode pedir-se-lhe também que diga as saídas de um artigo, com `saidas_de(codigo)`.
-
-A da relação, que é a do tema 04, porque as saídas não mudam quem cria os artigos nem quem os guarda:
-
-- Um inventário tem artigos, e é uma composição.
-- Um artigo só faz sentido dentro do seu inventário, porque é uma linha do registo.
-- É o inventário que cria cada artigo, quando se lhe pede que o registe.
-- Cada artigo pertence a um só inventário e desaparece se o inventário desaparecer.
-
-O estado dos dois artigos no início do programa:
-
-- O artigo A10 chama-se Régua, tem 6 unidades e 0 saídas.
-- O artigo A11 chama-se Cola, tem 3 unidades e 0 saídas.
-
-Se escreveste `_quantidade` e `_saidas`, sabe que são os atributos internos onde os valores vivem; a descrição mostra a interface pública, com a quantidade e as saídas. Se identificaste um artigo por um nome, como `regua`, corrige-o: esse nome não existe no programa, e o que identifica cada artigo é o código. Se escreveste valores na descrição de uma classe, tira-os: os valores de um artigo concreto vão só no estado dele.
+A relação ficou a do tema 04, porque as saídas não mudam quem cria os artigos nem quem os guarda. Se escreveste `_quantidade` e `_saidas`, troca-os pela quantidade e pelas saídas: são os atributos internos onde os valores vivem, e a descrição mostra o que quem usa a classe vê. Se identificaste um artigo por um nome, como `regua`, corrige-o: esse nome não existe no programa, que chega a cada artigo pelo inventário e pelo código. Se escreveste valores na descrição de uma classe, tira-os, porque os valores de um artigo concreto vão só no estado dele.
 
 As respostas:
 
-1. Composição. A linha que cria os artigos é `novo = Artigo(codigo, nome, quantidade)`, dentro do método `registar` do inventário. O programa principal não cria nenhum artigo nem guarda nenhum artigo num nome seu. A parte não faz sentido sem o todo: o artigo é a linha do registo deste inventário. E quem cria a parte é o todo. Repara que a lista, sozinha, não decide nada; o que decide é a linha onde o artigo nasce.
-2. O inventário encontra o artigo pelo código, no método interno `_procurar`. O artigo decide se há unidades suficientes, no seu método `retirar` ou no setter da quantidade. O artigo guarda as saídas, no atributo interno `_saidas`.
-3. Sem setter, o código de fora não pode alterar as saídas pela propriedade: `artigo.saidas = 5` dá `AttributeError`. O atributo interno `_saidas` continua acessível, mas o sublinhado avisa que não se mexe nele de fora. Assim, as saídas mudam dentro do método `retirar` do artigo, depois das verificações. Se qualquer parte as pudesse escrever, o total podia deixar de corresponder às retiradas aceites, por engano ou com um valor sem sentido, como um negativo. E ninguém saberia onde se tinha estragado.
+1. Composição. A primeira pergunta é a que decide, e a resposta é não: um artigo não faz sentido sem o inventário, porque é uma linha do registo dele. A segunda vai no mesmo sentido: é o inventário que cria os artigos, na linha `novo = Artigo(codigo, nome, quantidade)`, dentro do método `registar`, e o programa principal não cria nem guarda nenhum. Ter uma lista não basta para ser composição: a playlist do guia 04 também tem uma, e é uma agregação.
+2. O inventário encontra o artigo pelo código, no método interno `_procurar`. O artigo decide se há unidades suficientes, no setter da quantidade, que recusa um valor negativo. O artigo guarda as saídas, no atributo interno `_saidas`.
+3. Sem setter, o código de fora não pode alterar as saídas pela propriedade: `artigo.saidas = 5` dá `AttributeError`. Assim, as saídas só mudam dentro do `retirar` do artigo, depois das verificações. Se qualquer parte do programa as pudesse escrever, o total podia deixar de corresponder às retiradas aceites, por engano ou com um valor sem sentido, como um negativo. E ninguém saberia onde se tinha estragado.
 
 ## Fase 3: O plano da retirada
 
-A operação de retirada tem duas partes, uma em cada classe, e vais completar as duas. Antes de escreveres código, escreves o plano de cada método por palavras.
+Escreves por palavras o plano dos dois métodos `retirar`, o do artigo e o do inventário, antes de escreveres o código. Cada passo do plano diz o que já mudou se o pedido for recusado ali, e os passos que podem recusar vêm todos antes das alterações. Rever: [O plano da retirada](../06-sintese.md#o-plano-da-retirada) e [O inventário passa os pedidos aos artigos](../04-composicao-modelacao.md#o-inventário-passa-os-pedidos-aos-artigos).
 
-O método `retirar(codigo, unidades)` do inventário recebe o código de um artigo e as unidades a retirar. Encontra o artigo com esse código e passa-lhe o pedido. Não verifica as unidades: essas regras são do artigo, e já lá estão escritas. A esta forma de colaborar chama-se encaminhamento.
+1. O `retirar(unidades)` do artigo cumpre este contrato:
 
-O método `retirar(unidades)` do artigo recebe as unidades a retirar, decide se o pedido é possível e, se for, altera os dados do artigo. Deve cumprir este contrato:
+   | Pedido | O que acontece | Quantidade | Saídas |
+   | --- | --- | --- | --- |
+   | Um número inteiro, 1 ou mais, que não passa da quantidade | É aceite, sem mensagem | Diminui as unidades pedidas | Aumentam as unidades pedidas |
+   | Não é um número inteiro | `ValueError`: "As unidades a retirar têm de ser um número inteiro." | Fica igual | Ficam iguais |
+   | Um número inteiro menor do que 1 | `ValueError`: "As unidades a retirar têm de ser 1 ou mais." | Fica igual | Ficam iguais |
+   | Passa da quantidade | `ValueError` do setter: "A quantidade não pode ser negativa." | Fica igual | Ficam iguais |
 
-| Situação | O que acontece | Quantidade | Saídas |
-| --- | --- | --- | --- |
-| As unidades são um número inteiro, 1 ou mais, e não ultrapassam a quantidade | O pedido é aceite e o método termina sem mensagem | Diminui as unidades pedidas | Aumentam as unidades pedidas |
-| As unidades não são um número inteiro | `ValueError` com a mensagem "As unidades a retirar têm de ser um número inteiro." | Fica igual | Ficam iguais |
-| As unidades são inteiras, mas menores do que 1 | `ValueError` com a mensagem "As unidades a retirar têm de ser 1 ou mais." | Fica igual | Ficam iguais |
-| As unidades ultrapassam a quantidade | `ValueError` | Fica igual | Ficam iguais |
+   Numa retirada aceite, a quantidade desce o mesmo que as saídas sobem. Por isso, enquanto ninguém adiciona unidades, as duas somam sempre a quantidade com que o artigo começou. Retirar 2 unidades de A10 e depois 1 leva-o de 6 e 0 a 4 e 2, e depois a 3 e 3, e a soma é sempre 6. É a regra da soma, que te vai servir para confirmar os resultados.
 
-No último caso, há duas formas de recusar, e as duas cumprem o contrato. Podes deixar a recusa ao setter da quantidade, como no tema 03. A nova quantidade seria negativa, e o setter recusa-a com a sua mensagem, "A quantidade não pode ser negativa.". Ou podes verificar no próprio método se há unidades suficientes, e então usas a mensagem "Não há unidades suficientes.". Escolhe uma. Na conversa com o professor, no fim, vais explicar porque a escolheste.
-
-Se o código não existir, quem recusa é o inventário, com o `ValueError` do método `_procurar`, "Não existe nenhum artigo com o código ...", e nenhum artigo muda.
-
-Zero é uma quantidade válida: retirar todas as unidades de um artigo deixa-o com quantidade 0, e o pedido é aceite. Pedir para retirar zero unidades é recusado, porque não é uma retirada.
-
-Dentro do artigo, as saídas mudam-se no atributo interno `_saidas`, porque a propriedade `saidas` não tem setter.
-
-O plano é uma tabela com duas colunas. Na primeira, os passos do método, pela ordem em que acontecem. Na segunda, o que já mudou no artigo se o pedido for recusado nesse passo. Esta coluna obriga-te a olhar para o estado em cada ponto do método. Este é o plano do método `adicionar` do artigo, que já está escrito no teu ficheiro:
-
-| Passo do `adicionar` | O que já mudou no artigo, se o pedido for recusado neste passo |
-| --- | --- |
-| Verificar se as unidades são um número inteiro | Nada |
-| Verificar se as unidades são 1 ou mais | Nada |
-| Escrever a nova quantidade pela propriedade; o setter verifica-a e guarda-a | Aqui não há recusa: somar 1 ou mais a uma quantidade válida dá outra quantidade válida |
-
-As saídas não aparecem no plano do `adicionar`, porque uma entrada de material não é uma saída.
-
-1. No comentário do fim do `inventario.py`, escreve o plano do método `retirar` do artigo, com um passo por linha. Depois de cada passo, escreve dois pontos e o que já mudou no artigo se o pedido for recusado nesse passo. Os dois primeiros passos já estão na tabela abaixo. Acrescenta os que faltam, pela ordem em que devem acontecer. Usa a forma que escolheste para a falta de unidades.
+   No comentário do fim do `inventario.py`, escreve o plano do `retirar` do artigo, um passo por linha. Depois de cada passo, escreve dois pontos e o que já mudou no artigo se o pedido for recusado nesse passo. Num passo que não pode recusar, escreve "aqui não há recusa", e porquê. Os dois primeiros passos estão feitos; acrescenta os que faltam, pela ordem em que acontecem:
 
    | Passo do `retirar` do artigo | O que já mudou no artigo, se o pedido for recusado neste passo |
    | --- | --- |
    | Verificar se as unidades são um número inteiro | Nada |
    | Verificar se as unidades são 1 ou mais | Nada |
-   | A completar | A completar |
+   | ? | ? |
+   | ? | ? |
 
-2. Escreve, da mesma maneira, o plano do método `retirar` do inventário, desta vez sem nenhum passo começado.
+2. Escreve da mesma maneira o plano do `retirar` do inventário, desta vez sem nenhum passo feito. Um código que não existe é recusado pelo inventário, no `_procurar`, com "Não existe nenhum artigo com o código ...", e então nenhum artigo muda.
+
+   Guarda e executa outra vez: devem continuar a aparecer as oito linhas da fase 1. Uma mensagem de erro numa linha do plano quer dizer, outra vez, que falta um `#`.
 
 ### Paragem 3
 
 Mostra ao professor antes de leres a resposta: os planos dos dois métodos.
 
-O plano do `retirar` do artigo, na forma em que o setter recusa a falta de unidades:
+O plano do `retirar` do artigo:
 
 | Passo do `retirar` do artigo | O que já mudou no artigo, se o pedido for recusado neste passo |
 | --- | --- |
@@ -452,8 +382,6 @@ O plano do `retirar` do artigo, na forma em que o setter recusa a falta de unida
 | Escrever a nova quantidade pela propriedade; o setter recusa-a se ficar negativa | Nada: o setter recusa antes de guardar |
 | Aumentar as saídas nas unidades retiradas | Aqui não há recusa: só se chega a este passo se o setter aceitou |
 
-Na forma em que verificas a falta de unidades no próprio método, há um passo a mais, "Verificar se há unidades suficientes", também com "Nada". Fica depois das duas primeiras verificações e antes de qualquer alteração. Depois vêm as duas alterações, a da quantidade e a das saídas.
-
 O plano do `retirar` do inventário:
 
 | Passo do `retirar` do inventário | O que já mudou, se o pedido for recusado neste passo |
@@ -461,39 +389,35 @@ O plano do `retirar` do inventário:
 | Encontrar o artigo com este código | Nada: se o código não existir, `_procurar` recusa, e nenhum artigo foi contactado |
 | Passar o pedido ao artigo | Nada no inventário: se o artigo recusar, a recusa é dele, e pelo plano do artigo ele não mudou |
 
-A decisão desta fase é a ordem dos passos do artigo. As duas alterações, a da quantidade e a das saídas, ficam depois de todas as verificações. Na forma do setter, a quantidade é escrita antes das saídas, porque a escrita da quantidade ainda é uma verificação: o setter pode recusá-la. É a regra "verificar primeiro, alterar depois", agora com dois dados para alterar.
+A decisão desta fase é a ordem dos passos do artigo. As duas alterações ficam depois das verificações, e a da quantidade vem antes da das saídas, porque escrever a quantidade ainda é uma verificação: o setter pode recusá-la.
 
-Pensa antes de continuares: na forma do setter, se o passo das saídas viesse antes do passo da quantidade, o que mostraria o fim do programa para A10? A resposta: no pedido de 5, as saídas passavam de 4 a 9, e logo a seguir o setter recusava a quantidade. O `raise` do setter já não desfaz o que foi feito antes dele. A10 ficava com 2 unidades e 9 saídas, e a soma dava 11, e não 6. É assim que a regra da soma apanha uma saída contada a mais.
+Pensa antes de continuares: se o passo das saídas viesse antes do da quantidade, o que mostraria o fim do programa para A10? A resposta: no pedido de 5, as saídas passavam de 4 a 9, e logo a seguir o setter recusava a quantidade. O `raise` do setter não desfaz o que foi feito antes dele, e A10 ficava com 2 unidades e 9 saídas. A soma dava 11, e não 6: é assim que a regra da soma apanha uma saída contada a mais.
 
 ## Fase 4: Os dois métodos, e a sequência do programa
 
-Agora passas o plano para Python. Escreves os dois métodos no lugar das linhas "Por completar" e do `pass` que se lhes segue. Não mudas mais nada no programa: o registo dos artigos, as consultas, a adição e o programa principal já estão preparados.
+Passas os dois planos para Python, no lugar das linhas "Por completar", e prevês o que o programa principal vai mostrar, pedido a pedido. Como cada pedido encontra o estado que o anterior deixou, a previsão faz-se como um traço. Rever: [Os dois métodos, e a sequência do programa](../06-sintese.md#os-dois-métodos-e-a-sequência-do-programa) e [O inventário passa os pedidos aos artigos](../04-composicao-modelacao.md#o-inventário-passa-os-pedidos-aos-artigos).
 
-No inventário, para encontrar o artigo, um método chama outro método do mesmo objeto. Escreve-se `self._procurar(codigo)`, com o `self.` à frente, porque dentro de um método o `self` é o próprio inventário. Depois faz-se o pedido ao artigo encontrado. Repara que há dois métodos chamados `retirar`, um em cada classe. O do inventário recebe um código e um número. O do artigo recebe só um número, porque o artigo já sabe quem é. O objeto antes do ponto diz de que classe é o método chamado.
+1. No método `retirar` da classe `Inventario`, apaga a linha do comentário "Por completar" e a linha do `pass`. No lugar delas, escreve o código de cada passo do teu plano, com oito espaços no início, alinhado com a docstring. O método `saidas_de`, logo acima, já encontra um artigo pelo código, com `self._procurar(codigo)`, e faz uma coisa com ele. Quando passares o pedido ao artigo, lembra-te de que o `retirar` dele recebe só as unidades.
 
-No artigo, as duas verificações do pedido escrevem-se como no método `adicionar`, que está logo acima, com as mensagens do contrato. Um `raise` para o método nessa linha, e as linhas seguintes já não são executadas. A quantidade escreve-se pela propriedade, `self.quantidade = ...`, para passar pelo setter. As saídas escrevem-se no atributo interno, `self._saidas = ...`.
+2. No método `retirar` da classe `Artigo`, faz o mesmo, pela ordem do teu plano. As duas verificações escrevem-se como as do `adicionar`, logo acima, com as mensagens do contrato da fase 3. A quantidade escreve-se pela propriedade, `self.quantidade = ...`, para passar pelo setter, e as saídas no atributo interno, `self._saidas = ...`, porque a propriedade `saidas` não tem setter.
 
-1. No método `retirar` da classe `Inventario`, apaga a linha do comentário "Por completar" e a linha do `pass`. No lugar delas, escreve as linhas do teu plano, com oito espaços no início, alinhadas com a docstring. O método `saidas_de`, logo acima, já encontra um artigo pelo código e faz uma coisa com ele.
+3. Antes de executares, prevê de cabeça a resposta a cada pedido e o estado dos dois artigos depois dele. Cada linha começa no estado deixado pela de cima:
 
-2. No método `retirar` da classe `Artigo`, faz o mesmo: apaga o comentário "Por completar" e o `pass`, e escreve as linhas do teu plano, pela ordem do plano.
+   | Momento | Resposta | A10: quantidade e saídas | A11: quantidade e saídas |
+   | --- | --- | --- | --- |
+   | Início | Não há pedido | 6 e 0 | 3 e 0 |
+   | Depois de pedir 4 a A10 | ? | ? | ? |
+   | Depois de pedir 5 a A10 | ? | ? | ? |
 
-3. Antes de executares, prevê de cabeça as colunas de previsão desta tabela. Cada linha começa no estado deixado pela anterior.
+4. Guarda e executa o ficheiro inteiro. Se aparecer uma mensagem de erro, lê primeiro a última linha, que diz o tipo de erro, e procura esse tipo em [Se alguma coisa falhar](#se-alguma-coisa-falhar). Quando o programa correr até ao fim, mostra oito linhas, como na fase 1, e a quinta diz o que aconteceu ao pedido de 5.
 
-   | Momento | Resposta prevista | A10: quantidade e saídas previstas | A11: quantidade e saídas previstas | O que observaste no ecrã |
-   | --- | --- | --- | --- | --- |
-   | Início | Não há pedido | 6 e 0 | 3 e 0 | A preencher |
-   | Depois de pedir 4 a A10 | A preencher | A preencher | A preencher | A preencher |
-   | Depois de pedir 5 a A10 | A preencher | A preencher | A preencher | A preencher |
-
-4. Executa o ficheiro inteiro. Se aparecer uma mensagem de erro do Python, lê primeiro a última linha, que diz o tipo de erro, e depois as de cima, que dizem onde aconteceu. Os [problemas frequentes](#problemas-frequentes) ajudam com as mensagens mais comuns.
-
-5. Quando o programa correr até ao fim, compara o ecrã com a tua previsão, linha a linha. Confirma também a regra da soma: a quantidade e as saídas de A10 continuam a somar 6? Se a previsão e o ecrã forem diferentes, procura primeiro qual dos dois está errado, e escreve porquê no comentário do fim do ficheiro. Se for o programa, corrige-o e volta a executar o ficheiro inteiro.
+5. Compara o ecrã com a tua previsão, linha a linha, e confirma a regra da soma: a quantidade e as saídas de A10 continuam a somar 6? Se a previsão e o ecrã forem diferentes, descobre primeiro qual dos dois está errado, e escreve porquê no comentário do fim do ficheiro. Se for o programa, corrige-o e volta a executar o ficheiro inteiro.
 
 ### Paragem 4
 
 Mostra ao professor antes de leres a resposta: o que o programa mostra e, se alguma previsão foi diferente do ecrã, a explicação da diferença, no comentário do fim.
 
-O que deves ver, se deixaste a falta de unidades ao setter:
+O que deves ver:
 
 ```text
 Início
@@ -506,19 +430,17 @@ A10: quantidade 2 e saídas 4
 A11: quantidade 3 e saídas 0
 ```
 
-Se verificaste a falta de unidades no próprio método, a quinta linha é `Retirar 5 de A10: recusado: Não há unidades suficientes.`, e todas as outras são iguais.
-
-A tabela de referência:
+A resposta à previsão:
 
 | Momento | Resposta | A10 | A11 |
 | --- | --- | --- | --- |
 | Início | Não há pedido | 6 e 0 | 3 e 0 |
 | Depois de pedir 4 a A10 | Aceite | 2 e 4 | 3 e 0 |
-| Depois de pedir 5 a A10 | Recusado: "A quantidade não pode ser negativa.", ou "Não há unidades suficientes." | 2 e 4 | 3 e 0 |
+| Depois de pedir 5 a A10 | Recusado pelo setter: "A quantidade não pode ser negativa." | 2 e 4 | 3 e 0 |
 
-A soma de A10 é 6 nas três linhas. A coluna de A11 mostra que o outro artigo não foi tocado.
+A soma de A10 é 6 nas três linhas, e a coluna de A11 mostra que o outro artigo não foi tocado.
 
-O ficheiro `inventario.py` completo, como deve estar agora, na forma em que o setter recusa a falta de unidades:
+O ficheiro `inventario.py` completo, sem o comentário do fim. O teu deve estar igual, com os dois comentários do `retirar` do artigo, que podes copiar daqui:
 
 ```python
 """Laboratório do tema 06: o inventário de uma sala, com as saídas de cada artigo.
@@ -693,30 +615,15 @@ print("A10: quantidade", inventario.quantidade_de("A10"), "e saídas", inventari
 print("A11: quantidade", inventario.quantidade_de("A11"), "e saídas", inventario.saidas_de("A11"))
 ```
 
-Leitura guiada: lê primeiro o `retirar` do inventário, que tem duas linhas. A primeira encontra o artigo; se o código não existir, `_procurar` lança `ValueError`, e o método para ali. A segunda passa o pedido ao artigo, sem verificar nada e sem `try`. Depois lê o `retirar` do artigo, de cima para baixo. As duas verificações do pedido vêm primeiro, primeiro o tipo e depois o valor, para um texto nunca chegar à comparação com zero. A linha da quantidade escreve na propriedade, e por isso chama o setter. Se a quantidade ficasse negativa, o setter lançava `ValueError` antes de a guardar, e o método parava nessa linha. A linha das saídas só é executada se nenhuma linha acima tiver lançado uma exceção. É ela que fica em último lugar.
-
-Se escolheste verificar a falta de unidades no próprio método, o teu `retirar` do artigo tem estas linhas depois da docstring. Substituem todas as linhas depois da docstring, incluindo os dois comentários:
-
-```python partial
-        if not isinstance(unidades, int):
-            raise ValueError("As unidades a retirar têm de ser um número inteiro.")
-        if unidades <= 0:
-            raise ValueError("As unidades a retirar têm de ser 1 ou mais.")
-        if unidades > self.quantidade:
-            raise ValueError("Não há unidades suficientes.")
-        self.quantidade = self.quantidade - unidades
-        self._saidas = self._saidas + unidades
-```
-
-Nesta forma, as três verificações acontecem antes de qualquer alteração, e a ordem das duas últimas linhas deixa de importar. Mas a linha das saídas não pode subir para antes do último `if`. O pedido que ultrapassa a quantidade tem de ser recusado sem mudar nada.
+Em cima, o `retirar` do `Artigo` verifica o pedido primeiro, e só depois altera a quantidade, pelo setter, e as saídas. Por baixo, o `retirar` do `Inventario` só encontra o artigo pelo código e passa-lhe os pedidos que o programa principal faz.
 
 Pensa antes de continuares: o `retirar` do inventário não tem nenhum `try`. Porque é que não deve apanhar a recusa do artigo? A resposta: quem lança a exceção decide se o pedido é válido, e quem a apanha decide o que fazer com a recusa. O inventário não sabe o que fazer com ela, e o programa principal sabe: mostra a mensagem. Se o inventário a apanhasse, a recusa não chegava ao programa principal, e ele escrevia "aceite" a um pedido recusado.
 
 ## Fase 5: Outros casos, cada um num ensaio
 
-Os dois pedidos do programa principal são para o mesmo artigo. Não experimentam um código que não existe, nem um zero, nem um número decimal, nem a retirada de todas as unidades. Nesta fase experimentas esses casos, cada um num ensaio separado. Cada ensaio começa com o programa acabado de iniciar: A10 com 6 unidades e 0 saídas, e A11 com 3 unidades e 0 saídas.
+Experimentas os casos que o programa principal não experimenta, cada um num ensaio: um código que não existe, um zero, um número decimal e a retirada de todas as unidades. Cada ensaio é uma execução à parte, que começa sempre com A10 em 6 e 0 e A11 em 3 e 0. Rever: [Outros casos, cada um num ensaio](../06-sintese.md#outros-casos-cada-um-num-ensaio).
 
-1. Para não mexeres no teu ficheiro de trabalho, guarda uma cópia do `inventario.py`, na mesma pasta, com o nome `ensaios.py`. Nessa cópia, mantém as duas classes e as três linhas que criam o inventário e registam os artigos. Substitui todas as linhas a partir de `print("Início")` por este bloco:
+1. Os ensaios fazem-se noutro ficheiro, para o teu `inventario.py` não mudar. Cria no editor, na pasta `tema-06`, o ficheiro `ensaios.py`, e cola nele todo o `inventario.py`. No `ensaios.py`, deixa as duas classes e as três linhas que criam o inventário e registam os artigos. Substitui por este bloco todas as linhas a partir de `print("Início")`, também as do comentário do fim:
 
    ```python partial
    print("Antes")
@@ -734,26 +641,24 @@ Os dois pedidos do programa principal são para o mesmo artigo. Não experimenta
    print("A11: quantidade", inventario.quantidade_de("A11"), "e saídas", inventario.saidas_de("A11"))
    ```
 
-   Leitura guiada: este bloco depende das classes e do inventário criados acima, e não é para executar sozinho. Mostra o estado dos dois artigos antes, faz um pedido dentro de um `try` e mostra o estado depois. A linha `inventario.retirar("A11", 3)` é o pedido.
+   O bloco mostra os dois artigos antes e depois de um só pedido, o da linha `inventario.retirar("A11", 3)`. Sozinho não corre, porque usa as classes e o inventário de cima.
 
-2. Faz os quatro ensaios desta tabela. Em cada ensaio, prevê primeiro de cabeça as colunas de previsão. Depois muda o código e as unidades da linha do pedido para os da tabela, e executa o ficheiro inteiro, para voltares a começar com os valores iniciais.
+2. Faz os quatro ensaios, um de cada vez. Em cada um, troca o código e as unidades da linha do pedido e executa o ficheiro inteiro, para começares outra vez com os valores iniciais:
 
-   | Pedido | Aceite ou recusado, e quem recusa | Mensagem prevista | A10 depois: quantidade e saídas | A11 depois: quantidade e saídas | Resultado observado |
-   | --- | --- | --- | --- | --- | --- |
-   | `retirar("A11", 3)` | A preencher | A preencher | A preencher | A preencher | A preencher |
-   | `retirar("A11", 0)` | A preencher | A preencher | A preencher | A preencher | A preencher |
-   | `retirar("A11", 1.5)` | A preencher | A preencher | A preencher | A preencher | A preencher |
-   | `retirar("A12", 1)` | A preencher | A preencher | A preencher | A preencher | A preencher |
+   - `retirar("A11", 3)`
+   - `retirar("A11", 0)`
+   - `retirar("A11", 1.5)`
+   - `retirar("A12", 1)`
 
-   Em cada ensaio, lê as quatro linhas de estado, as de A10 e as de A11, antes e depois do pedido. Um pedido feito a A11 não deve mudar A10, e só confirmas isso se olhares para as duas.
+   Antes de executares cada um, prevê de cabeça se o pedido é aceite ou recusado, quem o recusa, com que mensagem, e como ficam A10 e A11. Depois lê as quatro linhas do estado, as de A10 e as de A11, antes e depois do pedido. Um pedido a A11 não pode mudar A10, e só as linhas de A10 o confirmam.
 
-3. Faz ainda um último ensaio, desta vez com dois pedidos seguidos, sem reiniciar entre eles: retirar 3 unidades de A11 e, logo a seguir, retirar 1. Para isso, volta a pôr o pedido `inventario.retirar("A11", 3)`. Depois copia o bloco do `try` e do `except` e cola a cópia logo a seguir ao primeiro, antes da linha `print("Depois")`, com o pedido de 1 unidade. Prevê as duas respostas e o estado final dos dois artigos. Depois executa e escreve duas frases num comentário no fim do `ensaios.py`. Uma diz o que a segunda resposta mostra sobre um artigo vazio, e a outra porque é que as saídas de A11 têm o valor que têm.
+3. Faz ainda um ensaio com dois pedidos seguidos, sem recomeçar entre eles: retirar 3 unidades de A11 e, logo a seguir, retirar 1. Volta a pôr o pedido `inventario.retirar("A11", 3)`. Depois copia o bloco do `try` e do `except` e cola a cópia logo a seguir ao primeiro, antes da linha `print("Depois")`, com o pedido de 1 unidade. Executa e escreve duas frases num comentário no fim do `ensaios.py`. Uma diz o que a segunda resposta mostra sobre um artigo vazio, e a outra porque é que as saídas de A11 têm o valor que têm.
 
 ### Paragem 5
 
 Mostra ao professor antes de leres a resposta: os quatro ensaios, que voltas a executar se ele pedir, e o ensaio dos dois pedidos seguidos, com as duas frases.
 
-A tabela de referência. Em todas as linhas, o ensaio começou com A10 em 6 e 0 e A11 em 3 e 0:
+Os quatro ensaios, todos começados com A10 em 6 e 0 e A11 em 3 e 0:
 
 | Pedido | Aceite ou recusado, e quem recusa | Mensagem | A10 depois | A11 depois |
 | --- | --- | --- | --- | --- |
@@ -762,19 +667,7 @@ A tabela de referência. Em todas as linhas, o ensaio começou com A10 em 6 e 0 
 | `retirar("A11", 1.5)` | Recusado pelo método `retirar` do artigo | As unidades a retirar têm de ser um número inteiro. | 6 e 0 | 3 e 0 |
 | `retirar("A12", 1)` | Recusado pelo inventário, no `_procurar` | Não existe nenhum artigo com o código A12. | 6 e 0 | 3 e 0 |
 
-As mensagens são iguais nas duas formas de recusar a falta de unidades, porque nenhum destes quatro pedidos ultrapassa a quantidade. O primeiro ensaio mostra:
-
-```text
-Antes
-A10: quantidade 6 e saídas 0
-A11: quantidade 3 e saídas 0
-Pedido aceite
-Depois
-A10: quantidade 6 e saídas 0
-A11: quantidade 0 e saídas 3
-```
-
-O ensaio dos dois pedidos seguidos, 3 e depois 1, mostra:
+Os dois pedidos seguidos, 3 e depois 1, mostram:
 
 ```text
 Antes
@@ -787,90 +680,102 @@ A10: quantidade 6 e saídas 0
 A11: quantidade 0 e saídas 3
 ```
 
-Na forma em que verificas a falta de unidades no próprio método, a segunda resposta é `Pedido recusado: Não há unidades suficientes.`, com o mesmo estado final.
-
-As duas frases: um artigo com quantidade 0 é válido, mas não tem nada para retirar. Por isso qualquer pedido de 1 ou mais é recusado, porque a quantidade ficaria negativa. As saídas ficam em 3 porque só contam as retiradas aceites, e a segunda foi recusada antes de as saídas mudarem.
+A primeira frase: um artigo com quantidade 0 é válido, mas não tem nada para retirar, e qualquer pedido de 1 ou mais é recusado. A segunda: as saídas ficam em 3 porque só contam as retiradas aceites, e o pedido de 1 foi recusado antes de as saídas mudarem.
 
 Pensa antes de continuares: 1.5 é mais do que 1. Porque é que o pedido de 1.5 recebe a mensagem do número inteiro, e não é aceite? A resposta: porque 1.5 não é um número inteiro, e o método verifica o tipo antes do valor. A primeira verificação recusa-o, e a segunda nem chega a ser feita.
 
 ## Fase 6: Explicar a correção
 
-Encontrar e corrigir um erro acaba com uma explicação feita com valores: o que esperavas, o que viste, a causa e a confirmação de que ficou resolvido. É a mesma rotina que segues sempre que um programa falha. Nesta fase escreves essa explicação para a correção que fizeste.
+Escreves, em quatro frases com valores, a explicação da correção que fizeste nos dois métodos `retirar`. Uma correção explica-se assim sempre que um programa falha: o que esperavas, o que viste, a causa e a confirmação de que ficou resolvido. Rever: [Explicar a correção](../06-sintese.md#explicar-a-correção).
 
-1. Volta às respostas da fase 1, antes de completares os métodos. Escolhe um pedido que o programa inicial tratava mal e que o teu programa agora trata de acordo com o contrato. No comentário do fim do `inventario.py`, escreve quatro frases, cada uma com valores ou instruções concretas:
+1. Volta às respostas da fase 1 e à paragem 1. O pedido de 5 a A10 é um dos que o programa inicial tratava mal: disse "aceite", e devia ter recusado. No comentário do fim do `inventario.py`, escreve as quatro frases para esse pedido, cada uma com valores ou instruções concretas:
 
    1. "Esperava ...": o que o pedido devia fazer à quantidade e às saídas.
    2. "Observei ...": o que o programa inicial mostrou.
    3. "A instrução que explica a diferença é ...": a linha do programa inicial responsável, e porquê.
    4. "Depois da alteração, confirmei ...": o que o teu programa mostra agora, com os valores.
 
-2. Compara as tuas frases com este exemplo, feito para o pedido de 4 a A10. "Esperava que, ao retirar 4 de A10, a quantidade passasse de 6 a 2 e as saídas de 0 a 4. Observei no programa inicial a mensagem "aceite", mas A10 continuou com quantidade 6 e saídas 0. A instrução que explica a diferença é o `pass` dos dois métodos `retirar`, que não faz nada e não lança nenhuma exceção. Por isso o programa principal escreveu "aceite" sem nada ter mudado. Depois da alteração, confirmei que o mesmo pedido deixa A10 com quantidade 2 e saídas 4, e que o pedido de 5 a seguir é recusado sem mudar esses valores." Repara que cada frase tem valores ou instruções concretas. Uma explicação que diga só "o método não funcionava e agora funciona" ainda não explica nada.
+2. Compara a forma das tuas frases com este exemplo, feito para o outro pedido, o de 4 a A10. "Esperava que, ao retirar 4 de A10, a quantidade passasse de 6 a 2 e as saídas de 0 a 4. Observei no programa inicial a mensagem "aceite", mas A10 continuou com quantidade 6 e saídas 0. A instrução que explica a diferença é o `pass` dos dois métodos `retirar`: não muda nenhum dado e também não lança nenhuma exceção. Por isso o programa principal escreveu "aceite" sem nada ter mudado. Depois da alteração, confirmei que o mesmo pedido deixa A10 com quantidade 2 e saídas 4, e que o pedido de 5 a seguir é recusado sem mudar esses valores." Cada frase tem valores ou instruções concretas, e quem a lê pode repetir o caso para a confirmar. Uma explicação que diga só "o método não funcionava e agora funciona" ainda não explica nada.
 
 ### Paragem 6
 
-No fim, o professor conversa contigo, numa conversa curta, com o teu programa aberto. A conversa não dá nota: serve para tu e o professor perceberem o que já está firme e o que precisa de mais prática antes do projeto. Se trabalhaste em par, a conversa é individual na mesma, e cada pessoa explica o seu próprio raciocínio.
+No fim, o professor conversa contigo durante uns minutos, com o teu programa aberto. A conversa não dá nota: serve para tu e o professor perceberem o que já está firme e o que precisa de mais prática.
 
-Não precisas de recitar definições: usa o teu programa e os valores. Não há uma resposta para decorar, porque as respostas estão no que fizeste nas fases indicadas. O professor escolhe uma ou duas destas tarefas:
+Não há nada para decorar, porque as respostas estão no que fizeste: usa o teu programa e os valores. O professor escolhe uma ou duas destas tarefas:
 
 - mostrar, no teu código, onde o pedido é encaminhado e onde é decidido (fases 3 e 4);
-- explicar porque é que uma recusa não pode alterar nem a quantidade nem as saídas, apontando a linha do teu código que garante isso (fases 3 e 4);
-- explicar que forma escolheste para recusar a falta de unidades, a do setter ou a da verificação no método, e porquê (fase 3);
+- explicar porque é que uma recusa não pode alterar nem a quantidade nem as saídas, apontando a linha do teu código que o garante (fases 3 e 4);
+- dizer que outra forma havia de recusar a falta de unidades, e qual escolherias, e porquê (fase 3, e o [passo 4 do exemplo guiado do guia 03](../03-encapsulamento-contratos.md#passo-4-alterar-através-da-propriedade));
 - mostrar como confirmaste que A10 não mudou nos ensaios feitos com A11 (fase 5);
 - prever o resultado de um pedido com outros valores, escolhido pelo professor, antes de o executares (fases 4 e 5);
-- encontrar e corrigir um erro que o professor introduza numa cópia do teu programa. Segue a rotina de sempre. Reproduz o erro com um caso e diz que tipo de erro é. Escreve uma hipótese num comentário no fim da cópia e confirma-a com os valores. Corrige a causa e volta a correr tudo (fase 6).
+- encontrar e corrigir um erro que o professor ponha numa cópia do teu programa (fase 6). Segues a rotina de sempre: reproduzes o erro com um caso e dizes que tipo de erro é. Escreves uma hipótese num comentário no fim da cópia e confirma-la com os valores, e depois corriges a causa e voltas a correr tudo.
 
-Podes dizer em que passos recebeste ajuda: essa informação serve para orientar o trabalho seguinte.
+## Se alguma coisa falhar
 
-As ideias que juntaste neste laboratório são as ideias centrais do M10. A primeira é distinguir a classe dos objetos e do estado de cada um. A segunda é proteger os dados de um objeto quando ele recusa um pedido. A terceira é dar cada tarefa ao objeto que tem a informação para a fazer, como o inventário que encontra o artigo e o artigo que decide. Vão ser avaliadas no [projeto](../../projeto/README.md): a tua aplicação, um livro de receitas. O projeto é avaliado no fim do M12, com demonstração, explicação e uma pequena alteração feita na hora. É a avaliação prática do M10, do M11 e do M12, cada uma com os critérios do seu módulo. Os critérios do M10 são estas três ideias, agora na tua aplicação.
+1. Guardaste o ficheiro antes de executar? O editor executa o que está guardado: se a saída não mudou depois de uma alteração, guarda e executa outra vez.
+2. Estás a executar o ficheiro certo? É o `inventario.py`, o `ensaios.py`, na fase 5, ou o `desafios.py`, nos desafios, todos na pasta `tema-06`.
+3. Executaste o ficheiro inteiro? Cada execução começa do zero: cria um inventário novo, regista os dois artigos com os valores iniciais e faz os pedidos pela ordem em que estão escritos.
+4. Perdeste-te? Até à fase 4, copia outra vez as três partes de [Preparar o projeto](#preparar-o-projeto) e cola por baixo o teu comentário. Na fase 5 e seguintes, parte do ficheiro da [paragem 4](#paragem-4).
+5. Apareceu uma mensagem de erro? Lê primeiro a última linha, que diz o tipo de erro. Por cima dela, cada linha `File` diz uma linha do ficheiro onde o Python estava, com o código dessa linha por baixo. A de baixo é onde o erro aconteceu, e a de cima, que acaba em `in <module>`, é a do programa principal, que fez o pedido. Procura o tipo de erro nos títulos de baixo.
 
-O projeto começa já no fim do M10, com o modelo do teu livro de receitas, descrito por palavras, como o que escreveste na fase 2. Esta conversa é um primeiro ensaio da explicação que o projeto te vai pedir. O que é cada objeto? Onde está a regra? O que acontece aos dados quando um pedido é recusado?
+### Aparece `IndentationError`, `TabError` ou `SyntaxError`
 
-## Problemas frequentes
+É um erro de escrita: o Python recusa o ficheiro antes de correr qualquer linha, e por isso a mensagem não começa por `Traceback`. Abre com o nome do ficheiro e o número da linha onde a leitura parou. Neste laboratório, as mais prováveis são estas:
 
-### `IndentationError: unindent does not match any outer indentation level`
+- `IndentationError: unindent does not match any outer indentation level`: uma linha de um dos teus métodos ficou com uma margem diferente das outras, como seis espaços em vez de oito.
+- `IndentationError: expected an indented block after class definition on line 76` (no Python 3.9, só `expected an indented block`): a linha `class Inventario:` ficou com espaços à frente. A mensagem aponta a docstring, por baixo, mas o engano está na linha da classe. Encosta-a à margem.
+- `IndentationError: unexpected indent` ("indentação inesperada"): uma linha tem espaços a mais à frente, como doze em vez de oito, sem estar dentro de um `if`.
+- `TabError: inconsistent use of tabs and spaces in indentation`: uma tabulação ficou no meio dos espaços da margem. Apaga-a e escreve os espaços.
+- `SyntaxError: expected ':'` (no Python 3.9, só `invalid syntax`): um `if` ficou sem os dois pontos no fim.
+- `SyntaxError: invalid syntax` numa linha de português depois do programa principal, ou `IndentationError: unexpected indent`, se essa linha começar por espaços: a linha do teu comentário ficou sem o `#` no início. O Python tentou lê-la como código. Põe-lhe o `#`.
 
-Em português: uma linha recuou para a esquerda, mas não ficou alinhada com nenhum dos níveis de indentação de cima. Um `IndentationError` é um "erro de indentação", e o programa nem chega a começar. Uma linha de um método ficou com uma indentação diferente das outras linhas do mesmo método, por exemplo com seis espaços em vez de oito. Dentro de um método, todas as linhas ficam alinhadas com a docstring, com oito espaços a partir da margem, e as linhas dentro de um `if` com doze.
+Dentro de um método, as linhas ficam a oito espaços da margem, alinhadas com a docstring, e as que estão dentro de um `if` ficam a doze. O `adicionar` do artigo tem a mesma forma do teu `retirar`: compara a margem da linha que a mensagem indica com a das linhas dele.
 
-### `NameError: name '_procurar' is not defined`
+### Aparece `NameError: name '_procurar' is not defined`
 
-Em português: o nome `_procurar` não está definido. Um `NameError` ("erro de nome") aparece quando se usa um nome que o Python não conhece. Dentro do método do inventário, a chamada ficou escrita `_procurar(codigo)`, sem o `self.` à frente, e o Python procura uma função solta com esse nome. Escreve `self._procurar(codigo)`, como em `quantidade_de`. As versões recentes do Python acrescentam à mensagem `Did you mean: 'self._procurar'?`, isto é, "querias dizer `self._procurar`?".
+`NameError` quer dizer erro de nome: o Python não conhece o nome `_procurar`. No `retirar` do inventário, a chamada ficou escrita sem o `self.` à frente, e o Python procura uma função solta com esse nome. Nas versões mais recentes, como a 3.14, a mensagem acaba com a sugestão `Did you mean: 'self._procurar'?`, que quer dizer "querias dizer `self._procurar`?". No 3.9, não traz nenhuma. Escreve `self._procurar(codigo)`, como no `saidas_de`.
 
-### `TypeError: Artigo.retirar() takes 2 positional arguments but 3 were given`
+### Aparece `TypeError: Artigo.retirar() takes 2 positional arguments but 3 were given`
 
-Em português: o `retirar` recebe 2 argumentos, mas foram dados 3. Um `TypeError` ("erro de tipo") aparece aqui porque a chamada não bate com o `def`. A mensagem começa por `Artigo.retirar()`, o que diz logo que é o método do artigo. Nas versões anteriores à 3.10, começa só por `retirar()`. No inventário, a chamada ao artigo ficou com o código e as unidades, como `artigo.retirar(codigo, unidades)`. O `retirar` do artigo só recebe as unidades, porque o artigo já sabe quem é. O Python conta também o `self`, e por isso diz 2 e 3. Escreve `artigo.retirar(unidades)`.
+`TypeError` quer dizer erro de tipo, e aqui diz que a chamada não bate com o `def`: o `retirar` do artigo aceita 2 valores e recebeu 3. No Python 3.9, a mensagem não tem o `Artigo.` antes do `retirar()`. No inventário, a chamada ao artigo ficou com o código e as unidades, como `artigo.retirar(codigo, unidades)`, e o artigo só recebe as unidades. O Python conta também o `self`, e por isso diz 2 e 3. Escreve `artigo.retirar(unidades)`.
 
-### `AttributeError: property 'saidas' of 'Artigo' object has no setter`
+### Aparece `TypeError: Inventario.retirar() missing 1 required positional argument: 'unidades'`
 
-Em português: a propriedade `saidas` do objeto `Artigo` não tem setter. Nas versões do Python anteriores à 3.11, a mensagem começa por `AttributeError: can't set attribute`, "não se pode escrever o atributo". Um `AttributeError` é um "erro de atributo". O método do artigo escreve nas saídas através da propriedade, com `self.saidas = ...`, e a propriedade não tem setter. Dentro do artigo, as saídas mudam-se no atributo interno: `self._saidas = self._saidas + unidades`.
+Quem se queixa é o `retirar` do inventário, que precisa de dois valores, o código e as unidades, e só recebeu um. No Python 3.9, falta o `Inventario.` no início da mensagem. A linha `File` de baixo mostra a linha do teu `retirar` do inventário onde o pedido é passado. Lê-a ao lado do teu plano da fase 3: a quem é que esse passo passa o pedido? Se escreveste o `self.` porque o Python 3.14 o sugeriu, num `NameError: name 'retirar' is not defined`, a sugestão não serve aqui: volta à pergunta de cima.
 
-### `TypeError: '<=' not supported between instances of 'str' and 'int'`
+### Aparece `AttributeError: property 'saidas' of 'Artigo' object has no setter`
 
-Em português: a comparação `<=` não é possível entre um texto e um número inteiro (`str` é o texto e `int` o inteiro). Aparece num pedido com um texto, como `"2"`. O método compara as unidades com um número antes de verificar se são um número inteiro. Se trocaste outro sinal, como `<`, a mensagem mostra esse sinal. Verifica primeiro o tipo, com o `isinstance`, e só depois o valor, como no setter e no `adicionar`.
+`AttributeError` quer dizer erro de atributo. Antes do Python 3.11, a mensagem começa por `AttributeError: can't set attribute`, "não se pode escrever o atributo". O teu `retirar` do artigo escreve nas saídas pela propriedade, com `self.saidas = ...`, e a propriedade não tem setter. Dentro do artigo, as saídas mudam-se no atributo interno: `self._saidas = self._saidas + unidades`.
+
+### Aparece `TypeError: '<=' not supported between instances of 'str' and 'int'`
+
+A comparação `<=` não se pode fazer entre um texto e um número inteiro (`str` é o texto e `int` o inteiro). Aparece num pedido com um texto, como `"2"`, quando o teu método compara as unidades com um número antes de verificar se são um número inteiro. Se usaste outro sinal, como `<`, a mensagem mostra esse sinal. Verifica primeiro o tipo, com o `isinstance`, e só depois o valor, como no setter e no `adicionar`.
 
 ### O programa diz "aceite", mas a quantidade e as saídas não mudaram
 
-Um dos métodos `retirar` ainda não faz nada: ficou só com o `pass`, ou o inventário encontra o artigo mas não lhe passa o pedido. Segue o pedido desde o programa principal até ao método do artigo, e confirma que cada passo chama o seguinte.
+Um dos métodos `retirar` ainda não faz nada: ficou só com o `pass`, ou o inventário encontra o artigo e não lhe passa o pedido. Segue o pedido desde o programa principal até ao método do artigo, e confirma que cada passo chama o seguinte.
 
-### Num ensaio, o programa para com uma mensagem que acaba em `ValueError`, em vez de mostrar "Pedido recusado"
+### Num ensaio, o programa para com `ValueError`, em vez de mostrar "Pedido recusado"
 
-O pedido ficou fora do `try`. A mensagem mostra o caminho do pedido, do programa principal até ao método onde a recusa nasceu: o `retirar` do artigo, o setter ou o `_procurar`. Põe o pedido dentro do `try`, como no bloco da fase 5, com o `except ValueError as erro` por baixo.
+A linha do pedido ficou fora do `try`. A mensagem mostra o caminho do pedido, uma linha `File` por método, do programa principal até ao sítio onde a recusa nasceu. Pode ser o `retirar` do artigo, o setter, que aparece como `in quantidade`, ou o `_procurar`. Põe a linha do pedido dentro do `try`, com quatro espaços à frente, como no bloco da fase 5.
 
 ## Desafios
 
-1. Os ensaios que faltam. No `ensaios.py`, ensaia `retirar("A11", -1)` e `retirar("A11", "2")`, um de cada vez, como na fase 5. Antes de cada um, prevê se o pedido é aceite ou recusado, quem o recusa, a mensagem e o estado dos dois artigos depois. Depois de executares, escreve, num comentário no fim do `ensaios.py`, que linha do teu método recusou cada um. Pista: segue o teu método pela ordem das linhas, com o valor do pedido.
+Os desafios fazem-se numa cópia, para o `ensaios.py` ficar como na paragem 5. Cria no editor, na pasta `tema-06`, o ficheiro `desafios.py`, e cola nele todo o `ensaios.py`. Faz os três desafios nesse ficheiro, pela ordem, com as respostas num comentário no fim dele.
 
-2. Um terceiro artigo. No `ensaios.py`, regista um terceiro artigo, A12, Tesoura, com 4 unidades, a seguir aos registos de A10 e A11. Acrescenta uma linha que mostre A12 no "Antes" e no "Depois". No lugar do pedido, faz três pedidos seguidos a A12, cada um no seu `try`: retirar 1, depois 2, depois 2. Antes de executares, prevê a resposta a cada pedido, a quantidade e as saídas de A12 depois de cada um, e a soma das duas. Confirma, no fim, que A10 e A11 não mudaram. Pista: cada pedido parte do estado deixado pelo anterior, e a soma diz-te se contaste bem as saídas.
+1. Os ensaios que faltam. Apaga o segundo bloco do `try` e do `except`, para ficar um só pedido, como nos quatro ensaios da fase 5, e ensaia `retirar("A11", -1)` e `retirar("A11", "2")`, um de cada vez. Antes de cada um, prevê se o pedido é aceite ou recusado, quem o recusa, a mensagem e o estado dos dois artigos depois. Depois de executares, escreve no comentário do fim que linha do teu método recusou cada um. Pista: segue o teu método pela ordem das linhas, com o valor do pedido.
 
-3. A outra forma. Faz uma cópia do `ensaios.py` com o nome `outra-forma.py`. Nela, troca a forma de recusar a falta de unidades: se a deixaste ao setter, verifica-a no próprio método, e ao contrário. Corre lá os quatro ensaios e os dois pedidos seguidos da fase 5. Responde num comentário no fim do `outra-forma.py`: que mensagens mudam, e quais ficam iguais? Porquê? E, em duas frases, qual das duas formas preferes, e porquê? Pista: procura os pedidos que ultrapassam a quantidade.
+2. Um terceiro artigo. Regista um terceiro artigo, A12, Tesoura, com 4 unidades, a seguir aos registos de A10 e A11, e acrescenta uma linha que mostre A12 no "Antes" e outra no "Depois". No lugar do pedido, faz três pedidos seguidos a A12, cada um no seu `try`: retirar 1, depois 2, depois 2. Antes de executares, prevê a resposta a cada pedido, a quantidade e as saídas de A12 depois de cada um, e a soma das duas. Confirma, no fim, que A10 e A11 não mudaram. Pista: cada pedido parte do estado deixado pelo anterior, e a soma diz-te se contaste bem as saídas.
+
+3. A outra forma de recusar. Muda o `retirar` do artigo para ser ele, e não o setter, a recusar um pedido que passa da quantidade, com a mensagem "Não há unidades suficientes.". A recusa tem de vir antes de qualquer alteração. Executa outra vez o `desafios.py`, com os três pedidos a A12. Depois troca esses três blocos por um só pedido a A11, e repete o -1 e o `"2"` do desafio 1. Responde no comentário do fim: que respostas mudam, e quais ficam iguais? Porquê? A soma de A12 continua certa? E, em duas frases, qual das duas formas preferes, e porquê? Pista: procura os pedidos que passam da quantidade.
 
 ## Antes de terminares
 
-- [ ] O `inventario.py` executa e mostra as oito linhas da paragem 4, com a mensagem da forma que escolheste.
-- [ ] O `ensaios.py` tem o bloco da fase 5, e fizeste os quatro ensaios e os dois pedidos seguidos.
-- [ ] O comentário do fim do `inventario.py` tem a descrição das classes e da relação, o estado dos dois artigos e as respostas da fase 2. Tem também os dois planos e as quatro frases da fase 6.
-- [ ] O comentário do fim do `ensaios.py` tem as duas frases dos pedidos seguidos.
-- [ ] Guardaste a pasta `tema-06` e entregaste-a pelo meio indicado pelo professor. Guarda uma cópia para ti: vais voltar a precisar destas ideias no projeto.
-- [ ] Sabes dizer quem recusa cada um dos pedidos da fase 5, e porquê.
+- [ ] O `inventario.py` executa e mostra as oito linhas da paragem 4.
+- [ ] O comentário do fim do `inventario.py` tem o modelo, o estado dos dois artigos e as três respostas da fase 2. Tem também os dois planos da fase 3 e as quatro frases da fase 6.
+- [ ] O `ensaios.py` tem o bloco da fase 5, fizeste com ele os quatro ensaios e os dois pedidos seguidos, e o comentário do fim tem as duas frases.
+- [ ] Entregaste a pasta `tema-06` pelo meio que o professor indicar, com o `desafios.py`, se fizeste os desafios.
+- [ ] Sabes dizer, para cada pedido da fase 5, quem o recusa e porquê.
 - [ ] Consegues explicar, por palavras tuas, porque é que uma recusa não muda nem a quantidade nem as saídas, e que linha do teu código o garante.
 
 ![Rodapé](../../imagens/rodape.png)

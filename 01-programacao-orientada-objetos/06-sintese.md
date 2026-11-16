@@ -2,113 +2,27 @@
 
 # Síntese
 
-Módulo M10, Introdução à Programação Orientada por Objetos. Neste guia juntas as ideias do módulo num pequeno inventário em Python: classes e objetos, encapsulamento e composição, todas no mesmo programa. Lês o guia ao teu ritmo, de preferência em mais do que uma vez, e o que não acabares na aula acabas em casa ou na aula seguinte. Para praticar, há o [laboratório](laboratorios/06-sintese-laboratorio.md) e a [ficha de exercícios](exercicios/06-sintese-exercicios.md) deste tema.
+Neste guia, as ideias do módulo juntam-se num só programa: o inventário do guia 04, com uma operação por completar. Lês o programa por zonas, descreves o seu modelo por palavras e completas a operação, do plano ao método, com os casos que a confirmam e a explicação da correção.
 
-Nos guias 02, 03 e 04 construíste, uma peça de cada vez, um pequeno inventário de materiais. No guia [02 Objetos, classes e instâncias](02-objetos-classes-instancias.md) viste que uma classe descreve todos os artigos e que cada artigo concreto é um objeto com o seu próprio estado. No guia [03 Encapsulamento e contratos](03-encapsulamento-contratos.md), o artigo aprendeu a proteger a sua quantidade. Recusa um valor impossível com `ValueError` ("erro de valor") e, quando recusa, deixa os dados exatamente como estavam. No guia [04 Composição e modelação](04-composicao-modelacao.md), um objeto novo, o inventário, passou a criar e a guardar os artigos. Também os encontra pelo código e lhes passa os pedidos.
-
-Este guia junta essas três ideias à volta de um único programa, que já vem quase todo escrito. Primeiro vais ler o programa e reconhecer nele cada ideia, com a indicação do guia onde foi explicada. Depois acompanhas um exemplo guiado, que completa uma operação que o programa ainda não sabe fazer. A ficha de exercícios tem tarefas curtas sobre o mesmo programa, cada uma com uma pequena decisão que o exemplo guiado não tomou por ti.
-
-O objetivo é conseguires olhar para um programa com objetos e responder a três perguntas, sem decorar sintaxe. Que objetos existem, e o que guarda cada um? Quem decide se um pedido é aceite? O que acontece aos dados quando um pedido é aceite, e quando é recusado? São as perguntas que vais trabalhar no laboratório deste tema, que fazes na aula, passo a passo, com o professor a acompanhar.
-
-Os programas completos correm sozinhos, como nos guias anteriores: copia-os para um ficheiro `.py` e executa o ficheiro inteiro, no editor de Python que usas nas aulas. Funcionam com o Python 3, a partir da versão 3.10. Cada execução começa do zero, com os valores escritos no programa. Os excertos estão sempre assinalados, e o texto diz de que outro código dependem.
+Usa o inventário que passa os pedidos aos artigos, o modelo descrito por palavras e a recusa com `raise`, apanhada com `try` e `except`. Rever: [O inventário passa os pedidos aos artigos](04-composicao-modelacao.md#o-inventário-passa-os-pedidos-aos-artigos), [O inventário descrito por palavras](04-composicao-modelacao.md#o-inventário-descrito-por-palavras), [Recusar a sério, com `raise`](03-encapsulamento-contratos.md#recusar-a-sério-com-raise) e [Tratar a recusa com `try` e `except`](03-encapsulamento-contratos.md#tratar-a-recusa-com-try-e-except). Para praticar: [laboratório](laboratorios/06-sintese-laboratorio.md) e [ficha de exercícios](exercicios/06-sintese-exercicios.md).
 
 ## Neste guia
 
-1. O que vais aprender
-2. O que já sabes e vais usar
-3. Ler o programa e reconhecer as ideias:
-   - Três ideias num só pedido
-   - O programa de partida
-   - Classes e objetos no programa
-   - Encapsulamento no programa
-   - O inventário no programa: composição e procura pelo código
-4. Exemplo guiado: completar o método `acertar`
-5. Erros frequentes
-6. Palavras novas deste guia
-7. Verificar o que aprendeste
-8. O que vem a seguir
+1. [Parte 1: Ler e descrever o programa](#parte-1-ler-e-descrever-o-programa)
+2. [Parte 2: Uma operação, do plano à correção](#parte-2-uma-operação-do-plano-à-correção)
+3. [Exemplo guiado: completar o método `acertar`](#exemplo-guiado-completar-o-método-acertar)
 
-## O que vais aprender
+## Parte 1: Ler e descrever o programa
 
-No fim deste guia, consegues:
+Nesta parte lês o programa do guia, descobres o que ele faz mal e descreves por palavras como estão organizados os seus dados. O programa corre sozinho: copia-o para um ficheiro `inventario.py` e executa-o inteiro no editor das aulas, com o Python 3.10 ou mais recente.
 
-- ler um programa com várias classes por zonas, a começar pelo programa principal, e dizer que objetos existem e o que guarda cada um;
-- seguir um pedido feito ao inventário até à linha que decide se ele é aceite, e dizer que objeto respondeu;
-- reconhecer um erro de lógica, um programa que corre sem mensagens e não faz o que devia, comparando o que ele mostra com a tua previsão;
-- completar um método do inventário que encontra o artigo e lhe passa o pedido, começando pelo contrato e deixando a verificação a quem tem a regra;
-- confirmar que um pedido recusado deixa o estado como estava, e que um pedido aceite mudou o que devia;
-- descrever por palavras as classes do programa e a relação entre elas, e dizer o estado de cada artigo, identificado pelo código.
+### Um programa lê-se por zonas
 
-## O que já sabes e vais usar
+Este programa tem mais de cem linhas: duas classes e, no fim, as linhas que as usam. Quem o lê de cima para baixo, linha a linha, perde-se antes de saber o que ele faz. Um programa assim lê-se por zonas, e começa-se pelo fim:
 
-Este guia quase não traz matéria nova. As novidades são duas, e pequenas. A primeira é a instrução `pass`, em "O programa de partida". A segunda é uma propriedade só com getter, que se consulta e não se altera pela propriedade; está no laboratório deste tema, que a explica. Tudo o resto vem dos guias anteriores e do 10.º ano:
-
-- O artigo como uma linha do registo, com código, nome e quantidade: guia [01 Entidades, estado e ações](01-entidades-estado-acoes.md), em "A informação que interessa guardar".
-- As regras do inventário: guia [01](01-entidades-estado-acoes.md), em "Uma operação tem de respeitar regras".
-- O traço, a tabela que segue os valores passo a passo: guia [01](01-entidades-estado-acoes.md), em "Exemplo guiado: seguir os valores passo a passo".
-- Classe, objeto ou instância, atributo e estado: guia [02 Objetos, classes e instâncias](02-objetos-classes-instancias.md), de "Um objeto reúne dados e operações" a "Classe e instância".
-- O construtor `__init__`, o `self` e a chamada de um método com o ponto: guia [02](02-objetos-classes-instancias.md), em "A classe Artigo em Python" e "O método retirar em Python".
-- Uma variável é uma etiqueta colada num objeto, e dois nomes podem apontar para o mesmo objeto: guia [02](02-objetos-classes-instancias.md), em "Cada instância é um objeto diferente".
-- A invariante, e o zero no estado e o zero no pedido: guia [03 Encapsulamento e contratos](03-encapsulamento-contratos.md), em "As regras que devem continuar verdadeiras".
-- O encapsulamento: guia [03](03-encapsulamento-contratos.md), em "Quem deve proteger a quantidade".
-- A interface pública, com a operação de acertar a quantidade: guia [03](03-encapsulamento-contratos.md), em "Interface pública: aquilo que o objeto deixa usar".
-- O `isinstance(valor, int)`, que pergunta se o valor é um inteiro, e o `not`, que inverte a resposta. Estão no guia [03](03-encapsulamento-contratos.md), em "Primeiro passo: métodos get e set" e "Recusar a sério: `ValueError` e `raise`".
-- O sublinhado no início de um nome, como em `_quantidade`, que avisa que o nome é interno da classe: guia [03](03-encapsulamento-contratos.md), em "O sublinhado: um atributo privado por convenção".
-- A exceção `ValueError`, lançada com `raise`, e a regra "verificar primeiro, alterar depois": guia [03](03-encapsulamento-contratos.md), em "Recusar a sério: `ValueError` e `raise`".
-- O `try` e o `except ValueError as erro`, e a divisão de tarefas entre quem lança a exceção e quem a apanha: guia [03](03-encapsulamento-contratos.md), em "Tratar a recusa: `try` e `except`".
-- Os três tipos de erro, de escrita, de execução e de lógica: guia [03](03-encapsulamento-contratos.md), em "Nada impede uma quantidade impossível".
-- A propriedade `quantidade`. O getter (do inglês *get*, obter) lê o valor, e o setter (de *set*, pôr) verifica-o e guarda-o. Estão no guia [03](03-encapsulamento-contratos.md), em "Propriedades: `@property`".
-- O construtor que passa pelo setter: guia [03](03-encapsulamento-contratos.md), em "O construtor também passa pelo setter".
-- O contrato de uma operação e o valor `None` (do inglês, "nenhum"): guia [03](03-encapsulamento-contratos.md), em "Adicionar: uma operação com contrato".
-- Os métodos `adicionar` e `retirar` do artigo, com as regras do pedido e a regra do estado. Estão no guia [03](03-encapsulamento-contratos.md), em "Adicionar: uma operação com contrato" e "Exemplo guiado: construir o método retirar".
-- As responsabilidades, "quem sabe o quê": guia [04 Composição e modelação](04-composicao-modelacao.md), em "Quem sabe o quê: responsabilidades".
-- O modelo, a descrição por palavras das classes de um programa e das relações entre elas. Cada classe descreve-se pelo que cada objeto guarda, pelos valores com que se cria e pelo que se lhe pode pedir. A relação descreve-se pela frase "tem", com o grau e as razões. Está no guia [04](04-composicao-modelacao.md), em "O inventário descrito por palavras".
-- A composição e a agregação, com as quatro perguntas: guia [04](04-composicao-modelacao.md), em "Dois graus de "tem": composição e agregação" e "O nosso inventário: composição".
-- A agregação em Python, com a playlist, a lista de músicas que alguém escolhe numa aplicação de música: guia [04](04-composicao-modelacao.md), em "Agregação em Python: a playlist e as músicas".
-- A tabela que liga a descrição do modelo ao código: guia [04](04-composicao-modelacao.md), em "Da descrição ao código, e do código à descrição".
-- A classe `Inventario`, com a lista interna `_artigos` e os métodos `_procurar`, `registar`, `quantidade_de` e `retirar`. Está no guia [04](04-composicao-modelacao.md), em "Exemplo guiado: construir a classe `Inventario`", com o encaminhamento e o caminho de uma recusa.
-- As listas e o ciclo `for`: do 10.º ano, recordados no guia [04](04-composicao-modelacao.md), em "Recordar as listas e o ciclo `for`".
-- A docstring, o texto entre três aspas que explica uma função, uma classe ou um método: guia [01](01-entidades-estado-acoes.md), em "Duas maneiras de organizar um programa".
-- As condições com `if`, as funções com `def` e `return`, o texto entre aspas e o `print` com vários valores: do 10.º ano.
-
-O guia [05 Herança e polimorfismo](05-heranca-polimorfismo.md) não é preciso para este guia nem para o laboratório, e nenhum dos dois te pede herança. Se quiseres rever como se distinguem a herança e a composição, lê "Herança ou composição", no guia 05.
-
-## Três ideias num só pedido
-
-Imagina o inventário de uma sala com dois artigos: A01, Caderno, 6 unidades, e A02, Pasta, 2 unidades. Alguém pede ao inventário: "do artigo A01, retira 2 unidades". Vamos seguir este pedido devagar, porque nele aparecem as três ideias dos guias anteriores.
-
-O pedido é feito ao inventário, e não ao artigo, porque quem o faz conhece o código A01, e não o objeto que o representa. O inventário é o único objeto que guarda todos os artigos. Por isso é o único que consegue procurar, entre eles, o que tem o código A01. Encontra-o e passa-lhe o pedido, sem verificar nada sobre as unidades. Esta é a ideia do guia 04: o inventário reúne os artigos, encontra-os pelo código e encaminha os pedidos.
-
-O artigo A01 recebe o pedido "retira 2". Verifica se o pedido faz sentido: 2 é um número inteiro e é positivo. Depois tenta guardar a nova quantidade, 6 - 2 = 4. Essa escrita passa pelo setter, que confirma que 4 é um inteiro não negativo e o guarda. Esta é a ideia do guia 03: é o próprio artigo que decide se o pedido é possível e que protege a sua quantidade.
-
-No fim, A01 tem 4 unidades e A02 continua com 2, porque o pedido nunca lhe foi feito. São dois objetos diferentes, feitos a partir da mesma classe, cada um com o seu estado. Esta é a ideia do guia 02.
-
-Agora o pedido seguinte: "do artigo A01, retira 9 unidades". O inventário encontra A01 e passa-lhe o pedido. O artigo verifica que 9 é inteiro e positivo, e tenta guardar 4 - 9 = -5. O setter recusa -5 com `ValueError`, antes de chegar à linha que guarda o valor. A quantidade continua 4. A exceção sobe até quem fez o pedido, que fica a saber que ele foi recusado e porquê.
-
-E um terceiro pedido: "do artigo A07, retira 1 unidade". Desta vez, o inventário não encontra nenhum artigo com o código A07 e recusa o pedido ele próprio, também com `ValueError`. Nenhum artigo chega a ser contactado, e nenhuma quantidade muda.
-
-Repara que, nos três pedidos, cada objeto fez só a parte para a qual tem informação. O inventário sabe que artigos existem, mas não sabe as regras das unidades. O artigo sabe a sua quantidade e as regras dos pedidos, mas não sabe que outros artigos existem. É esta divisão que vamos encontrar no programa de partida.
-
-A tabela seguinte serve de mapa para o resto do guia. A coluna da direita diz onde cada ideia foi explicada pela primeira vez, para lá voltares se precisares.
-
-| Ideia | Onde a vemos no exemplo | Secção deste guia | Explicada no |
-| --- | --- | --- | --- |
-| Classe | A descrição comum de todos os artigos, `Artigo` | Classes e objetos no programa | Guia 02, "Classe: a descrição comum" |
-| Objeto ou instância | Os dois artigos concretos, A01 e A02, e o inventário | Classes e objetos no programa | Guia 02, "Classe e instância" |
-| Atributo e estado | Código, nome e quantidade de cada artigo, num dado momento | Classes e objetos no programa | Guia 02, "Um objeto reúne dados e operações" |
-| Construtor e `self` | O que prepara cada artigo quando nasce | Classes e objetos no programa | Guia 02, "A classe Artigo em Python" |
-| Propriedade, getter e setter | A forma de ler e escrever a quantidade; cada escrita passa pela verificação | Encapsulamento no programa | Guia 03, "Propriedades: `@property`" e "O construtor também passa pelo setter" |
-| Encapsulamento | O artigo controla as alterações à sua quantidade | Encapsulamento no programa | Guia 03, "Quem deve proteger a quantidade" |
-| Exceção `ValueError`, `try` e `except` | A recusa que quem fez o pedido não pode ignorar | Encapsulamento no programa | Guia 03, "Recusar a sério: `ValueError` e `raise`" e "Tratar a recusa: `try` e `except`" |
-| Composição | O inventário cria os seus artigos e guarda-os | O inventário no programa: composição e procura pelo código | Guia 04, "Dois graus de "tem": composição e agregação" e "O nosso inventário: composição" |
-| Procura pelo código | O inventário encontra o artigo A01 entre todos | O inventário no programa: composição e procura pelo código | Guia 04, exemplo guiado, passo 3 |
-| Encaminhamento | O inventário passa o pedido ao artigo, que decide | O inventário no programa: composição e procura pelo código | Guia 04, exemplo guiado, passo 5 |
-
-## O programa de partida
-
-Este é o programa à volta do qual trabalha todo o guia. É o programa final do exemplo guiado do guia 04, com as docstrings de `registar` e de `retirar` do inventário mais curtas. Tem uma diferença: a classe `Inventario` tem um método a mais, `acertar`, que acerta a quantidade de um artigo depois de uma contagem. As instruções das outras partes das classes são as mesmas do guia 04, e por isso o comportamento também é.
-
-Antes de correres este programa, tenta prever as duas linhas que ele devia mostrar, se fizesse o que o programa principal pede. O programa principal são as linhas encostadas à margem, no fim do ficheiro.
+1. O programa principal, as linhas encostadas à margem depois das classes, a partir de `inventario = Inventario()`. São elas que dizem o que o programa faz: cria um inventário, regista dois artigos, pede para acertar a quantidade de A02 para 5 e mostra as duas quantidades.
+2. Os métodos que o programa principal chama: `registar`, `acertar` e `quantidade_de`, todos da classe `Inventario`. O programa principal nunca fala com um artigo. Fala com o inventário, pelos códigos.
+3. A classe `Artigo`, para ver o que acontece quando o inventário passa um pedido a um artigo.
 
 ```python
 # O programa de partida do guia 06: o inventário, com o método acertar por escrever.
@@ -229,128 +143,233 @@ print("A01:", inventario.quantidade_de("A01"))
 print("A02:", inventario.quantidade_de("A02"))
 ```
 
-O programa mostra:
+A classe `Artigo` é a do fim do guia 03, e a `Inventario` é a do guia 04, com as docstrings mais curtas e um método a mais. Esse método, o `acertar`, deve acertar a quantidade de um artigo depois de uma contagem, e ainda está por escrever.
+
+Em cada parte do programa há uma ideia do módulo. Se uma linha te parecer estranha, a tabela diz onde a podes rever:
+
+| No programa | A ideia | Rever |
+| --- | --- | --- |
+| `class Artigo:` e os artigos criados no `registar` | A classe e as instâncias: uma descrição comum, e os objetos feitos a partir dela, cada um com o seu estado | [Classe e instância](02-objetos-classes-instancias.md#classe-e-instância) |
+| `self`, em cada método | O objeto que recebeu o pedido, o que está antes do ponto | [O método retirar em Python](02-objetos-classes-instancias.md#o-método-retirar-em-python) |
+| O `@property` e os dois `def quantidade` | O encapsulamento: cada escrita na quantidade passa pelo setter, que a verifica e só depois a guarda | [Quem deve proteger a quantidade](03-encapsulamento-contratos.md#quem-deve-proteger-a-quantidade) e [A propriedade `quantidade`](03-encapsulamento-contratos.md#a-propriedade-quantidade) |
+| `self.quantidade = quantidade`, no construtor | A quantidade inicial também passa pelo setter | [O construtor também passa pelo setter](03-encapsulamento-contratos.md#o-construtor-também-passa-pelo-setter) |
+| O sublinhado em `_quantidade`, `_artigos` e `_procurar` | Um nome interno, que o código de fora não usa | [O sublinhado: um atributo privado por convenção](03-encapsulamento-contratos.md#o-sublinhado-um-atributo-privado-por-convenção) |
+| As linhas com `raise ValueError(...)` | A recusa, que deixa os dados como estavam | [Recusar a sério, com `raise`](03-encapsulamento-contratos.md#recusar-a-sério-com-raise) |
+| `novo = Artigo(codigo, nome, quantidade)`, no `registar` | A composição: o inventário cria os seus artigos e não repete um código | [O inventário cria os artigos e encontra-os pelo código](04-composicao-modelacao.md#o-inventário-cria-os-artigos-e-encontra-os-pelo-código) |
+| O `_procurar` | O inventário encontra um artigo pelo código, ou recusa um código que não existe | [O inventário cria os artigos e encontra-os pelo código](04-composicao-modelacao.md#o-inventário-cria-os-artigos-e-encontra-os-pelo-código) |
+| O `retirar` do inventário | O encaminhamento: o inventário encontra o artigo e passa-lhe o pedido, sem verificar as unidades | [O inventário passa os pedidos aos artigos](04-composicao-modelacao.md#o-inventário-passa-os-pedidos-aos-artigos) |
+
+### Um programa que corre e não faz o que devia
+
+O `acertar` ainda está por escrever. Ao executar o programa, aparece uma mensagem de erro, ou ele corre até ao fim? O programa mostra:
 
 ```text
 A01: 6
 A02: 2
 ```
 
-Se pensaste em `A02: 5` para a segunda linha, a tua previsão está certa sobre o que o programa devia fazer. É o programa que está errado, e a subsecção "Um programa que corre sem erros e não faz o que devia" explica porquê.
+Corre até ao fim, sem nenhuma mensagem de erro. Mas o programa principal pediu para acertar a quantidade de A02 para 5, e a última linha mostra `A02: 2`. O pedido não teve efeito nenhum.
 
-Leitura guiada: um programa com mais de cem linhas não se lê de cima para baixo, linha a linha, na primeira vez. Lê-se por zonas, e começa-se pelo fim, como mostra a subsecção seguinte.
+A razão está no `acertar`. Por baixo da docstring, o método só tem a instrução **`pass`** (em inglês, "passa"), que não faz nada. Está ali para marcar, à vista, o sítio onde o código do método vai entrar. Quando o programa principal chama `inventario.acertar("A02", 5)`, o Python executa o método, encontra o `pass` e regressa, sem mexer em nenhum artigo.
 
-### Como ler um programa destes sem te perderes
+É um erro de lógica, um dos três tipos de erro do guia 03, em [Nada impede uma quantidade impossível](03-encapsulamento-contratos.md#nada-impede-uma-quantidade-impossível). O programa corre do princípio ao fim e faz uma coisa diferente da que o problema pede, e o Python não avisa de nada. Só dás pelo erro se souberes antes o que o programa devia mostrar e o comparares com o que mostrou. Quem não sabe que A02 devia ficar com 5 lê a linha `A02: 2` como se estivesse certa.
 
-1. Começa pelo **programa principal**, as linhas encostadas à margem no fim do ficheiro, a partir de `inventario = Inventario()`. São elas que dizem o que o programa faz: cria um inventário, regista dois artigos, pede para acertar a quantidade de A02 para 5 e mostra as duas quantidades.
-2. Depois procura, nas classes, os métodos que o programa principal chama: `registar`, `acertar` e `quantidade_de`, todos da classe `Inventario`. Repara que o programa principal nunca fala diretamente com um artigo. Fala sempre com o inventário, usando os códigos.
-3. Só depois desce à classe `Artigo`, para ver o que acontece quando o inventário passa um pedido a um artigo.
+Um método que não faz nada também não lança nenhuma exceção. Se o acerto estivesse dentro de um `try`, com um `print("Acerto aceite")` logo a seguir, o programa escrevia essa frase, e a pasta continuava com 2. Um pedido cumprido acaba da mesma maneira, em silêncio. Por isso, nem o silêncio nem um "aceite" distinguem um pedido cumprido de um que não fez nada. A prova é o estado depois do pedido, e é por isso que o programa principal mostra as duas quantidades.
 
-Não precisas de perceber todas as linhas antes de começares a trabalhar. Precisas de saber em que zona está cada coisa e de ir lá quando for preciso.
+<details>
+<summary>Para ires mais longe: o `pass` e a docstring</summary>
 
-### Um programa que corre sem erros e não faz o que devia
+Neste método, o `pass` podia sair, e o programa mostrava o mesmo, porque a docstring já conta como a instrução que um `def` precisa de ter por baixo. O `pass` faz falta num `def` ainda sem docstring nem código: sem nada por baixo, o Python recusa o ficheiro com o [`IndentationError` do guia 02](02-objetos-classes-instancias.md#indentationerror-expected-an-indented-block-after-function-definition-on-line-6).
 
-O programa terminou sem nenhuma mensagem de erro. Mas pedimos para acertar a quantidade de A02 para 5, e a última linha mostra `A02: 2`. O pedido não teve efeito nenhum.
+</details>
 
-A razão está no método `acertar`. Por baixo da docstring tem apenas a instrução `pass` (em inglês, "passa"), que não faz nada. Está ali só para marcar, à vista, o sítio onde o código do método vai entrar. Quando o programa principal chama `inventario.acertar("A02", 5)`, o Python executa o método, encontra o `pass`, não faz nada e regressa. Nenhuma linha do método mexe em nenhum artigo.
+### O modelo antes do código
 
-O `pass` faz mais falta noutro caso. Um `def` precisa de pelo menos uma instrução por baixo, e a docstring já conta como uma. Por isso, aqui, o método funcionava igual sem o `pass`. Num `def` ainda sem docstring nem código, o `pass` é a forma de dizer "ainda não faz nada" sem o Python recusar o ficheiro.
+Antes de mudar um programa, é preciso saber como estão organizados os seus dados: que classes há, que objetos, o que guarda cada um e quem faz o quê. O código diz tudo isto, mas espalhado por mais de cem linhas. Por isso, antes de mexer no código, descreve-se o modelo do programa, como em [O inventário descrito por palavras](04-composicao-modelacao.md#o-inventário-descrito-por-palavras). Aqui faz-se o caminho ao contrário do guia 04, do código para a descrição. É como ler da direita para a esquerda a tabela de [Da descrição ao código, e do código à descrição](04-composicao-modelacao.md#da-descrição-ao-código-e-do-código-à-descrição).
 
-O guia 03, em "Nada impede uma quantidade impossível", distinguiu três tipos de erro. Um **erro de escrita** impede o Python de perceber o programa: falta um parêntese, faltam os dois pontos no fim de um `def`, ou uma linha está mal indentada. O programa nem chega a começar, e o Python mostra uma mensagem com `SyntaxError` ("erro de sintaxe") ou `IndentationError` ("erro de indentação"). Um **erro de execução** para o programa a meio, com uma mensagem que começa por `Traceback` ("rasto"). Um **erro de lógica** é diferente: o programa corre do princípio ao fim, sem nenhuma mensagem, mas faz uma coisa diferente da que o problema pede.
+A descrição do artigo é a do [guia 04](04-composicao-modelacao.md#o-inventário-descrito-por-palavras), sem mudar nada. A do inventário ganha um pedido, o `acertar`:
 
-O nosso programa tem um erro de lógica, e é o tipo de erro mais traiçoeiro, porque o Python não avisa de nada. A única forma de o apanhar é saber antes o que o programa devia mostrar e comparar com o que mostrou. Se não tivesses pensado que A02 devia ficar com 5, a linha `A02: 2` parecia perfeitamente normal. É por isso que, em todos os guias, fazes a previsão antes de executar: a previsão é o que te permite reparar que alguma coisa está errada.
+- Cada inventário guarda os seus artigos, e não deixa haver dois com o mesmo código.
+- Um inventário cria-se vazio, sem receber nenhum valor.
+- A um inventário pode pedir-se que registe um artigo novo, com `registar(codigo, nome, quantidade)`, que diga quanto tem um artigo, com `quantidade_de(codigo)`, ou que retire unidades a um artigo, com `retirar(codigo, unidades)`. Pode pedir-se-lhe também que acerte a quantidade de um artigo depois de uma contagem, com `acertar(codigo, nova_quantidade)`.
 
-## Classes e objetos no programa
+O `acertar` entra na descrição, apesar de só ter o `pass`. O modelo diz o que se pode pedir ao inventário, e a docstring já o promete: é o código que ainda não cumpre a promessa. No artigo não muda nada, porque acertar é escrever na quantidade, que já está na descrição, com a sua regra. Ficam de fora, como no guia 04, a lista `_artigos` e o `_procurar`, que são internos. Também não entram valores, porque a descrição de uma classe vale para todos os objetos dela.
 
-Esta secção recorda o guia 02, apontando para as linhas do programa de partida.
+A relação entre as duas classes também é a do guia 04: o inventário tem artigos, numa composição. Justifica-se com as duas perguntas de [Dois graus de "tem": composição e agregação](04-composicao-modelacao.md#dois-graus-de-tem-composição-e-agregação), a começar pela que decide. O artigo não faz sentido sem o inventário, porque é uma linha do seu registo, e é o inventário que o cria, na linha `novo = Artigo(codigo, nome, quantidade)`, dentro do `registar`. A lista sozinha não decide nada: a playlist do guia 04 também guarda uma lista, e é uma agregação.
 
-A linha `class Artigo:` começa a **classe** `Artigo`, a descrição comum de todos os artigos. Diz que cada artigo tem um código, um nome e uma quantidade, e que a cada artigo se pode pedir que adicione ou retire unidades. A classe não é nenhum artigo em particular. É como uma receita, que diz que ingredientes são precisos e que passos seguir, mas não é nenhum dos bolos feitos com ela.
+O `acertar` não muda a relação: muda uma quantidade, e não quem cria os artigos nem quem os guarda. Nenhuma das duas classes é um caso particular da outra, por isso o programa não tem herança, como explica [Heranças sem sentido](05-heranca-polimorfismo.md#heranças-sem-sentido).
 
-Os artigos concretos são **objetos**, também chamados **instâncias** da classe `Artigo`. Cada um tem os seus **atributos**, com os seus valores, e o conjunto desses valores num dado momento é o **estado** do objeto. No programa de partida há dois artigos. Um tem o código A01, o nome Caderno e a quantidade 6. O outro tem o código A02, o nome Pasta e a quantidade 2. Há também um terceiro objeto, de outra classe: o inventário, criado pela linha `inventario = Inventario()`. No total, o programa tem duas classes e três objetos dessas classes.
+Para dizer como estão os artigos concretos, descreve-se o estado de cada um, numa frase, com os valores. Depois dos dois registos, é este:
 
-O erro típico é pensar que a quantidade 6 quer dizer seis objetos. Não quer. Há um só objeto para o artigo A01, que guarda o número 6. O objeto é a ficha do material no registo, e não cada caderno que está no armário.
+- O artigo de código A01 chama-se Caderno e tem 6 unidades.
+- O artigo de código A02 chama-se Pasta e tem 2 unidades.
 
-Os artigos nascem dentro do método `registar`, na linha `novo = Artigo(codigo, nome, quantidade)`. Quando essa linha é executada, o Python cria um objeto novo, do tipo `Artigo`, e chama o **construtor** `__init__`. O parâmetro `self` aponta para esse objeto novo, e os outros três parâmetros recebem os valores. O construtor guarda cada valor num atributo do objeto. `self.codigo = codigo` lê-se "guarda no atributo `codigo` deste objeto o valor que chegou no parâmetro `codigo`". O construtor é executado uma vez por cada artigo criado, e cada execução prepara um objeto diferente.
+```mermaid
+flowchart LR
+    nome>"inventario<br>o único nome do programa principal"] --> inv["objeto Inventario<br>cria e guarda os artigos"]
+    inv -- "tem" --> a1["artigo A01<br>Caderno, 6 unidades"]
+    inv -- "tem" --> a2["artigo A02<br>Pasta, 2 unidades"]
+```
 
-Dentro de qualquer método, `self` é o objeto sobre o qual o método está a trabalhar. Repara na chamada `artigo.retirar(unidades)`, que está no método `retirar` do inventário. O objeto que está antes do ponto, `artigo`, é o que ocupa o `self` do método `retirar` da classe `Artigo`. É por isso que a mesma linha de código, `self.quantidade = self.quantidade - unidades`, mexe no caderno quando o pedido é para o caderno, e na pasta quando o pedido é para a pasta.
+O programa tem duas classes e três objetos: o inventário e os dois artigos. A quantidade 6 não quer dizer seis objetos. O objeto do artigo A01 é a ficha do caderno no registo, que guarda o número 6, como em [O nosso inventário: composição](04-composicao-modelacao.md#o-nosso-inventário-composição).
 
-Os dois artigos são objetos diferentes, apesar de terem sido feitos a partir da mesma classe. Retirar unidades a um não tira nenhuma ao outro. Mas cuidado com os nomes. No guia 02, em "Cada instância é um objeto diferente", viste que uma variável é uma etiqueta colada num objeto, e não uma cópia dele. É isso que acontece quando `_procurar` devolve um artigo e o método do inventário o guarda no nome local `artigo`. Esse nome passa a apontar para o próprio objeto que está na lista. Qualquer alteração feita através dele fica no artigo guardado no inventário.
+O programa principal só tem o nome `inventario`, e é através dele que chega aos artigos. Por isso, cada artigo identifica-se pelo código. No guia 02, o caderno estava no nome `caderno`. O nome `artigo`, dentro dos métodos do inventário, também não identifica nenhum. É um nome local, uma etiqueta que, em cada chamada, se cola ao artigo que o `_procurar` encontrou, como em [Cada instância é um objeto diferente](02-objetos-classes-instancias.md#cada-instância-é-um-objeto-diferente).
 
-## Encapsulamento no programa
+## Parte 2: Uma operação, do plano à correção
 
-Esta secção recorda o guia 03.
+Nesta parte, a retirada que o programa já tem serve de exemplo às quatro etapas de completar uma operação: o plano, os métodos, os casos e a explicação da correção. É a retirada dos guias 03 e 04, repartida pelas duas classes.
 
-A regra da quantidade é uma **invariante**: tem de ser verdadeira durante toda a vida de um artigo, antes e depois de cada operação. A quantidade de um artigo é sempre um número inteiro maior ou igual a zero. O **encapsulamento** é a forma de organizar o programa para que seja o próprio artigo a garantir esta regra. O artigo guarda a quantidade e oferece operações para a consultar e para a alterar, e todas essas operações verificam antes de alterar.
+### O plano da retirada
 
-No programa, a quantidade é uma **propriedade**. Por fora lê-se e escreve-se como um atributo normal, `artigo.quantidade`. Por dentro, cada leitura passa pelo getter e cada escrita passa pelo setter. O valor vive no atributo interno `_quantidade`, com sublinhado, que avisa por convenção que o código de fora não lhe deve mexer. O setter faz duas verificações, primeiro o tipo e depois o valor, e só na última linha guarda o valor. Se uma verificação falhar, `raise ValueError(...)` para o setter nessa linha, e a linha que guarda o valor nunca chega a ser executada. É assim que se escreve em Python a regra "verificar primeiro, alterar depois".
+Uma operação que passa por duas classes tem passos em sítios diferentes. Antes de a escrever, decide-se quem faz cada passo e por que ordem, e confirma-se que uma recusa deixa tudo como estava.
 
-Repara que o construtor escreve `self.quantidade = quantidade`, sem sublinhado. A quantidade inicial passa pelo setter, como qualquer outra, e por isso um artigo com quantidade inválida nem chega a existir.
+O **plano** de um método é a lista dos seus passos, pela ordem em que acontecem, com o que já mudou se o pedido for recusado em cada um. Escreve-se por palavras, antes do código.
 
-O método `retirar` do artigo divide o trabalho com o setter. O método verifica as regras do pedido: as unidades têm de ser um número inteiro e têm de ser 1 ou mais. O setter verifica a regra do estado: a quantidade que resultaria do pedido não pode ser negativa. Não haver unidades suficientes é o mesmo que a nova quantidade ser negativa. Por isso é o setter que recusa esse caso, com a mensagem "A quantidade não pode ser negativa.". Cada regra está escrita num só sítio.
+A ordem dos passos segue duas regras que já conheces. Cada passo fica com quem tem a informação de que precisa, como em [Quem sabe o quê: responsabilidades](04-composicao-modelacao.md#quem-sabe-o-quê-responsabilidades). E os passos que podem recusar vêm todos antes de qualquer alteração, que é o "verificar primeiro, alterar depois" do guia 03.
 
-Quando um pedido é recusado, quem o fez fica a saber através da exceção. Se o pedido estiver dentro de um `try` com `except ValueError as erro`, o Python abandona o `try` na linha que falhou e salta para o `except`. O nome `erro` passa a referir a exceção, cuja mensagem se pode mostrar com `print`. Se nenhum `try` apanhar a exceção pelo caminho, o programa para, e o Python mostra a mensagem, com as linhas do `Traceback` por cima. A classe decide se o pedido é válido; quem usa a classe decide o que fazer com a recusa.
+A retirada tem uma parte em cada classe, e por isso tem dois planos. Este é o do `retirar` do inventário:
 
-Para verificar uma operação recusada, ver a mensagem não chega. É preciso confirmar também que o estado não mudou. E, para verificar uma operação aceite, também não basta ver que não houve mensagem. O programa de partida acabou de te mostrar um método que não lançou exceção nenhuma e não fez nada.
+| Passo do `retirar` do inventário | O que já mudou, se o pedido for recusado aqui |
+| --- | --- |
+| Encontrar o artigo com este código | Nada: o `_procurar` recusa um código que não existe, e nenhum artigo chega a ser contactado |
+| Passar o pedido ao artigo, com as mesmas unidades | Nada no inventário: se houver recusa, é do artigo |
 
-## O inventário no programa: composição e procura pelo código
+E este é o do `retirar` do artigo:
 
-Esta secção recorda o guia 04.
+| Passo do `retirar` do artigo | O que já mudou, se o pedido for recusado aqui |
+| --- | --- |
+| Verificar se as unidades são um número inteiro | Nada |
+| Verificar se as unidades são 1 ou mais | Nada |
+| Escrever a nova quantidade pela propriedade; o setter recusa-a se ficar negativa | Nada: o setter recusa antes de guardar |
 
-O inventário existe porque há regras e perguntas sobre o conjunto dos artigos que nenhum artigo consegue responder sozinho. Que artigos existem? Um código já está a ser usado? Qual é o artigo com um certo código? Uma tarefa fica com quem tem a informação necessária para a fazer, e só o inventário conhece todos os artigos.
+A coluna da direita diz "nada" em todas as linhas, e é isso que o contrato da retirada promete: em qualquer recusa, nenhuma quantidade muda. O plano do inventário não tem nenhum passo sobre as unidades, porque essas regras são do artigo.
 
-### Como o inventário encontra um artigo
+### Os dois métodos, e a sequência do programa
 
-O método interno `_procurar` percorre a lista `_artigos` com um ciclo `for` e compara o código de cada artigo com o código procurado. Assim que o encontra, o `return` devolve esse artigo e termina o método, mesmo a meio do ciclo. Se o ciclo acabar todas as voltas sem encontrar nenhum, chega-se à linha do `raise`, que está depois do ciclo. O método lança então `ValueError` com a mensagem "Não existe nenhum artigo com o código ...". O nome começa por sublinhado porque é uma ferramenta interna, para os métodos do próprio inventário usarem.
+Com o plano feito, falta passá-lo para Python e prever o que mostra um programa que faz vários pedidos seguidos.
 
-Os métodos `quantidade_de` e `retirar` do inventário começam os dois com `artigo = self._procurar(codigo)`. O `self.` não pode faltar: é através dele que um método chega aos outros métodos do mesmo objeto. Sem ele, o Python procura uma função solta chamada `_procurar`, e não a encontra. Se o código não existir, `_procurar` lança a exceção, e o método que o chamou é interrompido nessa mesma linha.
+Cada passo do plano dá uma ou duas linhas de código. No programa deste guia, a retirada já está escrita, e cada linha tem o seu passo:
 
-### Encaminhar o pedido sem repetir as regras
+| Passo do plano | No código |
+| --- | --- |
+| Encontrar o artigo com este código | `artigo = self._procurar(codigo)`, no `retirar` do inventário |
+| Passar o pedido ao artigo | `artigo.retirar(unidades)`, logo a seguir |
+| Verificar se as unidades são um número inteiro | O primeiro `if` do `retirar` do artigo, com o seu `raise` |
+| Verificar se as unidades são 1 ou mais | O segundo `if`, com o seu `raise` |
+| Escrever a nova quantidade pela propriedade | `self.quantidade = self.quantidade - unidades` |
 
-O método `retirar` do inventário tem só duas linhas: encontra o artigo e passa-lhe o pedido, com `artigo.retirar(unidades)`. A esta forma de colaborar chama-se **encaminhamento**. O inventário não verifica se as unidades são um inteiro, nem se são positivas, nem se chegam. Essas regras são do artigo e já estão escritas no artigo. Se o artigo recusar, a exceção nasce no artigo, atravessa o método do inventário, que não a apanha, e chega a quem fez o pedido. O inventário não apanha a exceção porque não sabe o que fazer com uma recusa: quem sabe é o programa principal.
+Há dois métodos `retirar`, um em cada classe, e o objeto antes do ponto diz qual corre. O do inventário chama o `_procurar` com `self.`, porque é um método do mesmo objeto. E não tem nenhum `try`: se o artigo recusar, a recusa sobe até quem fez o pedido, como em [O caminho de uma recusa](04-composicao-modelacao.md#o-caminho-de-uma-recusa).
 
-### Composição: o inventário cria os seus artigos
+Um programa principal faz os pedidos um a seguir ao outro, e cada pedido encontra o estado que o anterior deixou. Por isso, antes de executar, prevê-se a sequência num traço, uma linha por pedido, como no [exemplo guiado do guia 01](01-entidades-estado-acoes.md#exemplo-guiado-seguir-os-valores-passo-a-passo). Retirar 3 de um caderno com 6 é aceite. E se antes se tiverem retirado 4?
 
-A relação entre `Inventario` e `Artigo` é uma relação "tem": um inventário tem artigos. O guia 04, em "Dois graus de "tem": composição e agregação", distingue dois graus desta relação com quatro perguntas. As duas primeiras decidem: a parte faz sentido sem o todo? E quem cria a parte?
+| Pedido | Quem responde | Resposta | A01 depois | A02 depois |
+| --- | --- | --- | ---: | ---: |
+| `retirar("A01", 4)` | O artigo aceita: 6 - 4 = 2 | Aceite | 2 | 2 |
+| `retirar("A01", 3)` | O setter recusa: 2 - 3 = -1 | `ValueError` | 2 | 2 |
 
-Neste programa, quem cria os artigos é o inventário, dentro do seu método `registar`. É lá, e só lá, que aparece `Artigo(...)`. O programa principal não cria nenhum artigo nem guarda nenhum artigo num nome seu: só tem o nome `inventario` e fala com ele através dos códigos. E o artigo, que é uma linha do registo deste inventário, não faz sentido sem ele. Por isso a relação é uma **composição**.
+Depois dos 4, o pedido de 3 já é recusado, porque encontra só 2 unidades. Cada linha do traço começa onde a anterior acabou. A coluna de A02 mostra que o outro artigo não foi tocado.
 
-Seria uma **agregação** se o inventário recebesse artigos já criados fora dele. É o que faz a playlist do guia 04, em "Agregação em Python: a playlist e as músicas", que recebe músicas que já existem. Nesse caso, o programa principal teria linhas como `caderno = Artigo("A01", "Caderno", 6)`, e o inventário teria um método que recebe esse objeto e o junta à lista. A tabela de "Da descrição ao código, e do código à descrição", no guia 04, diz o mesmo de forma curta. A relação é uma composição quando o todo cria as partes dentro de um método seu e não as entrega a quem está de fora. É uma agregação quando o todo tem um método que recebe objetos já criados e os junta à lista.
+### Outros casos, cada um num ensaio
 
-O erro típico é chamar composição a qualquer objeto que guarda uma lista de outros objetos. A lista, sozinha, não decide nada: a playlist também guarda uma lista. O que decide é quem chama o construtor da parte e se a parte tem vida fora do todo. Antes de escreveres composição ou agregação, procura no código a linha onde a parte é criada.
+Os pedidos de um programa principal experimentam só alguns casos. Um engano num caso que ninguém experimenta fica escondido, e o programa parece certo.
+
+Um **ensaio** é uma execução do programa feita para experimentar um caso, a partir dos valores iniciais. Cada execução começa do zero, com os valores escritos no programa, e por isso cada ensaio parte do estado inicial, e não do que outro ensaio deixou.
+
+```mermaid
+flowchart LR
+    subgraph seq["num só ensaio, o segundo pedido parte do primeiro"]
+        direction LR
+        s0["A01 com 6"] -- "retirar 4" --> s1["A01 com 2"]
+        s1 -- "retirar 3: recusado" --> s2["A01 com 2"]
+    end
+    subgraph ens["em dois ensaios, cada pedido parte do início"]
+        direction LR
+        e0["A01 com 6"] -- "retirar 4" --> e1["A01 com 2"]
+        f0["A01 com 6"] -- "retirar 3" --> f1["A01 com 3"]
+    end
+    seq ~~~ ens
+```
+
+No mesmo ensaio, o pedido de 3 chega a um caderno com 2 e é recusado. Num ensaio só para ele, chega a um caderno com 6 e é aceite. Os dois servem: um ensaio com vários pedidos mostra como eles se encadeiam, e um ensaio para cada pedido mostra cada caso sozinho.
+
+Para escolher os casos, lê-se o contrato da operação: um caso para o pedido aceite, um para cada razão de recusa e o caso no limite entre aceite e recusado. A retirada tem seis: um pedido aceite, um código que não existe, unidades que não são inteiras, unidades menores do que 1, unidades a mais e todas as unidades. O último é o do limite: é aceite e deixa o artigo com 0. Em cada ensaio, mostra-se o estado de todos os artigos, antes e depois do pedido. Um pedido a A02 não pode mudar A01, e só o confirmas se olhares para os dois.
+
+Este excerto é um ensaio. Fica no lugar das linhas do programa de partida que vêm depois das duas classes:
+
+```python partial
+inventario = Inventario()
+inventario.registar("A01", "Caderno", 6)
+inventario.registar("A02", "Pasta", 2)
+
+print("Antes: A01 com", inventario.quantidade_de("A01"), "e A02 com", inventario.quantidade_de("A02"))
+try:
+    inventario.retirar("A02", 3)
+    print("Pedido aceite")
+except ValueError as erro:
+    print("Pedido recusado:", erro)
+print("Depois: A01 com", inventario.quantidade_de("A01"), "e A02 com", inventario.quantidade_de("A02"))
+```
+
+O ensaio mostra:
+
+```text
+Antes: A01 com 6 e A02 com 2
+Pedido recusado: A quantidade não pode ser negativa.
+Depois: A01 com 6 e A02 com 2
+```
+
+O setter recusou o pedido, porque 2 - 3 dá -1, e as duas linhas do estado são iguais. A recusa não mudou a pasta, e o pedido à pasta não tocou no caderno. Para os outros casos, troca-se só a linha do pedido e executa-se outra vez o programa inteiro.
+
+### Explicar a correção
+
+Depois de se corrigir um erro, "agora já funciona" não diz o que estava mal nem mostra que ficou resolvido.
+
+Uma correção explica-se em quatro frases, cada uma com valores ou com uma instrução concreta:
+
+1. o que esperavas, tirado do problema, e não do código que falhou;
+2. o que o programa mostrou;
+3. a instrução que explica a diferença, e porquê;
+4. o que o programa mostra depois da alteração, com os valores.
+
+No [passo 3 do exemplo guiado do guia 03](03-encapsulamento-contratos.md#passo-3-verificar-o-pedido-no-próprio-método), viste que um `retirar` só com a linha da subtração aceitaria retirar -3. Para o repetires, apaga as duas verificações do `retirar` do artigo no programa deste guia e faz o pedido `inventario.retirar("A01", -3)`. A correção são as duas verificações do pedido, e explica-se assim:
+
+1. Esperava que o pedido `inventario.retirar("A01", -3)`, com o caderno em 6 unidades, fosse recusado e a quantidade ficasse em 6.
+2. Observei que o pedido foi aceite e que a quantidade passou a 9.
+3. A instrução que explica a diferença é a linha da subtração, que não verifica o pedido: 6 - (-3) dá 9, e o setter aceita o 9, porque não é negativo.
+4. Depois das duas verificações, confirmei que o pedido é recusado, com "As unidades a retirar têm de ser 1 ou mais.", e que a quantidade fica em 6.
+
+Cada frase tem números ou uma linha do código, e quem a lê pode repetir o caso e confirmar. Uma frase como "o método estava mal e agora está bem" não deixa confirmar nada.
 
 ## Exemplo guiado: completar o método `acertar`
 
-Vamos agora completar o método `acertar`, acompanhando o raciocínio do princípio ao fim. Repara que o exemplo usa as três ideias ao mesmo tempo, e que é isso que o torna um bom exemplo de síntese.
+O problema: o `acertar` do programa de partida só tem o `pass`. Falta escrevê-lo, confirmar que cumpre o que promete e explicar a correção, pelas etapas da Parte 2.
 
 ### Passo 1: perceber o que o método tem de fazer
 
-De vez em quando, alguém conta à mão o material que está no armário. Imagina que, ao contar as pastas, encontra 5, mas o programa diz que há 2: alguém arrumou três pastas e esqueceu-se de as registar. Acertar a quantidade é escrever no artigo o valor contado, para o programa voltar a dizer a verdade.
+De vez em quando, alguém conta à mão o material do armário. Imagina que, ao contar as pastas, encontra 5, e o programa diz que há 2: alguém arrumou três pastas e esqueceu-se de as registar. Acertar a quantidade é escrever no artigo o valor contado, para o programa voltar a dizer a verdade.
 
-Podias perguntar porque não se usa o método `adicionar`, com 3 unidades. Há duas razões. A primeira é que quem conta sabe o total, 5, e não a diferença. Teria de fazer a conta à mão, e uma conta à mão é mais uma oportunidade de engano. A segunda é que a contagem pode dar menos do que o registado, se alguém levou material sem o registar. Então seria preciso retirar, e não adicionar. Acertar serve para os dois casos: escreve-se o valor contado, seja ele maior ou menor do que o anterior.
+Podia usar-se o `adicionar`, com 3 unidades, mas acertar é melhor, por duas razões. Quem conta sabe o total, 5, e não a diferença, e uma conta feita à mão é mais uma ocasião de engano. E a contagem pode dar menos do que o registado, se alguém levou material sem o registar, e aí seria preciso retirar. Acertar serve para os dois casos.
 
-O guia 03, em "Interface pública: aquilo que o objeto deixa usar", já tinha esta operação na interface pública do artigo: "acertar a quantidade". Faz-se escrevendo na propriedade, como em `artigo.quantidade = 5`. O que falta é poder fazê-lo através do inventário, a partir do código, porque o programa principal não guarda nenhum artigo num nome seu.
+No artigo, acertar a quantidade já faz parte da [interface pública do guia 03](03-encapsulamento-contratos.md#interface-pública-aquilo-que-o-objeto-deixa-usar): escreve-se na propriedade, como em `artigo.quantidade = 5`. Falta fazê-lo através do inventário, a partir do código, porque o programa principal só conhece os artigos pelos códigos.
 
-### Passo 2: decidir quem faz o quê
+### Passo 2: escrever o contrato
 
-Antes de escrever, aplicamos a regra do guia 04, em "Quem sabe o quê: responsabilidades": cada tarefa fica com quem tem a informação necessária para a fazer.
+Como em [Operações com contrato](03-encapsulamento-contratos.md#operações-com-contrato), escreve-se primeiro o que o método promete. O `acertar` recebe o código de um artigo e a quantidade contada, e não devolve nada. Falha, com `ValueError`, em dois casos: se não houver nenhum artigo com esse código, ou se a quantidade contada for inválida. Em qualquer falha, nenhuma quantidade muda. Quando não falha, a quantidade do artigo passa a ser exatamente o valor contado.
 
-| Tarefa | Que informação é precisa | Quem a tem | Fica a cargo de |
-| --- | --- | --- | --- |
-| Encontrar o artigo com este código | Os códigos de todos os artigos | O inventário | O método `_procurar` do inventário |
-| Decidir se o valor contado é uma quantidade válida | A regra da quantidade | O artigo | O setter da quantidade |
-| Guardar o novo valor | O atributo interno `_quantidade` | O artigo | O setter da quantidade |
+### Passo 3: o plano do método
 
-A tabela diz-nos uma coisa importante sobre o que o método `acertar` não deve fazer. Não deve verificar se o valor é inteiro, nem se é negativo. Essa regra já vive no setter. Escrevê-la outra vez no inventário seria ter a mesma regra em dois sítios, com o risco de um dia mudar num e esquecer no outro. O inventário encontra o artigo e escreve na propriedade, e a verificação acontece sozinha, porque escrever na propriedade é chamar o setter.
+Como em [O plano da retirada](#o-plano-da-retirada), cada passo fica com quem tem a informação de que precisa, e cada recusa do contrato fica num passo:
 
-### Passo 3: escrever o contrato
+| Passo do `acertar` | Quem o faz | O que já mudou, se o pedido for recusado aqui |
+| --- | --- | --- |
+| Encontrar o artigo com este código | O `_procurar` do inventário, que conhece todos os códigos e recusa um código que não existe | Nada: nenhum artigo foi contactado |
+| Escrever o valor contado na propriedade `quantidade` do artigo | O setter do artigo, que verifica o valor, recusa um valor inválido e só depois guarda | Nada: o setter recusa antes de guardar |
 
-Como nos guias 03 e 04, começamos pelo que o método promete, antes de pensar em como o escrever.
-
-O método recebe o código de um artigo e a quantidade contada. Não devolve nada. Falha, com `ValueError`, em dois casos. O primeiro é não haver nenhum artigo com esse código, e quem recusa é `_procurar`. O segundo é a quantidade contada ser inválida, e quem recusa é o setter do artigo. Em qualquer dos dois casos, nenhuma quantidade muda. Quando não falha, a quantidade do artigo passa a ser exatamente o valor contado.
+O plano mostra também o que o `acertar` não deve fazer: verificar se o valor é um inteiro, ou se é negativo. Essa regra já vive no setter, e escrever na propriedade é chamar o setter. Se também estivesse escrita no inventário, a regra ficava em dois sítios, e um dia podia mudar num e ficar esquecida no outro.
 
 ### Passo 4: escrever o método
 
-O método completo, com o contrato na docstring, fica assim. É um excerto: substitui, na classe `Inventario` do programa de partida, o método `acertar` que tinha o `pass`.
+O método completo, com o contrato na docstring, é um excerto da classe `Inventario`. Fica no lugar do `acertar` do programa de partida, o que tinha o `pass`:
 
 ```python partial
     def acertar(self, codigo, nova_quantidade):
@@ -366,19 +385,24 @@ O método completo, com o contrato na docstring, fica assim. É um excerto: subs
         artigo.quantidade = nova_quantidade
 ```
 
-Lê as duas linhas pela ordem em que o Python as executa.
+As duas linhas leem-se pela ordem em que o Python as executa.
 
-A primeira, `artigo = self._procurar(codigo)`, é igual à primeira linha de `quantidade_de` e de `retirar`. Se o código não existir, `_procurar` lança `ValueError`, e o método `acertar` é interrompido aqui, sem chegar à segunda linha. Se existir, o nome local `artigo` passa a apontar para o próprio artigo guardado na lista.
+A primeira, `artigo = self._procurar(codigo)`, é igual à primeira linha do `quantidade_de` e do `retirar`. Se o código não existir, o `_procurar` lança `ValueError`, e o `acertar` para nessa linha, sem chegar à segunda. Se existir, o nome `artigo` aponta para o próprio artigo guardado na lista.
 
-A segunda, `artigo.quantidade = nova_quantidade`, é uma escrita na propriedade `quantidade` desse artigo. Para o Python, escrever na propriedade é chamar o setter, com o valor da direita no parâmetro `valor`. O setter faz as suas duas verificações e só depois guarda o valor em `_quantidade`. Se o valor for inválido, o setter lança `ValueError` antes de o guardar, e a quantidade fica como estava.
+A segunda, `artigo.quantidade = nova_quantidade`, escreve na propriedade desse artigo, e por isso chama o setter, com o valor da direita no parâmetro `valor`. O setter faz as suas duas verificações e só depois guarda o valor em `_quantidade`. Se o valor for inválido, o setter lança `ValueError` antes de o guardar, e a quantidade fica como estava.
 
-Repara no que esta linha não faz: não escreve em `artigo._quantidade`. O inventário é código de fora da classe `Artigo`, e o código de fora usa a interface pública do artigo, que é a propriedade, e não o atributo interno. Se escrevesse em `_quantidade`, passava ao lado do setter, e um acerto para -1 seria aceite em silêncio.
+Repara que a linha não escreve em `artigo._quantidade`. O inventário é código de fora da classe `Artigo`, e o código de fora usa a interface pública do artigo, que é a propriedade. Escrever no atributo interno passava ao lado do setter, e um acerto para -1 era aceite em silêncio.
+
+<details>
+<summary>Para ires mais longe: corrigir sem exceções</summary>
+
+Nas [resoluções dos temas de treino](../projeto/temas-de-treino-resolucoes.md#cartas-colecionáveis), o pedido parecido com o `acertar` é o `corrigir_raridade` das cartas colecionáveis. Como no passo 3, a coleção não repete a regra: encontra a carta pelo código e devolve o que ela responder. A carta verifica a raridade com `raridade_valida`, o mesmo método que usa numa carta nova. Muda a forma da recusa, que lá volta num texto devolvido com `return`, e aqui numa exceção. As duas formas estão certas.
+
+</details>
 
 ### Passo 5: prever antes de executar
 
-Antes de executarmos, fazemos o traço de quatro pedidos seguidos a um inventário com A01 a 6 e A02 a 2. Cada linha começa no estado deixado pela anterior. A coluna "Quem responde" diz que peça do programa aceitou ou recusou o pedido.
-
-Antes de leres a tabela, faz tu o traço de cabeça, com as mesmas colunas, para os pedidos `acertar("A02", 5)`, `acertar("A01", -1)`, `acertar("A09", 3)` e `retirar("A02", 4)`. Depois compara.
+Antes de executar, faz-se o traço de quatro pedidos seguidos, a partir de A01 com 6 e A02 com 2, como em [Os dois métodos, e a sequência do programa](#os-dois-métodos-e-a-sequência-do-programa). Os quatro pedidos saem do contrato do passo 2: um acerto aceite, um com um valor inválido e um com um código que não existe. No fim, uma retirada mostra o efeito do acerto. A coluna "Quem responde" diz que parte do programa aceitou ou recusou o pedido. Faz o traço de cabeça, para os quatro pedidos da primeira coluna, antes de leres o resto da tabela.
 
 | Pedido | Quem responde | Resposta | A01 depois | A02 depois |
 | --- | --- | --- | ---: | ---: |
@@ -387,11 +411,11 @@ Antes de leres a tabela, faz tu o traço de cabeça, com as mesmas colunas, para
 | `acertar("A09", 3)` | `_procurar` não encontra A09 | `ValueError` lançado pelo inventário | 6 | 5 |
 | `retirar("A02", 4)` | `_procurar` encontra A02; o artigo aceita, 5 - 4 = 1 | Aceite | 6 | 1 |
 
-A última linha mostra porque é que o acerto importa. A retirada de 4 pastas só é possível porque o programa passou a saber que havia 5. Antes do acerto, com 2 pastas registadas, esse pedido seria recusado.
+A última linha mostra porque é que o acerto importa. A retirada de 4 pastas só é aceite porque o programa passou a saber que havia 5. Com as 2 do registo, era recusada.
 
 ### Passo 6: executar e comparar com o traço
 
-Programa completo, com o método `acertar` já escrito. O programa principal faz os quatro pedidos do traço, pela mesma ordem:
+Este é o programa completo, com o `acertar` do passo 4 no lugar do que tinha o `pass`. O programa principal faz os quatro pedidos do traço, pela mesma ordem, e os dois que o traço recusa estão cada um no seu `try`:
 
 ```python
 # O inventário com o método acertar: o programa do exemplo guiado do guia 06.
@@ -543,133 +567,68 @@ A01 no fim: 6
 A02 no fim: 1
 ```
 
-Leitura guiada: as classes são as do programa de partida, com o `acertar` do passo 4 no lugar do que tinha o `pass`. O que muda é o programa principal, que faz os quatro pedidos do traço. Os pedidos que podem ser recusados estão dentro de um `try`, e depois de cada pedido aceite há um `print` com a quantidade.
+Cada linha confirma o traço. O acerto de A02 foi aceite, e a quantidade passou a 5. As duas recusas aparecem pela ordem do traço, e cada mensagem diz quem recusou. "A quantidade não pode ser negativa." vem do setter do artigo, e "Não existe nenhum artigo com o código A09." vem do inventário. A retirada de 4 pastas deixou 1. Nas duas últimas linhas, A01, que só recebeu um pedido recusado, continua com 6.
 
-Compara linha a linha com o traço do passo 5. O acerto de A02 foi aceite, e a quantidade passou a 5. As duas recusas aparecem pela ordem do traço, e cada mensagem diz quem recusou. "A quantidade não pode ser negativa." vem do setter do artigo, e "Não existe nenhum artigo com o código A09." vem do inventário. A retirada de 4 pastas foi aceite e deixou 1. As duas últimas linhas confirmam o estado final: A01, que só recebeu um pedido recusado, continua com 6.
-
-Repara também no acerto aceite: não mostra nada. Um método que cumpre o pedido termina sem erro e em silêncio. É por isso que o programa mostra a quantidade a seguir, para termos a prova de que o acerto aconteceu. Foi exatamente essa prova que faltou ao programa de partida, quando o `acertar` ainda só tinha o `pass`.
+Como o acerto aceite não mostra nada, a linha a seguir mostra a quantidade, como prova. No programa de partida, a mesma consulta mostrou `A02: 2`, e foi assim que se deu pelo erro.
 
 ### Passo 7: seguir o caminho de uma recusa
 
-Segue agora o pedido `inventario.acertar("A01", -1)` até ao fim, como o guia 04 fez com uma retirada, no passo 8 do seu exemplo guiado.
+Falta seguir o pedido `inventario.acertar("A01", -1)` até à linha que o recusa, como em [O caminho de uma recusa](04-composicao-modelacao.md#o-caminho-de-uma-recusa), no guia 04.
 
-1. O programa principal, dentro do `try`, chama o método `acertar` do inventário, com `"A01"` e `-1`.
-2. O método `acertar` chama `_procurar("A01")`, que encontra o artigo A01, devolve-o com o `return` e termina.
-3. O método `acertar` executa `artigo.quantidade = nova_quantidade`, o que chama o setter do artigo A01 com -1.
-4. O setter verifica que -1 é inteiro, mas é negativo, e executa `raise ValueError("A quantidade não pode ser negativa.")`.
+```mermaid
+flowchart TB
+    prog["programa principal, dentro de um try<br>inventario.acertar('A01', -1)"] -- "pede" --> ac["acertar do inventário"]
+    ac -- "1. procura o A01" --> proc["_procurar"]
+    proc -- "devolve o artigo e acaba" --> ac
+    ac -- "2. escreve -1 na propriedade" --> set["setter do artigo A01<br>-1 é negativo: raise ValueError"]
+    set -. "a exceção volta" .-> ac
+    ac -. "sem try: a exceção volta" .-> prog
+    prog -. "o except apanha-a" .-> msg["Acerto de A01 recusado:<br>A quantidade não pode ser negativa."]
+```
 
-A exceção nasce no setter e sobe pela cadeia de chamadas que ainda estão à espera:
+O pedido segue pelas setas cheias. O `acertar` chama primeiro o `_procurar`, que encontra o A01, devolve-o e acaba. Depois escreve -1 na propriedade, e o setter lança a exceção. A exceção sobe pelas setas tracejadas: o `acertar` é abandonado na segunda linha, e o `except` do programa principal apanha-a e mostra a mensagem.
 
-| Onde está a exceção | O que esse sítio estava a fazer | O que lhe acontece |
-| --- | --- | --- |
-| Setter da quantidade | A verificar -1 | Lança a exceção; não guarda o valor |
-| Método `acertar` do inventário | À espera do setter, na segunda linha | É abandonado sem terminar |
-| Programa principal | Dentro de um `try` | Apanha a exceção no `except` e mostra a mensagem |
+Quando a exceção nasce, o `_procurar` já tinha acabado, e por isso ela não passa por ele. A cadeia de chamadas é também mais curta do que a da retirada do guia 04. Entre o inventário e o setter não há nenhum método do artigo, porque a escrita na propriedade chama o setter diretamente.
 
-O método `_procurar` não está na tabela, porque já tinha terminado quando a exceção nasceu. Repara também que esta cadeia é mais curta do que a da retirada, no guia 04. Entre o inventário e o setter não há nenhum método do artigo: a escrita na propriedade chama o setter diretamente, a partir da linha do inventário.
+### Passo 8: explicar a correção
 
-### Passo 8: o modelo descrito por palavras
+A correção do programa de partida explica-se em quatro frases com valores, como em [Explicar a correção](#explicar-a-correção):
 
-No guia 04, em "O inventário descrito por palavras", o modelo do inventário ficou escrito antes do código. O modelo tem de dizer o mesmo que o programa. Por isso, quando o programa ganha um método, relê-se o modelo e acerta-se o que mudou. Vamos ver o que muda com o `acertar`.
-
-A descrição de cada classe tem três partes: o que cada objeto guarda, com que valores se cria e o que se lhe pode pedir. A descrição da classe `Artigo` não muda:
-
-- Cada artigo guarda um código, um nome e uma quantidade, que é sempre um número inteiro não negativo.
-- Um artigo cria-se com o código, o nome e a quantidade inicial.
-- A um artigo pode pedir-se que adicione unidades, com `adicionar(unidades)`, e que retire unidades, com `retirar(unidades)`.
-
-O método novo é do inventário. No artigo, o acerto faz-se escrevendo na quantidade, e a quantidade já está na primeira parte da descrição, com a sua regra.
-
-Na descrição da classe `Inventario`, muda só a terceira parte, a do que se pode pedir, que ganha o pedido novo:
-
-- Cada inventário guarda os seus artigos, e nunca dois com o mesmo código.
-- Um inventário cria-se vazio, sem nenhum valor.
-- A um inventário pode pedir-se que registe um artigo novo, com `registar(codigo, nome, quantidade)`; que diga a quantidade de um artigo, com `quantidade_de(codigo)`; e que retire unidades de um artigo, com `retirar(codigo, unidades)`. Pode pedir-se-lhe também que acerte a quantidade de um artigo depois de uma contagem, com `acertar(codigo, nova_quantidade)`.
-
-Repara no que fica de fora. A lista `_artigos` não aparece, pela razão que o guia 04 dá. A descrição diz que o inventário guarda os seus artigos, e a lista é só a forma como o programa os guarda. O método `_procurar` também não aparece. É interno: só os métodos do próprio inventário o usam, e não faz parte do que se pode pedir ao inventário de fora. E o pedido novo não repete a regra da quantidade. Essa regra está na descrição do artigo, como no código está no setter. É a decisão do passo 2, agora no modelo: cada regra num só sítio.
-
-A descrição da relação entre as duas classes também não muda:
-
-- Um inventário tem artigos, e é uma composição.
-- Um artigo só faz sentido dentro do seu inventário, porque é uma linha do registo.
-- É o inventário que cria cada artigo, quando se lhe pede que o registe.
-- Cada artigo pertence a um só inventário e desaparece se o inventário desaparecer.
-
-O método `acertar` muda a quantidade de um artigo que já existe. Não muda quem cria os artigos, quem os guarda nem a quantos inventários pertence cada um. A relação entre duas classes muda quando muda a forma como os objetos se ligam, e não quando se acrescenta um pedido. É a mesma composição de "O inventário no programa: composição e procura pelo código".
-
-A descrição de uma classe não tem valores, porque vale para todos os objetos dela. Para dizer como ficaram os artigos no fim do programa do passo 6, descreve-se o estado de cada um:
-
-- O artigo A01 chama-se Caderno e tem 6 unidades.
-- O artigo A02 chama-se Pasta e tem 1 unidade.
-
-Repara que cada artigo é identificado pelo código. No guia 02, o caderno estava guardado no nome `caderno`, e podíamos falar do objeto `caderno`. Neste programa, o programa principal não guarda nenhum artigo num nome seu. Chega a eles pelo inventário e pelo código, e é também pelo código que os identificamos quando os descrevemos. O nome `artigo`, dentro dos métodos do inventário, não serve para isso: é um nome local, que aponta, em cada chamada, para o artigo que `_procurar` encontrou.
+1. Esperava que, depois do pedido `acertar("A02", 5)`, a pasta ficasse com 5 unidades.
+2. Observei, no programa de partida, a linha `A02: 2`, sem nenhuma mensagem de erro.
+3. A instrução que explica a diferença é o `pass`, a única linha do `acertar` por baixo da docstring, que não faz nada.
+4. Depois de escrever o método, confirmei no passo 6 que a pasta passa a 5, e que o acerto de A01 para -1 é recusado sem mudar os 6.
 
 ## Erros frequentes
 
-O erro típico de cada ideia está na secção dela:
-
-- a quantidade 6 tomada por seis objetos, em "Classes e objetos no programa";
-- qualquer lista tomada por composição, em "O inventário no programa: composição e procura pelo código";
-- a escrita em `artigo._quantidade`, que passa ao lado do setter, no passo 4 do exemplo guiado.
-
-Ficam aqui os erros que aparecem quando se troca um método de um programa já escrito, como o `acertar` do exemplo guiado. Em cada um, lê a última linha da mensagem de erro, se houver uma: é a que diz o que aconteceu.
+Estes erros aparecem a quem escreve um método novo num programa que já existe. Quando há mensagem, começa pela última linha, que diz o que aconteceu, e sobe pelas linhas `File`, que dizem onde. O `self.` esquecido antes do `_procurar` dá o `NameError` dos [erros frequentes do guia 04](04-composicao-modelacao.md#nameerror-name-_procurar-is-not-defined).
 
 ### O acerto continua sem efeito depois de escreveres o método
 
-O que se vê: escreveste o método `acertar` do passo 4, executaste o programa de partida, e continua a aparecer `A02: 2`. Não aparece nenhuma mensagem de erro.
-
-Porque acontece: o método novo ficou na classe ao lado do antigo, que tinha o `pass`, e o antigo ficou mais abaixo. Quando uma classe tem dois `def` com o mesmo nome, o Python guarda só o último. O método novo foi substituído pelo antigo, que não faz nada. É um erro de lógica: o programa corre e dá o resultado errado.
-
-Como se corrige: apaga o método antigo, desde o `def acertar` até ao `pass`, para ficar um só `acertar` na classe. Procura no ficheiro todas as linhas que começam por `def acertar`: tem de haver só uma.
+Com o método do passo 4 colado antes do antigo, sem apagar o que tinha o `pass`, o programa de partida continua a mostrar `A02: 2`, sem nenhuma mensagem. Quando uma classe tem dois `def` com o mesmo nome, o Python fica só com o último, e aqui o último é o antigo, que não faz nada. É outro erro de lógica. Apaga o método antigo, do `def acertar` até ao `pass`, e confirma que no ficheiro só há uma linha a começar por `def acertar`.
 
 ### `AttributeError: 'Inventario' object has no attribute 'acertar'`
 
-O que se vê: o programa para na linha `inventario.acertar("A02", 5)`. Em português, a mensagem diz que o objeto do tipo `Inventario` não tem o atributo `acertar`. Um `AttributeError` ("erro de atributo") aparece quando se pede a um objeto um atributo ou um método que ele não tem.
+Com o método do passo 4 colado depois da classe, com o `def` encostado à margem, e o antigo apagado, o programa para logo no acerto:
 
-Porque acontece: o método ficou fora da classe, com o `def` encostado à margem. O Python aceita-o como uma função solta, e o inventário fica sem o método.
+```text
+Traceback (most recent call last):
+  File ".../inventario.py", line 120, in <module>
+    inventario.acertar("A02", 5)
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'Inventario' object has no attribute 'acertar'
+```
 
-Como se corrige: indenta todas as linhas do método quatro espaços, para ficarem dentro da classe. O `def` fica com quatro espaços, como os outros métodos, e as linhas de dentro com oito.
-
-### `NameError: name '_procurar' is not defined`
-
-O que se vê: o programa para dentro do método `acertar`, na linha que procura o artigo. Em português: o nome `_procurar` não está definido. Um `NameError` ("erro de nome") aparece quando se usa um nome que o Python não conhece. As versões recentes do Python acrescentam `Did you mean: 'self._procurar'?`, isto é, "querias dizer `self._procurar`?".
-
-Porque acontece: a linha ficou escrita `artigo = _procurar(codigo)`, sem o `self.` à frente. O Python procura uma função solta com esse nome, e não a encontra.
-
-Como se corrige: escreve `artigo = self._procurar(codigo)`, como em `quantidade_de` e em `retirar`. Dentro da classe, os métodos do próprio objeto alcançam-se através do `self`.
-
-### Um `def` sem nada por baixo
-
-O que se vê: o programa nem começa. A última linha da mensagem é `IndentationError: expected an indented block after function definition on line`, seguido de um número. Em português: esperava-se um bloco indentado a seguir à definição da função da linha indicada. Nas versões anteriores ao Python 3.10, a última linha diz só `IndentationError: expected an indented block`.
-
-Porque acontece: apagaste a docstring e o `pass` do método `acertar` antes de escreveres as linhas novas, e o `def` ficou sem nenhuma instrução por baixo. É um erro de escrita, e o Python recusa o ficheiro antes de executar a primeira linha.
-
-Como se corrige: escreve as linhas do método por baixo do `def`, com oito espaços. Se ainda não as tiveres, deixa o `pass` no lugar delas até as escreveres.
+De baixo para cima: a última linha diz que o objeto `Inventario` não tem o atributo `acertar`. A linha `File` diz onde se deu por isso: na linha 120, a do programa principal que pede o acerto. Com o `def` encostado à margem, o método ficou fora da classe, como uma função solta, e o inventário ficou sem ele. É o erro do `retirar` encostado à margem, nos [erros frequentes do guia 02](02-objetos-classes-instancias.md#attributeerror-artigo-object-has-no-attribute-retirar). Põe o `def` com quatro espaços, como os outros métodos, e as linhas de dentro com oito, como no passo 4.
 
 ## Palavras novas deste guia
 
-- `pass`: a instrução que não faz nada (do inglês, "passa"). Marca o sítio onde vai entrar código, ou dá a um bloco a instrução que ele precisa de ter.
-- Programa principal: as linhas encostadas à margem, no fim do ficheiro, fora das classes. São elas que dizem o que o programa faz, e é por elas que se começa a ler.
-- Ler um programa por zonas: começar pelo programa principal, depois ler os métodos que ele chama, e só depois as classes que esses métodos usam.
-
-## Verificar o que aprendeste
-
-Tenta responder sem olhar para o texto. Se uma pergunta te deixar com dúvidas, volta à secção indicada.
-
-1. Quantas classes e quantos objetos dessas classes existem no programa de partida, e o que guarda cada objeto? ("Classes e objetos no programa")
-2. Que tipo de erro tem o programa de partida: de escrita, de execução ou de lógica? Como se dá por ele? ("O programa de partida")
-3. Que regras verifica o método `retirar` do artigo, e que regra fica para o setter? ("Encapsulamento no programa")
-4. Porque é que, para verificar um pedido aceite, não basta ver que não apareceu nenhuma mensagem? ("O programa de partida" e "Encapsulamento no programa")
-5. Porque é que a relação entre o inventário deste programa e os artigos é uma composição? O que teria de mudar no código para ser uma agregação? ("O inventário no programa: composição e procura pelo código")
-6. Porque é que se acerta a quantidade, e não se usa o `adicionar`, depois de uma contagem à mão? (Exemplo guiado, passo 1)
-7. Porque é que o método `acertar` escreve em `artigo.quantidade`, e não em `artigo._quantidade`? (Exemplo guiado, passo 4)
-8. Segue o pedido `inventario.acertar("A01", -1)` até à linha que o recusa. Que métodos ficam a meio, e qual já tinha terminado? (Exemplo guiado, passo 7)
-9. Descreve por palavras o estado da pasta no fim do programa do passo 6. Porque é que a identificas pelo código, e não por um nome do programa? (Exemplo guiado, passo 8)
+- `pass` (do inglês, "passa"): uma instrução que não faz nada e que marca, à vista, o sítio onde o código de um método vai entrar.
+- Plano de um método: a lista dos passos do método, pela ordem em que acontecem, com o que já mudou se o pedido for recusado em cada um.
+- Ensaio: uma execução do programa feita para experimentar um caso, a partir dos valores iniciais.
 
 ## O que vem a seguir
 
-Para praticar este tema, tens a [ficha de exercícios](exercicios/06-sintese-exercicios.md) e o [laboratório](laboratorios/06-sintese-laboratorio.md). A ficha usa o programa do exemplo guiado: prevês quem responde a cada pedido, escreves um método novo do inventário e encontras o erro de um colega. O laboratório fecha o módulo e faz-se na aula, com o professor a acompanhar. Vais completar uma operação num programa parecido com o deste guia, explicar o modelo e mostrar o que acontece aos dados. No fim, explicas o teu trabalho ao professor numa conversa curta, sem nota.
-
-Este é o último tema do M10. No fim do módulo fazes o modelo do teu [projeto](../projeto/README.md), um livro de receitas, descrito por palavras, como o do passo 8 do exemplo guiado. As ideias deste guia são avaliadas no projeto, no fim do M12. No módulo seguinte, o M11, vais reencontrá-las em JavaScript: os objetos, os contratos e o "quem sabe o quê" continuam a ser as mesmas perguntas.
+No módulo seguinte, o M11, começas o JavaScript, com [A primeira página com JavaScript](../02-javascript-orientado-a-objetos/01-primeira-pagina-com-javascript.md).
 
 ![Rodapé](../imagens/rodape.png)

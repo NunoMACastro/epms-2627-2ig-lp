@@ -2,62 +2,44 @@
 
 # Laboratório: Objetos, classes e instâncias
 
-Laboratório do tema Objetos, classes e instâncias, do módulo M10, Introdução à Programação Orientada por Objetos. Vais criar e usar os primeiros objetos: escreves tu a classe `Artigo`, crias dois artigos e pedes-lhes operações. Cada passo diz o que fazer, porquê e o que deves ver, e avanças ao teu ritmo. O que não acabares na aula, acabas em casa ou na aula seguinte. Tudo o que precisas está aqui; o [guia do tema](../02-objetos-classes-instancias.md) tem a teoria completa, para quem quiser saber mais.
-
 ## O que vais construir
 
-No fim, tens um ficheiro `artigos.py` com a classe `Artigo` a funcionar, escrita por ti. O ficheiro tem os dois artigos da sala, o caderno e a pasta, e um método para lhes retirar unidades. Pelo caminho, vês com os teus próprios olhos três coisas. Vês quando é que o construtor trabalha e o que acontece a um objeto quando falta o `self.` numa linha do construtor. Vês também o que quer dizer dar dois nomes ao mesmo objeto.
+Escreves tu a classe `Artigo`, crias com ela os dois artigos da sala, o caderno e a pasta, e pedes-lhes que retirem unidades. Pelo caminho, vês quando é que o construtor trabalha, o que acontece a um objeto quando falta o `self.` e o que quer dizer dar dois nomes ao mesmo objeto.
 
-| Fase | O que muda | O que funciona no fim |
-| --- | --- | --- |
-| 1 | Escreves a classe `Artigo` e crias dois artigos | O programa mostra os dados dos dois artigos |
-| 2 | Uma linha provisória no construtor | Vês quantas vezes e quando o construtor trabalha |
-| 3 | Mostras um objeto inteiro com `print` | Sabes o que o Python mostra de um objeto, e porquê |
-| 4 | Tiras o `self.` de uma linha, de propósito | Sabes o que o `self.` guarda no objeto |
-| 5 | Acrescentas o método `retirar` | O caderno perde duas unidades e a pasta fica igual |
-| 6 | Dás um segundo nome ao caderno | Sabes distinguir um segundo nome de um objeto novo |
+No fim, o programa `artigos.py` mostra:
 
-Em todas as fases trabalhas da mesma maneira. Antes de executares, prevês o que vais ver. Depois executas e comparas. Quando o resultado é diferente do que previste, procura a explicação antes de continuares: é ela que mais te ensina.
+```text
+Caderno: 5
+Pasta: 2
+True
+False
+```
 
-Executa sempre o ficheiro inteiro. Cada execução começa do zero. O Python lê a classe, cria os artigos outra vez com os valores escritos no programa e repete todas as instruções, pela ordem em que estão. Em várias fases vais mudar o programa de propósito, para veres o que acontece. Faz a alteração pedida, observa, e desfaz a alteração antes de passares à fase seguinte.
-
-## Palavras que vais usar
-
-- Classe: a descrição comum de todos os objetos de um tipo, com os dados que têm e as operações que aceitam. Para saber mais, vê a secção "Classe: a descrição comum" do [guia](../02-objetos-classes-instancias.md).
-- Objeto, ou instância: um artigo concreto, criado a partir da classe, com os seus próprios valores. Para saber mais, vê "Classe e instância" no [guia](../02-objetos-classes-instancias.md).
-- Atributo: um dado guardado num objeto, com um nome e um valor, como `quantidade` e `6`.
-- Construtor: o método `__init__`, que o Python executa sozinho sempre que se cria um objeto, para lhe dar os valores iniciais.
-- `self`: dentro de um método, o nome do objeto sobre o qual o método está a trabalhar.
-- Método: uma operação que pertence a um objeto e se escreve dentro da classe, como `retirar`.
-- Parâmetro e argumento: o parâmetro é o nome que, dentro do método, espera um valor, como `unidades`. O argumento é o valor que chega na chamada, como o `2` de `caderno.retirar(2)`.
-- Devolver: entregar um valor a quem chamou o método, com `return`. Não é o mesmo que mostrar no ecrã, que é o que o `print` faz.
-- Mensagem de erro: o texto que o Python mostra quando para por causa de um erro. Quando o erro acontece com o programa a correr, a primeira linha é `Traceback (most recent call last)`, que quer dizer "o caminho até ao erro, com a chamada mais recente no fim". Num erro de escrita, como um `SyntaxError` ou um `IndentationError`, o Python nem começa a correr o programa. A mensagem abre logo com o ficheiro e o número da linha. Nos dois casos, a última linha diz o tipo de erro e o que aconteceu.
-- `is`: a palavra que pergunta se dois nomes apontam para o mesmo objeto. Dá `True` (verdadeiro) ou `False` (falso).
+1. [Fase 1: Uma classe e dois objetos](#fase-1-uma-classe-e-dois-objetos)
+2. [Fase 2: Quando é que o construtor trabalha](#fase-2-quando-é-que-o-construtor-trabalha)
+3. [Fase 3: O que mostra um objeto inteiro](#fase-3-o-que-mostra-um-objeto-inteiro)
+4. [Fase 4: O `self.` decide o que fica no objeto](#fase-4-o-self-decide-o-que-fica-no-objeto)
+5. [Fase 5: O método retirar em Python](#fase-5-o-método-retirar-em-python)
+6. [Fase 6: Cada instância é um objeto diferente](#fase-6-cada-instância-é-um-objeto-diferente)
 
 ## O que precisas
 
-- O editor de Python que usas nas aulas, para escrever e executar os programas. Confirma que funciona: num ficheiro de ensaio, escreve `print("Olá")` e executa. Deve aparecer `Olá`, o que quer dizer que o editor está a executar programas de Python.
-- O Python 3, a partir da versão 3.10. Nas versões mais antigas, algumas mensagens de erro são um pouco diferentes, e o laboratório diz onde.
+- O Python 3.10 ou mais recente. Para ver a versão, escreve `python3 --version` no terminal (no Windows, `py --version`). Aparece algo como `Python 3.12.4`, e o número a seguir a `3.` tem de ser 10 ou mais. Numa versão anterior, o laboratório corre na mesma, e só algumas mensagens de erro mudam.
+- O editor das aulas, o mesmo do laboratório do tema 01.
 
-O laboratório começa de uma pasta vazia: não precisas de nenhum ficheiro do laboratório anterior.
-
-## Se alguma coisa falhar
-
-1. Guardaste o ficheiro antes de executar? O editor executa o que está guardado no disco. Guarda e executa outra vez.
-2. Estás a executar o ficheiro certo? Confirma que o separador aberto é o `artigos.py` da pasta `tema-02`.
-3. Apareceu uma mensagem de erro? Lê a última linha: diz o tipo de erro e o que aconteceu. Procura essa linha em [Problemas frequentes](#problemas-frequentes). Os erros de escrita são normais quando se escreve um programa pela primeira vez, e encontrá-los a partir da mensagem faz parte do trabalho.
-4. Desfizeste a alteração da fase anterior? Cada fase parte do ficheiro como estava na paragem anterior. Se te perderes, copia o último ficheiro que o laboratório mostra completo: o da fase 1, o da paragem 5 ou o da paragem 6. A partir daí, refaz os passos que faltam.
+Começas numa pasta nova: este laboratório não usa nenhum ficheiro do tema 01.
 
 ## Preparar o projeto
 
-1. Na pasta onde guardas os trabalhos de LP, cria uma pasta nova chamada `tema-02`. É aí que ficam os ficheiros deste laboratório.
-2. Dentro dela, cria um ficheiro novo chamado `artigos.py`. O nome tem de acabar em `.py`, para o editor o reconhecer como um programa de Python, e não deve ter espaços nem acentos. Vais usar este ficheiro da fase 1 à fase 6, mudando o conteúdo de fase para fase.
+1. Cria a pasta deste laboratório, para não executares por engano o ficheiro de outro trabalho. Na pasta onde guardas os trabalhos de LP, cria uma pasta nova chamada `tema-02`.
+
+2. Cria o ficheiro do programa. No editor, cria dentro da pasta `tema-02` um ficheiro novo chamado `artigos.py`, sem espaços nem acentos no nome. É o mesmo ficheiro da fase 1 à fase 6, e o conteúdo vai mudando de fase para fase.
 
 ## Fase 1: Uma classe e dois objetos
 
-Na sala há dois artigos: A01, o caderno, com 6 unidades, e A02, a pasta, com 2. Cada artigo vai ser um objeto do Python, com os seus próprios valores. Os dois têm a mesma organização (código, nome e quantidade), e por isso escreve-se uma só descrição comum, a classe `Artigo`. Dentro da classe, o construtor `__init__` prepara cada artigo novo, guardando nele os três valores que recebe. Cada linha `Artigo(...)` cria um objeto a partir dessa descrição. Para saber mais, lê a secção "A classe Artigo em Python" do [guia](../02-objetos-classes-instancias.md).
+Escreves a classe `Artigo`, a descrição comum dos artigos, e crias com ela o A01, Caderno, com 6 unidades, e o A02, Pasta, com 2. Cada artigo passa a ser um objeto, com os seus próprios valores. Rever: [Uma classe e dois objetos](../02-objetos-classes-instancias.md#uma-classe-e-dois-objetos) e [Classe: a descrição comum](../02-objetos-classes-instancias.md#classe-a-descrição-comum).
 
-1. Escreve em `artigos.py` o programa seguinte. Desta vez não copies nem coles: escreve-o tu, letra a letra, porque ao escrever reparas em pormenores que uma cópia esconde. É o ficheiro completo:
+1. Começa pela classe. Escreve no `artigos.py` esta primeira versão. Não copies nem coles: escreve-a tu, letra a letra, porque ao escrever reparas em pormenores que uma cópia esconde.
 
    ```python
    # artigos.py: a classe Artigo e os artigos da sala, do laboratório do tema 02.
@@ -70,8 +52,21 @@ Na sala há dois artigos: A01, o caderno, com 6 unidades, e A02, a pasta, com 2.
            self.codigo = codigo
            self.nome = nome
            self.quantidade = quantidade
+   ```
 
+   Enquanto escreves, repara em três pormenores:
 
+   - os dois pontos no fim das linhas `class Artigo:` e `def __init__(self, codigo, nome, quantidade):`;
+   - os dois sublinhados antes e os dois depois de `init`;
+   - a indentação: quatro espaços dentro da classe, e oito dentro do `__init__`.
+
+   O `__init__` (do inglês "initialize", dar os valores iniciais) é o construtor. O Python executa-o sozinho sempre que se cria um artigo, e ele guarda no artigo novo os valores que recebe nos parâmetros `codigo`, `nome` e `quantidade`. O comentário do topo e as docstrings, o texto entre três aspas, podem ficar como aqui ou com palavras tuas.
+
+   Guarda e executa, com o botão ou a tecla de executar do editor. O que deves ver: nada, e nenhuma mensagem de erro. Isto quer dizer que o Python leu a descrição da classe, mas ainda não criou nenhum artigo. Se aparecer outra coisa, vê [Se alguma coisa falhar](#se-alguma-coisa-falhar).
+
+2. Cria os dois artigos e mostra os dados deles. No fim do ficheiro, deixa duas linhas em branco a seguir à classe e acrescenta:
+
+   ```python partial
    caderno = Artigo("A01", "Caderno", 6)
    pasta = Artigo("A02", "Pasta", 2)
 
@@ -79,49 +74,58 @@ Na sala há dois artigos: A01, o caderno, com 6 unidades, e A02, a pasta, com 2.
    print(pasta.codigo, pasta.nome, pasta.quantidade)
    ```
 
-   Repara nestes pormenores enquanto escreves:
+   Cada linha `Artigo(...)` cria um objeto e entrega ao construtor os três valores entre parênteses. Os `print` consultam os atributos com o ponto: `caderno.nome` é o atributo `nome` do objeto `caderno`, um dos dados guardados nele.
 
-   - os dois pontos no fim das linhas `class Artigo:` e `def __init__(self, codigo, nome, quantidade):`;
-   - os dois sublinhados antes e os dois depois de `init`;
-   - a indentação: quatro espaços dentro da classe e oito dentro do construtor;
-   - as duas linhas em branco antes de `caderno = ...`.
-
-   O comentário do topo e as docstrings, o texto entre três aspas, podem ficar como aqui ou com palavras tuas.
-
-   Leitura guiada: a parte de cima, do `class` até às duas linhas em branco, é a descrição comum, e só é usada quando alguém cria um artigo. Lê depois as duas linhas `caderno = Artigo(...)` e `pasta = Artigo(...)`. Cada uma cria um objeto: o Python chama o construtor, com o `self` a ser o objeto novo e os três valores entre parênteses nos três parâmetros. Na linha `self.codigo = codigo`, o `codigo` da direita é o valor que chegou, e o `self.codigo` da esquerda é o atributo que fica guardado no objeto. Os dois `print` do fim consultam os atributos com o ponto: `caderno.nome` é o atributo `nome` do objeto `caderno`.
-
-2. Antes de executares, prevê as duas linhas que vão aparecer.
-
-3. Executa. O que deves ver:
+   Guarda e executa. O que deves ver:
 
    ```text
    A01 Caderno 6
    A02 Pasta 2
    ```
 
-   Isto quer dizer que o Python criou dois objetos, cada um com os seus três atributos, e que os consultou pelo nome. Se em vez disso aparecer uma mensagem de erro, lê a última linha e procura-a em [Problemas frequentes](#problemas-frequentes).
+   Isto quer dizer que há dois objetos, cada um com os seus três atributos. Se aparecer outra coisa, vê [Se alguma coisa falhar](#se-alguma-coisa-falhar).
 
 ### Paragem 1
 
-O programa mostra os dados dos dois artigos, e o ficheiro tem a classe escrita por ti.
+O programa mostra os dados dos dois artigos. Confere o teu `artigos.py` com este, completo:
 
-Pensa antes de continuares: escreveste três valores dentro de cada `Artigo(...)`, mas o construtor tem quatro parâmetros. Quem preenche o quarto? A resposta: o Python. O primeiro parâmetro, `self`, recebe o objeto novo, e é o próprio Python que o põe lá. Por isso, na chamada `Artigo(...)`, o `self` não se escreve.
+```python
+# artigos.py: a classe Artigo e os artigos da sala, do laboratório do tema 02.
+
+class Artigo:
+    """Descreve um artigo do inventário: um material com código, nome e quantidade."""
+
+    def __init__(self, codigo, nome, quantidade):
+        """Prepara um artigo acabado de criar, guardando os três dados recebidos."""
+        self.codigo = codigo
+        self.nome = nome
+        self.quantidade = quantidade
+
+
+caderno = Artigo("A01", "Caderno", 6)
+pasta = Artigo("A02", "Pasta", 2)
+
+print(caderno.codigo, caderno.nome, caderno.quantidade)
+print(pasta.codigo, pasta.nome, pasta.quantidade)
+```
+
+Em cima está a classe, que o Python lê sem criar nada. Por baixo, as duas linhas `Artigo(...)` criam os objetos, e os dois `print` mostram os atributos de cada um.
+
+Pensa antes de continuares: escreveste três valores dentro de cada `Artigo(...)`, mas o construtor tem quatro parâmetros. Quem preenche o parâmetro que falta? A resposta: o Python. O primeiro parâmetro, `self` (em inglês, "o próprio"), recebe o objeto novo, e é o próprio Python que o põe lá. Por isso, na chamada `Artigo(...)`, o `self` não se escreve.
 
 ## Fase 2: Quando é que o construtor trabalha
 
-Para criar um artigo não escreves `__init__`: escreves `Artigo(...)`, e é o Python que chama o construtor, sozinho, sempre que uma linha `Artigo(...)` é executada. Vais tornar isso visível com uma linha provisória, que escreve uma mensagem no ecrã de cada vez que o construtor trabalha. Para saber mais, lê "O construtor `__init__`" no [guia](../02-objetos-classes-instancias.md).
+Pões no construtor uma linha provisória, que escreve uma frase de cada vez que ele trabalha. Assim vês que quem chama o construtor é o Python, no momento em que uma linha `Artigo(...)` corre. Rever: [Quando é que o construtor trabalha](../02-objetos-classes-instancias.md#quando-é-que-o-construtor-trabalha).
 
-1. Em `artigos.py`, dentro do construtor, logo a seguir à docstring e antes de `self.codigo = codigo`, acrescenta esta linha. É uma alteração: a linha vai para dentro do construtor, com a mesma indentação das linhas que começam por `self.`:
+1. Acrescenta a linha provisória. Em `artigos.py`, dentro do construtor, a seguir à docstring e antes de `self.codigo = codigo`, acrescenta esta linha, com os mesmos oito espaços das linhas que começam por `self.`:
 
    ```python partial
            print("A preparar o artigo", codigo)
    ```
 
-   Leitura guiada: a linha mostra o texto e o valor do parâmetro `codigo`, que nesse momento é o código do artigo que está a ser criado. Como está dentro do construtor, só é executada quando o construtor é executado.
+   A linha mostra uma frase e o código do artigo que está a ser criado. Como está dentro do construtor, só corre quando o construtor corre.
 
-2. Antes de executares, prevê: quantas vezes vai aparecer a frase "A preparar o artigo"? Vai aparecer antes ou depois da linha `A01 Caderno 6`?
-
-3. Executa. O que deves ver:
+2. Antes de executares, prevê: quantas vezes aparece a frase "A preparar o artigo", e aparece antes ou depois de `A01 Caderno 6`? Depois guarda e executa. O que deves ver:
 
    ```text
    A preparar o artigo A01
@@ -130,9 +134,9 @@ Para criar um artigo não escreves `__init__`: escreves `Artigo(...)`, e é o Py
    A02 Pasta 2
    ```
 
-   A resposta: a frase aparece duas vezes, uma por cada `Artigo(...)`. Aparece antes de `A01 Caderno 6`, porque as duas linhas que criam os artigos vêm antes dos `print`.
+   A resposta: a frase aparece duas vezes, uma por cada linha `Artigo(...)`. Aparece antes dos dados, porque as duas linhas que criam os artigos estão antes dos `print`. O construtor está escrito uma vez, na classe, e trabalhou duas.
 
-4. Agora muda só a ordem das linhas do fim do programa. Põe a linha `print(caderno.codigo, caderno.nome, caderno.quantidade)` logo a seguir a `caderno = Artigo("A01", "Caderno", 6)`, antes de `pasta = Artigo("A02", "Pasta", 2)`. As linhas do fim ficam assim:
+3. Muda a ordem das linhas do fim, para o `print` do caderno ficar logo a seguir à linha que o cria. As linhas a seguir à classe ficam assim:
 
    ```python partial
    caderno = Artigo("A01", "Caderno", 6)
@@ -142,7 +146,7 @@ Para criar um artigo não escreves `__init__`: escreves `Artigo(...)`, e é o Py
    print(pasta.codigo, pasta.nome, pasta.quantidade)
    ```
 
-   Antes de executares, prevê a ordem das quatro linhas. Depois executa. O que deves ver:
+   Guarda e executa. O que deves ver:
 
    ```text
    A preparar o artigo A01
@@ -151,67 +155,57 @@ Para criar um artigo não escreves `__init__`: escreves `Artigo(...)`, e é o Py
    A02 Pasta 2
    ```
 
-   Isto quer dizer que o construtor trabalha no momento em que a linha `Artigo(...)` é executada. Não trabalha no início do programa, nem quando o Python lê a classe.
+   Isto quer dizer que o construtor trabalha quando a linha `Artigo(...)` corre, e não no início do programa nem quando o Python lê a classe.
 
-5. Pensa: nunca escreveste `__init__` nas linhas do fim do programa. Que linhas fizeram o construtor trabalhar, e quantas vezes trabalhou? A resposta: as linhas `caderno = Artigo("A01", "Caderno", 6)` e `pasta = Artigo("A02", "Pasta", 2)`, uma vez cada. O construtor está definido uma vez, na classe, e foi chamado duas vezes.
-
-6. Apaga a linha provisória do construtor e volta a pôr as linhas do fim pela ordem da fase 1. Executa para confirmares que voltas a ver só as duas linhas da fase 1. O construtor serve para preparar o objeto, e não para escrever no ecrã: a linha só lá esteve para veres quando é que ele trabalha.
+4. Desfaz as duas mudanças. Apaga a linha provisória do construtor e põe as linhas do fim pela ordem da paragem 1. Guarda e executa: voltas a ver só `A01 Caderno 6` e `A02 Pasta 2`. A linha provisória serviu para veres o momento em que o construtor trabalha. O trabalho dele é preparar o objeto, e não escrever no ecrã.
 
 ### Paragem 2
 
-O ficheiro está outra vez como no fim da fase 1, e o programa mostra `A01 Caderno 6` e `A02 Pasta 2`.
+O ficheiro voltou a ser o da paragem 1, e o programa mostra outra vez os dados dos dois artigos.
 
-Pensa antes de continuares: se acrescentasses ao programa uma terceira linha, `regua = Artigo("A06", "Régua", 10)`, quantas vezes trabalharia o construtor? A resposta: três vezes, uma por cada `Artigo(...)`. O número de vezes que o construtor trabalha é o número de objetos criados.
+Pensa antes de continuares: se acrescentasses ao programa a linha `regua = Artigo("A06", "Régua", 10)`, quantas vezes trabalharia o construtor? A resposta: três vezes, uma por cada `Artigo(...)`. O construtor trabalha tantas vezes quantos os objetos que o programa cria.
 
 ## Fase 3: O que mostra um objeto inteiro
 
-Até agora pediste ao Python cada atributo pelo nome, com o ponto. Nesta fase vês o que acontece quando pedes o objeto inteiro, sem dizer que atributo queres. Para saber mais, lê "Consultar atributos" no [guia](../02-objetos-classes-instancias.md).
+Até aqui pediste cada atributo pelo nome, com o ponto. Agora pedes ao `print` o objeto inteiro, sem dizer que atributo queres. Rever: [O que mostra um objeto inteiro](../02-objetos-classes-instancias.md#o-que-mostra-um-objeto-inteiro).
 
-1. Acrescenta no fim do ficheiro esta linha:
+1. No fim do ficheiro, acrescenta esta linha:
 
    ```python partial
    print(caderno)
    ```
 
-   Antes de executares, prevê o que vai aparecer.
+   Antes de executares, prevê o que vai aparecer depois das duas linhas de sempre.
 
-2. Executa. Além das duas linhas de sempre, aparece uma terceira linha parecida com esta, com outro número no fim:
+2. Guarda e executa. Depois das duas linhas de sempre, aparece uma terceira parecida com esta, com outro número no fim:
 
    ```text
    <__main__.Artigo object at 0x105535fd0>
    ```
 
-   Esta linha diz três coisas:
+   A resposta: o Python não mostra os atributos. Mostra que é um objeto (em inglês, `object`) da classe `Artigo`, e o `__main__` quer dizer que a classe foi escrita no programa que executaste. O número depois de `at` diz em que sítio da memória do computador o objeto ficou guardado. Começa por `0x` e mistura algarismos e letras, e não precisas de o saber ler.
 
-   - que se trata de um objeto (em inglês, `object`) da classe `Artigo`;
-   - que essa classe foi definida no programa que mandaste executar, que é o que quer dizer `__main__`;
-   - onde é que o objeto está guardado na memória do computador, que é o número depois de `at`.
+3. Executa outra vez e compara o número com o da primeira execução. Em geral muda, pelo menos em parte: cada execução começa do zero, e o objeto pode ficar guardado noutro sítio.
 
-   Esse número começa por `0x` porque está escrito em base 16, a forma habitual de escrever posições de memória. Não precisas de o saber ler.
+4. Acrescenta no fim a linha `print(pasta)`, guarda e executa. O que deves ver: duas linhas que começam por `<__main__.Artigo object at`, com números diferentes. Isto quer dizer que o programa tem dois objetos, guardados em dois sítios da memória.
 
-3. Executa outra vez e compara o número com o da primeira execução. Em geral muda, pelo menos em parte, porque cada execução começa do zero e o objeto pode ficar guardado noutro sítio.
-
-4. Acrescenta no fim a linha `print(pasta)` e executa. Pensa: os números do caderno e da pasta são iguais ou diferentes? O que te diz isso sobre o número de objetos que o programa criou? A resposta: são diferentes. São dois objetos, guardados em dois sítios da memória. Vais precisar desta resposta na fase 6.
-
-5. Pensa também: para mostrar o nome do material, porque é que o programa escreve `print(caderno.nome)`, e não `print(caderno)`? A resposta: o Python não adivinha quais dos atributos queremos ver. Por isso, pede-se cada atributo pelo nome, com o ponto.
-
-6. Apaga as linhas `print(caderno)` e `print(pasta)`.
+5. Apaga as linhas `print(caderno)` e `print(pasta)`, guarda e executa. Voltas a ver só os dados dos dois artigos.
 
 ### Paragem 3
 
-O ficheiro está outra vez como no fim da fase 1. Sabes que o `print` de um objeto inteiro mostra a classe e o sítio da memória, e não os atributos.
+O ficheiro está igual ao da paragem 1, e o programa volta a mostrar `A01 Caderno 6` e `A02 Pasta 2`. O `print` de um objeto inteiro mostra a classe e o sítio da memória, e não os atributos.
 
-Pensa antes de continuares: se executares o programa amanhã, o número de memória do caderno vai ser o mesmo de hoje? A resposta: provavelmente não. O número diz onde o objeto ficou guardado nesta execução, e cada execução começa do zero.
+Pensa antes de continuares: para mostrar o nome do caderno, porque é que se escreve `print(caderno.nome)`, e não `print(caderno)`? A resposta: o `print` não sabe que dado do caderno te interessa. Por isso, cada atributo pede-se pelo nome, depois do ponto.
 
 ## Fase 4: O `self.` decide o que fica no objeto
 
-Na linha `self.nome = nome`, há duas coisas com o nome `nome`. Do lado direito, `nome` é o parâmetro: o valor que chegou na chamada, que só existe enquanto o construtor está a ser executado. Do lado esquerdo, `self.nome` é o atributo do objeto, que fica guardado depois de o construtor terminar. Nesta fase vais tirar o `self.` de propósito, para veres o que acontece ao objeto. Para saber mais, lê "O parâmetro `self`" no [guia](../02-objetos-classes-instancias.md).
+Tiras o `self.` de uma linha do construtor, de propósito, e vês o que acontece ao objeto. Na linha `self.nome = nome`, o `nome` da direita é o parâmetro, que desaparece quando o construtor acaba, e o `self.nome` é o atributo, que fica no objeto. Rever: [O `self.` decide o que fica no objeto](../02-objetos-classes-instancias.md#o-self-decide-o-que-fica-no-objeto).
 
-1. No construtor, na linha `self.nome = nome`, apaga `self.`, de modo que a linha fique `nome = nome`. Não mexas em mais nada.
+1. No construtor, na linha `self.nome = nome`, apaga `self.`. A linha fica `nome = nome`. Não mexas em mais nada.
 
-2. Antes de executares, prevê: o Python vai queixar-se da linha `nome = nome`? O que vai acontecer quando o programa pedir `caderno.nome`?
+2. Antes de executares, prevê: o Python vai queixar-se da linha `nome = nome`? E o que acontece quando o programa pedir `caderno.nome`?
 
-3. Executa. O programa para sem mostrar nenhuma das duas linhas, e mostra uma mensagem de erro parecida com esta:
+3. Guarda e executa. O programa para sem mostrar os dados dos artigos, com uma mensagem de erro parecida com esta:
 
    ```text
    Traceback (most recent call last):
@@ -221,41 +215,39 @@ Na linha `self.nome = nome`, há duas coisas com o nome `nome`. Do lado direito,
    AttributeError: 'Artigo' object has no attribute 'nome'
    ```
 
-   O caminho do ficheiro, no lugar dos três pontos, é o do teu computador. A linha com os sinais `^` aponta para a parte da instrução onde o erro aconteceu; nas versões do Python anteriores à 3.11, não aparece. A última linha quer dizer: o objeto do tipo `Artigo` não tem nenhum atributo chamado `nome`. Um `AttributeError` ("erro de atributo") é o erro que aparece quando se pede a um objeto um atributo que ele não tem.
+   A resposta: o Python não se queixou da linha `nome = nome`, e só parou quando o programa pediu `caderno.nome`. A primeira linha, com `Traceback`, anuncia o rasto do erro, o caminho que o programa fez até parar. A linha com `File` diz onde parou, na linha 16, e no lugar dos três pontos aparece a pasta do teu computador. A linha dos `^` aponta a parte da instrução onde o erro aconteceu, e só aparece a partir do Python 3.11. A última linha diz o tipo de erro, `AttributeError` (erro de atributo): o objeto do tipo `Artigo` não tem nenhum atributo `nome`.
 
-4. Pensa: em que linha do ficheiro aparece o erro? Em que linha está a causa? Porque é que o Python não se queixou da linha `nome = nome`, e o que é que essa linha fez, afinal?
+4. Encontra a causa. A mensagem aponta a linha 16, a do primeiro `print`, se escreveste o programa como na paragem 1. A causa está na linha 9, `nome = nome`. É uma atribuição válida, e por isso o Python não a recusou: guarda o valor numa variável do construtor, que deixa de existir quando ele acaba. O objeto nasceu com `codigo` e `quantidade`, mas sem `nome`.
 
-   A resposta: o erro aparece na linha 16, a do primeiro `print`, se escreveste o programa exatamente como está na fase 1. A causa está no construtor, na linha `nome = nome`, que é a linha 9. O Python não se queixou porque `nome = nome` é uma atribuição válida. Guarda o valor do parâmetro `nome` no próprio nome `nome`, que é uma variável do construtor e desaparece quando o construtor termina. Nada foi guardado no objeto, que nasceu com `codigo` e `quantidade`, mas sem `nome`. O erro só aparece quando alguém pede ao objeto o atributo que ele não tem, várias linhas depois da causa.
-
-5. Para confirmares que só falta o nome, muda provisoriamente os dois `print` do fim para mostrarem só o código e a quantidade:
+5. Confirma que só falta o nome. Muda, por agora, os dois `print` do fim para mostrarem só o código e a quantidade:
 
    ```python partial
    print(caderno.codigo, caderno.quantidade)
    print(pasta.codigo, pasta.quantidade)
    ```
 
-   Executa. O que deves ver:
+   Guarda e executa. O que deves ver:
 
    ```text
    A01 6
    A02 2
    ```
 
-   Isto quer dizer que os dois objetos foram criados e têm os outros dois atributos. Só lhes falta aquele em que tiraste o `self.`.
+   Isto quer dizer que os dois objetos foram criados, e só lhes falta o atributo em que tiraste o `self.`.
 
-6. Volta a pôr `self.nome = nome` no construtor e os dois `print` como estavam. Executa para confirmares que aparecem outra vez as duas linhas da fase 1.
+6. Repõe `self.nome = nome` no construtor e os dois `print` como estavam. Guarda e executa: aparecem outra vez `A01 Caderno 6` e `A02 Pasta 2`.
 
 ### Paragem 4
 
-O ficheiro está outra vez como no fim da fase 1, e o programa mostra `A01 Caderno 6` e `A02 Pasta 2`.
+O ficheiro está outra vez como na paragem 1, e no ecrã aparecem de novo os dados dos dois artigos, sem nenhuma mensagem de erro.
 
-Pensa antes de continuares: o Python mostrou o erro na linha 16, mas o engano estava na linha 9. O que te ensina isto sobre a forma de procurar a causa de um erro? A resposta: a linha que a mensagem aponta é onde o erro se viu, e não sempre onde nasceu. A mensagem é uma pista: daí, sobe no programa até à instrução que devia ter guardado o atributo.
+Pensa antes de continuares: o Python mostrou o erro na linha 16, mas o engano estava na linha 9. O que te diz isto sobre a maneira de procurar a causa de um erro? A resposta: a linha que a mensagem aponta é onde o erro se viu, e nem sempre onde nasceu. Parte dela e sobe no programa até à instrução que devia ter guardado o atributo.
 
-## Fase 5: Um método, retirar
+## Fase 5: O método retirar em Python
 
-Um método é uma operação que pertence a um objeto, como retirar unidades. Escreve-se dentro da classe, como o construtor, e também tem o `self` como primeiro parâmetro. Na chamada `caderno.retirar(2)`, o objeto que está antes do ponto, o `caderno`, é o que vai ocupar o `self`. O `2` é o argumento, que ocupa o parâmetro `unidades`. O método muda a quantidade do artigo e devolve, com `return`, a quantidade que fica. Para saber mais, lê "O método retirar em Python" no [guia](../02-objetos-classes-instancias.md).
+Acrescentas à classe o método `retirar`, uma operação que cada artigo sabe fazer, e pedes ao caderno que retire duas unidades. Depois experimentas outra forma de escrever a mesma chamada, para veres quem é o `self`. Rever: [O método retirar em Python](../02-objetos-classes-instancias.md#o-método-retirar-em-python) e [Método: uma operação que pertence ao objeto](../02-objetos-classes-instancias.md#método-uma-operação-que-pertence-ao-objeto).
 
-1. Em `artigos.py`, acrescenta à classe o método `retirar`, a seguir ao construtor, com uma linha em branco entre os dois. A linha `def retirar(self, unidades):` fica com a mesma indentação de `def __init__`, e as linhas de dentro do método ficam com mais quatro espaços. É uma alteração; o método é este:
+1. Acrescenta o método à classe, a seguir ao construtor, com uma linha em branco entre os dois. A linha `def retirar(self, unidades):` leva os mesmos quatro espaços de `def __init__`, e as linhas de dentro levam oito:
 
    ```python partial
        def retirar(self, unidades):
@@ -268,9 +260,9 @@ Um método é uma operação que pertence a um objeto, como retirar unidades. Es
            return self.quantidade
    ```
 
-   Leitura guiada: a linha `self.quantidade = self.quantidade - unidades` lê-se da direita para a esquerda. O Python consulta a quantidade deste artigo, tira-lhe as unidades pedidas e guarda o resultado no mesmo atributo. Depois, o `return` entrega a quantidade que ficou a quem chamou o método.
+   O parâmetro `unidades` recebe as unidades que se pedem, e o `self` é o artigo que recebeu o pedido. A linha `self.quantidade = self.quantidade - unidades` calcula primeiro o lado direito, a quantidade deste artigo menos as unidades pedidas, e guarda o resultado no mesmo atributo. O `return` entrega a quantidade que ficou a quem chamou o método, sem a mostrar: mostrar é o trabalho do `print`.
 
-2. Substitui as linhas que vêm depois da classe, a partir de `caderno = ...`, por estas:
+2. Troca as linhas que vêm depois da classe, a partir de `caderno = ...`, por estas:
 
    ```python partial
    caderno = Artigo("A01", "Caderno", 6)
@@ -282,9 +274,9 @@ Um método é uma operação que pertence a um objeto, como retirar unidades. Es
    print("Devolvido:", restante)
    ```
 
-   Leitura guiada: o primeiro `print` mostra as duas quantidades antes do pedido. A linha `restante = caderno.retirar(2)` pede ao caderno que retire duas unidades e guarda, na variável `restante`, o valor que o método devolve. Os dois últimos `print` mostram as quantidades depois do pedido e o valor devolvido.
+   A linha `restante = caderno.retirar(2)` pede ao caderno que retire duas unidades e guarda em `restante` o valor que o método devolve. O `2` é o argumento, o valor que ocupa o parâmetro `unidades` nesta chamada.
 
-3. Prevê as três linhas que vão aparecer. Depois executa. O que deves ver:
+3. Guarda e executa. O que deves ver:
 
    ```text
    Antes: 6 2
@@ -292,13 +284,11 @@ Um método é uma operação que pertence a um objeto, como retirar unidades. Es
    Devolvido: 4
    ```
 
-   Isto quer dizer que o pedido chegou só ao caderno, que passou de 6 para 4, e que o método devolveu o 4 que ficou.
+   Isto quer dizer que o pedido chegou só ao caderno, que passou de 6 para 4, e que o método devolveu o 4 que ficou. Se aparecer outra coisa, vê [Se alguma coisa falhar](#se-alguma-coisa-falhar).
 
-4. Agora uma experiência sobre o `self`. A chamada `caderno.retirar(2)` dá exatamente o mesmo que `Artigo.retirar(caderno, 2)`: "executa o método `retirar` da classe `Artigo`, com `self` igual a `caderno` e `unidades` igual a 2". Nesta forma longa, o objeto que ocupa o `self` vai em primeiro lugar entre parênteses. Vais confirmá-lo. Na linha `restante = caderno.retirar(2)`, troca `caderno.retirar(2)` por `Artigo.retirar(caderno, 2)`. Prevê as três linhas e executa.
+4. Experimenta a forma longa da mesma chamada. Na linha `restante = caderno.retirar(2)`, troca `caderno.retirar(2)` por `Artigo.retirar(caderno, 2)`. Esta forma lê-se "executa o `retirar` da classe `Artigo`, com o `self` igual a `caderno` e as `unidades` iguais a 2". Guarda e executa. O que deves ver: as mesmas três linhas do passo 3, porque as duas formas pedem exatamente a mesma coisa.
 
-   A resposta: a saída não muda. Continuas a ver `Antes: 6 2`, `Depois: 4 2` e `Devolvido: 4`, porque as duas formas pedem exatamente a mesma coisa.
-
-5. Troca agora `Artigo.retirar(caderno, 2)` por `Artigo.retirar(pasta, 2)`. Antes de executares, prevê: qual dos dois artigos vai ficar com menos unidades? Qual dos dois objetos vai ser o `self` dentro do método? Executa. O que deves ver:
+5. Troca agora `Artigo.retirar(caderno, 2)` por `Artigo.retirar(pasta, 2)`. Antes de executares, prevê: a qual dos dois artigos saem as duas unidades? Depois guarda e executa. O que deves ver:
 
    ```text
    Antes: 6 2
@@ -306,15 +296,13 @@ Um método é uma operação que pertence a um objeto, como retirar unidades. Es
    Devolvido: 0
    ```
 
-   A resposta: fica com menos unidades a pasta, que passa de 2 para 0. O `self` dentro do método é a pasta, porque é o primeiro valor entre parênteses. Ficar com zero unidades é um estado válido, e não há nada de errado nesta chamada.
+   A resposta: à pasta, que passa de 2 para 0, porque na forma longa o `self` é o primeiro valor entre os parênteses. Ficar com 0 unidades é um estado válido, e a chamada não tem nada de errado. Na forma curta, `caderno.retirar(2)`, o objeto que ocupa o `self` é o que está antes do ponto.
 
-6. Pensa: na forma curta, `caderno.retirar(2)`, onde está escrito o objeto que vai ocupar o `self`? A resposta: antes do ponto.
-
-7. Volta a pôr `restante = caderno.retirar(2)` e executa, para confirmares a saída do passo 3. A forma longa serviu só para veres que dá exatamente o mesmo que a curta, com o objeto do `self` escrito em primeiro lugar. Nas duas formas, o método é o mesmo e trabalha sobre um objeto; só muda a maneira de o chamar. Nos programas escreve-se sempre a forma curta, que é a que toda a gente espera ler.
+6. Volta a pôr `restante = caderno.retirar(2)`, guarda e executa: aparecem outra vez as três linhas do passo 3. Nos programas escreve-se sempre a forma curta. A longa serviu só para veres em que lugar entra o objeto.
 
 ### Paragem 5
 
-O programa mostra `Antes: 6 2`, `Depois: 4 2` e `Devolvido: 4`. O ficheiro `artigos.py` completo, como deve estar agora:
+O programa mostra `Antes: 6 2`, `Depois: 4 2` e `Devolvido: 4`. O teu `artigos.py` deve estar agora assim:
 
 ```python
 # artigos.py: a classe Artigo e os artigos da sala, do laboratório do tema 02.
@@ -347,13 +335,15 @@ print("Depois:", caderno.quantidade, pasta.quantidade)
 print("Devolvido:", restante)
 ```
 
-Pensa antes de continuares: se apagasses a palavra `restante =` e deixasses só `caderno.retirar(2)`, com que quantidade ficava o caderno? A resposta: ficava com 4 na mesma. A alteração do atributo acontece dentro do método. O que se perdia era só o valor devolvido. A linha `print("Devolvido:", restante)` deixava de funcionar: o programa parava aí com `NameError: name 'restante' is not defined` ("o nome `restante` não está definido"), porque a variável `restante` já não existia.
+O método `retirar` ficou dentro da classe, a seguir ao construtor e com a mesma indentação. Por baixo da classe estão os dois artigos, o pedido ao caderno e os três `print`.
 
-## Fase 6: Dois nomes para o mesmo objeto
+Pensa antes de continuares: se apagasses `restante =` e deixasses só `caderno.retirar(2)`, com que quantidade ficava o caderno? A resposta: com 4 na mesma, porque a quantidade muda dentro do método. Perdia-se só o valor devolvido. A linha `print("Devolvido:", restante)` deixava de funcionar, e o programa parava aí, já depois de mostrar `Depois: 4 2`, com `NameError: name 'restante' is not defined` ("o nome `restante` não está definido").
 
-Uma variável não contém o objeto: é um nome que aponta para ele, como uma etiqueta colada numa caixa. A linha `mesmo_caderno = caderno` não tem `Artigo(...)`, e por isso não cria nenhum artigo. Cola uma segunda etiqueta na caixa do caderno. A palavra `is` pergunta se dois nomes apontam para o mesmo objeto. Para saber mais, lê "Cada instância é um objeto diferente" no [guia](../02-objetos-classes-instancias.md).
+## Fase 6: Cada instância é um objeto diferente
 
-1. Substitui as linhas que vêm depois da classe por estas. A classe fica igual, com o construtor e o `retirar`:
+Dás ao caderno um segundo nome e depois comparas o caderno com um artigo novo, criado com os mesmos valores. Para comparar, usas o `is` (em inglês, "é"), que pergunta se dois nomes apontam para o mesmo objeto e dá `True` (verdadeiro) ou `False` (falso). Rever: [Cada instância é um objeto diferente](../02-objetos-classes-instancias.md#cada-instância-é-um-objeto-diferente).
+
+1. Troca as linhas que vêm depois da classe por estas. A classe fica igual, com o construtor e o `retirar`:
 
    ```python partial
    caderno = Artigo("A01", "Caderno", 6)
@@ -368,9 +358,9 @@ Uma variável não contém o objeto: é um nome que aponta para ele, como uma et
    print(caderno is pasta)
    ```
 
-   Leitura guiada: das três primeiras linhas, só duas têm `Artigo(...)`. A terceira dá um segundo nome a um objeto que já existe. O pedido `mesmo_caderno.retirar(1)` vai para o objeto para onde esse nome aponta. Os dois primeiros `print` mostram as quantidades, e os dois últimos perguntam, com `is`, se dois nomes apontam para o mesmo objeto.
+   Os dois últimos `print` perguntam, com `is`, se dois nomes apontam para o mesmo objeto.
 
-2. Prevê as quatro linhas que vão aparecer e executa. O que deves ver:
+2. Antes de executares, prevê: o pedido é feito através de `mesmo_caderno`, mas qual dos artigos perde a unidade? Depois guarda e executa. O que deves ver:
 
    ```text
    Caderno: 5
@@ -379,9 +369,9 @@ Uma variável não contém o objeto: é um nome que aponta para ele, como uma et
    False
    ```
 
-   Isto quer dizer que a unidade retirada através de `mesmo_caderno` saiu do caderno, porque os dois nomes apontam para o mesmo objeto. `caderno is mesmo_caderno` dá `True`, e `caderno is pasta` dá `False`.
+   A resposta: perde-a o caderno, porque os dois nomes apontam para o mesmo objeto. A linha `mesmo_caderno = caderno` não tem `Artigo(...)`, e por isso não nasce nenhum artigo novo. O objeto do caderno continua a ser um só, agora com dois nomes, como uma caixa com duas etiquetas coladas. Assim, `caderno is mesmo_caderno` dá `True`, e `caderno is pasta` dá `False`.
 
-3. Agora troca a linha `mesmo_caderno = caderno` por esta:
+3. Troca a linha `mesmo_caderno = caderno` por esta, que cria um artigo novo com os valores com que o caderno começou:
 
    ```python partial
    mesmo_caderno = Artigo("A01", "Caderno", 6)
@@ -393,7 +383,7 @@ Uma variável não contém o objeto: é um nome que aponta para ele, como uma et
    print("Mesmo caderno:", mesmo_caderno.quantidade)
    ```
 
-4. Antes de executares, prevê: quantos objetos do tipo `Artigo` existem agora? A qual deles vai ser retirada a unidade? O que vai mostrar `caderno is mesmo_caderno`? Executa. O que deves ver:
+4. Guarda e executa. O que deves ver:
 
    ```text
    Caderno: 6
@@ -403,19 +393,13 @@ Uma variável não contém o objeto: é um nome que aponta para ele, como uma et
    Mesmo caderno: 5
    ```
 
-   A resposta: passam a existir três objetos, porque há três chamadas a `Artigo(...)`. A unidade é retirada ao objeto novo, o que tem o nome `mesmo_caderno`, e por isso o caderno fica com 6. `caderno is mesmo_caderno` dá `False`, porque os dois nomes apontam para objetos diferentes.
+   Isto quer dizer que há agora três objetos, um por cada `Artigo(...)`, e que a unidade saiu do novo, o que tem o nome `mesmo_caderno`. O caderno ficou com 6. `caderno is mesmo_caderno` dá agora `False`, porque são dois objetos, criados por duas chamadas a `Artigo(...)`, mesmo tendo começado com os mesmos valores. O `is` não compara os valores: pergunta se é o mesmo objeto. Na fase 3, o caderno e a pasta tinham números de memória diferentes pela mesma razão. O Python aceitou dois artigos com o código A01, contra a primeira regra do inventário, porque não conhece as regras: quem as cumpre é quem escreve o programa. Rever: [Uma operação tem de respeitar regras](../01-entidades-estado-acoes.md#uma-operação-tem-de-respeitar-regras), no guia 01.
 
-5. Pensa: os objetos a que chamámos `caderno` e `mesmo_caderno` começaram com exatamente os mesmos valores. Porque é que `caderno is mesmo_caderno` dá agora `False`? Relaciona a tua resposta com o que viste na fase 3, quando o caderno e a pasta apareceram com números de memória diferentes.
-
-   A resposta: `is` pergunta se os dois nomes apontam para o mesmo objeto, e não se os objetos têm os mesmos valores. São duas caixas diferentes, com o mesmo conteúdo escrito lá dentro, criadas por duas chamadas a `Artigo(...)`. Na fase 3, o caderno e a pasta tinham números de memória diferentes pela mesma razão: cada `Artigo(...)` cria um objeto novo, num sítio seu.
-
-6. Repara também que o programa passou a ter dois artigos com o código A01. O Python aceitou-o sem se queixar. Mas a primeira regra do inventário, na secção "Uma operação tem de respeitar regras" do guia 01, diz que cada código identifica um único artigo. O Python não conhece as regras do nosso inventário: faz o que o programa lhe pede, e quem escreve o programa é que tem de as respeitar.
-
-7. Volta a pôr `mesmo_caderno = caderno`, apaga a última linha que acrescentaste e executa, para confirmares a saída do passo 2.
+5. Volta a pôr `mesmo_caderno = caderno` e apaga a última linha que acrescentaste. Guarda e executa: aparecem outra vez as quatro linhas do passo 2.
 
 ### Paragem 6
 
-O programa mostra `Caderno: 5`, `Pasta: 2`, `True` e `False`. O ficheiro `artigos.py` completo, como deve estar no fim do laboratório:
+O programa mostra `Caderno: 5`, `Pasta: 2`, `True` e `False`. O `artigos.py` completo, como deve ficar no fim do laboratório:
 
 ```python
 # artigos.py: a classe Artigo e os artigos da sala, do laboratório do tema 02.
@@ -451,41 +435,70 @@ print(caderno is mesmo_caderno)
 print(caderno is pasta)
 ```
 
-Pensa antes de continuares: se, a seguir a `mesmo_caderno.retirar(1)`, escrevesses `caderno.retirar(1)`, com que quantidade ficava o caderno? A resposta: com 4. Os dois pedidos chegam ao mesmo objeto, um através de cada nome, e cada um tira uma unidade.
+A classe é a da paragem 5. Por baixo estão os dois artigos, o segundo nome do caderno, o pedido feito através dele e os quatro `print`.
 
-## Problemas frequentes
+Pensa antes de terminares: se, a seguir a `mesmo_caderno.retirar(1)`, escrevesses `caderno.retirar(1)`, com que quantidade ficava o caderno? A resposta: com 4. Os dois pedidos chegam ao mesmo objeto, um através de cada nome, e cada um tira uma unidade.
 
-### `SyntaxError: expected ':'`
+## Se alguma coisa falhar
 
-Em português: erro de sintaxe, esperava-se `:`. Nas versões do Python anteriores à 3.10, a mensagem é só `SyntaxError: invalid syntax`. Faltam os dois pontos no fim de uma linha `class` ou `def`. Acrescenta `:` no fim da linha que a mensagem mostra.
+1. Guardaste o ficheiro antes de executar? Se o programa mostra o mesmo de antes, apesar de teres mudado o código, guarda e executa outra vez.
+2. Estás a executar o ficheiro certo? Tem de ser o `artigos.py` da pasta `tema-02`.
+3. Executaste o ficheiro todo, e não só umas linhas? Cada execução volta a criar os artigos com os valores escritos e faz tudo pela ordem do ficheiro.
+4. Desfizeste a experiência anterior? As fases 2, 3 e 4 acabam com o ficheiro da paragem 1. Se te perderes, copia o último ficheiro completo a que chegaste, o da paragem 1, o da paragem 5 ou o da paragem 6, e refaz os passos que faltam.
+5. Apareceu uma mensagem de erro? Lê primeiro a última linha, com o tipo de erro e a razão, e procura-a nos problemas a seguir. Quando a mensagem começa por `Traceback`, o erro aconteceu com o programa já a correr. Num erro de escrita, como um `SyntaxError` ou um `IndentationError`, o programa nem chega a correr, e a mensagem abre logo com o ficheiro e a linha. Na primeira classe, enganos destes são normais.
 
-### `IndentationError`
+### Aparece `SyntaxError: expected ':'` ou `SyntaxError: invalid syntax`
 
-Em português: erro de indentação. Com `expected an indented block` ("esperava-se um bloco indentado"), há um `class` ou um `def` cujo bloco ficou sem indentação: as linhas de dentro, incluindo a docstring, ficaram com a mesma indentação dele. A partir do Python 3.10, a última linha acaba em `on line` e um número, que é a linha desse `class` ou `def`. Com `unexpected indent` ("indentação inesperada"), uma linha tem espaços a mais. Dentro da classe, o `def` leva quatro espaços; dentro de um método, todas as linhas levam oito, incluindo a docstring. Compara com o último ficheiro completo, linha a linha.
+Quer dizer "erro de escrita: esperava `:`". Falta o sinal de dois pontos no fim de uma linha `class` ou `def`. Escreve-o no fim da linha que a mensagem mostra. No Python 3.9, a mesma falta dá só `invalid syntax`. Se os dois pontos estiverem todos no sítio, vê [o último problema desta secção](#aparece-outro-syntaxerror-indentationerror-ou-taberror).
 
-### `NameError: name 'codigo' is not defined`
+### Aparece `IndentationError: expected an indented block`
 
-As três linhas que começam por `self.` ficaram com quatro espaços, a mesma indentação do `def`, e só a docstring ficou dentro do construtor. Essas linhas deixaram de pertencer ao método, e fora dele o parâmetro `codigo` não existe. Põe as três linhas com oito espaços, como a docstring.
+Em português, "erro de indentação: esperava-se um bloco indentado". As linhas de dentro de um `class` ou de um `def`, com a docstring, ficaram encostadas à mesma margem que ele. A partir do Python 3.10, a mensagem acaba em `on line` e no número da linha desse `class` ou `def`. Dentro da classe, o `def` leva quatro espaços, e as linhas de dentro de um método levam oito, a docstring incluída.
 
-### `TypeError: Artigo() takes no arguments`
+### Aparece `IndentationError: unexpected indent`
 
-Em português: `Artigo()` não aceita argumentos. Um `TypeError` ("erro de tipo") é o erro que o Python dá quando uma operação recebe valores que não aceita. O nome do construtor está mal escrito, por exemplo `_init_`, com um só sublinhado de cada lado, ou `__innit__`, com um `n` a mais. O Python não o reconhece como construtor, e a classe fica sem nenhum construtor que aceite valores. O nome escreve-se `__init__`: dois sublinhados, a palavra `init` e mais dois sublinhados.
+Quer dizer "indentação inesperada": uma linha tem mais espaços do que a de cima. Acontece, por exemplo, quando a linha provisória da fase 2 fica com quatro espaços em vez de oito: o Python queixa-se da linha `self.codigo = codigo`, a seguir a ela. Compara os espaços de cada linha com os do último ficheiro completo.
 
-### `TypeError: Artigo.retirar() takes 1 positional argument but 2 were given`
+### Aparece `NameError: name 'codigo' is not defined`
 
-Nas versões do Python anteriores à 3.10, a mensagem começa por `retirar()`, sem `Artigo.`. Em português: o método `retirar` aceita 1 argumento posicional, mas recebeu 2. Compara a linha do `def retirar` com a do ficheiro da paragem 5.
+As linhas que começam por `self.` ficaram com quatro espaços, a margem do `def`, e só a docstring ficou dentro do construtor. Essas linhas passaram a pertencer à classe, fora do construtor, onde o parâmetro `codigo` não existe. Dá-lhes oito espaços, como à docstring.
 
-### `NameError: name 'artigo' is not defined`
+### Aparece `NameError: name 'artigo' is not defined`
 
-As versões recentes do Python acrescentam `Did you mean: 'Artigo'?`, isto é, "querias dizer `Artigo`?". A classe foi escrita com maiúscula e a chamada com minúscula, ou ao contrário. Escreve o nome da classe sempre da mesma maneira: `Artigo`, com maiúscula.
+A classe tem o nome com maiúscula e a chamada está com minúscula, ou ao contrário, e para o Python são dois nomes. As versões recentes do Python acrescentam `Did you mean: 'Artigo'?` ("querias dizer `Artigo`?"). Escreve sempre `Artigo`, com maiúscula.
 
-### `AttributeError: 'Artigo' object has no attribute 'quantidade'`
+### Aparece `TypeError: Artigo() takes no arguments`
 
-As versões recentes do Python podem acrescentar uma sugestão, como `Did you mean: 'quantiade'?`. O construtor guardou o atributo com outro nome, por um erro de escrita como `self.quantiade`, ou sem o `self.` à frente. Confirma que o nome depois de `self.` é exatamente o mesmo que usas no resto do programa.
+Quer dizer "erro de tipo: `Artigo()` não aceita argumentos". O nome do construtor está mal escrito, como `_init_`, com um só sublinhado de cada lado, ou `__innit__`. Sem um `__init__` com esse nome exato, a classe não tem construtor que receba os três valores. Escreve o nome assim: dois sublinhados, a palavra `init` e outros dois sublinhados.
 
-### `AttributeError: 'Artigo' object has no attribute 'retirar'`
+### Aparece `TypeError: Artigo.__init__() takes 3 positional arguments but 4 were given`
 
-O método ficou fora da classe, com o `def` encostado à margem. O Python aceita-o como uma função solta, e os objetos `Artigo` não o têm. Põe o `def` com quatro espaços e as linhas de dentro com oito.
+Compara a tua linha `def __init__` com a da [paragem 1](#paragem-1).
+
+### Aparece `TypeError: Artigo.retirar() takes 1 positional argument but 2 were given`
+
+Quer dizer "o `retirar` aceita 1 argumento, mas recebeu 2". No Python 3.9, a mensagem começa por `retirar()`, sem `Artigo.`. Compara a tua linha `def retirar` com a do ficheiro da [paragem 5](#paragem-5).
+
+### Aparece `AttributeError: 'Artigo' object has no attribute 'quantidade'`
+
+O construtor guardou a quantidade com outro nome, por um engano como `self.quantiade`, ou sem o `self.` à frente. As versões recentes do Python podem sugerir o nome que existe, como `Did you mean: 'quantiade'?`. O nome depois de `self.` tem de ser exatamente o que usas no resto do programa.
+
+### Aparece `AttributeError: 'Artigo' object has no attribute 'retirar'`
+
+A linha `def retirar` ficou encostada à margem, e o método saiu da classe. O Python aceita-o como uma função solta, mas os objetos `Artigo` não o têm. Dá ao `def` quatro espaços, como ao do construtor, e oito às linhas de dentro.
+
+### Aparece `Depois: 6 2`, sem nenhuma mensagem de erro
+
+Na linha da conta do `retirar` falta o `self.` à esquerda do `=`. A conta fica guardada numa variável do método, que desaparece quando ele acaba, como o `nome = nome` da fase 4, e a quantidade do caderno não muda. A linha tem de começar por `self.quantidade =`. Se o `self.` faltar à direita, em `quantidade - unidades`, o programa para com `NameError: name 'quantidade' is not defined`, e o Python 3.14 acrescenta `Did you mean: 'self.quantidade'?`.
+
+### Aparece outro `SyntaxError`, `IndentationError` ou `TabError`
+
+Compara, letra a letra e espaço a espaço, a linha que a mensagem mostra e a de cima com as do bloco que escreveste. No Python 3.9, a linha apontada pode vir depois do engano. Os enganos mais comuns, com as mensagens do Python 3.14 e do 3.9:
+
+- falta uma das três aspas no fim de uma docstring: `SyntaxError: unterminated triple-quoted string literal`; no 3.9, `SyntaxError: EOF while scanning triple-quoted string literal`, a apontar a última linha do ficheiro;
+- falta fechar um parêntese: `SyntaxError: '(' was never closed`; no 3.9, só `SyntaxError: invalid syntax`, a apontar a linha de baixo, ou `SyntaxError: unexpected EOF while parsing`, se for a última linha;
+- um `def` tem outro número de espaços que não quatro: `IndentationError: unindent does not match any outer indentation level`, nas duas versões;
+- uma linha tem uma tabulação no lugar dos espaços: `TabError: inconsistent use of tabs and spaces in indentation`, nas duas versões. Apaga a tabulação e escreve os espaços.
 
 ## Desafios
 
@@ -497,15 +510,14 @@ O método ficou fora da classe, com o `def` encostado à margem. O Python aceita
    - um método `usar`, com um parâmetro `horas`, que acrescente as horas recebidas às horas de uso e devolva o total que fica. Ainda não precisa de verificar se o pedido é válido;
    - as docstrings da classe, do construtor e do método.
 
-   Depois da classe, cria dois projetores: o P01, na Sala 12, com 150 horas de uso, e o P02, na Sala 7, acabado de comprar, com 0 horas. Usa o P01 durante 3 horas, depois o P02 durante 2 horas e depois o P01 durante 1 hora, e guarda numa variável o valor devolvido pela última chamada. No fim, mostra numa só linha as horas de uso dos dois projetores e o valor que guardaste. Antes de executares, segue de cabeça o traço das três chamadas e prevê a linha que vai aparecer. Num comentário no início do `projetor.py`, responde: porque é que aqui faz sentido uma classe nova, e não a classe `Artigo`? Pista: compara os dados e as operações de um projetor com os de um artigo.
+   Depois da classe, cria dois projetores: o P01, na Sala 12, com 150 horas de uso, e o P02, na Sala 7, acabado de comprar, com 0 horas. Usa o P01 durante 3 horas, depois o P02 durante 2 horas e depois o P01 durante 1 hora. Guarda numa variável o valor devolvido pela última chamada. No fim, mostra numa só linha as horas de uso dos dois projetores e o valor que guardaste. Antes de executares, segue de cabeça o traço das três chamadas e prevê a linha que vai aparecer. Num comentário no início do `projetor.py`, responde: porque é que aqui faz sentido uma classe nova, e não a classe `Artigo`? Pista: compara os dados e as operações de um projetor com os de um artigo.
 
 ## Antes de terminares
 
-- [ ] O ficheiro `artigos.py` executa e mostra `Caderno: 5`, `Pasta: 2`, `True` e `False`.
-- [ ] Desfizeste todas as alterações provisórias: o ficheiro está igual ao da paragem 6.
-- [ ] Guardaste o `artigos.py` e, se fizeste os desafios, o `memoria.py` e o `projetor.py`, e entregaste-os pelo meio indicado pelo professor.
-- [ ] Sabes dizer quando é que o construtor trabalha, e quem é o `self` em `caderno.retirar(2)`.
-- [ ] Sabes dizer porque é que `mesmo_caderno = caderno` não cria um artigo novo.
-- [ ] Consegues explicar, por palavras tuas, a diferença entre a classe `Artigo` e os objetos `caderno` e `pasta`.
+- [ ] O `artigos.py` da pasta `tema-02` corre e mostra `Caderno: 5`, `Pasta: 2`, `True` e `False`.
+- [ ] Desfizeste todas as experiências: o ficheiro está igual ao da paragem 6.
+- [ ] Guardaste o `artigos.py` e, se fizeste os desafios, o `memoria.py` e o `projetor.py`, e entregaste-os pelo meio que o professor indicar.
+- [ ] Consegues explicar, por palavras tuas, quando é que o construtor trabalha, quem é o `self` em `caderno.retirar(2)` e porque é que `mesmo_caderno = caderno` não cria um artigo novo.
+- [ ] Consegues explicar a diferença entre a classe `Artigo` e os objetos `caderno` e `pasta`.
 
 ![Rodapé](../../imagens/rodape.png)

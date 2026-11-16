@@ -2,65 +2,42 @@
 
 # Laboratório: Composição e modelação
 
-Laboratório do tema Composição e modelação, do módulo M10, Introdução à Programação Orientada por Objetos. Vais construir o inventário em Python: uma classe `Inventario` que cria os artigos, os guarda e lhes passa os pedidos. Cada passo diz o que fazer, porquê e o que deves ver, e avanças ao teu ritmo. O que não acabares na aula, acabas em casa ou na aula seguinte. Tudo o que precisas está aqui; o [guia do tema](../04-composicao-modelacao.md) tem a teoria completa, para quem quiser saber mais.
-
 ## O que vais construir
 
-No fim, tens um ficheiro `inventario.py` com duas classes a funcionar: a classe `Artigo`, que já conheces do tema 03, e a classe `Inventario`, escrita por ti. O inventário garante uma regra que nenhum artigo consegue garantir sozinho: não há dois artigos com o mesmo código. Pelo caminho, provocas de propósito uma recusa que atravessa vários métodos e lês o caminho que ela fez.
+Partes da classe `Artigo` do tema 03 e escreves a classe `Inventario`, que cria os artigos, os guarda e lhes passa os pedidos, sem deixar repetir um código. No fim, provocas uma recusa que atravessa vários métodos e lês, no ecrã, o caminho que ela fez.
 
-Antes de escrever código, descreve-se por palavras o que vais construir. Em cada classe, diz-se o que cada objeto guarda e o que se lhe pode pedir; no fim, diz-se como as duas classes se ligam. É o modelo do programa:
+Acabado, o programa `inventario.py` mostra:
 
-- A classe `Artigo`. Cada artigo guarda um código, um nome e uma quantidade, que é sempre um número inteiro não negativo. Um artigo cria-se com esses três valores. A um artigo pode pedir-se que adicione unidades, com `adicionar(unidades)`, e que retire unidades, com `retirar(unidades)`.
-- A classe `Inventario`. Cada inventário guarda os seus artigos, e nunca dois com o mesmo código. Um inventário cria-se vazio. A um inventário pode pedir-se que registe um artigo novo, com `registar(codigo, nome, quantidade)`; que diga a quantidade de um artigo, com `quantidade_de(codigo)`; e que retire unidades de um artigo, com `retirar(codigo, unidades)`.
-- A relação entre as duas. Um inventário tem artigos, e é o próprio inventário que cria os seus artigos e os guarda. Cada artigo pertence a um só inventário e não faz sentido sem ele. Esta relação chama-se **composição**.
+```text
+Registo de A01 recusado: Já existe um artigo com o código A01.
+Registo de A03 recusado: A quantidade não pode ser negativa.
+Consulta de A03 recusada: Não existe nenhum artigo com o código A03.
+A01 depois de retirar 2: 4
+Retirar 9 de A01 recusado: A quantidade não pode ser negativa.
+Retirar de A07 recusado: Não existe nenhum artigo com o código A07.
+A01 no fim: 4
+A02 no fim: 2
+```
 
-Entre parênteses estão os valores que cada pedido recebe, os parâmetros do método. O `self` não se escreve, porque todos os métodos o têm. A descrição também não fala do sítio onde o inventário guarda os artigos: isso decide-se no código, na fase 1.
-
-| Fase | O que muda | O que funciona no fim |
-| --- | --- | --- |
-| 1 | Escreves a classe `Inventario` com o construtor | Um inventário vazio, com a sua lista de artigos |
-| 2 | Acrescentas os métodos `_procurar` e `registar` | O inventário cria artigos, encontra-os pelo código e recusa um código repetido |
-| 3 | Acrescentas os métodos `quantidade_de` e `retirar` | O programa completo responde a oito pedidos, e confere com o traço |
-| 4 | Fazes um pedido impossível fora de um `try` | Lês, no ecrã, o caminho que a recusa fez até parar o programa |
-
-Em todas as fases trabalhas da mesma maneira. Antes de executares o programa, pensa no que esperas ver. Depois executas e comparas. Quando o resultado é diferente do que previste, procura a razão da diferença antes de continuares: é isso que mais te ensina. Prever primeiro obriga-te a pensar; executar primeiro só te mostra o que o Python fez.
-
-Executa sempre o ficheiro inteiro. Cada execução começa do zero: cria um inventário novo e repete todos os pedidos, pela ordem em que estão escritos.
-
-## Palavras que vais usar
-
-- Inventário: o objeto que reúne os artigos de uma sala e responde às perguntas sobre o conjunto, como "já existe um artigo com o código A01?". Para saber mais, vê a secção "Artigos soltos: o que nenhum artigo consegue garantir" do [guia](../04-composicao-modelacao.md).
-- Modelo: a descrição, por palavras, das classes de um programa, do que cada uma guarda e faz, e das relações entre elas. Escreve-se antes do código. Para saber mais, vê "O inventário descrito por palavras" no [guia](../04-composicao-modelacao.md).
-- Composição: a relação em que o todo cria as suas partes e as guarda, e as partes não fazem sentido sem ele. Aqui, o inventário cria os artigos. Para saber mais, vê "Dois graus de "tem": composição e agregação" no [guia](../04-composicao-modelacao.md).
-- Lista: um valor que guarda vários valores por ordem, escrito entre parênteses retos; `[]` é uma lista vazia. `len(lista)` (do inglês *length*, "comprimento") dá o número de elementos. `lista.append(valor)` (*append*, "acrescentar") junta um elemento no fim.
-- Ciclo `for`: repete o bloco indentado por baixo dele uma vez por cada elemento de uma lista. `for artigo in artigos:` lê-se "para cada artigo na lista artigos".
-- Atributo interno e método interno: um nome com um sublinhado no início, como `_artigos` ou `_procurar`. Avisa que só a própria classe o deve usar.
-- Propriedade, getter e setter: a `quantidade` de um artigo lê-se e escreve-se como um atributo. Cada leitura passa por um método, o getter (do inglês *get*, obter). Cada escrita passa por outro, o setter (de *set*, pôr), que recusa os valores inválidos. Vem do tema 03.
-- Exceção: um sinal de que alguma coisa correu mal, que interrompe o funcionamento normal do programa. `raise` lança uma exceção. `ValueError` ("erro de valor") é a exceção que usamos para recusar um valor ou um pedido. `try` e `except` apanham-na, para o programa continuar. Vem do tema 03.
-- Encaminhamento: o inventário recebe um pedido, encontra o artigo que sabe cumpri-lo e passa-lho, sem verificar nada sobre as unidades.
-- Traço: a tabela que regista, passo a passo, o que acontece em cada instrução ou em cada pedido, e como fica o estado depois dele. Prevê-se antes de executar, para comparar com o que o programa mostra.
-- Cadeia de chamadas: os métodos que estão parados, cada um à espera do seguinte, desde o programa principal até ao sítio onde o Python está a trabalhar.
-- Mensagem de erro: o texto que o Python mostra quando para por causa de um erro. Quando o erro acontece com o programa a correr, a primeira linha é `Traceback (most recent call last)`, que quer dizer "o rasto, com a chamada mais recente no fim". Num erro de escrita, como um `SyntaxError` ("erro de sintaxe") ou um `IndentationError` ("erro de indentação"), o Python nem começa a correr o programa. Nos dois casos, a última linha diz o tipo de erro e o que aconteceu.
+1. [Fase 1: Uma lista para guardar os artigos](#fase-1-uma-lista-para-guardar-os-artigos)
+2. [Fase 2: O inventário cria os artigos e encontra-os pelo código](#fase-2-o-inventário-cria-os-artigos-e-encontra-os-pelo-código)
+3. [Fase 3: O inventário passa os pedidos aos artigos](#fase-3-o-inventário-passa-os-pedidos-aos-artigos)
+4. [Fase 4: O caminho de uma recusa](#fase-4-o-caminho-de-uma-recusa)
 
 ## O que precisas
 
-- O editor de Python que usas nas aulas, para escrever e executar os programas. Confirma que funciona: num ficheiro de ensaio, escreve `print("Olá")` e executa. Deve aparecer `Olá`, o que quer dizer que o editor está a executar programas de Python.
-- O Python 3, a partir da versão 3.10. Nas versões mais antigas, algumas mensagens de erro são um pouco diferentes, e o laboratório diz onde.
+- O Python 3.10 ou mais recente. Para saberes qual tens, escreve `python3 --version` no terminal (no Windows, `py --version`), e aparece, por exemplo, `Python 3.12.4`. Numa versão anterior, o laboratório funciona na mesma: só mudam algumas mensagens de erro, e o laboratório diz quais.
+- O editor das aulas, que já usaste nos três laboratórios anteriores.
 
-O laboratório começa de uma pasta vazia. Não precisas de nenhum ficheiro do laboratório anterior: a classe `Artigo` do tema 03 está toda aqui.
-
-## Se alguma coisa falhar
-
-1. Guardaste o ficheiro antes de executar? O editor executa o que está guardado no disco. Guarda e executa outra vez.
-2. Estás a executar o ficheiro certo? Confirma que o separador aberto é o `inventario.py` da pasta `tema-04`.
-3. Apareceu uma mensagem de erro? Lê a última linha: diz o tipo de erro e o que aconteceu. Procura essa linha em [Problemas frequentes](#problemas-frequentes).
-4. Apagaste as linhas de teste da fase anterior? Cada fase diz que linhas apagar no fim. Se te perderes nas fases 1 ou 2, recomeça o ficheiro com a classe `Artigo` de "Preparar o projeto" e refaz as fases desde a 1. Se te perderes na fase 3 ou na 4, copia o ficheiro completo da [paragem 3](#paragem-3): é o ponto de partida da fase 4.
+Começas numa pasta vazia: a classe `Artigo`, de onde partes, vem escrita em [Preparar o projeto](#preparar-o-projeto).
 
 ## Preparar o projeto
 
-1. Na pasta onde guardas os trabalhos de LP, cria uma pasta nova chamada `tema-04`. É aí que fica o ficheiro deste laboratório.
-2. Dentro dela, cria um ficheiro novo chamado `inventario.py`. O nome tem de acabar em `.py`, para o editor o reconhecer como um programa de Python, e não deve ter espaços nem acentos.
-3. Copia para `inventario.py` o conteúdo seguinte. É a classe `Artigo` do fim do tema 03, com as docstrings mais curtas; as instruções são as mesmas. É o ficheiro completo, por agora:
+1. Cria uma pasta nova, `tema-04`, na pasta onde guardas os trabalhos de LP. Com uma pasta por tema, não executas sem querer o ficheiro de outro laboratório.
+
+2. Dentro de `tema-04`, cria no editor o ficheiro `inventario.py`, com o nome assim, sem espaços nem acentos. É o único ficheiro das quatro fases, e vai crescendo de fase para fase.
+
+3. Copia para o `inventario.py` esta versão da classe `Artigo`. Tem as instruções do `artigo.py` do fim do tema 03, com as docstrings mais curtas, para os números das linhas nas mensagens de erro serem os do laboratório:
 
    ```python
    # inventario.py: as classes Artigo e Inventario, do laboratório do tema 04.
@@ -109,15 +86,15 @@ O laboratório começa de uma pasta vazia. Não precisas de nenhum ficheiro do l
            self.quantidade = self.quantidade - unidades
    ```
 
-   Leitura guiada: a quantidade é uma propriedade. O `@property` faz do primeiro `def quantidade` o getter, que devolve o valor guardado em `_quantidade`. O `@quantidade.setter` faz do segundo o setter, que verifica o valor antes de o guardar. O construtor e os métodos `adicionar` e `retirar` escrevem na propriedade, e por isso todas as escritas passam pelo setter. Os dois métodos verificam primeiro o pedido: as unidades têm de ser um inteiro (`isinstance(unidades, int)` pergunta isso) e têm de ser 1 ou mais. Quando faltam unidades numa retirada, quem recusa é o setter, porque o resultado seria negativo.
+   O setter é o segundo `def quantidade`. Todas as escritas na quantidade passam por ele, também as do construtor, do `adicionar` e do `retirar`, e é ele que recusa um valor negativo. Rever: [A propriedade `quantidade`](../03-encapsulamento-contratos.md#a-propriedade-quantidade).
 
-4. Guarda e executa o ficheiro. O que deves ver: nada. O ficheiro só define uma classe, e definir uma classe não mostra nada no ecrã, tal como escrever uma receita não faz nenhum bolo. Se aparecer uma mensagem de erro, lê a última linha. Um `IndentationError` quer dizer que alguma linha ficou com a indentação errada na cópia: compara-a com o bloco acima. Um `SyntaxError` quer dizer, quase sempre, que ficou uma linha cortada a meio.
+   Guarda e executa. O que deves ver: nada. O ficheiro só tem a classe, e nenhuma linha cria um artigo. Se aparecer outra coisa, vê [Se alguma coisa falhar](#se-alguma-coisa-falhar).
 
 ## Fase 1: Uma lista para guardar os artigos
 
-Um artigo conhece os seus próprios dados, e só esses. Para saber se um código já está a ser usado, ou para encontrar o artigo com o código A02, é preciso conhecer todos os artigos. É por isso que precisamos de um objeto novo, o inventário, que os guarda todos. Vai guardá-los numa lista, que nasce vazia no construtor. Cada inventário tem a sua própria lista, porque o construtor é executado uma vez por cada inventário criado, e cada execução cria uma lista nova. O nome da lista começa por sublinhado, `_artigos`, porque é um assunto interno da classe. Se o código de fora juntasse artigos à lista diretamente, saltava a verificação do código único, que vais escrever na fase 2. Para saber mais, lê o passo 2 do exemplo guiado do [guia](../04-composicao-modelacao.md).
+Escreves a classe `Inventario` só com o construtor, que dá a cada inventário uma lista vazia, `_artigos`, onde vão ficar os artigos. O sublinhado diz que a lista é interna, e quem quer juntar um artigo, de fora, pede-o ao inventário. Rever: [Uma lista para guardar os artigos](../04-composicao-modelacao.md#uma-lista-para-guardar-os-artigos).
 
-1. Depois da classe `Artigo`, deixa duas linhas em branco e acrescenta a classe `Inventario`, só com o construtor. Escreve-a à mão, em vez de a copiares: escrever obriga-te a reparar em cada pormenor, como o sublinhado de `_artigos` e os dois pontos no fim de cada `def`.
+1. Depois da classe `Artigo`, deixa duas linhas em branco e escreve a classe `Inventario`, só com o construtor. Escreve-a à mão, sem copiar, para reparares no sublinhado de `_artigos` e nos dois pontos no fim das linhas `class` e `def`:
 
    ```python partial
    class Inventario:
@@ -128,40 +105,34 @@ Um artigo conhece os seus próprios dados, e só esses. Para saber se um código
            self._artigos = []
    ```
 
-   Leitura guiada: o construtor só tem o parâmetro `self`. Por isso, um inventário cria-se com `Inventario()`, sem argumentos. A única tarefa do construtor é dar ao inventário novo uma lista vazia, `[]`, guardada no atributo `_artigos`.
-
-2. No fim do ficheiro, encostadas à margem, acrescenta estas duas linhas:
+2. Deixa duas linhas em branco depois da classe `Inventario` e escreve, encostadas à margem, estas duas linhas, que criam um inventário e mostram a lista dele:
 
    ```python partial
    inventario = Inventario()
    print(inventario._artigos)
    ```
 
-3. Antes de executares, pensa no que esperas ver. Depois executa. O que deves ver:
+   Os parênteses de `Inventario()` ficam vazios, porque o construtor só recebe o `self`. Guarda e executa. O que deves ver:
 
    ```text
    []
    ```
 
-   É a lista vazia que o construtor criou. Isto quer dizer que o inventário existe e tem a sua lista. Estamos a espreitar a lista interna só para confirmar que o construtor funciona, enquanto construímos a classe. Na fase 2 voltas a espreitá-la, pela mesma razão. No programa final, o código de fora não mexe na lista: quem quer registar um artigo pede ao inventário.
+   É a lista vazia que o construtor criou: o inventário existe e ainda não tem artigos. Aqui espreitas a lista interna só para testar o construtor, e no programa final nenhuma linha de fora lhe mexe. Se aparecer outra coisa, vê [Se alguma coisa falhar](#se-alguma-coisa-falhar).
 
-4. Apaga a linha do `print`. Mantém a linha `inventario = Inventario()`.
+3. Apaga a linha do `print` e deixa ficar `inventario = Inventario()`.
 
 ### Paragem 1
 
-O ficheiro tem as duas classes, e o programa cria um inventário vazio sem mostrar nada.
+O ficheiro tem as duas classes e, no fim, a linha que cria o inventário. Executa-o: não aparece nada.
 
-Pensa antes de continuares: se criasses dois inventários, `a = Inventario()` e `b = Inventario()`, e juntasses um artigo à lista de `a`, a lista de `b` mudava? A resposta: não. O construtor é executado uma vez para `a` e outra vez para `b`, e cada execução cria uma lista nova. Cada inventário tem a sua.
+Pensa antes de continuares: se criasses dois inventários, `a = Inventario()` e `b = Inventario()`, e juntasses um artigo à lista de `a`, a lista de `b` mudava? A resposta: não. Cada `Inventario()` corre o construtor outra vez, e cada vez nasce uma lista nova, só desse inventário.
 
 ## Fase 2: O inventário cria os artigos e encontra-os pelo código
 
-O inventário vai fazer duas coisas que só ele pode fazer, porque é o único que conhece todos os artigos.
+Acrescentas o `_procurar`, que encontra um artigo pelo código, e o `registar`, que cria um artigo novo sem repetir um código. No `registar` está a composição em Python, porque é o inventário que chama `Artigo(...)`, dentro de um método seu. Rever: [O inventário cria os artigos e encontra-os pelo código](../04-composicao-modelacao.md#o-inventário-cria-os-artigos-e-encontra-os-pelo-código) e [O nosso inventário: composição](../04-composicao-modelacao.md#o-nosso-inventário-composição).
 
-A primeira é encontrar um artigo a partir do código. Quase todos os pedidos ao inventário começam por aí, e por isso a procura fica num método próprio, `_procurar`. O sublinhado no nome diz que é um método interno: serve os outros métodos do inventário, e o código de fora não o usa.
-
-A segunda é registar um artigo novo, com o método `registar`. É aqui que está a composição: é o inventário, dentro de um método seu, que cria o artigo, com `Artigo(...)`. Antes de o criar, verifica que o código ainda não está a ser usado. Primeiro verifica, só depois altera. Para saber mais, lê os passos 3 e 4 do exemplo guiado do [guia](../04-composicao-modelacao.md).
-
-1. Dentro da classe `Inventario`, a seguir ao construtor e com a mesma indentação dele, escreve o método `_procurar`:
+1. Dentro da classe `Inventario`, a seguir ao construtor, deixa uma linha em branco e escreve o método `_procurar`, com o `def` à mesma distância da margem que o do construtor:
 
    ```python partial
        def _procurar(self, codigo):
@@ -175,9 +146,9 @@ A segunda é registar um artigo novo, com o método `registar`. É aqui que est�
            raise ValueError("Não existe nenhum artigo com o código " + codigo + ".")
    ```
 
-   Leitura guiada: o ciclo percorre a lista, um artigo de cada vez, e compara o código de cada um com o código procurado. O `return`, dentro do ciclo, termina o método assim que encontra o artigo certo: as voltas que faltavam já não se fazem. O `raise` está depois do ciclo, encostado à indentação do `for`. Só se chega a ele se o ciclo acabar todas as voltas sem nenhum `return`, isto é, se nenhum artigo tiver o código procurado. A mensagem junta textos com `+`: com o código `"A07"`, fica "Não existe nenhum artigo com o código A07.".
+   O `raise` fica alinhado com o `for`, e não com o `if`. Assim, só se chega a ele depois de o ciclo ver todos os artigos sem dar com o código.
 
-2. A seguir a `_procurar`, com a mesma indentação, escreve o método `registar`:
+2. A seguir ao `_procurar`, deixa outra linha em branco e escreve o método `registar`:
 
    ```python partial
        def registar(self, codigo, nome, quantidade):
@@ -196,9 +167,9 @@ A segunda é registar um artigo novo, com o método `registar`. É aqui que est�
            self._artigos.append(novo)
    ```
 
-   Leitura guiada: o método faz três coisas, por esta ordem. Primeiro percorre os artigos e, se algum já tiver o código pedido, lança `ValueError`. É o mesmo ciclo de `_procurar`, mas com a decisão ao contrário: aqui, encontrar o código é a falha. Depois cria o artigo, com `Artigo(codigo, nome, quantidade)`. A quantidade não é verificada aqui: quem a verifica é o setter do artigo, chamado pelo construtor dele. Por fim, e só por fim, junta o artigo à lista com `append`. Se alguma coisa falhar antes, a linha do `append` nunca chega a ser executada, e a lista fica como estava.
+   A ordem conta: o método verifica o código, depois cria o artigo e só no fim o junta à lista, com o `append` (do inglês, acrescentar). Assim, quando recusa, a lista fica como estava.
 
-3. No fim do ficheiro, a seguir a `inventario = Inventario()`, acrescenta:
+3. No fim do ficheiro, a seguir a `inventario = Inventario()`, acrescenta estas linhas, que registam dois artigos e espreitam o resultado:
 
    ```python partial
    inventario.registar("A01", "Caderno", 6)
@@ -207,44 +178,48 @@ A segunda é registar um artigo novo, com o método `registar`. É aqui que est�
    print(inventario._procurar("A02").nome)
    ```
 
-4. Prevê as duas linhas que vão aparecer. Depois executa. O que deves ver:
+   Antes de executares, prevê as duas linhas que vão aparecer. Depois guarda e executa. O que deves ver:
 
    ```text
    2
    Pasta
    ```
 
-   A primeira linha diz que a lista tem dois artigos, os dois que o inventário criou. A segunda lê-se da esquerda para a direita: `_procurar("A02")` devolve o artigo com esse código, e `.nome` consulta o nome desse artigo. Mais uma vez, estamos a usar de fora duas coisas internas, a lista e o método `_procurar`, só para testar a construção. Vais apagar estas linhas no fim desta fase.
+   A resposta: `len` (do inglês *length*, comprimento) conta os elementos da lista, e há lá os dois artigos que o inventário criou. A segunda linha lê-se da esquerda para a direita: `_procurar("A02")` devolve o artigo A02, e `.nome` dá o nome dele. A lista e o `_procurar` são internos, e só os usas aqui de fora para testar. Se aparecer outra coisa, vê [Se alguma coisa falhar](#se-alguma-coisa-falhar).
 
-5. Agora vais ver o inventário recusar um código repetido. Acrescenta no fim do ficheiro, fora de qualquer `try`:
+4. Provoca agora a recusa de um código repetido. No fim do ficheiro, fora de qualquer `try`, acrescenta:
 
    ```python partial
    inventario.registar("A01", "Cola", 3)
    ```
 
-6. Executa. Depois das duas linhas de antes, o programa para com uma mensagem de erro. A última linha deve ser esta:
+   Guarda e executa. Depois das duas linhas de antes, o programa para com esta mensagem:
 
    ```text
+   Traceback (most recent call last):
+     File ".../tema-04/inventario.py", line 85, in <module>
+       inventario.registar("A01", "Cola", 3)
+       ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+     File ".../tema-04/inventario.py", line 75, in registar
+       raise ValueError("Já existe um artigo com o código " + codigo + ".")
    ValueError: Já existe um artigo com o código A01.
    ```
 
-   Lê também, logo acima, a linha que diz em que método o erro foi lançado. Começa por `File`, com o caminho do teu ficheiro e o número da linha, e deve terminar em `in registar`. A linha de código mostrada por baixo dela é a do `raise` do método `registar`. Isto quer dizer que foi o inventário que recusou, porque é ele que conhece todos os códigos.
+   No lugar dos três pontos está a pasta do teu computador, e antes do Python 3.11 não aparece a linha de `~` e `^`. Cada linha `File` diz o número de uma linha do ficheiro e o sítio onde o Python estava, com o código dessa linha por baixo. Se escreveste o ficheiro como os passos dizem, são as linhas 85 e 75, e uma linha em branco a mais ou a menos muda esses números. A de cima acaba em `in <module>`, que é o programa principal, as linhas que vêm depois das classes. A de baixo acaba em `in registar` e mostra o `raise` do `registar`. Quem recusou foi, portanto, o inventário, o único que conhece todos os códigos. Se aparecer outra coisa, vê [Se alguma coisa falhar](#se-alguma-coisa-falhar).
 
-7. Apaga as três linhas de teste desta fase: o `print(len(...))`, o `print(inventario._procurar(...).nome)` e o registo da cola. Mantém a criação do inventário e os dois primeiros registos.
+5. Apaga as três linhas de teste desta fase: os dois `print` e o registo da cola. Ficam a criação do inventário e os dois primeiros registos.
 
 ### Paragem 2
 
-O inventário regista o caderno e a pasta sem mostrar nada, e já recusou um código repetido.
+O programa regista o caderno e a pasta e não mostra nada.
 
-Pensa antes de continuares: se registasses `inventario.registar("A03", "Caneta", -5)`, quem recusava, e a caneta ficava na lista? A resposta: recusava o setter do artigo, com "A quantidade não pode ser negativa.". O `registar` chama `Artigo(...)`, o construtor do artigo escreve na propriedade, e o setter recusa o -5. O `registar` é interrompido nessa linha, antes do `append`, e a lista continua com dois artigos.
+Pensa antes de continuares: se acrescentasses `inventario.registar("A03", "Caneta", -5)`, quem recusava, e a caneta ficava na lista? A resposta: recusava o setter do artigo, com "A quantidade não pode ser negativa.". O `registar` chega à linha `Artigo(...)`, o construtor do artigo escreve a quantidade, e o setter recusa o -5 antes de o `append` correr. A lista continua com dois artigos.
 
 ## Fase 3: O inventário passa os pedidos aos artigos
 
-Falta consultar e retirar unidades a partir do código. Os dois métodos começam da mesma maneira: encontrar o artigo com `_procurar`. Depois fazem o pedido a esse artigo. O inventário não verifica se as unidades são um inteiro, se são positivas nem se chegam: essas regras são do artigo, que já as verifica. Chama-se **encaminhamento** a esta forma de colaborar: o inventário encontra o artigo que sabe cumprir o pedido e passa-lho.
+Acrescentas o `quantidade_de` e o `retirar`, que encontram o artigo com o `_procurar` e lhe passam o pedido, sem verificarem as unidades. A esta forma de colaborar chama-se encaminhamento, e as regras das unidades ficam só no artigo. Rever: [O inventário passa os pedidos aos artigos](../04-composicao-modelacao.md#o-inventário-passa-os-pedidos-aos-artigos) e [Exemplo guiado: oito pedidos ao inventário](../04-composicao-modelacao.md#exemplo-guiado-oito-pedidos-ao-inventário).
 
-Repara numa forma nova. Para um método do inventário usar outro método do mesmo inventário, escreve `self._procurar(codigo)`. Dentro de um método, o `self` é o próprio objeto, aqui o inventário. Assim como de fora se escreve `inventario.registar(...)`, de dentro escreve-se `self._procurar(...)`. Para saber mais, lê o passo 5 do exemplo guiado do [guia](../04-composicao-modelacao.md).
-
-1. Dentro da classe `Inventario`, a seguir ao método `registar` e com a mesma indentação, escreve os métodos `quantidade_de` e `retirar`:
+1. Dentro da classe `Inventario`, a seguir ao `registar`, escreve os dois métodos, com uma linha em branco antes de cada `def`:
 
    ```python partial
        def quantidade_de(self, codigo):
@@ -268,9 +243,33 @@ Repara numa forma nova. Para um método do inventário usar outro método do mes
            artigo.retirar(unidades)
    ```
 
-   Leitura guiada: cada método tem duas linhas. A primeira encontra o artigo: se o código não existir, `_procurar` lança `ValueError`, e o método para logo ali. A segunda faz o pedido ao artigo encontrado. `quantidade_de` lê a propriedade e devolve o valor. `retirar` chama o `retirar` do artigo, com as mesmas unidades. Há agora dois métodos chamados `retirar`, de classes diferentes. `inventario.retirar("A01", 2)` recebe um código e um número. `artigo.retirar(2)` recebe só um número, porque o artigo já sabe quem é. O objeto antes do ponto diz de que classe é o método.
+   Os dois começam por `self._procurar(codigo)`: dentro de um método, o inventário chama outro método seu através do `self`. Sem o `self.`, o Python não encontra o `_procurar`. Na última linha, o `retirar` é o do artigo, e não o do inventário, porque antes do ponto está um artigo.
 
-2. Substitui todas as linhas que estão depois das duas classes, a partir de `inventario = Inventario()`, por estas:
+2. Antes de escreveres o programa principal, faz de cabeça o traço dos oito pedidos que ele vai fazer ao inventário, com os métodos que tens. Cada linha parte do estado que a anterior deixou. As quatro primeiras estão feitas; prevê as que têm um ponto de interrogação:
+
+   | Pedido | Quem responde | Resposta | Artigos no inventário depois |
+   | --- | --- | --- | --- |
+   | `registar("A01", "Caderno", 6)` | Inventário: código livre; setter do artigo: 6 é válido | Aceite | A01 com 6 |
+   | `registar("A02", "Pasta", 2)` | Inventário e setter do artigo | Aceite | A01 com 6, A02 com 2 |
+   | `registar("A01", "Cola", 3)` | Inventário: A01 já existe | `ValueError`, antes de criar o artigo | A01 com 6, A02 com 2 |
+   | `registar("A03", "Caneta", -5)` | Inventário: código livre; setter do artigo: -5 é negativo | `ValueError`, ao criar o artigo, antes do `append` | A01 com 6, A02 com 2 |
+   | `quantidade_de("A03")` | ? | ? | ? |
+   | `retirar("A01", 2)` | ? | ? | ? |
+   | `retirar("A01", 9)` | ? | ? | ? |
+   | `retirar("A07", 1)` | ? | ? | ? |
+
+   A resposta, nas quatro linhas que faltavam:
+
+   | Pedido | Quem responde | Resposta | Artigos no inventário depois |
+   | --- | --- | --- | --- |
+   | `quantidade_de("A03")` | `_procurar` do inventário: A03 não existe | `ValueError` | A01 com 6, A02 com 2 |
+   | `retirar("A01", 2)` | Inventário encontra A01; o artigo aceita | Aceite | A01 com 4, A02 com 2 |
+   | `retirar("A01", 9)` | Inventário encontra A01; setter do artigo: 4 - 9 = -5 | `ValueError` | A01 com 4, A02 com 2 |
+   | `retirar("A07", 1)` | `_procurar` do inventário: A07 não existe | `ValueError` | A01 com 4, A02 com 2 |
+
+   A consulta de A03 falha porque a caneta recusada nunca chegou à lista.
+
+3. Escreve agora o programa principal. Substitui todas as linhas que estão depois das duas classes, a partir de `inventario = Inventario()`, por estas:
 
    ```python partial
    inventario = Inventario()
@@ -309,33 +308,9 @@ Repara numa forma nova. Para um método do inventário usar outro método do mes
    print("A02 no fim:", inventario.quantidade_de("A02"))
    ```
 
-   Leitura guiada: são os oito pedidos do traço e, pelo meio e no fim, três consultas que mostram as quantidades. Os pedidos que podem ser recusados estão dentro de um `try`, e o `except` mostra a mensagem de quem recusou. O programa principal nunca escreve `Artigo(...)` nem guarda um artigo num nome seu: fala sempre com o inventário, usando os códigos.
+   Cada pedido que o traço deu como recusado fica no seu `try`, e três consultas mostram as quantidades.
 
-3. Antes de executares, faz de cabeça o traço dos oito pedidos. Cada linha começa no estado deixado pela anterior. As quatro primeiras linhas estão feitas: lê-as e prevê as que têm um ponto de interrogação.
-
-   | Pedido | Quem responde | Resposta | Artigos no inventário depois |
-   | --- | --- | --- | --- |
-   | `registar("A01", "Caderno", 6)` | Inventário: código livre; setter do artigo: 6 é válido | Aceite | A01 com 6 |
-   | `registar("A02", "Pasta", 2)` | Inventário e setter do artigo | Aceite | A01 com 6, A02 com 2 |
-   | `registar("A01", "Cola", 3)` | Inventário: A01 já existe | `ValueError`, antes de criar o artigo | A01 com 6, A02 com 2 |
-   | `registar("A03", "Caneta", -5)` | Inventário: código livre; setter do artigo: -5 é negativo | `ValueError`, ao criar o artigo, antes do `append` | A01 com 6, A02 com 2 |
-   | `quantidade_de("A03")` | ? | ? | ? |
-   | `retirar("A01", 2)` | ? | ? | ? |
-   | `retirar("A01", 9)` | ? | ? | ? |
-   | `retirar("A07", 1)` | ? | ? | ? |
-
-   A resposta, para as quatro linhas que faltavam:
-
-   | Pedido | Quem responde | Resposta | Artigos no inventário depois |
-   | --- | --- | --- | --- |
-   | `quantidade_de("A03")` | `_procurar` do inventário: A03 não existe | `ValueError` | A01 com 6, A02 com 2 |
-   | `retirar("A01", 2)` | Inventário encontra A01; o artigo aceita | Aceite | A01 com 4, A02 com 2 |
-   | `retirar("A01", 9)` | Inventário encontra A01; setter do artigo: 4 - 9 = -5 | `ValueError` | A01 com 4, A02 com 2 |
-   | `retirar("A07", 1)` | `_procurar` do inventário: A07 não existe | `ValueError` | A01 com 4, A02 com 2 |
-
-   A consulta de A03 falha, e isso prova que o registo recusado da caneta não deixou nada para trás: o artigo nunca chegou à lista.
-
-4. A partir do traço, prevê as linhas que o programa vai mostrar. Os pedidos aceites não mostram nada; só as recusas e as consultas escrevem uma linha. Depois executa. O que deves ver:
+4. Guarda e executa. O que deves ver:
 
    ```text
    Registo de A01 recusado: Já existe um artigo com o código A01.
@@ -348,15 +323,11 @@ Repara numa forma nova. Para um método do inventário usar outro método do mes
    A02 no fim: 2
    ```
 
-   Cada mensagem diz quem recusou. "Já existe um artigo..." e "Não existe nenhum artigo..." vêm do inventário, e "A quantidade não pode ser negativa." vem do setter do artigo. As duas últimas linhas confirmam que, depois de cinco pedidos recusados, as quantidades são as do traço.
-
-5. Se alguma linha for diferente, procura a primeira que é diferente e não olhes para as outras por agora. Uma diferença cedo no programa costuma provocar as seguintes. Depois pergunta-te que método produziu essa linha, e relê esse método, comparando-o com o ficheiro da paragem 3. Os enganos mais comuns estão em [Problemas frequentes](#problemas-frequentes). São estes: um `raise` dentro do `for`; uma linha de um método que ficou fora da classe; e um nome escrito de duas maneiras, como `_artigos` e `_artigo`.
+   São as respostas do traço, pela mesma ordem, e só as recusas e as consultas escrevem uma linha. Quem recusa vê-se pela mensagem: o inventário escreve "Já existe..." e "Não existe...", e o setter do artigo escreve "A quantidade não pode ser negativa.". As duas últimas linhas batem certo com a última coluna do traço. Se aparecer outra coisa, vê [Se alguma coisa falhar](#se-alguma-coisa-falhar). Se o programa chegar ao fim com uma linha diferente, vê [O programa não para, mas uma linha sai diferente](#o-programa-não-para-mas-uma-linha-sai-diferente).
 
 ### Paragem 3
 
-O programa mostra as oito linhas do passo 4, e elas conferem com o traço do passo 3.
-
-O ficheiro `inventario.py` completo, como deve estar agora:
+O programa mostra as oito linhas do passo 4, e elas batem certo com o traço do passo 2. O ficheiro `inventario.py` completo, para conferires o teu:
 
 ```python
 # inventario.py: as classes Artigo e Inventario, do laboratório do tema 04.
@@ -494,104 +465,124 @@ print("A01 no fim:", inventario.quantidade_de("A01"))
 print("A02 no fim:", inventario.quantidade_de("A02"))
 ```
 
-Pensa antes de continuares: na classe `Inventario`, onde está a verificação de que as unidades a retirar são 1 ou mais? A resposta: em lado nenhum. Essa regra é do artigo, e está no `retirar` da classe `Artigo`. O inventário só encontra o artigo e encaminha o pedido. Se a regra mudar, muda-se num só sítio.
+Em cima estão as duas classes: o `Artigo` protege a quantidade de cada artigo, e o `Inventario` guarda os artigos na sua lista e encontra-os pelo código. Em baixo está o programa principal, que fala sempre com o inventário, pelos códigos, e nunca escreve `Artigo(...)`.
+
+Pensa antes de continuares: na classe `Inventario`, onde está a verificação de que as unidades a retirar são 1 ou mais? A resposta: em sítio nenhum. Essa regra é do artigo e está no `retirar` da classe `Artigo`, e o inventário só encontra o artigo e lhe passa o pedido. Se a regra mudar, muda-se num só método.
 
 ## Fase 4: O caminho de uma recusa
 
-Quando um método chama outro, fica parado à espera dele. Se o segundo chamar um terceiro, ficam dois à espera, e assim por diante: é a cadeia de chamadas. Quando um método lança uma exceção com `raise`, ela sobe por essa cadeia, do método onde nasceu para o que o chamou. Continua a subir até encontrar um `try` com o `except` certo. Cada método que ela atravessa sem um `try` que a apanhe é abandonado no ponto onde estava. Na fase 3, o pedido para retirar 9 unidades de A01 estava dentro de um `try`, e a exceção foi apanhada no programa principal. Agora vais vê-la subir até ao fim, sem que ninguém a apanhe: o programa para, e o Python mostra o caminho que ela fez. Para saber mais, lê o passo 8 do exemplo guiado do [guia](../04-composicao-modelacao.md).
+Fazes outra vez o pedido de retirar 9 unidades ao A01, agora fora de um `try`, para a recusa subir até parar o programa. A mensagem de erro, o traceback, mostra então a cadeia de chamadas: os métodos parados, cada um à espera do que chamou, até ao que lançou a recusa. Rever: [O caminho de uma recusa](../04-composicao-modelacao.md#o-caminho-de-uma-recusa).
 
-1. No fim do ficheiro, depois de todas as outras linhas e fora de qualquer `try`, acrescenta:
+1. Logo a seguir à última linha do ficheiro, fora de qualquer `try`, acrescenta:
 
    ```python partial
    inventario.retirar("A01", 9)
    ```
 
-2. Antes de executares, prevê a lista dos métodos por onde o pedido passa até ao erro, do primeiro ao último.
+   Antes de executares, prevê: por que métodos passa este pedido até ao erro, do primeiro ao último?
 
-3. Executa. As oito linhas do programa aparecem, como antes, e no fim aparece um traceback.
+2. Guarda e executa. As oito linhas aparecem como antes, e depois o programa para com esta mensagem:
 
-   O traceback tem quatro entradas. Cada entrada tem uma linha que começa por `File`, com o caminho do teu ficheiro, o número da linha e o nome do sítio onde o Python estava. Por baixo vem o código dessa linha. Os caminhos e os números das linhas dependem do teu ficheiro. Algumas versões do Python acrescentam, por baixo do código, uma linha com sinais `^` ou `~` a apontar para a parte da linha que falhou. O que interessa são os nomes no fim de cada linha `File` e o código que aparece por baixo:
+   ```text
+   Traceback (most recent call last):
+     File ".../tema-04/inventario.py", line 134, in <module>
+       inventario.retirar("A01", 9)
+       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+     File ".../tema-04/inventario.py", line 97, in retirar
+       artigo.retirar(unidades)
+       ~~~~~~~~~~~~~~^^^^^^^^^^
+     File ".../tema-04/inventario.py", line 44, in retirar
+       self.quantidade = self.quantidade - unidades
+       ^^^^^^^^^^^^^^^
+     File ".../tema-04/inventario.py", line 26, in quantidade
+       raise ValueError("A quantidade não pode ser negativa.")
+   ValueError: A quantidade não pode ser negativa.
+   ```
 
-   | Entrada | Termina em | Código mostrado por baixo |
-   | --- | --- | --- |
-   | Primeira | `in <module>` | `inventario.retirar("A01", 9)` |
-   | Segunda | `in retirar` | `artigo.retirar(unidades)` |
-   | Terceira | `in retirar` | `self.quantidade = self.quantidade - unidades` |
-   | Quarta | `in quantidade` | `raise ValueError("A quantidade não pode ser negativa.")` |
+   Com o ficheiro da paragem 3 e esta linha a mais, os números das linhas são estes. A resposta: do programa principal, o pedido desce ao `retirar` do inventário, que chama o `_procurar` e depois o `retirar` do artigo, e este chama o setter. A mensagem só tem quatro entradas, uma por cada linha `File`, e nenhuma é a do `_procurar`. Quando o setter recusou, o `_procurar` já tinha acabado, com o `return`. No traceback só entram o setter, onde a recusa nasceu, e os métodos que estavam parados à espera dele. Se aparecer outra coisa, vê [Se alguma coisa falhar](#se-alguma-coisa-falhar).
 
-   A última linha de todas é `ValueError: A quantidade não pode ser negativa.`.
+3. Lê as quatro entradas, de cima para baixo. Em cada uma, a linha `File` acaba no nome do sítio onde o Python estava, e por baixo vem o código dessa linha:
 
-4. Responde de cabeça, a olhar para o teu traceback. Cada pergunta tem a resposta logo a seguir; pensa na tua antes de a leres.
+   | Entrada | Acaba em | Código por baixo | Quem é |
+   | --- | --- | --- | --- |
+   | Primeira | `in <module>` | `inventario.retirar("A01", 9)` | O programa principal, onde a cadeia começa |
+   | Segunda | `in retirar` | `artigo.retirar(unidades)` | O `retirar` do inventário, que passa o pedido ao artigo |
+   | Terceira | `in retirar` | `self.quantidade = self.quantidade - unidades` | O `retirar` do artigo, que escreve na propriedade |
+   | Quarta | `in quantidade` | `raise ValueError("A quantidade não pode ser negativa.")` | O setter, o segundo `def quantidade` da classe `Artigo` |
 
-   1. `<module>` (do inglês, "módulo") é o nome que o Python dá ao programa principal, o código que está encostado à margem. Porque é que esta é a primeira entrada?
+   Os dois `retirar` têm o mesmo nome. O código de baixo diz qual é qual: o do inventário passa o pedido ao artigo, e o do artigo escreve na propriedade. Para procurares a causa de um erro, lês ao contrário, de baixo para cima: a última entrada é onde a exceção nasceu.
 
-      A resposta: é onde a cadeia começa. Foi a linha `inventario.retirar("A01", 9)` do programa principal que chamou o primeiro método. O traceback escreve a cadeia de cima para baixo, do primeiro método chamado até ao sítio onde a exceção nasceu.
-
-   2. Há duas entradas que terminam em `in retirar`. Qual delas é o `retirar` do inventário, e qual é o do artigo? Decide pelo código mostrado por baixo de cada uma, e não pela ordem.
-
-      A resposta: a segunda entrada, com `artigo.retirar(unidades)`, é o `retirar` do inventário, porque é essa a linha do inventário que chama o artigo. A terceira, com `self.quantidade = self.quantidade - unidades`, é o `retirar` do artigo. Os dois métodos têm o mesmo nome, e por isso o que decide é o código mostrado.
-
-   3. A quarta entrada termina em `in quantidade`. Que método da classe `Artigo` é este? Porque é que o nome não é `retirar`?
-
-      A resposta: é o setter da propriedade `quantidade`. O Python mostra o nome do método onde estava, e o setter é um método chamado `quantidade`, o segundo `def quantidade` da classe. Não aparece `retirar` porque a exceção não foi lançada no `retirar`: foi lançada no setter, que o `retirar` chamou ao escrever na propriedade.
-
-   4. Compara a tua lista do passo 2 com as quatro entradas. Acertaste na ordem?
-
-      A resposta: o pedido passa pelo programa principal, pelo `retirar` do inventário, por `_procurar`, pelo `retirar` do artigo e pelo setter. Se puseste `_procurar` na tua lista, acertaste no caminho do pedido. Mas o traceback só mostra quatro entradas, e a pergunta seguinte explica porquê.
-
-   5. Este pedido também chamou o método `_procurar`. Aparece no traceback? Porquê?
-
-      A resposta: não aparece, porque já tinha terminado quando a exceção foi lançada. Encontrou o artigo, devolveu-o com o `return` e saiu. O traceback só mostra as chamadas que ainda estavam a meio, paradas à espera de outra. É essa a cadeia por onde a exceção sobe.
-
-   O traceback é a cadeia de chamadas, escrita pelo Python: de cima para baixo, do programa principal até ao sítio onde a exceção nasceu. É por isso que se lê de baixo para cima quando se procura a causa: a última entrada é onde o erro começou.
-
-5. Apaga a linha que acrescentaste nesta fase e executa outra vez. Deves ver as oito linhas da paragem 3, sem nenhum traceback.
+4. Apaga a linha que acrescentaste nesta fase. Guarda e executa: aparecem só as oito linhas da paragem 3, sem nenhuma mensagem de erro.
 
 ### Paragem 4
 
-O ficheiro está outra vez igual ao da paragem 3, e já leste no ecrã o caminho de uma recusa.
+O ficheiro voltou a ser o da paragem 3, e já leste no traceback o caminho que a recusa fez.
 
-Pensa antes de continuares: porque é que o `retirar` do inventário não tem um `try` para apanhar a recusa do artigo? A resposta: quem lança a exceção decide se o pedido é válido, e quem a apanha decide o que fazer com a recusa. O inventário não sabe o que fazer com ela: não sabe se o programa escreve num terminal, mostra uma página ou regista o pedido num ficheiro. Por isso deixa-a passar, e o programa principal decide mostrar a mensagem. Se o inventário a apanhasse e não fizesse nada, a recusa perdia-se, e quem fez o pedido ficava convencido de que ele tinha sido cumprido.
+Pensa antes de continuares: porque é que o `retirar` do inventário não tem um `try` para apanhar a recusa do artigo? A resposta: porque não saberia o que fazer com ela. Não sabe se a recusa se mostra num terminal, numa página ou num ficheiro. O artigo decide se o pedido é válido, e quem fez o pedido decide o que fazer com a recusa: aqui, o programa principal mostra-a. Um `try` no inventário que não fizesse nada escondia a recusa, e o programa principal ficava convencido de que as unidades tinham saído.
 
-## Problemas frequentes
+## Se alguma coisa falhar
 
-### `NameError: name 'Artigo' is not defined`
+1. Guardaste o ficheiro antes de executar? Se a saída não mudou depois de uma alteração, é quase sempre isso: guarda e executa de novo.
+2. O ficheiro que estás a executar é o `inventario.py` da pasta `tema-04`?
+3. Executaste o ficheiro todo? Cada execução começa do zero, com um inventário novo, e faz os pedidos pela ordem do ficheiro.
+4. Apagaste as linhas de teste da fase anterior? As fases 1, 2 e 4 acabam a apagá-las. Se te perderes nas fases 1 ou 2, recomeça o ficheiro com a classe `Artigo` de [Preparar o projeto](#preparar-o-projeto) e refaz as fases desde a 1. Nas fases 3 e 4, copia o ficheiro da [paragem 3](#paragem-3).
+5. Apareceu uma mensagem de erro? Começa pela última linha, que diz o tipo de erro, e procura esse tipo nos títulos de baixo.
 
-Em português: o nome `Artigo` não está definido. Um `NameError` ("erro de nome") aparece quando se usa um nome que o Python não conhece. A classe `Artigo` não está no ficheiro, ou ficou com outro nome. Confirma que copiaste a classe em "Preparar o projeto" e que o nome começa por maiúscula.
+### Aparece `IndentationError`, `TabError` ou `SyntaxError`
 
-### `NameError: name '_procurar' is not defined`
+É um erro de escrita, e o Python recusa o ficheiro antes de correr qualquer linha. A mensagem não começa por `Traceback`: abre com o ficheiro e com o número da linha onde o Python parou de ler. As mensagens mais comuns neste laboratório:
 
-Dentro de um método do inventário, a chamada ficou escrita `_procurar(codigo)`, sem o `self.` à frente. O Python procura uma função solta com esse nome, e não a encontra. Escreve `self._procurar(codigo)`: dentro da classe, os métodos do próprio objeto alcançam-se através do `self`. As versões recentes do Python acrescentam à mensagem `Did you mean: 'self._procurar'?`, isto é, "querias dizer `self._procurar`?".
+- `IndentationError: expected an indented block after 'if' statement on line`, seguido do número da linha do `if` (no Python 3.9, só `expected an indented block`): um `if`, um `for` ou um `def` ficou sem nenhuma linha indentada por baixo. No `_procurar`, acontece quando o `return artigo` fica alinhado com o `if`, em vez de quatro espaços mais à direita.
+- `IndentationError: unexpected indent`: uma linha começa com mais espaços do que devia, como a segunda linha de teste com espaços à frente.
+- `IndentationError: unindent does not match any outer indentation level`: uma linha voltou para trás até uma margem que nenhuma linha de cima usa. Acontece com um `def` com dois espaços, ou com um método encostado à margem. Nesse caso, a mensagem aponta o `def` do método seguinte, e o engano está no `def` de cima.
+- `TabError: inconsistent use of tabs and spaces in indentation`: há uma tabulação onde deviam estar espaços. Troca-a por espaços.
+- `SyntaxError: expected ':'` (no Python 3.9, só `invalid syntax`): uma linha `class`, `def`, `for`, `if`, `try` ou `except` ficou sem os dois pontos no fim.
 
-### `AttributeError: 'Inventario' object has no attribute '_artigos'`
+Na classe `Inventario`, os `def` levam quatro espaços e as linhas de dentro de um método levam oito. Dentro do `for`, o `if` leva doze, e o `return` e o `raise` que estão dentro do `if` levam dezasseis. No programa principal, as linhas de dentro de cada `try` e de cada `except` levam quatro. Põe lado a lado a linha que a mensagem indica, e a de cima, e as mesmas linhas no laboratório.
 
-Em português: o objeto `Inventario` não tem o atributo `_artigos`. Um `AttributeError` ("erro de atributo") aparece quando se pede a um objeto um atributo que ele não tem. O nome da lista está escrito de maneiras diferentes no construtor e noutro método. Procura todas as linhas com `_artigo` e usa o mesmo nome em todas. As versões recentes do Python acrescentam uma sugestão, como `Did you mean: '_artigo'?`.
+### Aparece `NameError: name 'Inventario' is not defined`, ou não aparece nada
 
-### `AttributeError: 'Inventario' object has no attribute 'registar'`
+As linhas que vêm depois das classes ficaram com espaços à frente, como as do construtor. Pode acontecer quando carregas em Enter no fim do construtor e o editor mantém o recuo. Com quatro espaços, as linhas ficam dentro da classe `Inventario`, que o Python ainda não acabou de ler, e a linha `File` de baixo acaba em `in Inventario`. A mensagem mostra também a linha `class Inventario:`, e no Python 3.14 uma linha como `...<8 lines>...`. Com oito espaços, ficam dentro do construtor e nunca correm, e não aparece nada, nem o `[]` da fase 1. Encosta à margem todas as linhas que vêm depois das classes.
 
-O método ficou fora da classe, com o `def` encostado à margem. O Python aceita-o como uma função solta, e o inventário não o tem. As versões recentes do Python podem sugerir outro nome, como `Did you mean: 'retirar'?`; aqui, a sugestão não ajuda, porque o método existe, mas fora da classe. Indenta todas as linhas do método quatro espaços, para ficarem dentro da classe: o `def` com quatro espaços e as linhas de dentro com oito.
+### Aparece `TypeError: Inventario.__init__() takes 0 positional arguments but 1 was given`
 
-### `TypeError: can only concatenate str (not "int") to str`
+Quer dizer que o construtor não aceita nenhum valor, mas recebeu um. No Python 3.9, a mensagem diz só `__init__()`, sem `Inventario.`. Falta o `self` entre os parênteses do `def __init__`: o Python entrega sempre ao construtor o inventário novo, e o `def` não tem onde o receber. Compara a linha com a do passo 1 da fase 1, `def __init__(self):`.
 
-Em português: só se pode juntar texto a texto, e não um número inteiro. Um `TypeError` ("erro de tipo") aparece quando uma operação recebe um valor de um tipo que não aceita; `str` é o texto e `int` o número inteiro. Foi passado um número como código, por exemplo `quantidade_de(7)`. Nenhum artigo tem esse código, e a mensagem do `raise` não conseguiu juntar o texto ao número. Como não é um `ValueError`, o `except ValueError` não o apanha. Neste inventário, os códigos são textos, entre aspas: `quantidade_de("A07")`.
+### Aparece `NameError: name 'Artigo' is not defined`
 
-### `ValueError: Não existe nenhum artigo com o código A02.`
+`NameError` é um erro de nome: o Python não conhece o nome `Artigo`. A classe falta no ficheiro, ou ficou com outro nome, como `artigo`, e nesse caso as versões recentes acrescentam `Did you mean: 'artigo'?`. Copia a classe de [Preparar o projeto](#preparar-o-projeto), com o `A` maiúsculo.
 
-A pasta foi registada, mas a procura não a encontra, e o programa para na última linha. O `raise` de `_procurar` ficou com a indentação do `if`, dentro do ciclo. Na primeira volta, se o primeiro artigo não for o procurado, o método lança logo a exceção, sem olhar para os outros. Põe o `raise` encostado à indentação do `for`, depois do ciclo, como no ficheiro da paragem 3.
+### Aparece `NameError: name '_procurar' is not defined`
 
-### `IndentationError: expected an indented block after 'if' statement on line`
+Num dos métodos da fase 3, a linha ficou `artigo = _procurar(codigo)`, sem o `self.` à frente, e o Python procura uma função solta com esse nome. As versões recentes acrescentam `Did you mean: 'self._procurar'?` ("querias dizer `self._procurar`?"). Escreve `artigo = self._procurar(codigo)`.
 
-Em português: esperava-se um bloco indentado a seguir à instrução `if` da linha indicada. Nas versões anteriores ao Python 3.10, a mensagem é só `IndentationError: expected an indented block`. O programa nem chega a correr, e não aparece nenhuma linha da saída. O `return` de `_procurar` ficou com a indentação do próprio `if`, e o `if` ficou sem nenhuma instrução por baixo. O `return` tem de ficar quatro espaços mais à direita do que o `if`.
+### Aparece `AttributeError: 'Inventario' object has no attribute '_artigos'`
 
-### O programa mostra menos linhas do que devia
+`AttributeError` é um erro de atributo: o inventário não tem nenhum atributo `_artigos`. O nome da lista está escrito de duas maneiras, como `_artigo` no construtor e `_artigos` noutro sítio. As versões recentes sugerem o nome que existe, como `Did you mean: '_artigo'?`, e o mesmo engano ao contrário dá a mensagem com `'_artigo'`. Escolhe um dos dois nomes, de preferência `_artigos`, e corrige as linhas que têm o outro. Se a mensagem não traz sugestão e não há nenhum `_artigo` no ficheiro, olha para o construtor. A linha do `def` tem de ser `def __init__(self):`, com dois sublinhados de cada lado do `init`, e a de dentro `self._artigos = []`, com o `self.`.
 
-Um `return` ou um `raise` com a indentação errada terminou um método antes do tempo. Compara a indentação de cada linha do método com o ficheiro da paragem 3.
+### Aparece `AttributeError: 'Inventario' object has no attribute 'registar'`, ou com `'retirar'`
+
+O `def` desse método está encostado à margem. Para o Python, é uma função solta, fora da classe, e o inventário não tem esse método. No `retirar`, as versões recentes sugerem `Did you mean: 'registar'?`, que aqui não ajuda: o método existe, mas fora da classe. Afasta o `def` quatro espaços da margem e as linhas de dentro oito, como nos outros métodos.
+
+### Aparece `TypeError: can only concatenate str (not "int") to str`
+
+Em português: só se junta texto a texto, e não um número inteiro (`str` é o texto e `int` o inteiro). Num pedido, o código ficou escrito como número, como `quantidade_de(7)`. Nenhum artigo tem esse código, e o `raise` de `_procurar` não consegue juntar o 7 ao texto da mensagem. Como é um `TypeError`, o `except ValueError` deixa-o passar. Põe o código entre aspas, como `"A07"`.
+
+### Aparece `ValueError: Não existe nenhum artigo com o código A02.`, com a pasta registada
+
+Na fase 2, o programa para no `print` do `_procurar("A02")`, logo a seguir à linha `2`. Na fase 3, mostra as linhas até `A01 no fim: 4` e para na última. O `raise` de `_procurar` ficou dentro do ciclo, alinhado com o `if`. Assim, se o primeiro artigo não for o procurado, o método recusa logo na primeira volta, sem ver os outros. Alinha o `raise` com o `for`, depois do ciclo, como no ficheiro da [paragem 3](#paragem-3).
+
+### O programa não para, mas uma linha sai diferente
+
+Compara a saída, linha a linha, com a do passo em que estás, e fica-te pela primeira linha diferente: uma diferença no início costuma arrastar as seguintes. Vê que pedido a escreveu e que método responde a esse pedido. Depois compara esse método, linha a linha, com o do ficheiro da [paragem 3](#paragem-3), e confirma também o texto do `print`.
 
 ## Desafios
 
+Para os desafios, cria na pasta `tema-04` um ficheiro novo, `desafios.py`, com uma cópia de todo o `inventario.py` da paragem 3. Faz os quatro desafios nesse ficheiro, um a seguir ao outro, com as respostas num comentário no fim dele. Assim, o `inventario.py` fica como na paragem 3.
+
 1. Adicionar unidades a um artigo. Escreve, dentro da classe `Inventario`, o método `adicionar(codigo, unidades)`, com este contrato. Recebe o código de um artigo e as unidades a adicionar. Não devolve nada. Falha, com `ValueError`, se não houver nenhum artigo com esse código, ou se o próprio artigo recusar o pedido pelas regras do seu método `adicionar`. Em qualquer falha, nenhuma quantidade muda. Escreve-lhe uma docstring.
 
-   Responde, num comentário no fim do `inventario.py`: que regras sobre as unidades vai verificar o método do inventário, e quais vai deixar ao artigo?
+   Responde, no comentário do fim do `desafios.py`: que regras sobre as unidades vai verificar o método do inventário, e quais vai deixar ao artigo?
 
    Os testes escolhes tu. Escreve três pedidos de adição, cada um no seu `try`, depois das linhas que já estão no fim do ficheiro. Um tem de ser aceite, outro recusado pelo inventário, e o terceiro recusado pelo artigo. Para cada pedido, prevê se vai ser aceite ou recusado, quem recusa, com que mensagem e como ficam as quantidades, e confirma ao executar. No fim, mostra com `quantidade_de` a quantidade de cada artigo existente que usaste nos testes.
 
@@ -603,19 +594,19 @@ Um `return` ou um `raise` com a indentação errada terminou um método antes do
 
    Para somar, usa um acumulador: uma variável preparada antes de um ciclo `for` sobre a lista interna, que em cada volta junta a quantidade de um artigo. Testa com dois casos. Mostra o total do inventário do teu programa, e depois cria um inventário novo, vazio, e mostra o total dele. O total certo do primeiro calcula-se de cabeça, a partir das quantidades que os artigos têm nesse momento.
 
-   Pista: pensa bem no valor com que o acumulador deve começar, e em que sítio do método ficam a linha que o prepara e o `return`.
+   Pista: pensa bem no valor com que o acumulador deve começar, e em que sítio do método ficam a linha que o prepara e o `return`. Rever: [O acumulador do método `titulos`](../04-composicao-modelacao.md#o-acumulador-do-método-titulos).
 
 3. Os artigos esgotados. Escreve o método `esgotados()`, que devolve uma lista com os códigos dos artigos que têm quantidade 0. Se nenhum artigo estiver esgotado, devolve uma lista vazia. Testa-o duas vezes: uma com o inventário tal como está, e outra depois de retirares todas as unidades de um dos artigos. Antes de cada teste, prevê a lista que vai aparecer.
 
-4. A descrição com as operações novas. No comentário do fim do `inventario.py`, escreve de novo a descrição da classe `Inventario` de "O que vais construir", agora com os métodos que acrescentaste nos desafios. Responde também numa frase: a descrição da relação entre as duas classes mudou com as operações novas? Porquê?
+4. A descrição com as operações novas. Em [O inventário descrito por palavras](../04-composicao-modelacao.md#o-inventário-descrito-por-palavras), o guia descreve a classe `Inventario` em três frases, e a relação entre as duas classes noutras quatro. No comentário do fim do `desafios.py`, escreve de novo a descrição da classe, agora com os métodos que acrescentaste nos desafios. Responde também numa frase: a descrição da relação entre as duas classes mudou com as operações novas? Porquê?
 
 ## Antes de terminares
 
-- [ ] O ficheiro `inventario.py` executa e mostra as oito linhas da paragem 3.
-- [ ] Apagaste as linhas de teste das fases 1, 2 e 4: o ficheiro está igual ao da paragem 3, mais o que fizeste nos desafios.
-- [ ] Guardaste o `inventario.py`, com as respostas dos desafios que fizeste no comentário do fim, e entregaste-o pelo meio indicado pelo professor.
+- [ ] O `inventario.py` da pasta `tema-04` executa e mostra as oito linhas da paragem 3.
+- [ ] Apagaste as linhas de teste das fases 1, 2 e 4: o `inventario.py` está igual ao da paragem 3.
+- [ ] Guardaste o `inventario.py` e, se fizeste os desafios, o `desafios.py`, com as respostas no fim, e entregaste-os como o professor indicar.
 - [ ] Sabes dizer quem recusa cada um dos pedidos da fase 3, e porquê.
-- [ ] Sabes dizer porque é que `_procurar` não aparece no traceback da fase 4.
+- [ ] Sabes dizer porque é que o `_procurar` não aparece no traceback da fase 4.
 - [ ] Consegues explicar, por palavras tuas, porque é que é o inventário, e não o artigo, que garante que não há dois artigos com o mesmo código.
 
 ![Rodapé](../../imagens/rodape.png)
