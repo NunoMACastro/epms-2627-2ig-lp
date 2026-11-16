@@ -2,15 +2,15 @@
 
 # Temas para treinar em casa
 
-Estes seis temas servem para treinares em casa o que vais fazer no [livro de receitas](README.md). São opcionais e não contam para a nota.
+Estes seis temas têm a mesma estrutura do [livro de receitas](README.md): três classes, com as suas regras e recusas. Servem para treinares em casa, em Python, as classes que vais descrever no modelo. São opcionais e não contam para a nota.
 
-Escolhe um tema e escreve o programa em Python, com classes, como nos guias do M10. Cada tema tem três classes: a do registo, a da variante, que tem tudo o que o registo tem e mais um dado, e a da coleção que os junta. O enunciado de cada tema diz o nome das três.
+Escolhe um tema e escreve o programa em Python, com classes, como nos guias de [Programação orientada a objetos](../01-programacao-orientada-objetos/README.md). Podes recusar com exceções, como nos guias, ou devolvendo a mensagem da recusa, como nas resoluções.
 
 No fim do programa, escreve algumas linhas que experimentem cada operação e cada recusa e que mostrem a lista, para veres se tudo funciona. Quando acabares, compara o teu programa com as [resoluções](temas-de-treino-resolucoes.md).
 
 ## Coleção de jogos
 
-Queremos um programa para registar os jogos que tens e quantas horas jogaste em cada um. Para cada jogo, guardamos um código, um título e as horas jogadas. O código não se pode repetir, o título não pode ficar vazio, e as horas são um número inteiro, 0 ou mais: um jogo acabado de comprar tem 0 horas.
+Queremos um programa para registar os jogos que tens e quantas horas jogaste em cada um. Para cada jogo, guardamos um código, um título e as horas jogadas. O código não se pode repetir, o título não pode ficar vazio, e as horas são um número inteiro, 0 ou mais. Um jogo acabado de comprar, com 0 horas, também se pode acrescentar.
 
 Por exemplo:
 
@@ -41,6 +41,7 @@ Deves poder:
 O programa recusa:
 
 - um código que já existe;
+- um código que não existe, ao somar as horas de uma sessão;
 - um título vazio;
 - horas que não sejam um número inteiro, 0 ou mais, tanto nas horas de um jogo como nas de uma sessão;
 - um número de jogadores que não seja um número inteiro de 2 a 100.
@@ -80,6 +81,7 @@ Deves poder:
 O programa recusa:
 
 - um código que já existe;
+- um código que não existe, ao corrigir a raridade;
 - um nome vazio;
 - uma raridade que não seja um número inteiro de 1 a 5, tanto ao acrescentar como ao corrigir;
 - um número de cópias que não seja um número inteiro de 1 a 1000.
@@ -119,6 +121,7 @@ Deves poder:
 O programa recusa:
 
 - um código que já existe;
+- um código que não existe, ao corrigir a duração;
 - uma atividade vazia;
 - uma duração que não seja um número inteiro maior do que 0, tanto ao acrescentar como ao corrigir;
 - uma distância que não seja um número inteiro maior do que 0.
@@ -158,6 +161,7 @@ Deves poder:
 O programa recusa:
 
 - um código que já existe na playlist;
+- um código que não existe na playlist, ao corrigir a duração;
 - um título vazio;
 - uma duração que não seja um número inteiro maior do que 0, tanto ao acrescentar como ao corrigir;
 - uma faixa que não seja um número inteiro de 1 a 30.
@@ -197,6 +201,7 @@ Deves poder:
 O programa recusa:
 
 - uma sigla que já existe;
+- uma sigla que não existe, ao somar os pontos de um jogo;
 - um nome vazio;
 - pontos que não sejam um número inteiro, 0 ou mais, tanto nos pontos de uma equipa como nos ganhos num jogo;
 - um número de lugares que não seja um número inteiro de 500 a 90 000.
@@ -236,6 +241,7 @@ Deves poder:
 O programa recusa:
 
 - um código que já existe;
+- um código que não existe, ao atualizar uma app;
 - um nome vazio;
 - um tamanho que não seja um número inteiro de 1 a 4000, tanto ao instalar como ao atualizar;
 - uma idade mínima que não seja 3, 7, 12, 16 ou 18.

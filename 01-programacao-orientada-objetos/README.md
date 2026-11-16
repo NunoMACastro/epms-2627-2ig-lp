@@ -2,9 +2,11 @@
 
 # Programação orientada a objetos
 
-Nesta área aprendes a representar num programa os materiais de uma sala: que dados guardar, e como alterá-los sem perder informação nem criar quantidades impossíveis. Começas por situações em papel e só depois as escreves em Python, com classes e objetos. Corresponde ao módulo M10, Introdução à Programação Orientada por Objetos.
+Nesta área aprendes a representar num programa os materiais de uma sala: que dados guardar, e como alterá-los sem perder informação nem criar quantidades impossíveis. Começas por situações em papel e só depois as escreves em Python, com classes e objetos. Corresponde ao módulo M10, Introdução à Programação Orientada por Objetos. Cada tema tem estes documentos:
 
-Antes do tema 01, se quiseres rever o 10.º ano, tens o [diagnóstico](../avaliacoes/diagnostico-inicial.md) e a [ficha de recuperação](exercicios/bridge-raciocinio.md), para fazeres por tua conta, sem entrega. O diagnóstico mostra-te o que vale a pena rever, e a ficha tem um exercício para cada base.
+- o guia, com a matéria por escrito, para estudares;
+- o laboratório, para fazeres no computador, passo a passo;
+- a ficha de exercícios, para treinares sozinho.
 
 | Tema | Guia | Laboratório | Ficha | Exemplos |
 | --- | --- | --- | --- | --- |
@@ -17,8 +19,12 @@ Antes do tema 01, se quiseres rever o 10.º ano, tens o [diagnóstico](../avalia
 
 Os guias, com a matéria de cada tema, estão nesta pasta. Os laboratórios estão em [laboratorios](laboratorios/README.md), e as fichas de exercícios, em [exercicios](exercicios/README.md).
 
-O guia de cada tema é o que antes se chamava caderno. A turma deu o tema 05 antes do tema 04, por isso a ordem de leitura é 01, 02, 03, 05, 04 e 06.
+Nas aulas, o tema 05 foi dado antes do tema 04, mas os guias leem-se pela ordem dos números.
 
-O laboratório do tema 06 fecha o módulo e faz-se na aula, com o professor a acompanhar. É o antigo [trabalho de síntese](../avaliacoes/mini-problema.md), que deixou de ser avaliação e passou a prática guiada, sem nota. As ideias do M10 são avaliadas no [projeto](../projeto/README.md), no fim do M12.
+O guia de cada tema é o que antes se chamava caderno.
+
+Para rever a programação do 10.º ano, tens o [diagnóstico](../avaliacoes/diagnostico-inicial.md) e a [ficha de recuperação](exercicios/bridge-raciocinio.md), para fazeres por tua conta, sem entrega. O diagnóstico mostra-te por que exercício da ficha começar.
+
+As ideias do M10 são avaliadas no [projeto](../projeto/README.md), no fim do M12.
 
 ![Rodapé](../imagens/rodape.png)

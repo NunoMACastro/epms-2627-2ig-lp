@@ -4,22 +4,30 @@
 
 Aqui tens um programa em Python para cada um dos [temas de treino](temas-de-treino.md). Tenta primeiro fazer o teu, sozinho, e só depois compara.
 
-O teu programa não tem de ser igual a este. Os nomes dos métodos podem ser outros, e há mais do que uma maneira certa de o organizar. O que tem de fazer é o mesmo: aceitar o que as regras deixam, recusar o resto com uma mensagem e não mudar nada quando recusa.
+O teu programa não tem de ser igual a este. Os nomes das classes e dos métodos podem ser outros, e há mais do que uma maneira certa de o organizar. O que tem de fazer é o mesmo: aceitar o que as regras deixam e recusar o resto com uma mensagem, sem mudar nada.
 
-Os seis programas usam classes, métodos, herança com `super()` e listas de objetos. Não usam o `raise`, nem o `try` e o `except`. Seguem sempre a mesma ideia:
+## Como estão feitos os seis programas
+
+Em cada tema, cada jogo, carta, treino, música, equipa ou app do programa é uma ficha, como cada artigo do inventário dos guias. Os seis programas usam classes, métodos, herança com `super()` e listas de objetos. Recusam sem exceções: não usam o `raise`, nem o `try` e o `except`, nem propriedades. Seguem sempre a mesma ideia:
 
 - cada número com uma regra tem um método que diz se um valor serve, com `True` ou `False`, como `raridade_valida(valor)` nas cartas;
-- o método `verificar()` diz o que está mal num registo novo: devolve a mensagem do primeiro problema, ou um texto vazio, `""`, se estiver tudo certo;
-- a coleção só guarda um registo novo depois de o verificar e de confirmar que o código não se repete;
+- o método `verificar()` diz o que está mal numa ficha nova. Devolve a mensagem do primeiro problema, ou um texto vazio, `""`, se estiver tudo certo;
+- a coleção só guarda uma ficha nova depois de a verificar e de confirmar que o código não se repete;
 - cada pedido, como acrescentar, corrigir ou somar, devolve `""` quando é aceite, ou a mensagem da recusa, e o programa principal mostra-a com `mostrar_resultado`.
 
-Na variante, `super().verificar()` e `super().descricao()` chamam os métodos da classe base, como `super().__init__` chama o construtor dela. Assim, as regras e a primeira parte da linha da lista escrevem-se num só sítio. Se escreveste a variante a repetir as verificações e a descrição, sem esse `super()`, também está certo. E se usaste o `raise`, o `try` e o `except`, como nos guias, também está certo.
+Sem exceções, um construtor não pode recusar. Por isso, uma ficha errada chega a ser criada, mas a coleção verifica-a e não a guarda, e a lista não muda. Com o `raise`, como em [O construtor também passa pelo setter](../01-programacao-orientada-objetos/03-encapsulamento-contratos.md#o-construtor-também-passa-pelo-setter), no guia 03, a ficha errada nem chega a existir.
 
-Em cinco temas, a coleção cria os registos, como o inventário do guia 04 cria os artigos: é uma composição. Na playlist, as músicas são criadas fora e a playlist recebe-as já feitas: é uma agregação, como a playlist do guia 04.
+Os guias 03, 04 e 06 comparam esta forma com a das exceções, em blocos "Para ires mais longe". Estão no fim de [Um set que verifica, mas não obriga](../01-programacao-orientada-objetos/03-encapsulamento-contratos.md#um-set-que-verifica-mas-não-obriga), de [O inventário passa os pedidos aos artigos](../01-programacao-orientada-objetos/04-composicao-modelacao.md#o-inventário-passa-os-pedidos-aos-artigos) e do [passo 4 do exemplo guiado](../01-programacao-orientada-objetos/06-sintese.md#passo-4-escrever-o-método) do guia 06. Se recusaste com o `raise`, o `try` e o `except`, como nos guias, também está certo.
+
+Na variante, `super().verificar()` e `super().descricao()` chamam os métodos da classe base, como `super().__init__` chama o construtor dela. Assim, as regras e a primeira parte da linha da lista escrevem-se num só sítio. O guia 05 mostra o `super()` noutro método, no bloco "Para ires mais longe" do fim de [Uma variante com um dado novo e o `super()`](../01-programacao-orientada-objetos/05-heranca-polimorfismo.md#uma-variante-com-um-dado-novo-e-o-super). Se escreveste a variante a repetir as verificações e a descrição, sem esse `super()`, também está certo.
+
+Em cinco temas, a coleção cria as fichas, como o inventário do guia 04 [cria os artigos](../01-programacao-orientada-objetos/04-composicao-modelacao.md#o-inventário-cria-os-artigos-e-encontra-os-pelo-código): é uma composição. O `_guardar` recebe uma ficha já criada, mas é um método interno. De fora, só se chamam os métodos que acrescentam, ou que instalam, nas apps. São eles que criam a ficha dentro da coleção. Na playlist, as músicas são criadas fora e a playlist recebe-as já feitas. É uma agregação, como a [playlist do guia 04](../01-programacao-orientada-objetos/04-composicao-modelacao.md#agregação-em-python-a-playlist-e-as-músicas).
+
+Para saberes se a tua escolha está certa, usa as perguntas de [Dois graus de "tem": composição e agregação](../01-programacao-orientada-objetos/04-composicao-modelacao.md#dois-graus-de-tem-composição-e-agregação), no guia 04. A composição e a agregação estão as duas certas quando a tua razão segue essas perguntas e o código faz o que ela diz. Cada tema diz porque escolheu uma delas. Um título ou um nome só com espaços, como `"   "`, conta aqui como vazio, por causa do `strip`. O enunciado não o diz, e por isso aceitá-lo também está certo.
 
 ## Coleção de jogos
 
-Repara em duas coisas. As horas aceitam o 0, e a sessão que se soma também: uma sessão de 0 horas não muda nada. E a sessão verifica-se antes de se somar: sem isso, uma sessão de -2 horas baixava as horas do jogo.
+A coleção cria os jogos, porque cada jogo guarda as horas que tu jogaste, e essas horas só contam na tua coleção. Se pensaste no jogo que está à venda, e a tua coleção recebe jogos já criados, é uma agregação, e também está certo. As horas aceitam o 0, também numa sessão: somar 0 horas é aceite e não muda nada.
 
 ### O programa
 
@@ -28,7 +36,7 @@ Repara em duas coisas. As horas aceitam o 0, e a sessão que se soma também: um
 # O jogo guarda as horas jogadas, o jogo multijogador é um jogo com um dado a mais,
 # e a coleção cria e guarda os jogos. Não há exceções: cada pedido devolve "" quando
 # é aceite, ou a mensagem da recusa. No fim, o programa principal experimenta as
-# operações aceites e as quatro recusas.
+# operações aceites e todas as recusas do enunciado.
 
 
 class Jogo:
@@ -209,20 +217,27 @@ mostrar_resultado("Acrescentar J03", mensagem)
 mostrar("Lista inicial:", colecao.lista())
 mostrar("Com mais de 10 horas:", colecao.com_mais_de_10_horas())
 
-# As quatro recusas: nenhuma muda a coleção.
+# As recusas ao acrescentar: nenhuma muda a coleção. Cada uma usa um código
+# novo, para que só a regra que se experimenta possa recusar o pedido.
 mensagem = colecao.acrescentar_jogo("J01", "Pinguins no Gelo", 5)
 mostrar_resultado("Acrescentar outro J01", mensagem)
-mensagem = colecao.acrescentar_jogo("J04", "   ", 5)
+mensagem = colecao.acrescentar_jogo("J04", "", 5)
 mostrar_resultado("Acrescentar J04 sem título", mensagem)
-mensagem = colecao.acrescentar_jogo("J04", "Pinguins no Gelo", -1)
-mostrar_resultado("Acrescentar J04 com -1 horas", mensagem)
-mensagem = colecao.acrescentar_multijogador("J04", "Pinguins no Gelo", 5, 1)
-mostrar_resultado("Acrescentar J04 para 1 jogador", mensagem)
+mensagem = colecao.acrescentar_jogo("J05", "Pinguins no Gelo", -1)
+mostrar_resultado("Acrescentar J05 com -1 horas", mensagem)
+mensagem = colecao.acrescentar_jogo("J06", "Pinguins no Gelo", 2.5)
+mostrar_resultado("Acrescentar J06 com 2,5 horas", mensagem)
+mensagem = colecao.acrescentar_multijogador("J07", "Pinguins no Gelo", 5, 1)
+mostrar_resultado("Acrescentar J07 para 1 jogador", mensagem)
 
 mensagem = colecao.somar_horas("J03", 11)
 mostrar_resultado("Somar 11 horas a J03", mensagem)
+mensagem = colecao.somar_horas("J01", 0)
+mostrar_resultado("Somar 0 horas a J01", mensagem)
 mensagem = colecao.somar_horas("J03", -2)
 mostrar_resultado("Somar -2 horas a J03", mensagem)
+mensagem = colecao.somar_horas("J09", 3)
+mostrar_resultado("Somar 3 horas a J09", mensagem)
 
 mostrar("Lista no fim:", colecao.lista())
 mostrar("Com mais de 10 horas, no fim:", colecao.com_mais_de_10_horas())
@@ -243,10 +258,13 @@ Com mais de 10 horas:
   J02 Arena dos Heróis, 30 horas, até 8 jogadores
 Acrescentar outro J01: recusado. Já existe um jogo com o código J01.
 Acrescentar J04 sem título: recusado. O título não pode ficar vazio.
-Acrescentar J04 com -1 horas: recusado. As horas têm de ser um número inteiro, 0 ou mais.
-Acrescentar J04 para 1 jogador: recusado. O número de jogadores tem de ser um número inteiro de 2 a 100.
+Acrescentar J05 com -1 horas: recusado. As horas têm de ser um número inteiro, 0 ou mais.
+Acrescentar J06 com 2,5 horas: recusado. As horas têm de ser um número inteiro, 0 ou mais.
+Acrescentar J07 para 1 jogador: recusado. O número de jogadores tem de ser um número inteiro de 2 a 100.
 Somar 11 horas a J03: aceite.
+Somar 0 horas a J01: aceite.
 Somar -2 horas a J03: recusado. As horas da sessão têm de ser um número inteiro, 0 ou mais.
+Somar 3 horas a J09: recusado. Não existe nenhum jogo com o código J09.
 Lista no fim:
   J01 Corrida Rápida, 12 horas
   J02 Arena dos Heróis, 30 horas, até 8 jogadores
@@ -257,11 +275,11 @@ Com mais de 10 horas, no fim:
   J03 Torre de Blocos, 11 horas
 ```
 
-A sessão de 11 horas leva o J03 de 0 para 11 horas, e é por isso que ele entra nos jogos com mais de 10 horas. Nenhuma das cinco recusas mudou a lista.
+A sessão de 11 horas leva o J03 de 0 para 11 horas. É por isso que ele entra nos jogos com mais de 10 horas. As sete recusas e a sessão de 0 horas não mudaram a lista.
 
 ## Cartas colecionáveis
 
-A raridade tem dois limites, de 1 a 5, e `raridade_valida` verifica os dois. A correção da raridade usa o mesmo método, por isso a regra também vale quando se corrige. No filtro, "4 ou mais" escreve-se `>= 4`.
+A coleção cria as cartas, porque cada carta do programa é a tua carta, que pertence só à tua coleção. Aqui a agregação também se defende bem: a carta Lobo da Neve já fazia parte do jogo antes de a ganhares, e um amigo teu pode tê-la também. Se a tua coleção recebe cartas já criadas por essa razão, também está certo. A raridade tem dois limites, de 1 a 5, e `raridade_valida` verifica os dois, também quando se corrige.
 
 ### O programa
 
@@ -270,7 +288,7 @@ A raridade tem dois limites, de 1 a 5, e `raridade_valida` verifica os dois. A c
 # A carta guarda a raridade, de 1 a 5, a carta de edição limitada é uma carta com
 # o número de cópias, e a coleção cria e guarda as cartas. Não há exceções: cada
 # pedido devolve "" quando é aceite, ou a mensagem da recusa. No fim, o programa
-# principal experimenta as operações aceites e as quatro recusas.
+# principal experimenta as operações aceites e todas as recusas do enunciado.
 
 
 class Carta:
@@ -450,20 +468,25 @@ mostrar_resultado("Acrescentar C003", mensagem)
 mostrar("Lista inicial:", colecao.lista())
 mostrar("De raridade 4 ou mais:", colecao.de_raridade_4_ou_mais())
 
-# As quatro recusas: nenhuma muda a coleção.
+# As recusas ao acrescentar: nenhuma muda a coleção. Cada uma usa um código
+# novo, para que só a regra que se experimenta possa recusar o pedido.
 mensagem = colecao.acrescentar_carta("C001", "Coruja Branca", 2)
 mostrar_resultado("Acrescentar outra C001", mensagem)
 mensagem = colecao.acrescentar_carta("C004", "", 2)
 mostrar_resultado("Acrescentar C004 sem nome", mensagem)
-mensagem = colecao.acrescentar_carta("C004", "Coruja Branca", 6)
-mostrar_resultado("Acrescentar C004 de raridade 6", mensagem)
-mensagem = colecao.acrescentar_edicao_limitada("C004", "Coruja Branca", 2, 1001)
-mostrar_resultado("Acrescentar C004 com 1001 cópias", mensagem)
+mensagem = colecao.acrescentar_carta("C005", "Coruja Branca", 6)
+mostrar_resultado("Acrescentar C005 de raridade 6", mensagem)
+mensagem = colecao.acrescentar_edicao_limitada("C006", "Coruja Branca", 2, 1001)
+mostrar_resultado("Acrescentar C006 com 1001 cópias", mensagem)
 
 mensagem = colecao.corrigir_raridade("C001", 4)
 mostrar_resultado("Corrigir a raridade de C001 para 4", mensagem)
 mensagem = colecao.corrigir_raridade("C001", 0)
 mostrar_resultado("Corrigir a raridade de C001 para 0", mensagem)
+mensagem = colecao.corrigir_raridade("C001", 4.5)
+mostrar_resultado("Corrigir a raridade de C001 para 4,5", mensagem)
+mensagem = colecao.corrigir_raridade("C009", 3)
+mostrar_resultado("Corrigir a raridade de C009 para 3", mensagem)
 
 mostrar("Lista no fim:", colecao.lista())
 mostrar("De raridade 4 ou mais, no fim:", colecao.de_raridade_4_ou_mais())
@@ -483,10 +506,12 @@ De raridade 4 ou mais:
   C002 Dragão Dourado, raridade 5, edição de 250 cópias
 Acrescentar outra C001: recusado. Já existe uma carta com o código C001.
 Acrescentar C004 sem nome: recusado. O nome não pode ficar vazio.
-Acrescentar C004 de raridade 6: recusado. A raridade tem de ser um número inteiro de 1 a 5.
-Acrescentar C004 com 1001 cópias: recusado. O número de cópias tem de ser um número inteiro de 1 a 1000.
+Acrescentar C005 de raridade 6: recusado. A raridade tem de ser um número inteiro de 1 a 5.
+Acrescentar C006 com 1001 cópias: recusado. O número de cópias tem de ser um número inteiro de 1 a 1000.
 Corrigir a raridade de C001 para 4: aceite.
 Corrigir a raridade de C001 para 0: recusado. A raridade tem de ser um número inteiro de 1 a 5.
+Corrigir a raridade de C001 para 4,5: recusado. A raridade tem de ser um número inteiro de 1 a 5.
+Corrigir a raridade de C009 para 3: recusado. Não existe nenhuma carta com o código C009.
 Lista no fim:
   C001 Lobo da Neve, raridade 4
   C002 Dragão Dourado, raridade 5, edição de 250 cópias
@@ -500,7 +525,7 @@ Antes da correção, só a C002 é de raridade 4 ou mais. Depois de a C001 passa
 
 ## Diário de treinos
 
-A duração não aceita o 0, ao contrário da quantidade do inventário dos guias, e por isso a comparação é `valor > 0`. No filtro, "mais de 30 minutos" deixa de fora um treino de 30 minutos certos.
+O diário cria os treinos, porque um treino que fizeste só está no teu diário, e em mais nenhum. Aqui é difícil defender uma agregação; se a escolheste, confirma a tua razão com as perguntas do guia 04. Os dois números recusam o 0: a duração e a distância têm de ser maiores do que 0.
 
 ### O programa
 
@@ -509,7 +534,7 @@ A duração não aceita o 0, ao contrário da quantidade do inventário dos guia
 # O treino guarda a duração, o treino com distância é um treino com os metros
 # percorridos, e o diário cria e guarda os treinos. Não há exceções: cada pedido
 # devolve "" quando é aceite, ou a mensagem da recusa. No fim, o programa
-# principal experimenta as operações aceites e as quatro recusas.
+# principal experimenta as operações aceites e todas as recusas do enunciado.
 
 
 class Treino:
@@ -684,24 +709,31 @@ mensagem = diario.acrescentar_treino("T01", "Ginásio", 45)
 mostrar_resultado("Acrescentar T01", mensagem)
 mensagem = diario.acrescentar_com_distancia("T02", "Corrida", 30, 5000)
 mostrar_resultado("Acrescentar T02", mensagem)
+mensagem = diario.acrescentar_treino("T03", "Natação", 40)
+mostrar_resultado("Acrescentar T03", mensagem)
 mostrar("Lista inicial:", diario.lista())
 # T02 tem 30 minutos certos: ainda não é um treino de mais de 30 minutos.
 mostrar("Com mais de 30 minutos:", diario.com_mais_de_30_minutos())
 
-# As quatro recusas: nenhuma muda o diário.
-mensagem = diario.acrescentar_treino("T01", "Natação", 40)
+# As recusas ao acrescentar: nenhuma muda o diário. Cada uma usa um código
+# novo, para que só a regra que se experimenta possa recusar o pedido.
+mensagem = diario.acrescentar_treino("T01", "Ioga", 30)
 mostrar_resultado("Acrescentar outro T01", mensagem)
-mensagem = diario.acrescentar_treino("T03", "", 40)
-mostrar_resultado("Acrescentar T03 sem atividade", mensagem)
-mensagem = diario.acrescentar_treino("T03", "Natação", 0)
-mostrar_resultado("Acrescentar T03 com 0 minutos", mensagem)
-mensagem = diario.acrescentar_com_distancia("T03", "Bicicleta", 60, 0)
-mostrar_resultado("Acrescentar T03 com 0 metros", mensagem)
+mensagem = diario.acrescentar_treino("T04", "", 30)
+mostrar_resultado("Acrescentar T04 sem atividade", mensagem)
+mensagem = diario.acrescentar_treino("T05", "Ioga", 0)
+mostrar_resultado("Acrescentar T05 com 0 minutos", mensagem)
+mensagem = diario.acrescentar_com_distancia("T06", "Bicicleta", 60, 0)
+mostrar_resultado("Acrescentar T06 com 0 metros", mensagem)
+mensagem = diario.acrescentar_com_distancia("T07", "Bicicleta", 60, 5.2)
+mostrar_resultado("Acrescentar T07 com 5,2 metros", mensagem)
 
 mensagem = diario.corrigir_duracao("T02", 35)
 mostrar_resultado("Corrigir a duração de T02 para 35", mensagem)
 mensagem = diario.corrigir_duracao("T02", 0)
 mostrar_resultado("Corrigir a duração de T02 para 0", mensagem)
+mensagem = diario.corrigir_duracao("T09", 20)
+mostrar_resultado("Corrigir a duração de T09 para 20", mensagem)
 
 mostrar("Lista no fim:", diario.lista())
 mostrar("Com mais de 30 minutos, no fim:", diario.com_mais_de_30_minutos())
@@ -712,30 +744,37 @@ mostrar("Com mais de 30 minutos, no fim:", diario.com_mais_de_30_minutos())
 ```text
 Acrescentar T01: aceite.
 Acrescentar T02: aceite.
+Acrescentar T03: aceite.
 Lista inicial:
   T01 Ginásio, 45 minutos
   T02 Corrida, 30 minutos, 5000 metros
+  T03 Natação, 40 minutos
 Com mais de 30 minutos:
   T01 Ginásio, 45 minutos
+  T03 Natação, 40 minutos
 Acrescentar outro T01: recusado. Já existe um treino com o código T01.
-Acrescentar T03 sem atividade: recusado. A atividade não pode ficar vazia.
-Acrescentar T03 com 0 minutos: recusado. A duração tem de ser um número inteiro maior do que 0.
-Acrescentar T03 com 0 metros: recusado. A distância tem de ser um número inteiro de metros maior do que 0.
+Acrescentar T04 sem atividade: recusado. A atividade não pode ficar vazia.
+Acrescentar T05 com 0 minutos: recusado. A duração tem de ser um número inteiro maior do que 0.
+Acrescentar T06 com 0 metros: recusado. A distância tem de ser um número inteiro de metros maior do que 0.
+Acrescentar T07 com 5,2 metros: recusado. A distância tem de ser um número inteiro de metros maior do que 0.
 Corrigir a duração de T02 para 35: aceite.
 Corrigir a duração de T02 para 0: recusado. A duração tem de ser um número inteiro maior do que 0.
+Corrigir a duração de T09 para 20: recusado. Não existe nenhum treino com o código T09.
 Lista no fim:
   T01 Ginásio, 45 minutos
   T02 Corrida, 35 minutos, 5000 metros
+  T03 Natação, 40 minutos
 Com mais de 30 minutos, no fim:
   T01 Ginásio, 45 minutos
   T02 Corrida, 35 minutos, 5000 metros
+  T03 Natação, 40 minutos
 ```
 
-No princípio, o T02 tem 30 minutos certos e fica de fora do filtro. Depois da correção para 35 minutos, entra.
+No princípio, o T02 fica de fora do filtro. Depois da correção para 35 minutos, entra.
 
 ## Playlist
 
-Aqui, a playlist não cria as músicas: recebe-as já criadas. Uma música errada chega a ser criada, mas a playlist verifica-a antes de a guardar e recusa-a. A mesma música pode estar em duas playlists.
+A playlist recebe músicas que já existem, como a playlist do guia 04: a mesma música pode estar em várias playlists. Se a tua playlist cria as músicas e tens uma razão para isso, a composição também está certa, mas aqui a agregação é a resposta mais natural. O nome da playlist não é pedido no enunciado. Serve para mostrar, no fim, a mesma música em duas playlists.
 
 ### O programa
 
@@ -745,7 +784,7 @@ Aqui, a playlist não cria as músicas: recebe-as já criadas. Uma música errad
 # número da faixa, e a playlist reúne músicas que já existem: é uma agregação, como
 # a playlist do guia 04. Não há exceções: cada pedido devolve "" quando é aceite,
 # ou a mensagem da recusa. No fim, o programa principal experimenta as operações
-# aceites, as quatro recusas e a mesma música em duas playlists.
+# aceites, todas as recusas do enunciado e a mesma música em duas playlists.
 
 
 class Musica:
@@ -911,28 +950,34 @@ def mostrar_resultado(pedido, mensagem):
 # Numa agregação, as músicas criam-se fora da playlist, e só depois se juntam.
 noite = Musica("M01", "Noite de Verão", 200)
 tempestade = MusicaDeAlbum("M02", "Tempestade", 245, 3)
+chuva = Musica("M03", "Chuva Miúda", 180)
 
 para_estudar = Playlist("Para estudar")
 mostrar_resultado("Acrescentar M01", para_estudar.acrescentar(noite))
 mostrar_resultado("Acrescentar M02", para_estudar.acrescentar(tempestade))
+mostrar_resultado("Acrescentar M03", para_estudar.acrescentar(chuva))
 mostrar("Lista inicial:", para_estudar.lista())
 mostrar("Com mais de 4 minutos:", para_estudar.com_mais_de_4_minutos())
 
-# As quatro recusas. Uma música errada chega a ser criada, mas a playlist
-# verifica-a e não a guarda: a playlist não muda.
-mensagem = para_estudar.acrescentar(Musica("M01", "Chuva Miúda", 180))
+# As recusas ao acrescentar: nenhuma muda a playlist. Cada uma usa um código
+# novo, para que só a regra que se experimenta possa recusar o pedido.
+mensagem = para_estudar.acrescentar(Musica("M01", "Vento Norte", 150))
 mostrar_resultado("Acrescentar outra M01", mensagem)
-mensagem = para_estudar.acrescentar(Musica("M03", "", 180))
-mostrar_resultado("Acrescentar M03 sem título", mensagem)
-mensagem = para_estudar.acrescentar(Musica("M03", "Chuva Miúda", 0))
-mostrar_resultado("Acrescentar M03 com 0 segundos", mensagem)
-mensagem = para_estudar.acrescentar(MusicaDeAlbum("M03", "Chuva Miúda", 180, 31))
-mostrar_resultado("Acrescentar M03 na faixa 31", mensagem)
+mensagem = para_estudar.acrescentar(Musica("M04", "", 150))
+mostrar_resultado("Acrescentar M04 sem título", mensagem)
+mensagem = para_estudar.acrescentar(Musica("M05", "Vento Norte", 0))
+mostrar_resultado("Acrescentar M05 com 0 segundos", mensagem)
+mensagem = para_estudar.acrescentar(MusicaDeAlbum("M06", "Vento Norte", 150, 31))
+mostrar_resultado("Acrescentar M06 na faixa 31", mensagem)
+mensagem = para_estudar.acrescentar(Musica("M07", "Vento Norte", "150"))
+mostrar_resultado("Acrescentar M07 com a duração em texto", mensagem)
 
 mensagem = para_estudar.corrigir_duracao("M01", 250)
 mostrar_resultado("Corrigir a duração de M01 para 250", mensagem)
 mensagem = para_estudar.corrigir_duracao("M01", 0)
 mostrar_resultado("Corrigir a duração de M01 para 0", mensagem)
+mensagem = para_estudar.corrigir_duracao("M09", 200)
+mostrar_resultado("Corrigir a duração de M09 para 200", mensagem)
 
 mostrar("Lista no fim:", para_estudar.lista())
 mostrar("Com mais de 4 minutos, no fim:", para_estudar.com_mais_de_4_minutos())
@@ -949,20 +994,25 @@ mostrar("Para correr:", para_correr.lista())
 ```text
 Acrescentar M01: aceite.
 Acrescentar M02: aceite.
+Acrescentar M03: aceite.
 Lista inicial:
   M01 Noite de Verão, 200 segundos
   M02 Tempestade, 245 segundos, faixa 3
+  M03 Chuva Miúda, 180 segundos
 Com mais de 4 minutos:
   M02 Tempestade, 245 segundos, faixa 3
 Acrescentar outra M01: recusado. Já existe uma música com o código M01.
-Acrescentar M03 sem título: recusado. O título não pode ficar vazio.
-Acrescentar M03 com 0 segundos: recusado. A duração tem de ser um número inteiro de segundos maior do que 0.
-Acrescentar M03 na faixa 31: recusado. A faixa tem de ser um número inteiro de 1 a 30.
+Acrescentar M04 sem título: recusado. O título não pode ficar vazio.
+Acrescentar M05 com 0 segundos: recusado. A duração tem de ser um número inteiro de segundos maior do que 0.
+Acrescentar M06 na faixa 31: recusado. A faixa tem de ser um número inteiro de 1 a 30.
+Acrescentar M07 com a duração em texto: recusado. A duração tem de ser um número inteiro de segundos maior do que 0.
 Corrigir a duração de M01 para 250: aceite.
 Corrigir a duração de M01 para 0: recusado. A duração tem de ser um número inteiro de segundos maior do que 0.
+Corrigir a duração de M09 para 200: recusado. Não existe nenhuma música com o código M09.
 Lista no fim:
   M01 Noite de Verão, 250 segundos
   M02 Tempestade, 245 segundos, faixa 3
+  M03 Chuva Miúda, 180 segundos
 Com mais de 4 minutos, no fim:
   M01 Noite de Verão, 250 segundos
   M02 Tempestade, 245 segundos, faixa 3
@@ -971,11 +1021,11 @@ Para correr:
   M01 Noite de Verão, 250 segundos
 ```
 
-As três últimas linhas mostram a agregação. A playlist "Para correr" recebeu a mesma música, e não uma cópia, por isso já tem os 250 segundos da correção feita pela playlist "Para estudar".
+As três últimas linhas mostram a agregação. A playlist "Para correr" já tem os 250 segundos da correção, porque recebeu a mesma música, e não uma cópia.
 
 ## Campeonato
 
-A sigla faz o papel do código. Os pontos de um jogo aceitam o 0, de um jogo perdido, e verificam-se antes de se somarem, como as horas da sessão nos jogos. Em Python, os 90 000 lugares escrevem-se `90000`, sem espaço nem ponto: `90.000` seria o número decimal 90,0.
+O campeonato cria as equipas, porque cada equipa do programa guarda os pontos que fez neste campeonato, e esses pontos não existem fora dele. Se pensaste no clube, que também entra noutras competições, e o teu campeonato recebe equipas já criadas, é uma agregação, e também está certo. A sigla faz o papel do código. Em Python, os 90 000 lugares escrevem-se `90000`, sem espaço nem ponto: `90.000` seria o número decimal 90,0.
 
 ### O programa
 
@@ -984,7 +1034,7 @@ A sigla faz o papel do código. Os pontos de um jogo aceitam o 0, de um jogo per
 # A equipa guarda os pontos, a equipa com estádio é uma equipa com os lugares do
 # estádio, e o campeonato cria e guarda as equipas. Não há exceções: cada pedido
 # devolve "" quando é aceite, ou a mensagem da recusa. No fim, o programa
-# principal experimenta as operações aceites e as quatro recusas.
+# principal experimenta as operações aceites e todas as recusas do enunciado.
 
 
 class Equipa:
@@ -1166,15 +1216,16 @@ mostrar_resultado("Acrescentar TVE", mensagem)
 mostrar("Lista inicial:", campeonato.lista())
 mostrar("Com 10 pontos ou mais:", campeonato.com_10_pontos_ou_mais())
 
-# As quatro recusas: nenhuma muda o campeonato.
+# As recusas ao acrescentar: nenhuma muda o campeonato. Cada uma usa uma sigla
+# nova, para que só a regra que se experimenta possa recusar o pedido.
 mensagem = campeonato.acrescentar_equipa("LBO", "Lobos da Serra", 3)
 mostrar_resultado("Acrescentar outra LBO", mensagem)
 mensagem = campeonato.acrescentar_equipa("LSE", "", 3)
 mostrar_resultado("Acrescentar LSE sem nome", mensagem)
-mensagem = campeonato.acrescentar_equipa("LSE", "Lobos da Serra", -3)
-mostrar_resultado("Acrescentar LSE com -3 pontos", mensagem)
-mensagem = campeonato.acrescentar_com_estadio("LSE", "Lobos da Serra", 3, 499)
-mostrar_resultado("Acrescentar LSE com 499 lugares", mensagem)
+mensagem = campeonato.acrescentar_equipa("PMA", "Panteras do Mar", -3)
+mostrar_resultado("Acrescentar PMA com -3 pontos", mensagem)
+mensagem = campeonato.acrescentar_com_estadio("RRI", "Raposas do Rio", 3, 499)
+mostrar_resultado("Acrescentar RRI com 499 lugares", mensagem)
 
 # Somar 3 pontos e somar 0 pontos, como num jogo perdido: os dois são aceites.
 mensagem = campeonato.somar_pontos("ACR", 3)
@@ -1183,6 +1234,10 @@ mensagem = campeonato.somar_pontos("TVE", 0)
 mostrar_resultado("Somar 0 pontos a TVE", mensagem)
 mensagem = campeonato.somar_pontos("ACR", -3)
 mostrar_resultado("Somar -3 pontos a ACR", mensagem)
+mensagem = campeonato.somar_pontos("TVE", 1.5)
+mostrar_resultado("Somar 1,5 pontos a TVE", mensagem)
+mensagem = campeonato.somar_pontos("DRA", 3)
+mostrar_resultado("Somar 3 pontos a DRA", mensagem)
 
 mostrar("Lista no fim:", campeonato.lista())
 mostrar("Com 10 pontos ou mais, no fim:", campeonato.com_10_pontos_ou_mais())
@@ -1202,11 +1257,13 @@ Com 10 pontos ou mais:
   LBO Leões do Bairro, 12 pontos
 Acrescentar outra LBO: recusado. Já existe uma equipa com a sigla LBO.
 Acrescentar LSE sem nome: recusado. O nome não pode ficar vazio.
-Acrescentar LSE com -3 pontos: recusado. Os pontos têm de ser um número inteiro, 0 ou mais.
-Acrescentar LSE com 499 lugares: recusado. Os lugares têm de ser um número inteiro de 500 a 90000.
+Acrescentar PMA com -3 pontos: recusado. Os pontos têm de ser um número inteiro, 0 ou mais.
+Acrescentar RRI com 499 lugares: recusado. Os lugares têm de ser um número inteiro de 500 a 90000.
 Somar 3 pontos a ACR: aceite.
 Somar 0 pontos a TVE: aceite.
 Somar -3 pontos a ACR: recusado. Os pontos do jogo têm de ser um número inteiro, 0 ou mais.
+Somar 1,5 pontos a TVE: recusado. Os pontos do jogo têm de ser um número inteiro, 0 ou mais.
+Somar 3 pontos a DRA: recusado. Não existe nenhuma equipa com a sigla DRA.
 Lista no fim:
   LBO Leões do Bairro, 12 pontos
   ACR Águias da Ribeira, 12 pontos, estádio de 5000 lugares
@@ -1220,7 +1277,7 @@ No princípio, só os LBO têm 10 pontos ou mais. Depois de somarem 3 pontos, os
 
 ## Apps do telemóvel
 
-A idade mínima não é um intervalo: tem de ser um destes cinco valores, e o 10, que fica entre o 7 e o 12, é recusado. Atualizar uma app muda o tamanho para o valor novo, em vez de o somar, como se somavam as horas nos jogos e os pontos no campeonato. E o tamanho não aceita o 0, ao contrário das horas dos jogos e dos pontos do campeonato.
+O telemóvel cria as apps, porque cada app do programa é uma instalação, com o espaço que ocupa neste telemóvel. Se pensaste na app da loja, que existe antes de a instalares, e o teu telemóvel recebe apps já criadas, é uma agregação, e também está certo. Nesse caso, quem recusa o código repetido tem de continuar a ser o telemóvel. Na idade mínima, o 10, que fica entre o 7 e o 12, é recusado. Atualizar uma app troca o tamanho pelo valor novo, sem somar. Nos jogos e no campeonato, as horas e os pontos somavam-se. E o tamanho não aceita o 0, ao contrário das horas dos jogos e dos pontos do campeonato.
 
 ### O programa
 
@@ -1229,7 +1286,7 @@ A idade mínima não é um intervalo: tem de ser um destes cinco valores, e o 10
 # A app guarda o tamanho, o jogo é uma app com a idade mínima, e o telemóvel
 # instala e guarda as apps. Não há exceções: cada pedido devolve "" quando é
 # aceite, ou a mensagem da recusa. No fim, o programa principal experimenta as
-# operações aceites e as quatro recusas.
+# operações aceites e todas as recusas do enunciado.
 
 
 class App:
@@ -1293,7 +1350,8 @@ class Jogo(App):
         # Sem o isinstance, 7.0 passava, porque 7.0 == 7 em Python.
         if not isinstance(valor, int):
             return False
-        # A idade não é um intervalo: tem de ser um destes cinco valores.
+        # A idade não é um intervalo: o in pergunta se o valor é um destes
+        # cinco valores da lista.
         return valor in [3, 7, 12, 16, 18]
 
     def verificar(self):
@@ -1415,22 +1473,25 @@ mensagem = telemovel.instalar_jogo("A05", "Mundo Aberto", 4000, 16)
 mostrar_resultado("Instalar A05", mensagem)
 mostrar("Lista inicial:", telemovel.lista())
 
-# As quatro recusas: nenhuma muda o telemóvel.
+# As recusas ao instalar: nenhuma muda o telemóvel. Cada uma usa um código
+# novo, para que só a regra que se experimenta possa recusar o pedido.
 mensagem = telemovel.instalar_app("A01", "Calculadora", 20)
 mostrar_resultado("Instalar outra A01", mensagem)
 mensagem = telemovel.instalar_app("A06", "", 20)
 mostrar_resultado("Instalar A06 sem nome", mensagem)
-mensagem = telemovel.instalar_app("A06", "Calculadora", 4001)
-mostrar_resultado("Instalar A06 com 4001 MB", mensagem)
-mensagem = telemovel.instalar_jogo("A06", "Quebra-Cabeças", 80, 10)
-mostrar_resultado("Instalar A06 para maiores de 10", mensagem)
+mensagem = telemovel.instalar_app("A07", "Calculadora", 4001)
+mostrar_resultado("Instalar A07 com 4001 MB", mensagem)
+mensagem = telemovel.instalar_jogo("A08", "Quebra-Cabeças", 80, 10)
+mostrar_resultado("Instalar A08 para maiores de 10", mensagem)
+mensagem = telemovel.instalar_jogo("A09", "Quebra-Cabeças", 80, 7.0)
+mostrar_resultado("Instalar A09 com a idade 7,0", mensagem)
 
 mensagem = telemovel.atualizar("A01", 180)
 mostrar_resultado("Atualizar A01 para 180 MB", mensagem)
 mensagem = telemovel.atualizar("A01", 0)
 mostrar_resultado("Atualizar A01 para 0 MB", mensagem)
-mensagem = telemovel.atualizar("A09", 50)
-mostrar_resultado("Atualizar A09", mensagem)
+mensagem = telemovel.atualizar("A10", 50)
+mostrar_resultado("Atualizar A10 para 50 MB", mensagem)
 
 mostrar("Lista no fim:", telemovel.lista())
 mostrar("Com mais de 1000 MB:", telemovel.com_mais_de_1000_mb())
@@ -1452,11 +1513,12 @@ Lista inicial:
   A05 Mundo Aberto, 4000 MB, a partir dos 16 anos
 Instalar outra A01: recusado. Já existe uma app com o código A01.
 Instalar A06 sem nome: recusado. O nome não pode ficar vazio.
-Instalar A06 com 4001 MB: recusado. O tamanho tem de ser um número inteiro de 1 a 4000.
-Instalar A06 para maiores de 10: recusado. A idade mínima tem de ser 3, 7, 12, 16 ou 18.
+Instalar A07 com 4001 MB: recusado. O tamanho tem de ser um número inteiro de 1 a 4000.
+Instalar A08 para maiores de 10: recusado. A idade mínima tem de ser 3, 7, 12, 16 ou 18.
+Instalar A09 com a idade 7,0: recusado. A idade mínima tem de ser 3, 7, 12, 16 ou 18.
 Atualizar A01 para 180 MB: aceite.
 Atualizar A01 para 0 MB: recusado. O tamanho tem de ser um número inteiro de 1 a 4000.
-Atualizar A09: recusado. Não existe nenhuma app com o código A09.
+Atualizar A10 para 50 MB: recusado. Não existe nenhuma app com o código A10.
 Lista no fim:
   A01 Mensagens, 180 MB
   A02 Corrida na Cidade, 300 MB, a partir dos 7 anos
@@ -1468,6 +1530,6 @@ Com mais de 1000 MB:
   A05 Mundo Aberto, 4000 MB, a partir dos 16 anos
 ```
 
-Os dois limites do tamanho, 1 e 4000 MB, são aceites. A atualização para 0 MB é recusada, e A01 fica com os 180 MB da atualização anterior. Só A03 e A05 têm mais de 1000 MB: uma app com 1000 MB certos não entrava no filtro, porque a comparação é `> 1000`.
+A A04 e a A05 estão nos dois limites do tamanho, 1 e 4000 MB, e são aceites. A atualização para 0 MB é recusada, e a A01 fica com os 180 MB da atualização anterior. No filtro, só entram a A03 e a A05.
 
 ![Rodapé](../imagens/rodape.png)

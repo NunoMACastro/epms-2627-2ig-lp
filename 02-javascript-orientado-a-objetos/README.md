@@ -2,7 +2,11 @@
 
 # JavaScript orientado a objetos
 
-Nesta área passas do Python ao JavaScript, no browser. Fazes páginas com campos e botões e voltas às classes, ao encapsulamento e à herança do M10, agora em JavaScript. No fim, constróis a primeira versão do teu projeto no browser. Corresponde ao módulo M11, Introdução à Linguagem de Programação Orientada por Objetos.
+Nesta área passas do Python ao JavaScript, no browser. Fazes páginas com campos e botões e voltas às classes, ao encapsulamento e à herança do M10, agora em JavaScript. O teu [projeto](../projeto/README.md) continua nesta área, com um marco de acompanhamento no tema 08, Primeira versão do projeto. Corresponde ao módulo M11, Introdução à Linguagem de Programação Orientada por Objetos. Cada tema tem estes documentos:
+
+- o guia, com a matéria por escrito, para estudares;
+- o laboratório, para fazeres no computador, passo a passo;
+- a ficha de exercícios, para treinares sozinho.
 
 | Tema | Guia | Laboratório | Ficha | Exemplos |
 | --- | --- | --- | --- | --- |

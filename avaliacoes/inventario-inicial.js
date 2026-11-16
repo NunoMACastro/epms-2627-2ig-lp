@@ -1,9 +1,8 @@
 /**
  * Nota: este ficheiro pertencia à versão antiga do trabalho de síntese do M10,
  * escrita em JavaScript, e já não é usado. O M10 é dado em Python, e o
- * trabalho de síntese passou a laboratório guiado do caderno 6, no ficheiro
- * 01-programacao-orientada-objetos/06-sintese-laboratorio.md. O ficheiro fica
- * aqui para não quebrar ligações antigas.
+ * trabalho de síntese passou a ser o laboratório do tema 06, no ficheiro
+ * 01-programacao-orientada-objetos/laboratorios/06-sintese-laboratorio.md.
  */
 /**
  * M10: programa inicial do trabalho prático. A retirada está por completar.

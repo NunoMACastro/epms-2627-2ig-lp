@@ -1,9 +1,9 @@
 /**
- * Nota: este ficheiro pertencia à versão antiga do caderno 4, escrita em
- * JavaScript. O caderno 4 passou a Python e já não usa este ficheiro: o
- * exemplo do inventário está completo dentro do próprio caderno. O ficheiro
- * fica aqui para não quebrar ligações antigas. As mesmas ideias voltam, em
- * JavaScript, no módulo M11.
+ * Nota: este ficheiro pertencia à versão antiga do guia do tema 04, escrita em
+ * JavaScript. O guia passou a Python e já não usa este ficheiro: o exemplo do
+ * inventário está completo dentro do próprio guia, no ficheiro
+ * 01-programacao-orientada-objetos/04-composicao-modelacao.md. As mesmas
+ * ideias voltam, em JavaScript, no módulo M11.
  */
 /**
  * O inventário encaminha, o artigo protege a quantidade.
