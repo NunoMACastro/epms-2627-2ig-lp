@@ -29,5 +29,6 @@ Se tens dificuldades nas bases do 10.º ano, faz o [diagnóstico](avaliacoes/dia
 - [Avaliações](avaliacoes/README.md): como se faz a avaliação prática do M10 ao M12, e o diagnóstico inicial, para reveres a programação do 10.º ano.
 - [Projeto](projeto/README.md): o livro de receitas, a aplicação que vais construir, e temas para treinares em casa.
 - [Consulta rápida de HTML](consulta/html-esqueleto-e-etiquetas.md): o esqueleto de uma página e as etiquetas de HTML mais usadas, com um exemplo de cada uma.
+- [Consulta rápida de CSS](consulta/css-formas-e-propriedades.md): as três formas de pôr CSS numa página, os seletores e as propriedades mais usadas, com um exemplo de cada uma.
 
 ![Rodapé](imagens/rodape.png)
