@@ -445,6 +445,149 @@ Valores:
 - `center`: ao meio.
 - `flex-end`: em baixo.
 
+## O posicionamento
+
+Por omissão, cada elemento ocupa o seu lugar e influencia a posição dos seguintes. Esta organização chama-se **fluxo normal**.
+
+### `position`
+
+Escolhe como o elemento se posiciona e se mantém o seu espaço no fluxo normal.
+
+| Valor | O que faz |
+| --- | --- |
+| `static` | Posição normal, por omissão. Não usa `top`, `right`, `bottom` nem `left` |
+| `relative` | Desloca a caixa a partir da posição normal, mantendo o espaço original reservado |
+| `absolute` | Retira a caixa do fluxo normal e posiciona-a em relação a uma caixa de referência |
+| `fixed` | Numa página simples, fixa a caixa em relação à área visível do browser, sem reservar espaço |
+| `sticky` | Mantém a caixa no fluxo e prende-a num limite durante o deslocamento, dentro do elemento que a contém |
+
+Usa o Flexbox para organizar conjuntos de elementos. O posicionamento serve, por exemplo, para pôr uma etiqueta no canto de um cartão.
+
+### `top`, `right`, `bottom` e `left`
+
+Indicam os lados usados no posicionamento. O efeito depende do valor de `position`.
+
+| Propriedade | Lado |
+| --- | --- |
+| `top` | Cima |
+| `right` | Direita |
+| `bottom` | Baixo |
+| `left` | Esquerda |
+
+Com `position: static`, estas propriedades não têm efeito. As medidas podem ser, por exemplo, `10px` ou `1rem`. O valor `0` não precisa de unidade.
+
+### Deslocar com `relative`
+
+O deslocamento parte do lugar onde a caixa estaria normalmente.
+
+Exemplo, para um elemento com `class="aviso"`:
+
+```css
+.aviso {
+  position: relative;
+  top: 10px;
+  left: 20px;
+}
+```
+
+A caixa desce 10 píxeis e avança 20 píxeis para a direita. O espaço original fica reservado, por isso os elementos seguintes não ocupam esse lugar.
+
+Com `right: 20px`, deslocava-se para a esquerda. Com `bottom: 10px`, subia. Estes deslocamentos podem fazer a caixa sobrepor-se a outra.
+
+### Pôr uma etiqueta num canto com `absolute`
+
+A caixa com `absolute` não reserva espaço no fluxo normal. Neste exemplo, a referência é o cartão, que tem `position: relative`.
+
+No HTML:
+
+```html
+<div class="cartao">
+  <p class="etiqueta">Novo</p>
+  <p>Caderno azul de capa dura.</p>
+</div>
+```
+
+No CSS:
+
+```css
+.cartao {
+  position: relative;
+  padding: 3rem 1rem 1rem;
+  border: 1px solid #1f1f1f;
+}
+
+.etiqueta {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  margin: 0;
+}
+```
+
+A etiqueta fica a `0.5rem` do topo e da direita, por dentro da borda do cartão. O `padding` do cartão deixa espaço para não tapar o texto.
+
+Entre os elementos que contêm a etiqueta, o browser procura o mais próximo com `position` diferente de `static`. Não tem de ser o que a contém diretamente.
+
+Numa página simples, se nenhum existir, a referência é a área inicial da página. O cartão com `position: relative`, sem deslocamentos, mantém a posição normal e serve de referência.
+
+### Fixar ao ecrã com `fixed`
+
+Numa página simples, a caixa fica no mesmo sítio da área visível do browser, mesmo quando deslocas a página.
+
+Exemplo, para um botão com `class="ajuda"`:
+
+```css
+.ajuda {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+}
+```
+
+O botão fica a `1rem` da direita e de baixo. Não reserva espaço e pode tapar conteúdo, sobretudo num ecrã pequeno.
+
+### Prender durante o deslocamento com `sticky`
+
+A caixa acompanha o conteúdo até chegar ao limite indicado. Aí fica presa, sem sair dos limites do elemento que a contém.
+
+Exemplo, para um menu com `class="menu"`:
+
+```css
+.menu {
+  position: sticky;
+  top: 0;
+  background-color: white;
+}
+```
+
+O menu fica preso ao topo da zona que estás a deslocar. Mantém o seu espaço no fluxo normal.
+
+Precisa de um limite, como `top: 0`, e de espaço no elemento que o contém para se deslocar.
+
+### `z-index`
+
+Ajuda a escolher qual das caixas sobrepostas aparece à frente. Nos casos simples, entre elementos posicionados ao mesmo nível, o maior valor fica à frente.
+
+Exemplo, para dois elementos com `position: fixed`:
+
+```css
+.ajuda {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 1;
+}
+
+.aviso {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 2;
+}
+```
+
+Se as duas caixas se sobrepuserem, o aviso aparece à frente do botão de ajuda.
+
 ## Listas e tabelas
 
 ### `list-style-type`

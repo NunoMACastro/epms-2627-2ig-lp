@@ -170,6 +170,25 @@ Atributos:
 
 ## A estrutura da página
 
+### `<div>`
+
+Agrupa elementos numa caixa, para lhes aplicar estilos ou organizar a disposição com CSS. Tem etiqueta de abertura e de fecho.
+
+Exemplo:
+
+```html
+<div class="aviso">
+  <p><strong>Material em falta</strong></p>
+  <p>Faltam 3 canetas.</p>
+</div>
+```
+
+O atributo `class="aviso"` dá um nome ao grupo, que o CSS pode escolher com o seletor `.aviso`. A mesma classe pode aparecer em vários elementos.
+
+Por omissão, o `<div>` começa numa linha nova e ocupa a largura disponível. Não acrescenta cor, borda nem espaçamento por si só.
+
+O `<div>` não indica o significado do conteúdo. Quando o grupo é um menu, usa `<nav>`; quando é o conteúdo principal, usa `<main>`.
+
 ### `<header>`
 
 Cria o cabeçalho da página, com o título e, muitas vezes, o menu.
