@@ -392,10 +392,11 @@ Valores:
 - `inline-block`: fica na mesma linha, mas aceita `width` e `height`.
 - `none`: esconde o elemento.
 - `flex`: põe lado a lado os elementos que estão dentro dele.
+- `grid`: organiza os elementos de dentro numa grelha de linhas e colunas.
 
 ### `gap`
 
-Com `display: flex`, muda o espaço entre os elementos de dentro.
+Com `display: flex` ou `display: grid`, muda o espaço entre os elementos de dentro.
 
 Exemplo:
 
@@ -445,6 +446,137 @@ Valores:
 - `center`: ao meio.
 - `flex-end`: em baixo.
 
+## A grelha com Grid
+
+O Flexbox organiza elementos sobretudo numa direção, numa linha ou numa coluna. O Grid permite coordenar as linhas e as colunas ao mesmo tempo.
+
+Aplica `display: grid` no elemento que contém o grupo. Os seus filhos diretos, os elementos imediatamente dentro dele, passam a ocupar as células da grelha.
+
+### `grid-template-columns`
+
+Define quantas colunas há e a largura de cada uma. A unidade `fr` representa uma parte do espaço disponível, depois de descontar os intervalos entre colunas.
+
+Exemplo, no HTML:
+
+```html
+<div class="grelha">
+  <div class="caixa">Caderno</div>
+  <div class="caixa">Caneta</div>
+  <div class="caixa">Borracha</div>
+  <div class="caixa">Régua</div>
+</div>
+```
+
+No CSS:
+
+```css
+.grelha {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.caixa {
+  padding: 1rem;
+  border: 1px solid #1f1f1f;
+}
+```
+
+Ficam duas colunas com a mesma largura. O caderno e a caneta ficam na primeira linha; a borracha e a régua, na segunda.
+
+O browser cria as linhas necessárias à medida que entram mais elementos. O `gap` deixa `1rem` entre as linhas e entre as colunas.
+
+Outros valores para `grid-template-columns`:
+
+| Valor | Resultado |
+| --- | --- |
+| `1fr 2fr` | Duas colunas; a segunda recebe o dobro do espaço da primeira |
+| `200px 1fr` | A primeira tem 200 píxeis; a segunda recebe o espaço que sobra |
+| `repeat(3, 1fr)` | Três colunas iguais; repete `1fr` três vezes |
+
+### `grid-template-rows`
+
+Define a altura das linhas indicadas. Sem esta propriedade, a altura das linhas do exemplo ajusta-se ao conteúdo.
+
+Exemplo:
+
+```css
+.grelha {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 80px auto;
+  gap: 1rem;
+}
+```
+
+A primeira linha tem 80 píxeis de altura. A segunda ajusta-se ao conteúdo com `auto`. Se forem precisas mais linhas, o browser cria-as automaticamente.
+
+### `gap`, `row-gap` e `column-gap`
+
+Com um valor, o `gap` dá o mesmo intervalo às linhas e às colunas. Com dois, o primeiro é entre linhas e o segundo entre colunas.
+
+Exemplo:
+
+```css
+.grelha {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 2rem;
+}
+```
+
+Aqui, há `1rem` entre linhas e `2rem` entre colunas. Para mudar só um deles, usa `row-gap` para as linhas ou `column-gap` para as colunas.
+
+### `grid-column` e `grid-row`
+
+Aplicam-se aos elementos de dentro da grelha. Permitem escolher a posição ou fazer um elemento ocupar várias células.
+
+Exemplo, para uma caixa com `class="caixa destaque"`:
+
+```css
+.destaque {
+  grid-column: span 2;
+}
+```
+
+O `span 2` faz essa caixa ocupar duas colunas. Duas classes no mesmo elemento separam-se por um espaço.
+
+Os números em `grid-column` referem-se aos limites verticais das colunas. Numa grelha de duas colunas, há três: à esquerda, ao meio e à direita.
+
+O `1` indica o primeiro limite e o `-1` indica o último.
+
+| Declaração | O que faz |
+| --- | --- |
+| `grid-column: span 2;` | Ocupa duas colunas |
+| `grid-row: span 2;` | Ocupa duas linhas |
+| `grid-column: 1 / -1;` | Ocupa todas as colunas, do primeiro ao último limite vertical |
+
+### `justify-items` e `align-items`
+
+No Grid, `justify-items` alinha cada elemento na horizontal dentro da sua célula. O `align-items` faz o mesmo na vertical.
+
+Exemplo:
+
+```css
+.grelha {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 80px 80px;
+  gap: 1rem;
+  justify-items: center;
+  align-items: center;
+}
+```
+
+Cada caixa fica centrada na sua célula, nas duas direções.
+
+Valores para as duas propriedades:
+
+- `start`: no início, à esquerda ou em cima.
+- `center`: ao centro.
+- `end`: no fim, à direita ou em baixo.
+- `stretch`: estica a caixa para preencher a célula, quando não tem uma dimensão fixa nessa direção.
+
 ## O posicionamento
 
 Por omissão, cada elemento ocupa o seu lugar e influencia a posição dos seguintes. Esta organização chama-se **fluxo normal**.
@@ -461,7 +593,7 @@ Escolhe como o elemento se posiciona e se mantém o seu espaço no fluxo normal.
 | `fixed` | Numa página simples, fixa a caixa em relação à área visível do browser, sem reservar espaço |
 | `sticky` | Mantém a caixa no fluxo e prende-a num limite durante o deslocamento, dentro do elemento que a contém |
 
-Usa o Flexbox para organizar conjuntos de elementos. O posicionamento serve, por exemplo, para pôr uma etiqueta no canto de um cartão.
+Usa o Flexbox ou o Grid para organizar conjuntos de elementos. O posicionamento serve, por exemplo, para pôr uma etiqueta no canto de um cartão.
 
 ### `top`, `right`, `bottom` e `left`
 
