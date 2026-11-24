@@ -25,7 +25,7 @@ Se tens dificuldades nas bases do 10.º ano, faz o [diagnóstico](avaliacoes/dia
 
 ## Outras pastas
 
-- [Exemplos](exemplos/programacao-orientada-objetos/encapsulamento/README.md): os programas curtos do encapsulamento, para ler e correr.
+- Exemplos: os [programas curtos do encapsulamento](exemplos/programacao-orientada-objetos/encapsulamento/README.md), para ler e correr, e a [primeira página do inventário](exemplos/javascript-orientado-a-objetos/primeira-pagina/README.md), o ponto de partida do laboratório do tema 02 de JavaScript orientado a objetos.
 - [Avaliações](avaliacoes/README.md): como se faz a avaliação prática do M10 ao M12, e o diagnóstico inicial, para reveres a programação do 10.º ano.
 - [Projeto](projeto/README.md): o livro de receitas, a aplicação que vais construir, e temas para treinares em casa.
 - [Consulta rápida de HTML](consulta/html-esqueleto-e-etiquetas.md): o esqueleto de uma página e as etiquetas de HTML mais usadas, com um exemplo de cada uma.

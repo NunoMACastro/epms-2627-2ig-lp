@@ -11,6 +11,7 @@ Nesta área passas do Python ao JavaScript, no browser. Fazes páginas com campo
 | Tema | Guia | Laboratório | Ficha | Exemplos |
 | --- | --- | --- | --- | --- |
 | 01 A primeira página com JavaScript | [guia](01-primeira-pagina-com-javascript.md) | [laboratório](laboratorios/01-primeira-pagina-com-javascript-laboratorio.md) | [ficha](exercicios/01-primeira-pagina-com-javascript-exercicios.md) | não tem |
+| 02 Do objeto literal à classe | [guia](02-do-objeto-literal-a-classe.md) | [laboratório](laboratorios/02-do-objeto-literal-a-classe-laboratorio.md) | [ficha](exercicios/02-do-objeto-literal-a-classe-exercicios.md) | [primeira página](../exemplos/javascript-orientado-a-objetos/primeira-pagina/README.md) |
 
 Os guias, com a matéria de cada tema, estão nesta pasta. Os laboratórios estão em [laboratorios](laboratorios/README.md), e as fichas de exercícios, em [exercicios](exercicios/README.md).
 

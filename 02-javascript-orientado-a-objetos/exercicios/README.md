@@ -9,5 +9,6 @@ Uma ficha não é um laboratório. O [laboratório](../laboratorios/README.md) g
 | Tema | Ficha |
 | --- | --- |
 | 01 A primeira página com JavaScript | [ficha](01-primeira-pagina-com-javascript-exercicios.md) |
+| 02 Do objeto literal à classe | [ficha](02-do-objeto-literal-a-classe-exercicios.md) |
 
 ![Rodapé](../../imagens/rodape.png)
