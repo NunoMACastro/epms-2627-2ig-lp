@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="pt-PT">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Inventário da sala</title>
+    <link rel="stylesheet" href="estilos.css">
+    <script src="inventario.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <h1>Inventário da sala</h1>
+      <p>O caderno A01 começa com 6 unidades, e a pasta A02 com 2. Escreve quantas unidades queres retirar e carrega no botão do artigo.</p>
+      <p>
+        <label for="unidades">Unidades a retirar</label>
+        <input id="unidades" type="text">
+      </p>
+      <p>
+        <button id="botao-caderno" type="button">Retirar do caderno</button>
+        <button id="botao-pasta" type="button">Retirar da pasta</button>
+      </p>
+      <p>
+        <output id="saida-caderno"></output>
+      </p>
+      <p>
+        <output id="saida-pasta"></output>
+      </p>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+/* estilos.css: a apresentação da página do inventário. */
+
+body {
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+  color: #1f1f1f;
+  background-color: #ffffff;
+  margin: 2rem;
+}
+
+input,
+button {
+  font: inherit;
+  padding: 0.5rem;
+}
+
+button {
+  color: #ffffff;
+  background-color: #1f4e8c;
+}
+
+input:focus-visible,
+button:focus-visible {
+  outline: 3px solid #b35c00;
+  outline-offset: 2px;
+}

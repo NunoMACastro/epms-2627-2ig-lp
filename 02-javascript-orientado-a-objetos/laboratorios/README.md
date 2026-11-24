@@ -10,5 +10,6 @@ Um laboratório não é uma ficha de exercícios. No laboratório, aprendes a fa
 | --- | --- |
 | 01 A primeira página com JavaScript | [laboratório](01-primeira-pagina-com-javascript-laboratorio.md) |
 | 02 Do objeto literal à classe | [laboratório](02-do-objeto-literal-a-classe-laboratorio.md) |
+| 03 Interface pública e campos privados | [laboratório](03-interface-publica-e-campos-privados-laboratorio.md) |
 
 ![Rodapé](../../imagens/rodape.png)
